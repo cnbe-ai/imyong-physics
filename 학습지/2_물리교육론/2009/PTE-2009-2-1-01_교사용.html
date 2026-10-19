@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2009-2-1-01] 굴절 실험 두 가지를 고윈의 V도로 분석하기 — 레이저·반원형 물통 vs 물결파 투영 장치 · 교사용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#d5dae4; --accent:#3b3486; --accent2:#6a5fd6; --soft:#f4f2fb;
+    --bg:#f6f7fa; --card:#ffffff; --ok:#1e8f4e; --okbg:#e8f6ee; --warn:#b5541c; --warnbg:#fdf1e8;
+    --ball:#1e8f4e; --ramp:#ffe94d; --red:#d23b3b; --blue:#2f6fd6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:calc(16px*var(--fs));line-height:1.7}
+  a{color:var(--accent)}
+  .btn{font:inherit;font-size:14px;padding:6px 13px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn:hover{filter:brightness(.97)}
+  main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,calc(400px*var(--fig)));gap:22px;align-items:start}
+  .kicker{font-size:calc(13px*var(--fs));color:var(--muted)}
+  h1{font-size:calc(30px*var(--fs));margin:4px 0 6px;color:var(--accent);line-height:1.3}
+  h1 small{font-size:calc(16px*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  h2{font-size:calc(22px*var(--fs));margin:0 0 12px;color:var(--ink);display:flex;align-items:center;gap:10px}
+  h2 .num{background:var(--accent);color:#fff;border-radius:8px;font-size:calc(14px*var(--fs));padding:2px 9px}
+  h3{font-size:calc(17px*var(--fs));margin:18px 0 6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+  .tag{font-size:calc(12.5px*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:2px 11px}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:calc(14px*var(--fs));background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+  .meta dt{color:var(--muted)} .meta dd{margin:0}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px;scroll-margin-top:120px}
+  .problem-box{border-left:4px solid var(--accent);background:var(--soft);padding:12px 16px;border-radius:0 10px 10px 0}
+  .orig{font-size:calc(14px*var(--fs));color:var(--muted);font-style:italic;margin-top:8px}
+  .answer-box{border:2px solid var(--ok);background:var(--okbg);border-radius:12px;padding:14px 18px}
+  .answer-box .big{font-size:calc(20px*var(--fs))}
+  .note{background:var(--warnbg);border:1px solid #f0c9ad;border-radius:10px;padding:10px 14px;font-size:calc(15px*var(--fs))}
+  .note b{color:var(--warn)}
+  .ok{color:var(--ok);font-weight:700}
+  details.step{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#fff}
+  details.step>summary{cursor:pointer;padding:10px 14px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:center}
+  details.step>summary::-webkit-details-marker{display:none}
+  details.step>summary .s{background:var(--accent2);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:calc(13px*var(--fs));flex:none}
+  details.step>summary::after{content:"▸";margin-left:auto;color:var(--muted);transition:transform .2s}
+  details.step[open]>summary::after{transform:rotate(90deg)}
+  details.step .body{padding:0 18px 12px 50px}
+  .keyidea{border:2px dashed var(--accent2);border-radius:12px;padding:12px 16px;background:#fbfaff}
+  table{border-collapse:collapse;width:100%;font-size:calc(14.5px*var(--fs))}
+  th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+  th{background:var(--soft);color:var(--accent)}
+  .tablewrap{overflow-x:auto}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .src{font-size:calc(13px*var(--fs));color:var(--muted)}
+  figure{margin:0}
+  figure>svg{width:100%;height:auto;display:block}
+  .eqtag{float:right;color:var(--muted);font-size:calc(13px*var(--fs))}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+
+  /* ---------- simulation ---------- */
+  .sim{display:grid;grid-template-columns:1fr 310px;grid-template-rows:auto 1fr auto;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;height:calc(640px*var(--fig))}
+  .sim .cap{grid-column:1;grid-row:1;padding:8px 14px;background:#fbfbfd;border-bottom:1px solid var(--line);font-size:calc(15px*var(--fs));min-height:44px;display:flex;align-items:center;gap:8px}
+  .sim .cap .ph{background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;font-size:calc(13px*var(--fs));white-space:nowrap}
+  .sim .stage{grid-column:1;grid-row:2;position:relative;min-height:0}
+  .sim canvas#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .sim .bar{grid-column:1;grid-row:3;display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);background:#fbfbfd;flex-wrap:wrap}
+  .sim .bar input[type=range]{flex:1;min-width:140px}
+  .sim .side{grid-column:2;grid-row:1/4;border-left:1px solid var(--line);padding:12px 14px;overflow-y:auto;background:#fcfcfe;font-size:calc(14px*var(--fs))}
+  .side .grp{margin-bottom:12px}
+  .side .grp>label,.side .lbl{display:flex;justify-content:space-between;font-weight:600;font-size:calc(13.5px*var(--fs))}
+  .side .grp>label output{font-weight:700;color:var(--accent)}
+  .side input[type=range]{width:100%}
+  .side .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:4px}
+  .side .seg button{flex:1;font:inherit;font-size:calc(13px*var(--fs));border:0;background:#fff;padding:5px 4px;cursor:pointer}
+  .side .seg button.on{background:var(--accent);color:#fff}
+  .side .chk{display:flex;gap:10px;flex-wrap:wrap;font-size:calc(13px*var(--fs))}
+  .readout{width:100%;font-size:calc(13px*var(--fs));border-collapse:collapse}
+  .readout td{border:0;border-bottom:1px solid #eef0f4;padding:3px 2px}
+  .readout td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .result{margin-top:8px;border-radius:8px;padding:8px 10px;font-weight:700;font-size:calc(14px*var(--fs));background:#f1f2f6}
+  .result.good{background:var(--okbg);color:var(--ok)}
+  .result.bad{background:var(--warnbg);color:var(--warn)}
+  #mini{width:100%;height:150px;display:block;border:1px solid var(--line);border-radius:8px;background:#fff;margin-top:4px}
+  .sim:fullscreen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .sim:fullscreen .cap{font-size:calc(20px*var(--fs));min-height:56px}
+  .sim:fullscreen .side{font-size:calc(15px*var(--fs))}
+  .sim:-webkit-full-screen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .kbd{font-size:calc(12px*var(--fs));color:var(--muted)}
+  .graphs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .graphs canvas{width:100%;height:calc(280px*var(--fig));display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+
+  @media (max-width:900px){
+    .hero,.two,.graphs{grid-template-columns:minmax(0,1fr)}
+    .sim{grid-template-columns:minmax(0,1fr);grid-template-rows:auto calc(380px*var(--fig)) auto auto;height:auto}
+    .sim .side{grid-column:1;grid-row:4;border-left:0;border-top:1px solid var(--line)}
+    details.step .body{padding:0 12px 12px 14px}
+    body{overflow-x:hidden}
+    section.card{padding:16px}
+    h1{font-size:calc(24px*var(--fs))}
+  }
+  @page{size:A4;margin:14mm 12mm 16mm;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:10pt;color:#5b6475}}
+  @media print{
+    .topbar,.sim,.graphs,.noprint{display:none!important}
+    section.card{break-inside:auto;border:0;padding:0}
+    details.step{break-inside:avoid}
+    body{background:#fff}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  #problem{--c:#3b3486} #answer{--c:#1e8f4e} #ai{--c:#6a5fd6} #book{--c:#2f6fd6}
+  #compare{--c:#0f8b8d} #sim{--c:#d9731a} #graph{--c:#c2417a} #teach{--c:#a87a00}
+  .hero{scroll-margin-top:130px}
+  section.card{border-top:4px solid var(--c,var(--accent))}
+  h2 .num{background:var(--c,var(--accent))!important}
+  .topbar{position:sticky;top:0;z-index:30;font-size:15px;box-shadow:0 2px 10px rgba(30,25,80,.12)}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:1180px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .ttl small{font-weight:500;opacity:.75;font-size:13px;margin-left:6px}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;align-items:center;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 11px;cursor:pointer;white-space:nowrap;list-style:none}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tbtn .ic{font-size:15px;line-height:1}
+  details.view{position:relative}
+  details.view>summary::-webkit-details-marker{display:none}
+  details.view[open]>summary{background:rgba(255,255,255,.3)}
+  .vpanel{position:absolute;right:0;top:calc(100% + 8px);width:290px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 14px 40px rgba(20,20,60,.22);padding:14px 16px;z-index:40}
+  .vpanel h4{margin:0 0 10px;font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+  .vrow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef0f4;font-size:14px;font-weight:600}
+  .vrow:last-of-type{border-bottom:0}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .stepper button{font:inherit;width:32px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486;font-size:14px}
+  .vfoot{display:flex;gap:8px;margin-top:12px}
+  .vfoot button{flex:1;font:inherit;font-size:13px;font-weight:600;padding:7px 8px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  .vfoot button:hover{background:var(--soft)}
+  .tb2{background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .tb2 .in{height:46px;overflow-x:auto;scrollbar-width:none;gap:6px}
+  .tb2 .in::-webkit-scrollbar{display:none}
+  .tb2 a{--c:#3b3486;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;
+    color:#4a5163;padding:6px 13px;border-radius:999px;border:1px solid transparent;transition:background .15s,color .15s}
+  .tb2 a .dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+  .tb2 a:hover{background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--c)}
+  .tb2 a.on{background:var(--c);color:#fff}
+  .tb2 a.on .dot{background:#fff}
+  .tb2 a[href="#problem"]{--c:#3b3486} .tb2 a[href="#answer"]{--c:#1e8f4e} .tb2 a[href="#ai"]{--c:#6a5fd6} .tb2 a[href="#book"]{--c:#2f6fd6}
+  .tb2 a[href="#compare"]{--c:#0f8b8d} .tb2 a[href="#sim"]{--c:#d9731a} .tb2 a[href="#graph"]{--c:#c2417a} .tb2 a[href="#teach"]{--c:#a87a00}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:760px){
+    .tbtn .tx{display:none}
+    .tbtn{padding:6px 9px}
+    .tb1 .ttl small{display:none}
+    .vpanel{position:fixed;left:12px;right:12px;top:62px;width:auto}
+  }
+
+  .heroside .fig img{width:100%}
+  .fig{margin:0 0 10px}
+  .fig img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .fig figcaption{font-size:calc(13px*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(300px*var(--fig));max-width:45%;margin:0 0 10px 16px}
+  .psec{clear:both;margin-top:10px;overflow:hidden}
+  .psec h3{margin:8px 0 6px;color:var(--accent)}
+  h3 small,.sec h2 small{color:var(--muted);font-weight:500;font-size:.8em}
+  .pq{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0;clear:both}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;margin-right:6px;font-weight:700;font-size:.9em}
+  .pts{display:inline-block;color:var(--muted);font-size:.85em;margin-right:6px}
+  .partsol{border-top:2px solid var(--line);padding-top:12px;margin-top:22px}
+  .partsol:first-child{border-top:0;margin-top:0}
+  .partsol h3{display:flex;align-items:center;gap:6px;margin-top:0}
+  .ailab,.oflab{font-weight:800;font-size:calc(13px*var(--fs));letter-spacing:.04em;margin:12px 0 4px}
+  .ailab{color:#6a5fd6} .oflab{color:#2f6fd6}
+  .offic{border-left:4px solid #2f6fd6;background:#f2f7fe;border-radius:0 10px 10px 0;padding:8px 14px;margin-top:10px}
+  .partsol .answer-box{margin-top:10px;padding:10px 14px}
+  .anstab td:nth-child(3){font-size:calc(15px*var(--fs))}
+  .problem-box h3{font-size:calc(16px*var(--fs))}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  details.origimg{margin-top:8px;border:1px dashed #9db8e6;border-radius:8px;background:#fff}
+  details.origimg>summary{cursor:pointer;padding:6px 12px;font-size:calc(13.5px*var(--fs));font-weight:700;color:#2f6fd6}
+  details.origimg img{display:block;max-width:100%;margin:0 auto 8px;padding:0 8px}
+  .anstab tr.ext td{background:#fffaf0}
+  .sim .stage{background:#f7f8fb}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가 */
+  .jaryo,.method,.bogi{border:1.2px solid #8a93a6;border-radius:6px;padding:14px 16px 8px;margin:14px 0 10px;position:relative;background:#fff}
+  .jaryo>.jt,.method>.jt,.bogi>.jt{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#fff;padding:0 10px;font-size:.9em;font-weight:700;white-space:nowrap}
+  .method{background:#fbfbfd} .method>.jt{background:#fbfbfd}
+  .jaryo p{margin:0 0 6px} .jaryo table{font-size:.93em}
+  .method ul{margin:0;padding-left:18px;list-style:"◦ "}
+  .bogi ol{list-style:none;margin:0;padding:0} .bogi li{padding-left:20px;text-indent:-20px;margin-bottom:4px}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:3px 12px} .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:3px}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:4px 14px;margin:8px 0}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr))}
+  .choices .h{font-weight:600;text-decoration:underline;text-align:center} .choices .c{text-align:center}
+  .choices .ok{color:var(--ok);font-weight:800}
+  .mcqbox{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0;background:#fff}
+  .mcqbox .qh{font-weight:800;color:var(--accent)}
+  .cn td:first-child{width:12%;text-align:center;font-weight:700}
+  .cn tr.right td{background:var(--okbg)}
+  .rubric td:nth-child(2){width:9%;text-align:center;font-weight:700}
+  .hsbox{border:1px solid #e7b55a;border-left:5px solid #e0a020;background:#fff9ec;border-radius:0 10px 10px 0;padding:10px 16px;margin-top:10px}
+  .hsbox b{color:#9a6400}
+  .aud{display:inline-block;font-size:.8em;border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:0 9px;font-weight:700;margin-left:4px}
+  #rubric{--c:#0f8b8d} #hs{--c:#d08a00}
+  .simq{margin:14px 0 26px} .simq h3{display:flex;align-items:center;gap:8px}
+  .simframe{width:100%;height:calc(680px*var(--fig));border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+  @media (max-width:900px){.simframe{height:1100px}}
+  @media print{.simq{display:none}}
+  .tb2 a[href="#rubric"]{--c:#0f8b8d} .tb2 a[href="#hs"]{--c:#d08a00}
+</style>
+<style>:root{--accent:#0f6e66;--soft:#eaf6f4} .tb1{background:linear-gradient(100deg,#0b4a45 0%,#0f6e66 45%,#2aa198 100%)!important} .tbtn.solid{color:#0f6e66!important} .stepper button,.stepper output{color:#0f6e66!important} #problem,.tb2 a[href="#problem"]{--c:#0f6e66} .qnum{background:#0f6e66} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code" title="분류번호">PTE-2009-2-1-01</span><span class="code" style="background:transparent;font-weight:600" title="출제 연도">2009 2차 논술형 1교시 </span>
+    <span class="ttl">굴절 실험 두 가지를 고윈의 V도로 분석하기 — 레이저·반원형 물통 vs 물결파 투영 장치<small>Analyzing two refraction experiments with Gowin's V diagram · laser and semicircular tank vs ripple tank · 교사용 · 서술형 · 물리교육론</small></span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#edu/y=2009" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn solid" href="PTE-2009-2-1-01_학생용.html" title="학생용 학습지"><span class="ic">📝</span><span class="tx">학생용</span></a>
+      <span class="tbtn" style="opacity:.45;cursor:not-allowed" title="문항모음 폴더에 해당 시험지 PDF가 없습니다"><span class="ic">📄</span><span class="tx">문제 PDF(없음)</span></span>
+      <button class="tbtn" type="button" onclick="window.print()" title="인쇄"><span class="ic">🖨</span><span class="tx">인쇄</span></button>
+      <details class="view" id="viewMenu">
+        <summary class="tbtn" title="보기 설정"><span class="ic">⚙</span><span class="tx">보기 설정</span></summary>
+        <div class="vpanel">
+          <h4>보기 설정</h4>
+          <div class="vrow"><span>글자 크기</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+          <div class="vrow"><span>그림 크기</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+          <div class="vfoot"><button type="button" id="expandAll">풀이 모두 펼치기</button><button type="button" id="vReset">크기 초기화</button></div>
+        </div>
+      </details>
+    </div>
+  </div></div>
+  <nav class="tb2" aria-label="본문 바로가기"><div class="in">
+<a href="#problem"><span class="dot"></span>문제</a><a href="#answer"><span class="dot"></span>정답</a><a href="#ai"><span class="dot"></span>풀이</a><a href="#rubric"><span class="dot"></span>채점 기준</a><a href="#compare"><span class="dot"></span>검토</a><a href="#sim"><span class="dot"></span>모의실험</a><a href="#hs"><span class="dot"></span>고교 연계</a><a href="#teach"><span class="dot"></span>수업 활용</a>
+  </div></nav>
+</header>
+
+<main>
+
+  <div class="hero" id="problem">
+    <div>
+      <div class="kicker">2009학년도 2차 논술형 1교시 1번 · 중등학교교사 임용후보자 선정경쟁시험 물리</div>
+      <h1>굴절 실험 두 가지를 고윈의 V도로 분석하기 — 레이저·반원형 물통 vs 물결파 투영 장치<small>Analyzing two refraction experiments with Gowin's V diagram · laser and semicircular tank vs ripple tank</small></h1>
+      <div class="tags"><span class="tag" style="background:var(--accent);color:#fff;font-weight:700">PTE-2009-2-1-01</span><span class="tag">V도</span><span class="tag">고윈</span><span class="tag">굴절</span><span class="tag">스넬 법칙</span><span class="tag">반원형 물통</span><span class="tag">물결파 투영 장치</span><span class="tag">호이겐스 원리</span><span class="tag">측정 오차</span></div>
+      <div class="problem-box"><p>그림 (가)와 (나)는 굴절과 관련하여 고등학교 물리Ⅰ 교과서에 나오는 대표적인 두 가지 실험에 대한 개략도이다. 이 실험들은 ‘실험을 통하여 굴절의 법칙을 알고 굴절률을 측정한다.’라는 학습 목표를 달성하기 위해 이용될 수 있다. 김 교사는 실험 수업을 하기에 앞서 이 두 실험들을 고윈(Gowin)의 V도에 적용하여 분석하려고 한다.</p><figure class="fig" style="max-width:calc(440px*var(--fig))"><img src="../../그림/2009/PTE-2009-2-1-01_1.png" alt="(가) 레이저와 모눈종이 위 반원형 물통, (나) 물에 잠긴 유리판이 있는 물결파 투영 장치 원문"><figcaption>(가) 레이저와 모눈종이 위 반원형 물통, (나) 물에 잠긴 유리판이 있는 물결파 투영 장치 <span class="scan">원문</span></figcaption></figure><div class="method"><p>과학적 탐구에서 V도가 갖는 의의를 서술하고, 두 실험에 대해서 초점 질문, 사건, 기록, 자료 변환, 지식 주장, 개념, 법칙으로 구성된 V도를 각각 작성한 후, 이를 바탕으로 개념적 측면과 방법론적 측면에서 두 실험의 차이를 설명하시오. 또한 실제로 실험할 때 측정이 잘 되도록 하기 위한 방안을 각 실험별로 2가지씩 이유와 함께 설명하시오. <b>【20점】</b></p></div>
+      <div class="psec">
+      <div class="pq"><span class="qnum">(1)</span><span class="pts">3점</span><p>과학적 탐구에서 V도가 갖는 의의를 서술하시오.</p></div><div class="pq"><span class="qnum">(2)</span><span class="pts">5점</span><p>실험 (가)(레이저와 반원형 물통)에 대해 초점 질문, 사건, 기록, 자료 변환, 지식 주장, 개념, 법칙으로 구성된 V도를 작성하시오.</p></div><div class="pq"><span class="qnum">(3)</span><span class="pts">5점</span><p>실험 (나)(물결파 투영 장치)에 대해 같은 요소로 V도를 작성하시오.</p></div><div class="pq"><span class="qnum">(4)</span><span class="pts">3점</span><p>작성한 V도를 바탕으로 개념적 측면과 방법론적 측면에서 두 실험의 차이를 설명하시오.</p></div><div class="pq"><span class="qnum">(5)</span><span class="pts">4점</span><p>실제로 실험할 때 측정이 잘 되도록 하기 위한 방안을 각 실험별로 2가지씩 이유와 함께 설명하시오.</p></div>
+      </div></div>
+    </div>
+    <div class="heroside">
+      <dl class="meta"><dt>시험</dt><dd>2009학년도 2차 논술형 1교시 1번 · 서술형 · 물리교육론</dd><dt>대상</dt><dd>대학생(임용 준비·물리교육과) · 고등학생(심화·영재)</dd><dt>물리학 분류</dt><dd><b>[주]</b> 파동 및 광학 › 기하광학 및 파동광학 › 기하광학 › <b>4.2.1.1 반사의 법칙과 스넬의 법칙</b><br>[보조] 파동 및 광학 › 파동 역학 › 기계적 파동 › <b>4.1.1.1 파동의 기본 특성</b></dd><dt>교육론 분류</dt><dd>E7 실험 지도와 평가 (MBL·안전·수행 평가·태도 평가)<br>E5 과학의 본성과 과학사 (패러다임·이상화·모형)<br>E4 과학 탐구와 과학적 사고 (귀납·연역·귀추·변인 통제·자료 변환)</dd><dt>원문</dt><dd><span title="문항모음 폴더에 해당 시험지 PDF가 없습니다">문제 PDF 없음</span><br><small>공식 정답·채점 기준 미공개 — 모범 답안은 AI 풀이를 수식·수치·모의실험으로 검증한 것</small></dd><dt>난이도</dt><dd>★★★☆☆ (V도의 의의와 10개 요소를 두 실험에 채우고, 개념적(광선 모형 vs 파동 모형)·방법론적 차이와 측정 개선 방안을 근거와 함께 논술)</dd><dt>대학 과목</dt><dd>물리교육론(실험 지도, V도, 과학의 본성) · 광학(굴절, 호이겐스 원리)</dd><dt>고교 교육과정</dt><dd>고등학교 물리Ⅰ(제7차) ‘빛과 파동’ 굴절 / 2015 물리학Ⅰ ‘파동의 굴절’</dd><dt>핵심 개념</dt><dd>고윈의 V도: 초점 질문을 축으로 왼쪽 <b>개념적(이론적) 측면</b>(세계관·철학·이론·원리·법칙·개념)과 오른쪽 <b>방법론적 측면</b>(사건·기록·자료 변환·지식 주장·가치 주장)이 상호 작용. 굴절: \(n=\dfrac{\sin i}{\sin r}=\dfrac{v_1}{v_2}=\dfrac{\lambda_1}{\lambda_2}\).</dd></dl>
+    </div>
+  </div>
+  <section class="card" id="answer">
+    <h2><span class="num">정답</span>모범 답안 요약</h2>
+<div class="tablewrap"><table class="anstab"><tr><th style="width:10%">문항</th><th>모범 답안 (요약)</th><th style="width:26%">검증</th></tr><tr><td><b>(1)</b></td><td>V도는 초점 질문을 중심으로 개념적 측면(이론·원리·개념)과 방법론적 측면(사건·기록·자료 변환·지식 주장)이 상호 작용하여 지식이 구성됨을 보여 주는 도구 — 과학 지식의 구성적 본성 이해, 실험의 목적과 개념을 의식하게 하는 메타 인지, 실험 계획·분석·평가에 활용</td><td>공식 정답 미공개 — 고윈·노박(Novak & Gowin)의 V도 설명에 근거</td></tr><tr><td><b>(2)</b></td><td>초점 질문: 입사각과 굴절각의 관계·물의 굴절률은? / 사건: 반원형 물통 평면 중심에 레이저 입사, 입사각 변화 / 기록: i, r / 자료 변환: sin i, sin r, 그래프 기울기 / 지식 주장: sin i/sin r = 일정(≈1.33) / 개념: 광선, 법선, 입사각, 굴절각, 굴절률 / 법칙: 스넬 법칙</td><td>교과서 실험 절차에 근거한 표준 V도</td></tr><tr><td><b>(3)</b></td><td>초점 질문: 물결파가 깊은 곳→얕은 곳으로 갈 때 굴절과 파장(속력)의 관계는? / 사건: 유리판으로 얕은 영역, 직선파 굴절 투영 / 기록: 파면 그림, λ₁, λ₂, i, r / 자료 변환: sin i/sin r, λ₁/λ₂ 비교 / 지식 주장: sin i/sin r = λ₁/λ₂ = v₁/v₂ / 개념: 파면, 파장, 속력, 진동수, 굴절률 / 법칙: 호이겐스 원리, v = fλ, 스넬 법칙</td><td>교과서 실험 절차에 근거한 표준 V도</td></tr><tr><td><b>(4)</b></td><td>개념적: (가) 광선 모형, sin 비가 일정한 경험 법칙 / (나) 파동 모형, 굴절 원인 = 속력(파장) 변화, 굴절률 = 속력비. 방법론적: (가) 광선 경로를 모눈종이로 직접 각도 측정·반복 / (나) 투영된 파면으로 파장·각 측정, 파장 비와 sin 비 비교</td><td>V도 왼쪽(개념)·오른쪽(방법) 요소 비교</td></tr><tr><td><b>(5)</b></td><td>(가) ① 레이저를 반원 평면의 중심에 정확히 입사 — 곡면을 수직 통과해 두 번째 굴절이 없음 ② 여러 입사각에서 반복 측정해 sin i–sin r 그래프 기울기 — 읽기 오차 감소. (나) ① 유리판 위 수심을 매우 얕게 — 속력·파장 차가 커져 굴절이 뚜렷 ② 스트로보스코프로 파면 정지, 여러 파장 길이 측정 — 파장·각 측정 오차 감소 (수조 수평·반사 방지도 가능)</td><td>모의실험: (가) 레이저가 중심을 벗어나면 sin i/sin r이 n에서 벗어남, (나) λ₁/λ₂가 클수록 굴절각 차이가 커짐</td></tr></table></div>
+  </section>
+  <section class="card" id="ai">
+    <h2><span class="num">1</span>소문항별 풀이 (AI 모범 답안)</h2>
+
+    <div class="partsol" id="sol-1">
+      <h3><span class="qnum">(1)</span> <small>3점</small></h3>
+      <div class="pq"><p>과학적 탐구에서 V도가 갖는 의의를 서술하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — V도는 지식이 <b>개념(이론)과 방법(사건·기록·변환)의 상호 작용</b>으로 구성된다는 구성주의적 인식론을 시각화한 메타 인지 도구 — 초점 질문을 중심으로 무엇을 알고(개념) 무엇을 하는지(방법)를 연결하게 한다.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>V도의 구조</summary><div class="body"><p>꼭짓점 = 사건(대상·현상), 가운데 위 = 초점 질문, 왼쪽 = 개념적 측면(세계관·철학·이론·원리·법칙·개념), 오른쪽 = 방법론적 측면(기록·자료 변환·지식 주장·가치 주장). 양쪽이 초점 질문을 매개로 상호 작용한다.</p></div></details>
+<details class="step" open><summary><span class="s">2</span>의의</summary><div class="body"><ul><li><b>지식의 구성적 본성</b>: 관찰·자료만으로 지식이 생기지 않고, 개념·이론이 무엇을 관찰·기록할지 정한다(관찰의 이론 의존성)는 과학의 본성을 보여 준다.</li>
+<li><b>메타 인지</b>: 학생이 실험 전에 초점 질문과 관련 개념을 확인하고, 실험 후 지식 주장이 기록·변환에서 정당화되는지 점검하게 한다 → ‘왜 이 실험을 하는가’를 의식한 의미 있는 학습.</li>
+<li><b>실험 계획·분석·평가 도구</b>: 교사는 실험 수업을 미리 분석(무엇을 측정·변환·주장하는가)하고, 학생의 실험 보고서를 V도 요소별로 평가할 수 있다.</li></ul></div></details>
+      <div class="answer-box"><b>답</b> V도는 초점 질문을 중심으로 개념적 측면(이론·원리·개념)과 방법론적 측면(사건·기록·자료 변환·지식 주장)이 상호 작용하여 지식이 구성됨을 보여 주는 도구 — 과학 지식의 구성적 본성 이해, 실험의 목적과 개념을 의식하게 하는 메타 인지, 실험 계획·분석·평가에 활용</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>V도를 단순한 ‘실험 보고서 양식’으로만 설명하면 부족하다. 인식론적(지식 구성) 의미를 반드시 포함.</p></div>
+    </div>
+    <div class="partsol" id="sol-2">
+      <h3><span class="qnum">(2)</span> <small>5점</small></h3>
+      <div class="pq"><p>실험 (가)(레이저와 반원형 물통)에 대해 초점 질문, 사건, 기록, 자료 변환, 지식 주장, 개념, 법칙으로 구성된 V도를 작성하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 입사각–굴절각을 직접 측정해 \(\sin i/\sin r\)이 일정함(굴절률)을 주장하는 <b>광선 모형</b> 실험.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>V도 (가)</summary><div class="body"><table><tr><th style="width:24%">V도 요소</th><th>내용</th></tr><tr><td><b>초점 질문</b></td><td>빛이 공기에서 물로 진행할 때 입사각과 굴절각 사이에는 어떤 관계가 있는가? 물의 굴절률은 얼마인가?</td></tr><tr><td><b>사건</b></td><td>모눈종이 위 반원형 물통의 평면 쪽 중심에 레이저를 비추고, 입사각을 10°씩 바꾸며 굴절 광선의 경로를 모눈종이에 표시한다.</td></tr><tr><td><b>기록</b></td><td>입사각 i와 굴절각 r (또는 모눈 눈금으로 읽은 광선 위의 점 좌표), 반복 측정값</td></tr><tr><td><b>자료 변환</b></td><td>\(\sin i\), \(\sin r\) 계산 → 표, \(\sin i\)–\(\sin r\) 그래프와 기울기(또는 \(\sin i/\sin r\)의 평균)</td></tr><tr><td><b>지식 주장</b></td><td>입사각이 달라도 \(\sin i/\sin r\)은 일정(≈ 1.33) — 공기에 대한 물의 굴절률. 굴절 광선은 법선 쪽으로 꺾인다.</td></tr><tr><td><b>개념</b></td><td>빛, 광선, 법선, 입사각, 굴절각, 굴절, 굴절률, 매질</td></tr><tr><td><b>법칙(원리)</b></td><td>스넬 법칙 \(n_1\sin\theta_1=n_2\sin\theta_2\), 빛의 직진, 경계면에 수직으로 들어가는 빛은 꺾이지 않는다(반원의 곡면)</td></tr></table></div></details>
+      <div class="answer-box"><b>답</b> 초점 질문: 입사각과 굴절각의 관계·물의 굴절률은? / 사건: 반원형 물통 평면 중심에 레이저 입사, 입사각 변화 / 기록: i, r / 자료 변환: sin i, sin r, 그래프 기울기 / 지식 주장: sin i/sin r = 일정(≈1.33) / 개념: 광선, 법선, 입사각, 굴절각, 굴절률 / 법칙: 스넬 법칙</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>‘사건’에 실험 결과를 쓰거나, ‘개념’과 ‘법칙’을 섞어 쓰는 것. 법칙은 개념 사이의 관계 진술이어야 한다.</p></div>
+    </div>
+    <div class="partsol" id="sol-3">
+      <h3><span class="qnum">(3)</span> <small>5점</small></h3>
+      <div class="pq"><p>실험 (나)(물결파 투영 장치)에 대해 같은 요소로 V도를 작성하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 파면을 투영해 \(\sin i/\sin r=\lambda_1/\lambda_2=v_1/v_2\)를 주장하는 <b>파동 모형</b> 실험.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>V도 (나)</summary><div class="body"><table><tr><th style="width:24%">V도 요소</th><th>내용</th></tr><tr><td><b>초점 질문</b></td><td>물결파가 깊은 곳에서 얕은 곳으로 진행할 때 진행 방향은 어떻게 바뀌며, 입사각·굴절각과 파장(속력) 사이에는 어떤 관계가 있는가?</td></tr><tr><td><b>사건</b></td><td>물결파 투영 장치에 유리판을 비스듬히 잠기게 해 얕은 영역을 만들고, 직선파를 발생시켜 경계에서 굴절하는 파면을 스크린(종이)에 투영해 관찰·작도한다(스트로보스코프로 정지).</td></tr><tr><td><b>기록</b></td><td>깊은 곳·얕은 곳의 파면 그림, 파장 \(\lambda_1\), \(\lambda_2\)(여러 파장 길이 ÷ 개수), 입사각, 굴절각, 진동수</td></tr><tr><td><b>자료 변환</b></td><td>\(\sin i/\sin r\)와 \(\lambda_1/\lambda_2\) 계산·비교, \(v=f\lambda\)로 속력비</td></tr><tr><td><b>지식 주장</b></td><td>\(\dfrac{\sin i}{\sin r}=\dfrac{\lambda_1}{\lambda_2}=\dfrac{v_1}{v_2}\)=일정 — 굴절률은 두 매질에서 파동 속력의 비이다. 얕은 곳(느린 곳)에서 법선 쪽으로 꺾인다.</td></tr><tr><td><b>개념</b></td><td>파동, 파면, 파장, 진동수, 속력, 수심, 입사각, 굴절각, 굴절률</td></tr><tr><td><b>법칙(원리)</b></td><td>호이겐스 원리, \(v=f\lambda\)(진동수 불변), 스넬 법칙 \(\dfrac{\sin\theta_1}{\sin\theta_2}=\dfrac{v_1}{v_2}\)</td></tr></table></div></details>
+      <div class="answer-box"><b>답</b> 초점 질문: 물결파가 깊은 곳→얕은 곳으로 갈 때 굴절과 파장(속력)의 관계는? / 사건: 유리판으로 얕은 영역, 직선파 굴절 투영 / 기록: 파면 그림, λ₁, λ₂, i, r / 자료 변환: sin i/sin r, λ₁/λ₂ 비교 / 지식 주장: sin i/sin r = λ₁/λ₂ = v₁/v₂ / 개념: 파면, 파장, 속력, 진동수, 굴절률 / 법칙: 호이겐스 원리, v = fλ, 스넬 법칙</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>물결파 실험에서 ‘굴절률 = 물의 굴절률’처럼 빛의 실험과 같은 결론을 쓰는 것 — 여기서 굴절률은 깊은 곳과 얕은 곳의 속력비.</p></div>
+    </div>
+    <div class="partsol" id="sol-4">
+      <h3><span class="qnum">(4)</span> <small>3점</small></h3>
+      <div class="pq"><p>작성한 V도를 바탕으로 개념적 측면과 방법론적 측면에서 두 실험의 차이를 설명하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 개념적: 광선 모형(현상의 규칙성 = 스넬 법칙) vs 파동 모형(굴절의 원인 = 속력 변화, 호이겐스 원리). 방법론적: 광선 경로·각도 직접 측정 vs 투영된 파면에서 파장·각 측정(간접, 스트로보).</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>개념적 측면</summary><div class="body"><p>(가)는 <b>광선 모형</b>으로 굴절을 다루며 지식 주장은 ‘\(\sin i/\sin r\)=일정’이라는 경험적 규칙성(굴절률의 조작적 정의)에 그친다. (나)는 <b>파동 모형</b>(파면, 호이겐스 원리)을 바탕으로 굴절의 <b>원인</b>이 매질에 따른 속력(파장) 변화임을 보여 주며 굴절률 = 속력비라는 더 깊은 개념에 이른다.</p></div></details>
+<details class="step" open><summary><span class="s">2</span>방법론적 측면</summary><div class="body"><p>(가)는 레이저 광선의 경로를 모눈종이에서 각도로 <b>직접·정량</b> 측정하고, 입사각을 바꿔 가며 반복 측정·그래프로 변환한다. (나)는 직선파의 파면을 <b>투영</b>하여 파면 그림을 작도하고 파장과 각도를 재며(스트로보스코프 필요), 각도 비와 파장 비를 비교하는 자료 변환을 한다. (가)는 굴절률의 값을 얻기 좋고, (나)는 파장 변화를 직접 볼 수 있다.</p></div></details>
+      <div class="answer-box"><b>답</b> 개념적: (가) 광선 모형, sin 비가 일정한 경험 법칙 / (나) 파동 모형, 굴절 원인 = 속력(파장) 변화, 굴절률 = 속력비. 방법론적: (가) 광선 경로를 모눈종이로 직접 각도 측정·반복 / (나) 투영된 파면으로 파장·각 측정, 파장 비와 sin 비 비교</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>‘빛 vs 물결파’라는 대상의 차이만 쓰면 부족. 어떤 개념(모형)과 어떤 측정 방법을 쓰는지로 비교해야 한다.</p></div>
+    </div>
+    <div class="partsol" id="sol-5">
+      <h3><span class="qnum">(5)</span> <small>4점</small></h3>
+      <div class="pq"><p>실제로 실험할 때 측정이 잘 되도록 하기 위한 방안을 각 실험별로 2가지씩 이유와 함께 설명하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 측정 방안은 ‘무엇이 오차를 만드는가’에서 나온다 — (가) 두 번째 굴절·각도 읽기 오차, (나) 속력 차가 작음·파면 흔들림·반사.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>(가) 레이저–반원형 물통</summary><div class="body"><ol><li><b>레이저를 반원 평면의 정확한 중심에 입사</b>시킨다 — 그래야 굴절 광선이 반지름 방향이 되어 곡면을 수직으로 통과(두 번째 굴절 없음)하고, 모눈종이에서 읽는 각이 실제 굴절각이 된다. (모의실험 ‘중심에서 벗어나게’로 확인)</li>
+<li><b>입사각을 10°~70°로 여러 번 바꾸고 반복 측정해 \(\sin i\)–\(\sin r\) 그래프의 기울기</b>로 굴절률을 구한다 — 한 번의 각도 읽기 오차(±1°)가 평균·회귀로 줄어든다. 큰 각에서는 오차가 작아짐.</li>
+<li>(보조) 물통 벽이 얇고 투명한 것을 쓰고, 어두운 곳에서 광선을 모눈종이 위에 스치게 하여 경로를 선명하게 기록.</li></ol></div></details>
+<details class="step" open><summary><span class="s">2</span>(나) 물결파 투영 장치</summary><div class="body"><ol><li><b>유리판 위 물의 깊이를 아주 얕게(1~2 mm), 전체 수심은 적당히</b> — 얕은 물결파의 속력 \(v\approx\sqrt{gh}\)이므로 깊이 차가 커야 속력·파장 차이가 커져 굴절각 차이를 측정할 수 있다.</li>
+<li><b>스트로보스코프(또는 진동수와 맞춘 조명)로 파면을 정지</b>시키고, 파장은 여러 파장(예: 5개) 길이를 재서 나눈다 — 움직이는 파면에서의 읽기 오차를 줄인다.</li>
+<li>(보조) 수조를 수평으로 맞추고 가장자리에 스펀지 등을 대어 반사파를 없앤다 — 수심이 일정해야 속력이 일정하고, 반사파가 겹치면 파면이 흐려진다. 진동수를 낮추면 파장이 길어져 측정이 쉽다.</li></ol></div></details>
+      <div class="answer-box"><b>답</b> (가) ① 레이저를 반원 평면의 중심에 정확히 입사 — 곡면을 수직 통과해 두 번째 굴절이 없음 ② 여러 입사각에서 반복 측정해 sin i–sin r 그래프 기울기 — 읽기 오차 감소. (나) ① 유리판 위 수심을 매우 얕게 — 속력·파장 차가 커져 굴절이 뚜렷 ② 스트로보스코프로 파면 정지, 여러 파장 길이 측정 — 파장·각 측정 오차 감소 (수조 수평·반사 방지도 가능)</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>방안만 쓰고 이유(왜 측정이 좋아지는가)를 빠뜨리는 경우가 많다 — 배점의 절반은 이유.</p></div>
+    </div>
+  </section>
+  <section class="card" id="rubric">
+    <h2><span class="num">2</span>채점 기준 (예시)</h2>
+<p class="src">공식 채점 기준은 공개되지 않는다. 배점과 답안 요소를 바탕으로 만든 <b>예시 채점 기준</b>이다.</p><div class="tablewrap"><table class="rubric"><tr><th style="width:10%">문항</th><th>배점</th><th>채점 요소 (예시 답안의 핵심 표현)</th></tr><tr><td><b>(1)</b></td><td>1</td><td>개념적 측면과 방법론적 측면의 상호 작용으로 지식이 구성됨</td></tr><tr><td><b>(1)</b></td><td>1</td><td>메타 인지·의미 있는 학습(실험 목적과 개념을 의식)</td></tr><tr><td><b>(1)</b></td><td>1</td><td>실험의 계획·분석·평가 도구로서의 활용</td></tr><tr><td><b>(2)</b></td><td>1</td><td>초점 질문·사건이 실험 (가)에 맞음</td></tr><tr><td><b>(2)</b></td><td>1</td><td>기록(입사각·굴절각)</td></tr><tr><td><b>(2)</b></td><td>1</td><td>자료 변환(sin 값·그래프)</td></tr><tr><td><b>(2)</b></td><td>1</td><td>지식 주장(sin i/sin r 일정 = 굴절률)</td></tr><tr><td><b>(2)</b></td><td>1</td><td>개념·법칙(스넬 법칙)</td></tr><tr><td><b>(3)</b></td><td>1</td><td>초점 질문·사건이 실험 (나)에 맞음</td></tr><tr><td><b>(3)</b></td><td>1</td><td>기록(파면, 파장, 각)</td></tr><tr><td><b>(3)</b></td><td>1</td><td>자료 변환(sin 비와 파장 비 비교)</td></tr><tr><td><b>(3)</b></td><td>1</td><td>지식 주장(굴절률 = 속력비 = 파장비)</td></tr><tr><td><b>(3)</b></td><td>1</td><td>개념·법칙(호이겐스 원리, v = fλ)</td></tr><tr><td><b>(4)</b></td><td>2</td><td>개념적 차이: 광선 모형 vs 파동 모형(굴절 원인 = 속력 변화)</td></tr><tr><td><b>(4)</b></td><td>1</td><td>방법론적 차이: 각 직접 측정 vs 파면 투영·파장 측정</td></tr><tr><td><b>(5)</b></td><td>1</td><td>(가) 방안 1과 이유</td></tr><tr><td><b>(5)</b></td><td>1</td><td>(가) 방안 2와 이유</td></tr><tr><td><b>(5)</b></td><td>1</td><td>(나) 방안 1과 이유</td></tr><tr><td><b>(5)</b></td><td>1</td><td>(나) 방안 2와 이유</td></tr><tr><td colspan="2" style="text-align:right"><b>합계 20점</b></td><td></td></tr></table></div>
+  </section>
+  <section class="card" id="compare">
+    <h2><span class="num">3</span>출제 의도·검토</h2>
+<h3>출제 의도</h3><ul><li>V도의 인식론적 의의(지식의 구성적 본성, 메타 인지)를 아는가.</li><li>같은 학습 목표의 두 실험을 V도로 분석해 개념적·방법론적 차이를 드러낼 수 있는가.</li><li>실험의 오차 원인을 알고 측정 개선 방안을 근거와 함께 제시할 수 있는가.</li></ul>
+<h3>검토 의견</h3><div class="note"><b>공식 정답 미공개</b>(2009학년도 2차 논술형). 하위 물음 사이의 배점(3+5+5+3+4 = 20점)은 문항에 명시되지 않아 <b>추정</b>한 것이다. V도 요소의 내용은 교과서 실험 절차에 근거한 표준 답안이며, ‘법칙’ 칸에 스넬 법칙 외에 빛의 직진·호이겐스 원리 등을 쓰는 것도 허용될 수 있다. 측정 방안은 2가지 이상을 제시하고 그중 대표 2가지를 채점 대상으로 보았다.</div>
+  </section>
+  <section class="card" id="sim">
+    <h2><span class="num">4</span>3D 모의실험 — 굴절 실험 두 가지: 레이저와 반원형 물통 / 물결파 투영 장치 <span class="kbd">(F 전체화면)</span></h2>
+    <div class="sim" id="simBox" tabindex="0">
+      <div class="cap"><span class="ph" id="capPh">모의실험</span><span id="capTx">3D(위에서 본) 장면. (가) 레이저가 반원형 물통의 평면 중심으로 들어가 곡면을 수직으로 빠져나간다. (나) 깊은 곳(왼쪽)에서 얕은 곳(오른쪽)으로 가며 파장이 짧아지고 파면이 꺾인다.</span></div>
+      <div class="stage"><canvas id="cv"></canvas></div>
+      <div class="bar"><span class="hint">오른쪽에서 값을 바꾸면 바로 반영됩니다.</span><span class="grow"></span><button class="btn" id="bFull">⛶ 전체화면</button></div>
+      <div class="side"><div class="grp"><div class="lbl">실험</div><div class="seg" data-p="ex"><button type="button" data-v="A" class=on>(가) 레이저 + 반원형 물통</button><button type="button" data-v="B">(나) 물결파 투영 장치</button></div></div>
+<div class="grp"><label>입사각 i (°) <output id="o_i"></output></label><input type="range" data-p="i" data-u="" min="0" max="80" step="1" value="40"></div>
+<div class="grp"><label>(가) 물의 굴절률 n <output id="o_n"></output></label><input type="range" data-p="n" data-u="" min="1.0" max="1.6" step="0.01" value="1.33"></div>
+<div class="grp"><label>(나) 파장 비 λ₁/λ₂ (깊은/얕은) <output id="o_r"></output></label><input type="range" data-p="r" data-u="" min="1.0" max="2.0" step="0.05" value="1.4"></div>
+<div class="grp chk"><label><input type="checkbox" data-p="off"> (가) 레이저를 중심에서 벗어나게 입사 (오차 원인)</label></div>
+<table class="readout" id="ro"></table><div class="result" id="res">—</div></div>
+    </div>
+    <p class="src noprint">지도 팁: ① (가)에서 ‘중심에서 벗어나게’를 켜면 곡면에서 두 번째 굴절이 생겨 sin i/sin r이 흔들린다(측정 방안 1의 근거). ② (나)에서 λ₁/λ₂ = sin i/sin r — 굴절률이 속력비라는 개념적 차이를 보여 준다.</p>
+  </section>
+  <section class="card" id="hs">
+    <h2><span class="num">5</span>고등학생 지도 — 고교 교육과정과 잇기</h2>
+<div class="two"><div><h3>고교 교육과정과의 연결</h3><ul><li>2015 물리학Ⅰ ‘파동의 굴절’, 2022 물리학 ‘파동’ — 굴절률과 속력의 관계</li><li>탐구 보고서를 V도 양식으로 쓰기</li></ul></div><div><h3>고등학생용 변형 문항</h3><ol><li>물결파가 깊은 곳(파장 2 cm)에서 얕은 곳(파장 1.4 cm)으로 입사각 40°로 진행할 때 굴절각을 구하시오.</li><li>반원형 물통 실험에서 레이저가 곡면 쪽에서 들어가면 어떤 현상을 관찰할 수 있는가? (전반사)</li></ol></div></div>
+  </section>
+  <section class="card" id="teach">
+    <h2><span class="num">6</span>수업 활용 안내</h2>
+<div class="two"><div><h3>수업 흐름 (50분)</h3><ol><li><b>V도 소개 (8분)</b> — V도의 구조와 의의 — 초점 질문, 개념적/방법론적 측면</li><li><b>실험 (가) V도 (12분)</b> — 모의실험으로 입사각 변화, 표·그래프 작성</li><li><b>실험 (나) V도 (12분)</b> — 파면 투영 모의실험, 파장 비와 sin 비 비교</li><li><b>비교 토의 (10분)</b> — 광선 모형 vs 파동 모형, 측정 방법 비교</li><li><b>측정 개선 (8분)</b> — 오차 원인 → 개선 방안 모둠 발표</li></ol></div><div><h3>자주 나오는 오개념</h3><ul><li>굴절률은 물질 고유의 값일 뿐 속력과 무관하다</li><li>물결파가 얕은 곳으로 가면 진동수가 바뀐다</li><li>V도는 실험 보고서 양식에 불과하다</li></ul><h3>평가 포인트</h3><ul><li>V도 요소를 정확히 구분하는가</li><li>두 실험의 모형 차이를 설명하는가</li><li>측정 방안에 이유를 제시하는가</li></ul><h3>실험 연결</h3><p>같은 학습 목표를 위한 MBL(광센서 각도 측정) 실험을 V도로 분석해 세 실험의 장단점을 비교한다.</p></div></div>
+  </section>
+</main>
+
+<script>
+/* PTC 공통 라이브러리 — 모든 교사용 페이지의 모의실험이 사용 */
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id)};
+  var PTC=window.PTC={};
+  PTC.$=$;
+  PTC.DEG=Math.PI/180;
+  PTC.fs=function(){return window.PTC_FS||1};
+  PTC.font=function(px,weight,family){return (weight?weight+' ':'')+Math.round(px*PTC.fs())+'px '+(family||'"Noto Sans KR","Malgun Gothic",sans-serif')};
+  PTC.setupCanvas=function(c){
+    var r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;
+    c.width=Math.max(1,Math.round(r.width*d)); c.height=Math.max(1,Math.round(r.height*d));
+    var x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); return {x:x,w:r.width,h:r.height};
+  };
+  PTC.arrow=function(ctx,x,y,dx,dy,color,label,lw){
+    var L=Math.hypot(dx,dy); if(L<2) return;
+    ctx.save(); ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw||2.5;
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dx,y+dy); ctx.stroke();
+    var a=Math.atan2(dy,dx), h=Math.min(12,L*0.4);
+    ctx.beginPath(); ctx.moveTo(x+dx,y+dy);
+    ctx.lineTo(x+dx-h*Math.cos(a-0.4),y+dy-h*Math.sin(a-0.4));
+    ctx.lineTo(x+dx-h*Math.cos(a+0.4),y+dy-h*Math.sin(a+0.4)); ctx.closePath(); ctx.fill();
+    if(label){ctx.font=PTC.font(14,'600'); ctx.fillText(label,x+dx+6,y+dy-6);}
+    ctx.restore();
+  };
+  PTC.text=function(ctx,s,x,y,px,color,weight,align){
+    ctx.save(); ctx.fillStyle=color||'#1b1f2a'; ctx.font=PTC.font(px||14,weight); ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.restore();
+  };
+  /* 그래프: o={xmin,xmax,ymin,ymax,log,xticks,yticks,xlabel,ylabel,title,series:[{f|pts,color,label,dash}],marker,points:[[x,y,color]],fill:{f,color,x0,x1},xfmt} */
+  PTC.plot=function(c,o){
+    var cc=PTC.setupCanvas(c), x=cc.x, w=cc.w, h=cc.h; if(w<20) return;
+    var L=o.padL||52, R=14, T=o.title?30:12, B=36, fs=PTC.fs();
+    function px(v){return L+(v-o.xmin)/(o.xmax-o.xmin)*(w-L-R)}
+    function py(v){var a=o.log?Math.log10(v):v;return h-B-(a-o.ymin)/(o.ymax-o.ymin)*(h-T-B)}
+    x.clearRect(0,0,w,h);
+    if(o.title){x.fillStyle='#1b1f2a';x.font=PTC.font(13,'600');x.fillText(o.title,L,18);}
+    x.font=PTC.font(12); x.strokeStyle='#e6e9f0'; x.fillStyle='#5b6475'; x.lineWidth=1;
+    (o.yticks||[]).forEach(function(v){var yy=o.log?h-B-(v-o.ymin)/(o.ymax-o.ymin)*(h-T-B):py(v);x.beginPath();x.moveTo(L,yy);x.lineTo(w-R,yy);x.stroke();x.fillText(o.log?String(Math.pow(10,v)):(o.yfmt?o.yfmt(v):String(v)),4,yy+4);});
+    (o.xticks||[]).forEach(function(v){var xx=px(v);x.beginPath();x.moveTo(xx,T);x.lineTo(xx,h-B);x.stroke();var s=o.xfmt?o.xfmt(v):String(v);x.fillText(s,xx-x.measureText(s).width/2,h-B+16);});
+    x.strokeStyle='#1b1f2a'; x.beginPath(); x.moveTo(L,T); x.lineTo(L,h-B); x.lineTo(w-R,h-B); x.stroke();
+    if(o.xlabel){x.fillStyle='#5b6475';var xs=o.xlabel;x.fillText(xs,w-R-x.measureText(xs).width,h-4);}
+    if(o.ylabel){x.save();x.fillStyle='#5b6475';x.translate(12,T+4);x.fillText(o.ylabel,0,0);x.restore();}
+    if(o.fill){var F=o.fill;x.fillStyle=F.color;x.beginPath();x.moveTo(px(F.x0),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));
+      for(var k=0;k<=120;k++){var vv=F.x0+(F.x1-F.x0)*k/120;x.lineTo(px(vv),py(F.f(vv)));}
+      x.lineTo(px(F.x1),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));x.closePath();x.fill();}
+    (o.series||[]).forEach(function(sr,si){
+      x.strokeStyle=sr.color; x.lineWidth=sr.lw||2.2; x.setLineDash(sr.dash||[]); x.beginPath(); var started=false;
+      var N=sr.pts?sr.pts.length-1:300;
+      for(var i=0;i<=N;i++){
+        var v,y; if(sr.pts){v=sr.pts[i][0];y=sr.pts[i][1];} else {v=o.xmin+(o.xmax-o.xmin)*i/N;y=sr.f(v);}
+        if(!isFinite(y)||(o.log&&y<=0)){started=false;continue;}
+        var yy=py(y); if(yy<T-2||yy>h-B+2){started=false;continue;}
+        if(!started){x.moveTo(px(v),yy);started=true;}else x.lineTo(px(v),yy);
+      }
+      x.stroke(); x.setLineDash([]);
+      if(sr.label){x.fillStyle=sr.color;x.font=PTC.font(12,'600');x.fillText('— '+sr.label,L+10+si*((w-L)/o.series.length),T+14);}
+    });
+    if(o.marker!=null && o.marker>=o.xmin && o.marker<=o.xmax){x.strokeStyle='#d23b3b';x.setLineDash([5,4]);x.lineWidth=1.5;x.beginPath();x.moveTo(px(o.marker),T);x.lineTo(px(o.marker),h-B);x.stroke();x.setLineDash([]);}
+    (o.points||[]).forEach(function(p){ if(o.log&&p[1]<=0) return; x.fillStyle=p[2]||'#d23b3b'; x.beginPath(); x.arc(px(p[0]),Math.max(T,Math.min(h-B,py(p[1]))),5,0,2*Math.PI); x.fill(); });
+    return {px:px,py:py,ctx:x,w:w,h:h};
+  };
+  /* 시간 진행형 모의실험 제어: o={tMin(),tMax(),draw(t),pauses:[t..],loop} */
+  PTC.timeline=function(o){
+    var T={t:o.tMin(),playing:false,last:null,speed:$('selSpeed')?+$('selSpeed').value:1,passed:{}};
+    function sync(){var s=$('tScrub'); if(s) s.value=Math.round((T.t-o.tMin())/((o.tMax()-o.tMin())||1)*1000);}
+    function setP(p){T.playing=p; var b=$('bPlay'); if(b) b.textContent=p?'⏸ 정지':'▶ 재생'; T.last=null; if(p) requestAnimationFrame(tick);}
+    function tick(ts){
+      if(!T.playing) return;
+      if(T.last==null) T.last=ts;
+      var dt=Math.min(0.05,(ts-T.last)/1000); T.last=ts;
+      var prev=T.t; T.t+=dt*T.speed;
+      var ps=o.pauses||[], cp=$('cPause');
+      if(!cp||cp.checked){ for(var i=0;i<ps.length;i++){ if(prev<ps[i]&&T.t>=ps[i]&&!T.passed[i]){T.t=ps[i];T.passed[i]=true;setP(false);sync();o.draw(T.t);return;} } }
+      if(T.t>=o.tMax()){ if(o.loop){T.t=o.tMin();T.passed={};} else {T.t=o.tMax();setP(false);} }
+      sync(); o.draw(T.t);
+      if(T.playing) requestAnimationFrame(tick);
+    }
+    T.toggle=function(){ if(T.playing){setP(false);return;} if(T.t>=o.tMax()-1e-9){T.t=o.tMin();T.passed={};} setP(true); };
+    T.reset=function(){ T.t=o.tMin(); T.passed={}; setP(false); sync(); o.draw(T.t); };
+    T.set=function(t){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),t)); T.passed={}; (o.pauses||[]).forEach(function(p,i){if(T.t>=p)T.passed[i]=true}); sync(); o.draw(T.t); };
+    T.redraw=function(){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),T.t)); sync(); o.draw(T.t); };
+    T.pause=function(){setP(false)};
+    if($('bPlay')) $('bPlay').onclick=T.toggle;
+    if($('bReset')) $('bReset').onclick=T.reset;
+    if($('tScrub')) $('tScrub').oninput=function(){ setP(false); T.set(o.tMin()+(o.tMax()-o.tMin())*this.value/1000); };
+    if($('selSpeed')) $('selSpeed').onchange=function(){ T.speed=+this.value; };
+    window.SIM={toggle:T.toggle,reset:T.reset};
+    return T;
+  };
+  /* 연속 애니메이션 (정적 모의실험의 흐르는 전류 등) */
+  PTC.loop=function(fn){ var last=null; function f(ts){ var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts; fn(dt); requestAnimationFrame(f);} requestAnimationFrame(f); };
+  PTC.onResize=function(fn){ var st=document.querySelector('#simBox .stage'); if(window.ResizeObserver&&st) new ResizeObserver(function(){fn()}).observe(st); window.addEventListener('resize',fn); };
+  PTC.seg=function(id,cb){ var box=$(id); box.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ box.querySelectorAll('button').forEach(function(o){o.classList.toggle('on',o===b)}); cb(b.dataset.v); }; }); };
+  PTC.range=function(id,outId,fmt,cb){ var r=$(id),o=$(outId); function u(){ if(o) o.textContent=fmt(+r.value); if(cb) cb(+r.value); } r.addEventListener('input',u); if(o) o.textContent=fmt(+r.value); return r; };
+  PTC.readout=function(id,rows){ $(id).innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join(''); };
+  PTC.result=function(id,good,text){ var el=$(id); el.className='result '+(good===true?'good':good===false?'bad':''); el.textContent=text; };
+  PTC.caption=function(ph,tx){ if($('capPh')) $('capPh').textContent=ph; if($('capTx')) $('capTx').textContent=tx; };
+})();
+
+/* SK — 간단 모의실험 키트 (도구/도움.py 의 kit() 와 짝).
+   SK.run({mode:'static'|'time', T:function(P){return 초}, scene:function(g,P,t){…}, plot:function(P,t){return PTC.plot 옵션},
+           plot2:…, readout:function(P,t){return [[이름,값],…]}, check:function(P){return [true|false|null, 글]}, caption:function(P,t){return 글},
+           pre:function(P){…매개변수가 바뀔 때 한 번 계산…}})
+   매개변수: 오른쪽 칸의 [data-p] 요소 (range·checkbox·seg) → P.이름
+   g = {x:ctx, w, h} · SK.view(g,x0,x1,y0,y1,pad) → {X(x),Y(y),s} (가로세로 같은 축척)
+   3D: kit(…, three=True) 와 함께 view3d:{up:'z',cam:[…],target:[…],grid:10}, build:function(V,P){ …물체를 만들고 객체 O 를 돌려줌… },
+       frame:function(V,O,P,t){ …위치·화살표·라벨 갱신… } 를 쓰면 #cv 가 three.js 3D 장면이 된다 (마우스 끌기 회전·휠 확대).
+       (three.js 를 못 불러오면 scene 이 있으면 2D 로 대신 그린다.) */
+(function(){
+  'use strict';
+  var SK=window.SK={};
+  SK.read=function(){ var P={};
+    document.querySelectorAll('[data-p]').forEach(function(el){ var k=el.dataset.p;
+      if(el.type==='checkbox') P[k]=el.checked; else if(el.classList.contains('seg')){ var b=el.querySelector('button.on'); P[k]=b?(isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v):null; }
+      else P[k]=+el.value; });
+    return P; };
+  SK.view=function(g,x0,x1,y0,y1,pad){ pad=pad==null?24:pad; var s=Math.min((g.w-2*pad)/(x1-x0),(g.h-2*pad)/(y1-y0)),
+      ox=(g.w-(x1-x0)*s)/2-x0*s, oy=(g.h+(y1-y0)*s)/2+y0*s; return {s:s,X:function(x){return ox+x*s},Y:function(y){return oy-y*s}}; };
+  SK.line=function(c,pts,col,lw,dash){ c.save(); c.strokeStyle=col||'#1b1f2a'; c.lineWidth=lw||2; c.setLineDash(dash||[]); c.beginPath();
+    pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.stroke(); c.restore(); };
+  SK.poly=function(c,pts,fill,stroke){ c.save(); c.beginPath(); pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.closePath();
+    if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.stroke();} c.restore(); };
+  SK.circle=function(c,x,y,r,fill,stroke,lw){ c.save(); c.beginPath(); c.arc(x,y,r,0,6.2832); if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=lw||1.5;c.stroke();} c.restore(); };
+  SK.rect=function(c,x,y,w,h,fill,stroke){ c.save(); if(fill){c.fillStyle=fill;c.fillRect(x,y,w,h);} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.strokeRect(x,y,w,h);} c.restore(); };
+  SK.text=function(c,s,x,y,px,col,wt,al){ PTC.text(c,s,x,y,px||13,col||'#1b1f2a',wt||'600',al); };
+  SK.arrow=function(c,x,y,dx,dy,col,lab,lw){ PTC.arrow(c,x,y,dx,dy,col,lab,lw); };
+  SK.spring=function(c,x1,y1,x2,y2,n,amp,col){ n=n||10; amp=amp||7; var L=Math.hypot(x2-x1,y2-y1)||1, ux=(x2-x1)/L, uy=(y2-y1)/L, nx=-uy, ny=ux, pts=[[x1,y1]], lead=Math.min(8,L/6);
+    pts.push([x1+ux*lead,y1+uy*lead]); for(var i=0;i<2*n;i++){ var s=lead+(L-2*lead)*(i+0.5)/(2*n), sg=i%2?-1:1; pts.push([x1+ux*s+nx*amp*sg,y1+uy*s+ny*amp*sg]); }
+    pts.push([x2-ux*lead,y2-uy*lead]); pts.push([x2,y2]); SK.line(c,pts,col||'#4a5568',1.6); };
+  SK.ground=function(c,x0,x1,y,col){ SK.line(c,[[x0,y],[x1,y]],col||'#1b1f2a',2); c.save(); c.strokeStyle='#9aa2b2'; c.lineWidth=1; for(var x=x0;x<x1;x+=10){ c.beginPath(); c.moveTo(x,y); c.lineTo(x-7,y+8); c.stroke(); } c.restore(); };
+  SK.fmt=function(v,d){ if(!isFinite(v)) return '—'; var a=Math.abs(v); if(a!==0&&(a<1e-3||a>=1e5)) return v.toExponential(d==null?3:d); return v.toFixed(d==null?3:d); };
+  SK.rk4=function(f,y,t,dt){ var k1=f(t,y), y2=y.map(function(v,i){return v+dt/2*k1[i]}), k2=f(t+dt/2,y2), y3=y.map(function(v,i){return v+dt/2*k2[i]}), k3=f(t+dt/2,y3),
+      y4=y.map(function(v,i){return v+dt*k3[i]}), k4=f(t+dt,y4); return y.map(function(v,i){return v+dt/6*(k1[i]+2*k2[i]+2*k3[i]+k4[i])}); };
+  SK.run=function(o){
+    var P=SK.read(), TL=null;
+    function outs(){ document.querySelectorAll('input[type=range][data-p]').forEach(function(el){ var out=document.getElementById('o_'+el.dataset.p); if(!out) return;
+      var st=el.step&&el.step!=='any'?el.step:'0.01', d=st.indexOf('.')>=0?st.split('.')[1].length:0; out.textContent=(+el.value).toFixed(d)+(el.dataset.u||''); }); }
+    var V3=null, O3=null;
+    if(o.build&&window.PTC3&&PTC3.ok()){ V3=PTC3.view('cv',o.view3d||{up:'z',cam:[6,-8,5],target:[0,0,0],grid:10}); if(V3) O3=o.build(V3,P); }
+    else if(o.build&&!o.scene){ o.scene=function(g){ SK.text(g.x,'3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30,15,'#667'); }; }
+    function draw(t){ t=t||0;
+      if(V3){ try{ o.frame(V3,O3,P,t); }catch(e){ console.error(e); } V3.render(); }
+      else { var c=PTC.setupCanvas(document.getElementById('cv')); if(c.w<20) return; c.x.clearRect(0,0,c.w,c.h);
+        try{ o.scene(c,P,t); }catch(e){ console.error(e); } }
+      if(o.plot&&document.getElementById('mini')) PTC.plot(document.getElementById('mini'),o.plot(P,t));
+      if(o.plot2&&document.getElementById('mini2')) PTC.plot(document.getElementById('mini2'),o.plot2(P,t));
+      if(o.readout) PTC.readout('ro',o.readout(P,t));
+      if(o.caption){ var cp=o.caption(P,t); if(cp) PTC.caption(cp[0],cp[1]); } }
+    function update(){ P=SK.read(); outs(); if(o.pre) o.pre(P); if(V3&&o.rebuild) O3=o.rebuild(V3,O3,P); if(o.check){ var r=o.check(P); PTC.result('res',r[0],r[1]); } if(TL) TL.reset(); else draw(0); }
+    document.querySelectorAll('[data-p]').forEach(function(el){
+      if(el.classList.contains('seg')) el.querySelectorAll('button').forEach(function(b){ b.addEventListener('click',function(){ el.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)}); update(); }); });
+      else el.addEventListener(el.type==='checkbox'?'change':'input',update); });
+    if(o.mode==='time') TL=PTC.timeline({tMin:function(){return 0},tMax:function(){return o.T?o.T(P):10},draw:draw,loop:!!o.loop});
+    PTC.onResize(function(){ if(TL) TL.redraw(); else draw(0); });
+    SK.P=function(){return P}; SK.V3=function(){return V3}; SK.redraw=function(){ if(TL) TL.redraw(); else draw(0); };
+    update();
+  };
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+/* PTC3 — 3D 모의실험 공통 도우미 (three.js r147 + OrbitControls). sim 에 three=True 일 때만 들어간다.
+   사용:  var V=PTC3.view('cv',{up:'z', cam:[6,-8,5], target:[0,0,0], grid:10, axes:3});
+          var a=V.arrow([0,0,0],[1,0,0],'#d23b3b');  a.set(origin, vec)   // 화살표(길이 = |vec|)
+          var b=V.ball(0.2,'#3b6fd6');  b.position.set(x,y,z)               // 공
+          var L=V.line([[0,0,0],[1,1,1]],'#888'); L.set(points)            // 선(궤적)
+          var t=V.label('m',[0,0,1],'#333'); t.set('m₁',[x,y,z])           // 화면 크기 고정 글자
+          V.box([w,d,h],color,opacity) · V.cyl(r,h,color,opacity) · V.plane(w,h,color,opacity)
+          V.group() · V.onFrame(function(dt){…})  // 매 프레임 호출(재생과 무관)
+          V.render()  // 값을 바꾼 뒤 한 번 그리기 (onFrame 이 있으면 자동)
+   좌표: up:'z' 이면 z 가 위(물리 문제 관례), 기본 'y'.  마우스 끌기 = 회전, 휠 = 확대, 오른쪽 끌기 = 이동.
+   인터넷이 없어 three.js 를 못 불러오면 캔버스에 안내 글을 쓰고 null 을 돌려준다(2D 부분은 그대로 동작). */
+(function(){
+  'use strict';
+  var PTC3=window.PTC3={};
+  function col(c){ return new THREE.Color(c||'#555'); }
+  function v3(a){ return new THREE.Vector3(a[0]||0,a[1]||0,a[2]||0); }
+  PTC3.ok=function(){ return !!(window.THREE&&THREE.OrbitControls); };
+  PTC3.view=function(id,o){
+    o=o||{}; var cv=typeof id==='string'?document.getElementById(id):id;
+    if(!PTC3.ok()){
+      try{ var x=cv.getContext('2d'), r=cv.getBoundingClientRect(); cv.width=r.width; cv.height=r.height;
+        x.fillStyle='#667'; x.font='15px "Noto Sans KR",sans-serif'; x.fillText('3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30);}catch(e){}
+      return null;
+    }
+    var renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:false,preserveDrawingBuffer:true});
+    renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+    var scene=new THREE.Scene(); scene.background=col(o.bg||'#f7f8fb');
+    if(o.up==='z') THREE.Object3D.DefaultUp.set(0,0,1);
+    var cam=new THREE.PerspectiveCamera(o.fov||40,1,0.01,(o.far||1000));
+    if(o.up==='z') cam.up.set(0,0,1);
+    cam.position.copy(v3(o.cam||[6,5,8]));
+    var ctl=new THREE.OrbitControls(cam,cv); ctl.target.copy(v3(o.target||[0,0,0])); var off0=cam.position.clone().sub(ctl.target), touched=false, lastAuto=null; ctl.addEventListener('start',function(){touched=true;}); ctl.enableDamping=true; ctl.dampingFactor=0.12; ctl.update();
+    scene.add(new THREE.HemisphereLight(0xffffff,0x8890a0,0.85));
+    var dl=new THREE.DirectionalLight(0xffffff,0.55); dl.position.set(5,8,10); scene.add(dl);
+    var V={THREE:THREE,scene:scene,camera:cam,renderer:renderer,controls:ctl,canvas:cv}, frames=[], dirty=true, last=null;
+    /* (수정) 격자·좌표축은 한 번만 만든다 — 원래 resize() 안에 있어 창 크기가 바뀔 때마다 중복으로 쌓였음 */
+    function addHelpers(){
+    if(o.grid){ var g=new THREE.GridHelper(o.grid,o.gridDiv||o.grid,0xc5cad6,0xe1e4ec); if(o.up==='z') g.rotation.x=Math.PI/2; if(o.gridAt) g.position.copy(v3(o.gridAt)); scene.add(g); V.gridObj=g; }
+    if(o.axes){ var A=o.axes; [[1,0,0,'#d23b3b','x'],[0,1,0,'#2e9e5b','y'],[0,0,1,'#3b6fd6','z']].forEach(function(a){
+      scene.add(new THREE.ArrowHelper(new THREE.Vector3(a[0],a[1],a[2]),new THREE.Vector3(),A,col(a[3]).getHex(),A*0.08,A*0.04));
+      if(o.axisLabels!==false) V.label(a[4],[a[0]*A*1.08,a[1]*A*1.08,a[2]*A*1.08],a[3]); }); }
+    }
+    function resize(){
+      var st=cv.parentElement, w=Math.max(1,st.clientWidth), h=Math.max(1,st.clientHeight);
+      renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix();
+      /* 좁은(세로로 긴) 화면에서는 장면이 잘리지 않도록 카메라를 뒤로 뺀다(사용자가 돌리기 전까지만) */
+      if(lastAuto&&cam.position.distanceTo(lastAuto)>1e-6) touched=true;  /* 모의실험이 카메라를 직접 옮겼으면 손대지 않음 */
+      if(!touched){ var k=Math.max(1,(o.fitAspect||1.5)/cam.aspect); cam.position.copy(ctl.target).add(off0.clone().multiplyScalar(k)); lastAuto=cam.position.clone(); }
+      dirty=true;
+    }
+    V.resize=resize; V.render=function(){ dirty=true; };
+    V.onFrame=function(f){ frames.push(f); };
+    ctl.addEventListener('change',function(){dirty=true;});
+    function loop(ts){
+      var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts;
+      for(var i=0;i<frames.length;i++){ frames[i](dt); dirty=true; }
+      if(ctl.update()) dirty=true;
+      if(dirty){ renderer.render(scene,cam); dirty=false; }
+      requestAnimationFrame(loop);
+    }
+    function mat(c,op,extra){ var m=new THREE.MeshStandardMaterial(Object.assign({color:col(c),roughness:0.55,metalness:0.05},extra||{})); if(op!=null&&op<1){m.transparent=true;m.opacity=op;m.depthWrite=false;} return m; }
+    V.mat=mat;
+    V.add=function(obj,parent){ (parent||scene).add(obj); dirty=true; return obj; };
+    V.group=function(parent){ return V.add(new THREE.Group(),parent); };
+    V.ball=function(r,c,op,parent){ return V.add(new THREE.Mesh(new THREE.SphereGeometry(r,32,20),mat(c,op)),parent); };
+    V.box=function(s,c,op,parent){ return V.add(new THREE.Mesh(new THREE.BoxGeometry(s[0],s[1],s[2]),mat(c,op)),parent); };
+    /* 원기둥: 기본 축은 up 축(z 또는 y) */
+    V.cyl=function(r,h,c,op,parent,r2){ var g=new THREE.CylinderGeometry(r2==null?r:r2,r,h,40,1); if(o.up==='z') g.rotateX(Math.PI/2); return V.add(new THREE.Mesh(g,mat(c,op,{side:THREE.DoubleSide})),parent); };
+    V.plane=function(w,h,c,op,parent){ var g=new THREE.PlaneGeometry(w,h); return V.add(new THREE.Mesh(g,mat(c,op==null?0.35:op,{side:THREE.DoubleSide})),parent); };
+    V.torus=function(R,r,c,op,parent){ return V.add(new THREE.Mesh(new THREE.TorusGeometry(R,r,16,80),mat(c,op)),parent); };
+    V.line=function(pts,c,parent,opt){
+      opt=opt||{}; var n=Math.max(2,opt.max||pts.length||2), geo=new THREE.BufferGeometry(), arr=new Float32Array(n*3);
+      geo.setAttribute('position',new THREE.BufferAttribute(arr,3));
+      var m=opt.dash?new THREE.LineDashedMaterial({color:col(c),dashSize:opt.dash,gapSize:opt.dash*0.7}):new THREE.LineBasicMaterial({color:col(c),transparent:opt.opacity!=null,opacity:opt.opacity==null?1:opt.opacity});
+      var L=new THREE.Line(geo,m);
+      L.set=function(p){ var k=Math.min(n,p.length); for(var i=0;i<k;i++){arr[3*i]=p[i][0];arr[3*i+1]=p[i][1];arr[3*i+2]=p[i][2]||0;} geo.setDrawRange(0,k); geo.attributes.position.needsUpdate=true; geo.computeBoundingSphere(); if(opt.dash) L.computeLineDistances(); dirty=true; return L; };
+      L.set(pts||[]); return V.add(L,parent);
+    };
+    V.arrow=function(from,vec,c,parent,opt){
+      opt=opt||{}; var a=new THREE.ArrowHelper(new THREE.Vector3(1,0,0),new THREE.Vector3(),1,col(c).getHex());
+      a.line.material.linewidth=2;
+      a.set=function(f,v){ var d=v3(v), L=d.length(); a.visible=L>1e-9; if(!a.visible) return a; a.position.copy(v3(f)); a.setDirection(d.clone().normalize());
+        var h=opt.head||Math.min(0.35*L,opt.headMax||0.35); a.setLength(L,h,h*0.55); dirty=true; return a; };
+      a.set(from,vec); return V.add(a,parent);
+    };
+    V.label=function(text,pos,c,parent,px){
+      var cnv=document.createElement('canvas'), ctx=cnv.getContext('2d'), tex=new THREE.CanvasTexture(cnv);
+      var sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,depthTest:false,transparent:true,sizeAttenuation:false}));
+      sp.renderOrder=10;
+      sp.set=function(t,p,cc){
+        if(t!=null&&(t!==sp._t||(cc&&cc!==sp._c))){ sp._t=t; sp._c=cc; var f=(px||15)*2, FONT='600 '+f+'px "Noto Sans KR","Malgun Gothic",sans-serif';
+          ctx.font=FONT; var w=Math.ceil(ctx.measureText(t).width)+12;
+          cnv=document.createElement('canvas'); ctx=cnv.getContext('2d',{willReadFrequently:true});   /* 매번 새 캔버스(CPU) — GPU 업로드 중인 캔버스를 다시 쓰다 글자가 깨지는 일 방지 */
+          cnv.width=w; cnv.height=f+12;
+          ctx.font=FONT; ctx.textBaseline='middle'; ctx.lineJoin='round'; ctx.lineWidth=Math.max(3,f*0.2); ctx.strokeStyle='rgba(255,255,255,0.92)'; ctx.strokeText(t,6,cnv.height/2);   /* 흰 테두리: 뒤의 선·화살표가 글자와 겹쳐 보이지 않게 */
+          ctx.fillStyle=cc||c||'#1b1f2a'; ctx.fillText(t,6,cnv.height/2);
+          tex.dispose(); tex=new THREE.CanvasTexture(cnv); tex.minFilter=THREE.LinearFilter; tex.generateMipmaps=false;   /* 밉맵 번짐 방지 */
+          sp.material.map=tex; sp.material.needsUpdate=true;
+          var sy=0.045*(px||15)/15; sp.scale.set(sy*w/cnv.height,sy,1); sp.center.set(0,0.5); }
+        if(p) sp.position.copy(v3(p)); dirty=true; return sp; };
+      sp.set(text,pos); return V.add(sp,parent);
+    };
+    V.trail=function(c,max,parent){ var pts=[], L=V.line([],c,parent,{max:max||2000}); L.push=function(p){ pts.push(p); if(pts.length>(max||2000)) pts.shift(); L.set(pts); return L; }; L.clear=function(){ pts=[]; L.set(pts); return L; }; return L; };
+    addHelpers();
+    var st=cv.parentElement; if(window.ResizeObserver) new ResizeObserver(resize).observe(st); window.addEventListener('resize',resize);
+    resize(); requestAnimationFrame(loop);
+    return V;
+  };
+})();
+
+</script>
+<script>
+SK.run({mode:'static',loop:false,
+  view3d:{up:'z',cam:[0,-0.5,9],target:[0,0,0],grid:0},
+  build:function(V,P){ var O={cr:[]}, k; O.semi=V.line([],'#3b6fd6',null,{max:80}); O.face=V.line([],'#3b6fd6',null,{max:2}); O.ray=V.line([],'#d23b3b',null,{max:4}); O.nrm=V.line([],'#9aa2b2',null,{max:2,dash:0.1});
+    O.water=V.plane(6,3,'#9fd0f0',0.25); O.bnd=V.line([],'#1b1f2a',null,{max:2}); for(k=0;k<40;k++) O.cr.push(V.line([],'#2f6fd6',null,{max:2})); O.shal=V.plane(4,6,'#cfe8f5',0.35);
+    O.l=V.label('',[-3.6,2.8,0],'#1b1f2a',null,12); return O; },
+  frame:function(V,O,P){ var A=P.ex==='A', k; O.semi.visible=A; O.face.visible=A; O.ray.visible=A; O.nrm.visible=A; O.water.visible=A; O.bnd.visible=!A; O.shal.visible=!A; for(k=0;k<40;k++) O.cr[k].visible=false;
+    if(A){ var R=2.5, pts=[]; for(k=0;k<=60;k++){ var a=Math.PI+Math.PI*k/60; pts.push([R*Math.cos(a),R*Math.sin(a),0]); } O.semi.set(pts); O.face.set([[-R,0,0],[R,0,0]]); O.water.position.set(0,-1.25,-0.01); O.water.scale.set(R*2/6,1,1);
+      var i=P.i*Math.PI/180, x0=P.off?0.6:0, src=[x0-3*Math.sin(i),3*Math.cos(i),0], e=P.exit; O.ray.set([src,[x0,0,0],[e[0],e[1],0],[e[0]+1.2*e[2],e[1]+1.2*e[3],0]]); O.nrm.set([[x0,2.5,0],[x0,-2.8,0]]);
+      O.l.set('(가) sin i / sin r = '+(isFinite(P.ratioA)?P.ratioA.toFixed(3):'—'),null); }
+    else { O.bnd.set([[0,-3,0],[0,3,0]]); O.shal.position.set(2,0,-0.01); var i=P.i*Math.PI/180, r=Math.asin(Math.sin(i)/P.r), l1=0.5, l2=l1/P.r, n1=[Math.cos(i),Math.sin(i)], n2=[Math.cos(r),Math.sin(r)], c=0, m;
+      function seg(n,lam,m,side){ var t=[-n[1],n[0]], pts=[], s; for(s=-12;s<=12;s+=0.05){ var x=m*lam*n[0]+s*t[0], y=m*lam*n[1]+s*t[1]; if(Math.abs(y)<=3&&(side<0?(x>=-4&&x<=0):(x>=0&&x<=4))) pts.push([x,y,0]); } return pts.length>1?[pts[0],pts[pts.length-1]]:null; }
+      for(m=-20;m<=20&&c<40;m++){ var a=seg(n1,l1,m,-1); if(a){ O.cr[c].visible=true; O.cr[c].set(a); c++; } var b=seg(n2,l2,m,1); if(b&&c<40){ O.cr[c].visible=true; O.cr[c].set(b); c++; } }
+      O.l.set('(나) sin i / sin r = '+(Math.sin(i)/Math.sin(r)).toFixed(3)+',  λ₁/λ₂ = '+P.r.toFixed(3),null); } },
+  pre:function(P){ var i=P.i*Math.PI/180, n=P.n, R=2.5, x0=P.off?0.6:0, r=Math.asin(Math.sin(i)/n), d=[Math.sin(r),-Math.cos(r)];
+    var b=x0*d[0], cc=x0*x0-R*R, s=-b+Math.sqrt(b*b-cc), ex=[x0+s*d[0],s*d[1]], nrm=[ex[0]/R,ex[1]/R], ci=-(nrm[0]*d[0]+nrm[1]*d[1])*-1, sin1=Math.sqrt(Math.max(0,1-ci*ci)), out=d;
+    if(P.off){ var cr=d[0]*nrm[1]-d[1]*nrm[0], s2=n*cr; if(Math.abs(s2)<1){ var th=Math.atan2(nrm[1],nrm[0])-Math.asin(s2); out=[Math.cos(th),Math.sin(th)]; } }
+    P.exit=[ex[0],ex[1],out[0],out[1]]; var apparent=Math.atan2(Math.abs(ex[0]),Math.abs(ex[1])); P.ratioA=Math.sin(i)/Math.sin(apparent);
+    var ok=true, a; for(a=10;a<=70;a+=10){ var ii=a*Math.PI/180, rr=Math.asin(Math.sin(ii)/1.33), ee=[2.5*Math.sin(rr),-2.5*Math.cos(rr)], ap=Math.atan2(ee[0],-ee[1]); if(Math.abs(Math.sin(ii)/Math.sin(ap)-1.33)>1e-9) ok=false; } P.okA=ok;
+    var okB=true; for(a=10;a<=70;a+=10){ var ii=a*Math.PI/180, rr=Math.asin(Math.sin(ii)/1.4); if(Math.abs(Math.sin(ii)/Math.sin(rr)-1.4)>1e-9) okB=false; } P.okB=okB; },
+  readout:function(P){ return [['(가) 모눈으로 읽은 굴절각으로 sin i / sin r',isFinite(P.ratioA)?P.ratioA.toFixed(4):'—'],['(가) 레이저 위치',P.off?'중심에서 벗어남 → 곡면에서 다시 꺾여 오차':'중심 → 곡면을 수직 통과'],['(나) sin i / sin r = λ₁/λ₂',P.r.toFixed(3)],['개념적 차이','(가) 광선 모형·현상 기술 / (나) 파동 모형·속력 변화가 원인'],['방법론적 차이','(가) 각도 직접 측정 / (나) 파면 투영·파장 측정']]; },
+  check:function(P){ var ok=P.okA&&P.okB; return [ok, ok?'(가) 여러 입사각에서 sin i/sin r = n 일정, (나) sin i/sin r = λ₁/λ₂ — 두 V도의 지식 주장과 일치 (모범 답안과 일치 ✓)':'확인 필요']; }
+});
+</script>
+<script>
+/* 교사용 페이지 공통 동작: 보기 설정, 메뉴, 전체화면, 키보드, 인쇄 */
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  // 글자/그림 크기
+  var KEY='ptc-teacher-view', LIM={fs:[0.7,1.6],fig:[0.5,1.5]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    $('vFs').textContent=Math.round(st.fs*100)+'%'; $('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){ var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10; st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply(); });
+  });
+  $('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+  // 풀이 모두 펼치기 / 인쇄 시 펼치기
+  $('expandAll').onclick=function(){var ds=document.querySelectorAll('details.step'),all=Array.prototype.every.call(ds,function(d){return d.open});ds.forEach(function(d){d.open=!all});this.textContent=all?'풀이 모두 펼치기':'풀이 모두 접기';};
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('details.step').forEach(function(d){d.open=true});});
+  // 보기 설정 메뉴 닫기
+  var vm=$('viewMenu');
+  document.addEventListener('click',function(e){ if(vm.open && !vm.contains(e.target)) vm.open=false; });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') vm.open=false; });
+  // 현재 구역 표시
+  var links=[].slice.call(document.querySelectorAll('.tb2 a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var y=window.scrollY+140, cur=0;
+    secs.forEach(function(el,i){ if(el && el.getBoundingClientRect().top+window.scrollY<=y) cur=i; });
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) cur=secs.length-1;
+    links.forEach(function(a,i){ var on=(i===cur); if(on!==a.classList.contains('on')){ a.classList.toggle('on',on); if(on) a.scrollIntoView({block:'nearest',inline:'nearest'}); } });
+  }
+  window.addEventListener('scroll',spy,{passive:true}); window.addEventListener('resize',spy); spy();
+  // 모의실험: 전체화면 + 키보드
+  var box=$('simBox'); if(!box) return;
+  function toggleFull(){
+    var fe=document.fullscreenElement||document.webkitFullscreenElement;
+    if(fe){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}
+    else{(box.requestFullscreen||box.webkitRequestFullscreen).call(box);}
+  }
+  if($('bFull')) $('bFull').onclick=toggleFull;
+  function onFs(){var fe=document.fullscreenElement||document.webkitFullscreenElement; if($('bFull')) $('bFull').textContent=fe?'✕ 전체화면 종료':'⛶ 전체화면'; setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);}
+  document.addEventListener('fullscreenchange',onFs); document.addEventListener('webkitfullscreenchange',onFs);
+  box.querySelectorAll('button').forEach(function(b){b.addEventListener('mousedown',function(e){e.preventDefault();});});
+  document.addEventListener('keydown',function(ev){
+    var tag=(ev.target.tagName||'').toLowerCase(); if((tag==='input'&&ev.target.type!=='range')||tag==='select'||tag==='textarea') return;
+    var inSim=box.contains(document.activeElement)||document.fullscreenElement===box||document.activeElement===document.body;
+    if(!inSim) return;
+    if(ev.code==='Space' && window.SIM){ev.preventDefault();window.SIM.toggle();}
+    else if((ev.key==='r'||ev.key==='R') && window.SIM){window.SIM.reset();}
+    else if(ev.key==='f'||ev.key==='F'){toggleFull();}
+  });
+})();
+
+</script>
+</body>
+</html>
