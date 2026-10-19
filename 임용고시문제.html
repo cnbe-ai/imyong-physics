@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>임용 물리 문항 지도</title>
+<style>
+  :root{--ink:#1b1f2a;--accent:#3b3486;--bg:#f4f5f9}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Malgun Gothic",sans-serif}
+  body{display:flex;flex-direction:column}
+  header{background:linear-gradient(90deg,#2b2766,#3b3486 50%,#0f6e66);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  header h1{font-size:17px;margin:0;white-space:nowrap}
+  nav{display:flex;gap:6px;flex-wrap:wrap}
+  nav button{font:inherit;font-size:14.5px;font-weight:700;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.08);color:#fff;padding:6px 14px;border-radius:999px;cursor:pointer;display:flex;gap:7px;align-items:center}
+  nav button small{font-weight:600;opacity:.8;font-size:11.5px}
+  nav button.on{background:#fff;color:var(--accent);border-color:#fff}
+  .blurb{font-size:13px;opacity:.9;flex:1;min-width:180px}
+  .open{color:#fff;font-size:13px;white-space:nowrap}
+  iframe{flex:1;width:100%;border:0;background:#fff}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 중등교사 임용시험 물리 문항 지도</h1>
+  <nav id="tabs"></nav>
+  <span class="blurb" id="blurb"></span>
+  <a class="open" href="index.html">🏠 대문</a> <a class="open" href="임용_문제목록.xlsx" target="_blank">엑셀 문제목록</a> <a class="open" href="학습지.html" target="_blank">학습지 목록</a>
+  <a class="open" id="open" target="_blank">새 창으로 열기 ↗</a>
+</header>
+<iframe id="view" title="대시보드"></iframe>
+<script>
+(function(){
+  var S=[{"key": "home", "tab": "개요", "name": "전체 개요", "blurb": "갈래별·주제별 문항 수와 학년도 진행 현황", "dash": "대시보드/개요.html", "n": 515}, {"key": "all", "tab": "전체 검색", "name": "임용 물리 전체 문항 검색", "blurb": "모든 갈래 학습지를 한 번에 찾기", "dash": "대시보드/전체_대시보드.html", "n": 515}, {"key": "con", "tab": "내용학", "name": "임용 물리 내용학 문항 지도", "blurb": "서술형 물리 내용 문항 — 역학·전자기·열·파동·현대물리", "dash": "대시보드/내용학_대시보드.html", "n": 332}, {"key": "edu", "tab": "물리교육론", "name": "임용 물리 물리교육론 문항 지도", "blurb": "서술형 물리교육론 문항 — 교육과정·학습 이론·개념 변화·탐구·평가", "dash": "대시보드/물리교육론_대시보드.html", "n": 131}, {"key": "mc", "tab": "객관식", "name": "임용 물리 객관식 문항 지도", "blurb": "2009~2013 1차 객관식 — 여러 문항을 한 학습지에 묶음", "dash": "대시보드/객관식_대시보드.html", "n": 52}], tabs=document.getElementById('tabs'), view=document.getElementById('view');
+  S.forEach(function(s){ var b=document.createElement('button'); b.dataset.k=s.key;
+    b.innerHTML=s.tab+(s.key==='home'?'':' <small>'+s.n+'</small>'); b.title=s.name; b.onclick=function(){ location.hash=s.key; }; tabs.appendChild(b); });
+  function show(){
+    var h=location.hash.slice(1), k=h.split('/')[0], rest=h.indexOf('/')>=0?h.slice(h.indexOf('/')+1):'', s=S.filter(function(x){return x.key===k})[0];
+    if(!s){ try{ k=localStorage.getItem('pteHubTab'); }catch(e){} s=S.filter(function(x){return x.key===k})[0]||S[0]; rest=''; }
+    tabs.querySelectorAll('button').forEach(function(b){ b.classList.toggle('on',b.dataset.k===s.key); });
+    var src=s.dash+(rest?'#'+rest:'');
+    if(view.getAttribute('src')!==src) view.setAttribute('src',src);
+    document.getElementById('blurb').textContent=s.name+' — '+s.blurb;
+    document.getElementById('open').href=src;
+    document.title=s.tab+' · 임용 물리 문항 지도';
+    try{ localStorage.setItem('pteHubTab',s.key); }catch(e){}
+  }
+  window.addEventListener('hashchange',show); show();
+})();
+</script>
+</body>
+</html>

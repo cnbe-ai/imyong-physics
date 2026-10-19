@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>임용 물리 기출 대문</title>
+<style>
+  :root{--bg:#f4f5f9;--card:#fff;--ink:#1b1f2a;--sub:#5b6475;--line:#dfe3ee;--accent:#3b3486}
+  @media (prefers-color-scheme:dark){:root{--bg:#151821;--card:#1f2330;--ink:#e8ebf3;--sub:#a3abbd;--line:#343a4c;--accent:#b9b4ff}}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.6}
+  header{background:linear-gradient(100deg,#2c2670,#3b3486 45%,#0f6e66);color:#fff;padding:38px 16px;text-align:center}
+  header h1{margin:0;font-size:clamp(24px,4vw,32px)}
+  header p{margin:8px 0 0;opacity:.92;font-size:15px}
+  main{max-width:900px;margin:0 auto;padding:28px 16px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:transform .15s,box-shadow .15s,border-color .15s}
+  a.card:hover,a.card:focus-visible{transform:translateY(-3px);box-shadow:0 8px 24px rgba(40,40,90,.15);border-color:var(--accent);outline:none}
+  .ico{font-size:42px;line-height:1}
+  .card h2{margin:12px 0 6px;font-size:21px;color:var(--accent)}
+  .card p{margin:0 0 12px;color:var(--sub);font-size:14.5px}
+  .card ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--sub)}
+  .go{display:inline-block;margin-top:14px;font-weight:700;font-size:14px;color:var(--accent)}
+  .tip{max-width:900px;margin:0 auto;padding:0 16px;color:var(--sub);font-size:13.5px}
+  .tip b{color:var(--ink)}
+  footer{max-width:900px;margin:0 auto;text-align:center;color:var(--sub);font-size:12.5px;padding:18px 16px 36px}
+  footer a{color:var(--accent);font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 중등교사 임용시험 물리 기출</h1>
+  <p>2002~2026학년도 · 문항 지도와 학습지 중에서 선택하세요</p>
+</header>
+<main>
+  <a class="card" href="임용고시문제.html">
+    <div class="ico">🗺️</div>
+    <h2>임용고시 문제 (문항 지도)</h2>
+    <p>갈래·주제·학년도별로 문항을 탐색하는 대시보드입니다.</p>
+    <ul><li>전체 개요 · 전체 검색</li><li>내용학 / 물리교육론 / 객관식</li></ul>
+    <span class="go">문항 지도 열기 →</span>
+  </a>
+  <a class="card" href="학습지.html">
+    <div class="ico">📝</div>
+    <h2>학습지</h2>
+    <p>문항별 학생용·교사용 학습지 목록입니다.</p>
+    <ul><li>학생용: 문제 풀이용</li><li>교사용: 모범 답안·채점 기준·모의실험</li></ul>
+    <span class="go">학습지 목록 열기 →</span>
+  </a>
+</main>
+<p class="tip">💡 각 화면 위쪽(또는 아래쪽)의 <b>🏠 대문</b> 버튼을 누르면 언제든 이 화면으로 돌아옵니다.</p>
+<footer><a href="임용_문제목록.xlsx">📊 엑셀 문제목록</a> · 폴더 전체를 통째로 옮겨도 연결이 유지되도록 모든 링크를 상대 경로로 작성했습니다.</footer>
+</body>
+</html>

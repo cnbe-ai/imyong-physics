@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>임용 물리 기출 개요</title>
+<style>
+:root{--bg:#f4f5fa;--panel:#fff;--ink:#1b1f2a;--muted:#5b6475;--faint:#8a93a6;--line:#e3e6ef;--accent:#3b3486;--chip:#eef0f7;
+  --shadow:0 1px 2px rgba(20,24,40,.06),0 6px 18px rgba(20,24,40,.06);--shadow2:0 4px 10px rgba(20,24,40,.08),0 18px 40px rgba(20,24,40,.14)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f1220;--panel:#171b2c;--ink:#e8eaf3;--muted:#a7aec4;--faint:#7c849c;--line:#2a3048;--accent:#a99ff5;--chip:#242a42}}
+:root[data-theme="dark"]{--bg:#0f1220;--panel:#171b2c;--ink:#e8eaf3;--muted:#a7aec4;--faint:#7c849c;--line:#2a3048;--accent:#a99ff5;--chip:#242a42}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.hero{background:radial-gradient(1000px 380px at 10% -10%,rgba(15,110,102,.45),transparent 60%),linear-gradient(135deg,#1f1b4d,#2a2370 50%,#0b4a45);color:#fff;padding:32px 0 28px}
+.kicker{font-size:13px;letter-spacing:.14em;opacity:.75;font-weight:700}
+.hero h1{margin:6px 0 4px;font-size:clamp(26px,3.4vw,40px);font-weight:900}
+.hero p{margin:0;opacity:.85}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:20px}
+.stat{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 14px}
+.stat b{display:block;font-size:26px;font-weight:900;line-height:1.1}.stat span{font-size:12.5px;opacity:.8}
+.prog{height:10px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden;margin-top:18px}.prog i{display:block;height:100%;background:linear-gradient(90deg,#7ee0a1,#3fbf7f)}
+.progl{font-size:13px;opacity:.85;margin-top:6px}
+h2{font-size:20px;font-weight:900;margin:30px 0 12px}
+.regions{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.rc{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.rc:hover{transform:translateY(-4px);box-shadow:var(--shadow2)}
+.rc.off{opacity:.55}.rc.off:hover{transform:none;box-shadow:var(--shadow)}
+.rc .hd{padding:16px 18px;color:#fff;background:var(--c)}
+.rc .hd b{font-size:20px;font-weight:900;display:block}.rc .hd span{font-size:13px;opacity:.85}
+.rc .bd{padding:12px 18px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.rc .num{display:flex;gap:14px;flex-wrap:wrap}.rc .num div{white-space:nowrap}.rc .num div b{font-size:20px;font-weight:900;display:block;line-height:1.15}.rc .num div span{font-size:12px;color:var(--faint)}
+.rc .bar{display:flex;height:8px;border-radius:99px;overflow:hidden;background:var(--chip)}.rc .bar i{height:100%}
+.rc .go{margin-top:auto;text-align:center;border:1px solid var(--line);border-radius:10px;padding:8px;font-weight:800}
+.rc:not(.off):hover .go{background:var(--c);border-color:var(--c);color:#fff}
+.tw{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:600px}
+th,td{padding:9px 12px;text-align:center;border-bottom:1px solid var(--line);font-size:14px}
+th{font-size:13px;color:var(--muted);font-weight:800}
+td:first-child,th:first-child{text-align:left;font-weight:800;white-space:nowrap}
+td a{display:block;border-radius:8px;padding:4px 0;font-weight:800}
+td a:hover{outline:2px solid var(--accent)}
+td.z{color:var(--faint)}
+tr.tot td{font-weight:900;border-bottom:0}
+td .done{background:color-mix(in srgb,#2e9e5b 22%,transparent);color:inherit}
+td .todo{color:var(--faint);font-weight:600;font-size:12.5px}
+td .rd{display:block;font-size:11px;color:var(--faint);font-weight:600}
+td.era{font-size:12px;color:var(--muted);font-weight:600;text-align:left}
+.note{color:var(--faint);font-size:12.5px;margin:8px 2px}
+.foot{color:var(--faint);font-size:12.5px;padding:28px 0 40px;text-align:center}.foot a{color:var(--accent);font-weight:700}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="kicker">TEACHER CERTIFICATION EXAM · PHYSICS</div>
+  <h1>중등교사 임용시험 물리 기출 문항 지도</h1>
+  <p id="sub"></p>
+  <div class="stats" id="stats"></div>
+  <div class="prog"><i id="prog"></i></div><div class="progl" id="progl"></div>
+</div></header>
+<main class="wrap">
+  <h2>갈래별 대시보드</h2>
+  <div class="regions" id="regions"></div>
+  <h2>주제(물리학 분류 1단계·물리교육론) × 갈래 문항 수</h2>
+  <div class="tw"><table id="mx"></table></div>
+  <p class="note">주 분류(첫 번째 코드)로 셉니다. 교육론 문항은 ‘물리교육론’으로 셉니다. 숫자를 누르면 그 주제·갈래의 카드만 모아 봅니다.</p>
+  <h2>학년도 × 갈래 진행 현황</h2>
+  <div class="tw"><table id="yt"></table></div>
+  <p class="note">초록 칸 = 학습지를 만든 문항 수(누르면 해당 카드). 회색 칸 = 아직 만들지 않음(누르면 그 학년도 원문 PDF).</p>
+</main>
+<div class="foot" id="foot"></div>
+<script>
+(function(){
+var D={"n": 515, "nq": 663, "sims": 663, "y0": 2002, "y1": 2026, "majors": [{"k": "역학", "name": "역학", "color": "#2f6fd6", "icon": "⚙️"}, {"k": "열역학 및 통계물리", "name": "열역학 및 통계물리", "color": "#e0782b", "icon": "🔥"}, {"k": "전자기학", "name": "전자기학", "color": "#7a3fa0", "icon": "⚡"}, {"k": "파동 및 광학", "name": "파동 및 광학", "color": "#2e9e5b", "icon": "🌊"}, {"k": "현대물리학", "name": "현대물리학", "color": "#d23b3b", "icon": "⚛️"}, {"k": "물리교육론", "name": "물리교육론", "color": "#0f6e66", "icon": "🎓"}], "kinds": [{"key": "con", "kind": "내용학", "name": "내용학", "color": "#3b3486", "blurb": "서술형 물리 내용 문항 — 역학·전자기·열·파동·현대물리", "n": 332, "nq": 332, "topics": {"역학": 79, "현대물리학": 92, "전자기학": 82, "파동 및 광학": 42, "열역학 및 통계물리": 37}, "ys": [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]}, {"key": "edu", "kind": "교육론", "name": "물리교육론", "color": "#0f6e66", "blurb": "서술형 물리교육론 문항 — 교육과정·학습 이론·개념 변화·탐구·평가", "n": 131, "nq": 131, "topics": {"물리교육론": 131}, "ys": [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]}, {"key": "mc", "kind": "객관식", "name": "객관식", "color": "#9a4d0b", "blurb": "2009~2013 1차 객관식 — 여러 문항을 한 학습지에 묶음", "n": 52, "nq": 200, "topics": {"물리교육론": 17, "역학": 10, "전자기학": 8, "현대물리학": 11, "열역학 및 통계물리": 3, "파동 및 광학": 3}, "ys": [2009, 2010, 2011, 2012, 2013]}], "years": [{"year": 2002, "era": "전공 서술형 (단일 시험지)", "n": {"내용학": 12, "교육론": 5, "객관식": 0, "total": 17}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2002_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2003, "era": "전공 서술형 (단일 시험지)", "n": {"내용학": 14, "교육론": 5, "객관식": 0, "total": 19}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2003_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2004, "era": "전공 서술형 (단일 시험지)", "n": {"내용학": 14, "교육론": 5, "객관식": 0, "total": 19}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2004_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2005, "era": "전공 서술형 (단일 시험지)", "n": {"내용학": 16, "교육론": 8, "객관식": 0, "total": 24}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2005_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2006, "era": "전공 서술형 (단일 시험지)", "n": {"내용학": 16, "교육론": 8, "객관식": 0, "total": 24}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2006_중등1차_물리_전공%20문제.hwp.pdf#page=1"}, {"year": 2007, "era": "전공 서술형 (단일 시험지)", "n": {"내용학": 17, "교육론": 8, "객관식": 0, "total": 25}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2007_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2008, "era": "전공 서술형 (단일 시험지)", "n": {"내용학": 15, "교육론": 7, "객관식": 0, "total": 22}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2008_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2009, "era": "1차 객관식 + 2차 논술형", "n": {"내용학": 2, "교육론": 2, "객관식": 11, "total": 15}, "has": {"내용학": true, "교육론": true, "객관식": true}, "pdf": "../문항모음/2009_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2010, "era": "1차 객관식 + 2차 논술형", "n": {"내용학": 2, "교육론": 2, "객관식": 10, "total": 14}, "has": {"내용학": true, "교육론": true, "객관식": true}, "pdf": "../문항모음/2010_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2011, "era": "1차 객관식 + 2차 논술형", "n": {"내용학": 3, "교육론": 1, "객관식": 10, "total": 14}, "has": {"내용학": true, "교육론": true, "객관식": true}, "pdf": "../문항모음/2011_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2012, "era": "1차 객관식 + 2차 논술형", "n": {"내용학": 2, "교육론": 2, "객관식": 10, "total": 14}, "has": {"내용학": true, "교육론": true, "객관식": true}, "pdf": "../문항모음/2012_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2013, "era": "1차 객관식 + 2차 논술형", "n": {"내용학": 2, "교육론": 2, "객관식": 11, "total": 15}, "has": {"내용학": true, "교육론": true, "객관식": true}, "pdf": "../문항모음/2013_중등1차_물리_전공%20문제.pdf#page=1"}, {"year": 2014, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 7, "객관식": 0, "total": 24}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2014_중등1차_물리_전공A.pdf#page=1"}, {"year": 2015, "era": "1차 전공A·B 서술형", "n": {"내용학": 15, "교육론": 5, "객관식": 0, "total": 20}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2015_중등1차_물리_전공A.pdf#page=1"}, {"year": 2016, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 5, "객관식": 0, "total": 22}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2016_중등1차_물리_전공A.pdf#page=1"}, {"year": 2017, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 5, "객관식": 0, "total": 22}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2017_중등1차_물리_전공A.pdf#page=1"}, {"year": 2018, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 5, "객관식": 0, "total": 22}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2018_중등1차_물리_전공A.pdf#page=1"}, {"year": 2019, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 5, "객관식": 0, "total": 22}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2019_중등1차_물리_전공A.pdf#page=1"}, {"year": 2020, "era": "1차 전공A·B 서술형", "n": {"내용학": 16, "교육론": 7, "객관식": 0, "total": 23}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2020_중등1차_물리_전공A.pdf#page=1"}, {"year": 2021, "era": "1차 전공A·B 서술형", "n": {"내용학": 16, "교육론": 7, "객관식": 0, "total": 23}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2021_중등1차_물리_전공A.pdf#page=1"}, {"year": 2022, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 6, "객관식": 0, "total": 23}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2022_중등1차_물리_전공A.pdf#page=1"}, {"year": 2023, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 6, "객관식": 0, "total": 23}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2023_중등1차_물리_전공A.pdf#page=1"}, {"year": 2024, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 6, "객관식": 0, "total": 23}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2024_중등1차_물리_전공A.pdf#page=1"}, {"year": 2025, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 6, "객관식": 0, "total": 23}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2025_중등1차_물리_전공A.pdf#page=1"}, {"year": 2026, "era": "1차 전공A·B 서술형", "n": {"내용학": 17, "교육론": 6, "객관식": 0, "total": 23}, "has": {"내용학": true, "교육론": true, "객관식": false}, "pdf": "../문항모음/2026_중등1차_물리_전공A.pdf#page=1"}], "built": "2026-10-16"}, $=function(id){return document.getElementById(id)};
+function go(key,hash){ return '../임용고시문제.html#'+key+(hash?'/'+hash:''); }
+var made=D.years.filter(function(y){return y.n.total}).length;
+$('sub').textContent=D.y0+'–'+D.y1+'학년도 중등교사 임용시험 물리 문항을 문항별 학생용·교사용 학습지(모범 답안·채점 기준·모의실험)로 정리했습니다. 대상: 대학생(임용 준비) · 고등학생(심화).';
+$('stats').innerHTML=[[D.n,'학습지 (문항·묶음)'],[D.nq,'문항 수'],[D.n*2,'HTML 학습지'],[D.sims,'모의실험'],[made+' / '+D.years.length,'학년도 진행']]
+  .map(function(s){return '<div class="stat"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'}).join('');
+$('prog').style.width=(100*made/D.years.length)+'%';
+$('progl').textContent='학년도 진행률 '+Math.round(100*made/D.years.length)+'% — '+D.years.length+'개 학년도 중 '+made+'개 학년도에 학습지가 있습니다';
+$('regions').innerHTML=D.kinds.map(function(k){
+  var tot=k.n||1, bar=D.majors.map(function(m){ var v=k.topics[m.k]||0; return v?'<i style="width:'+(100*v/tot)+'%;background:'+m.color+'" title="'+m.name+' '+v+'"></i>':''; }).join('');
+  var off=!k.n, tag=off?'div':'a';
+  return '<'+tag+' class="rc'+(off?' off':'')+'"'+(off?'':' href="'+go(k.key)+'" target="_top"')+' style="--c:'+k.color+'"><div class="hd"><b>'+k.name+'</b><span>'+k.blurb+'</span></div><div class="bd">'+
+    '<div class="num"><div><b>'+k.n+'</b><span>학습지</span></div><div><b>'+k.nq+'</b><span>문항</span></div><div><b>'+(k.ys.length?(k.ys[0]===k.ys[k.ys.length-1]?k.ys[0]:k.ys[0]+'–'+k.ys[k.ys.length-1]):'—')+'</b><span>학년도</span></div></div>'+
+    '<div class="bar">'+bar+'</div><span class="go">'+(off?'준비 중':'대시보드 열기 →')+'</span></div></'+tag+'>';
+}).join('');
+var K=D.kinds.filter(function(k){return k.n}), mx=1;
+K.forEach(function(k){ D.majors.forEach(function(m){ mx=Math.max(mx,k.topics[m.k]||0); }); });
+var h='<tr><th>주제</th>'+K.map(function(k){return '<th>'+k.name+'</th>'}).join('')+'<th>합계</th></tr>';
+D.majors.forEach(function(m){
+  var sum=0, row=K.map(function(k){ var v=k.topics[m.k]||0; sum+=v; if(!v) return '<td class="z">·</td>';
+    var a=Math.round(15+70*v/mx); return '<td><a href="'+go(k.key,'t='+encodeURIComponent(m.k))+'" target="_top" style="background:color-mix(in srgb,'+m.color+' '+a+'%,transparent);color:'+(a>50?'#fff':'inherit')+'">'+v+'</a></td>'; }).join('');
+  h+='<tr><td>'+m.icon+' '+m.name+'</td>'+row+'<td><b>'+(sum||'·')+'</b></td></tr>';
+});
+h+='<tr class="tot"><td>학습지 수</td>'+K.map(function(k){return '<td>'+k.n+'</td>'}).join('')+'<td>'+D.n+'</td></tr>';
+$('mx').innerHTML=h;
+var t='<tr><th>학년도</th><th>시험 형태</th>'+D.kinds.map(function(k){return '<th>'+k.name+'</th>'}).join('')+'</tr>';
+D.years.slice().reverse().forEach(function(y){
+  t+='<tr><td>'+y.year+'</td><td class="era">'+y.era+'</td>'+D.kinds.map(function(k){
+    var v=y.n[k.kind]||0, has=y.has[k.kind];
+    if(v) return '<td><a class="done" href="'+go(k.key,'y='+y.year)+'" target="_top">'+v+'<span class="rd">'+(k.kind==='객관식'?'묶음':'문항')+'</span></a></td>';
+    if(!has) return '<td class="z">·</td>';
+    return '<td><a class="todo" href="'+y.pdf+'" target="_blank" title="원문 PDF">원문<span class="rd">예정</span></a></td>';
+  }).join('')+'</tr>';
+});
+$('yt').innerHTML=t;
+$('foot').innerHTML='생성일 '+D.built+' · <a href="../임용_문제목록.xlsx">엑셀 문제목록</a> · <a href="../index.html" target="_top">🏠 대문</a> · <a href="../학습지.html" target="_top">학습지 목록</a>';
+})();
+</script>
+</body>
+</html>
