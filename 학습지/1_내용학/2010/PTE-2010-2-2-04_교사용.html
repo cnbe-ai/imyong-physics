@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2010-2-2-04] 두 진자 그림자의 위치 차 — 라그랑지안·맥놀이 해석과 ‘주기·중첩’ 사고 활동 수업 계획 · 교사용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#d5dae4; --accent:#3b3486; --accent2:#6a5fd6; --soft:#f4f2fb;
+    --bg:#f6f7fa; --card:#ffffff; --ok:#1e8f4e; --okbg:#e8f6ee; --warn:#b5541c; --warnbg:#fdf1e8;
+    --ball:#1e8f4e; --ramp:#ffe94d; --red:#d23b3b; --blue:#2f6fd6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:calc(16px*var(--fs));line-height:1.7}
+  a{color:var(--accent)}
+  .btn{font:inherit;font-size:14px;padding:6px 13px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn:hover{filter:brightness(.97)}
+  main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,calc(400px*var(--fig)));gap:22px;align-items:start}
+  .kicker{font-size:calc(13px*var(--fs));color:var(--muted)}
+  h1{font-size:calc(30px*var(--fs));margin:4px 0 6px;color:var(--accent);line-height:1.3}
+  h1 small{font-size:calc(16px*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  h2{font-size:calc(22px*var(--fs));margin:0 0 12px;color:var(--ink);display:flex;align-items:center;gap:10px}
+  h2 .num{background:var(--accent);color:#fff;border-radius:8px;font-size:calc(14px*var(--fs));padding:2px 9px}
+  h3{font-size:calc(17px*var(--fs));margin:18px 0 6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+  .tag{font-size:calc(12.5px*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:2px 11px}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:calc(14px*var(--fs));background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+  .meta dt{color:var(--muted)} .meta dd{margin:0}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px;scroll-margin-top:120px}
+  .problem-box{border-left:4px solid var(--accent);background:var(--soft);padding:12px 16px;border-radius:0 10px 10px 0}
+  .orig{font-size:calc(14px*var(--fs));color:var(--muted);font-style:italic;margin-top:8px}
+  .answer-box{border:2px solid var(--ok);background:var(--okbg);border-radius:12px;padding:14px 18px}
+  .answer-box .big{font-size:calc(20px*var(--fs))}
+  .note{background:var(--warnbg);border:1px solid #f0c9ad;border-radius:10px;padding:10px 14px;font-size:calc(15px*var(--fs))}
+  .note b{color:var(--warn)}
+  .ok{color:var(--ok);font-weight:700}
+  details.step{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#fff}
+  details.step>summary{cursor:pointer;padding:10px 14px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:center}
+  details.step>summary::-webkit-details-marker{display:none}
+  details.step>summary .s{background:var(--accent2);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:calc(13px*var(--fs));flex:none}
+  details.step>summary::after{content:"▸";margin-left:auto;color:var(--muted);transition:transform .2s}
+  details.step[open]>summary::after{transform:rotate(90deg)}
+  details.step .body{padding:0 18px 12px 50px}
+  .keyidea{border:2px dashed var(--accent2);border-radius:12px;padding:12px 16px;background:#fbfaff}
+  table{border-collapse:collapse;width:100%;font-size:calc(14.5px*var(--fs))}
+  th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+  th{background:var(--soft);color:var(--accent)}
+  .tablewrap{overflow-x:auto}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .src{font-size:calc(13px*var(--fs));color:var(--muted)}
+  figure{margin:0}
+  figure>svg{width:100%;height:auto;display:block}
+  .eqtag{float:right;color:var(--muted);font-size:calc(13px*var(--fs))}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+
+  /* ---------- simulation ---------- */
+  .sim{display:grid;grid-template-columns:1fr 310px;grid-template-rows:auto 1fr auto;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;height:calc(640px*var(--fig))}
+  .sim .cap{grid-column:1;grid-row:1;padding:8px 14px;background:#fbfbfd;border-bottom:1px solid var(--line);font-size:calc(15px*var(--fs));min-height:44px;display:flex;align-items:center;gap:8px}
+  .sim .cap .ph{background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;font-size:calc(13px*var(--fs));white-space:nowrap}
+  .sim .stage{grid-column:1;grid-row:2;position:relative;min-height:0}
+  .sim canvas#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .sim .bar{grid-column:1;grid-row:3;display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);background:#fbfbfd;flex-wrap:wrap}
+  .sim .bar input[type=range]{flex:1;min-width:140px}
+  .sim .side{grid-column:2;grid-row:1/4;border-left:1px solid var(--line);padding:12px 14px;overflow-y:auto;background:#fcfcfe;font-size:calc(14px*var(--fs))}
+  .side .grp{margin-bottom:12px}
+  .side .grp>label,.side .lbl{display:flex;justify-content:space-between;font-weight:600;font-size:calc(13.5px*var(--fs))}
+  .side .grp>label output{font-weight:700;color:var(--accent)}
+  .side input[type=range]{width:100%}
+  .side .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:4px}
+  .side .seg button{flex:1;font:inherit;font-size:calc(13px*var(--fs));border:0;background:#fff;padding:5px 4px;cursor:pointer}
+  .side .seg button.on{background:var(--accent);color:#fff}
+  .side .chk{display:flex;gap:10px;flex-wrap:wrap;font-size:calc(13px*var(--fs))}
+  .readout{width:100%;font-size:calc(13px*var(--fs));border-collapse:collapse}
+  .readout td{border:0;border-bottom:1px solid #eef0f4;padding:3px 2px}
+  .readout td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .result{margin-top:8px;border-radius:8px;padding:8px 10px;font-weight:700;font-size:calc(14px*var(--fs));background:#f1f2f6}
+  .result.good{background:var(--okbg);color:var(--ok)}
+  .result.bad{background:var(--warnbg);color:var(--warn)}
+  #mini{width:100%;height:150px;display:block;border:1px solid var(--line);border-radius:8px;background:#fff;margin-top:4px}
+  .sim:fullscreen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .sim:fullscreen .cap{font-size:calc(20px*var(--fs));min-height:56px}
+  .sim:fullscreen .side{font-size:calc(15px*var(--fs))}
+  .sim:-webkit-full-screen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .kbd{font-size:calc(12px*var(--fs));color:var(--muted)}
+  .graphs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .graphs canvas{width:100%;height:calc(280px*var(--fig));display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+
+  @media (max-width:900px){
+    .hero,.two,.graphs{grid-template-columns:minmax(0,1fr)}
+    .sim{grid-template-columns:minmax(0,1fr);grid-template-rows:auto calc(380px*var(--fig)) auto auto;height:auto}
+    .sim .side{grid-column:1;grid-row:4;border-left:0;border-top:1px solid var(--line)}
+    details.step .body{padding:0 12px 12px 14px}
+    body{overflow-x:hidden}
+    section.card{padding:16px}
+    h1{font-size:calc(24px*var(--fs))}
+  }
+  @page{size:A4;margin:14mm 12mm 16mm;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:10pt;color:#5b6475}}
+  @media print{
+    .topbar,.sim,.graphs,.noprint{display:none!important}
+    section.card{break-inside:auto;border:0;padding:0}
+    details.step{break-inside:avoid}
+    body{background:#fff}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  #problem{--c:#3b3486} #answer{--c:#1e8f4e} #ai{--c:#6a5fd6} #book{--c:#2f6fd6}
+  #compare{--c:#0f8b8d} #sim{--c:#d9731a} #graph{--c:#c2417a} #teach{--c:#a87a00}
+  .hero{scroll-margin-top:130px}
+  section.card{border-top:4px solid var(--c,var(--accent))}
+  h2 .num{background:var(--c,var(--accent))!important}
+  .topbar{position:sticky;top:0;z-index:30;font-size:15px;box-shadow:0 2px 10px rgba(30,25,80,.12)}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:1180px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .ttl small{font-weight:500;opacity:.75;font-size:13px;margin-left:6px}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;align-items:center;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 11px;cursor:pointer;white-space:nowrap;list-style:none}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tbtn .ic{font-size:15px;line-height:1}
+  details.view{position:relative}
+  details.view>summary::-webkit-details-marker{display:none}
+  details.view[open]>summary{background:rgba(255,255,255,.3)}
+  .vpanel{position:absolute;right:0;top:calc(100% + 8px);width:290px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 14px 40px rgba(20,20,60,.22);padding:14px 16px;z-index:40}
+  .vpanel h4{margin:0 0 10px;font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+  .vrow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef0f4;font-size:14px;font-weight:600}
+  .vrow:last-of-type{border-bottom:0}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .stepper button{font:inherit;width:32px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486;font-size:14px}
+  .vfoot{display:flex;gap:8px;margin-top:12px}
+  .vfoot button{flex:1;font:inherit;font-size:13px;font-weight:600;padding:7px 8px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  .vfoot button:hover{background:var(--soft)}
+  .tb2{background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .tb2 .in{height:46px;overflow-x:auto;scrollbar-width:none;gap:6px}
+  .tb2 .in::-webkit-scrollbar{display:none}
+  .tb2 a{--c:#3b3486;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;
+    color:#4a5163;padding:6px 13px;border-radius:999px;border:1px solid transparent;transition:background .15s,color .15s}
+  .tb2 a .dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+  .tb2 a:hover{background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--c)}
+  .tb2 a.on{background:var(--c);color:#fff}
+  .tb2 a.on .dot{background:#fff}
+  .tb2 a[href="#problem"]{--c:#3b3486} .tb2 a[href="#answer"]{--c:#1e8f4e} .tb2 a[href="#ai"]{--c:#6a5fd6} .tb2 a[href="#book"]{--c:#2f6fd6}
+  .tb2 a[href="#compare"]{--c:#0f8b8d} .tb2 a[href="#sim"]{--c:#d9731a} .tb2 a[href="#graph"]{--c:#c2417a} .tb2 a[href="#teach"]{--c:#a87a00}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:760px){
+    .tbtn .tx{display:none}
+    .tbtn{padding:6px 9px}
+    .tb1 .ttl small{display:none}
+    .vpanel{position:fixed;left:12px;right:12px;top:62px;width:auto}
+  }
+
+  .heroside .fig img{width:100%}
+  .fig{margin:0 0 10px}
+  .fig img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .fig figcaption{font-size:calc(13px*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(300px*var(--fig));max-width:45%;margin:0 0 10px 16px}
+  .psec{clear:both;margin-top:10px;overflow:hidden}
+  .psec h3{margin:8px 0 6px;color:var(--accent)}
+  h3 small,.sec h2 small{color:var(--muted);font-weight:500;font-size:.8em}
+  .pq{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0;clear:both}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;margin-right:6px;font-weight:700;font-size:.9em}
+  .pts{display:inline-block;color:var(--muted);font-size:.85em;margin-right:6px}
+  .partsol{border-top:2px solid var(--line);padding-top:12px;margin-top:22px}
+  .partsol:first-child{border-top:0;margin-top:0}
+  .partsol h3{display:flex;align-items:center;gap:6px;margin-top:0}
+  .ailab,.oflab{font-weight:800;font-size:calc(13px*var(--fs));letter-spacing:.04em;margin:12px 0 4px}
+  .ailab{color:#6a5fd6} .oflab{color:#2f6fd6}
+  .offic{border-left:4px solid #2f6fd6;background:#f2f7fe;border-radius:0 10px 10px 0;padding:8px 14px;margin-top:10px}
+  .partsol .answer-box{margin-top:10px;padding:10px 14px}
+  .anstab td:nth-child(3){font-size:calc(15px*var(--fs))}
+  .problem-box h3{font-size:calc(16px*var(--fs))}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  details.origimg{margin-top:8px;border:1px dashed #9db8e6;border-radius:8px;background:#fff}
+  details.origimg>summary{cursor:pointer;padding:6px 12px;font-size:calc(13.5px*var(--fs));font-weight:700;color:#2f6fd6}
+  details.origimg img{display:block;max-width:100%;margin:0 auto 8px;padding:0 8px}
+  .anstab tr.ext td{background:#fffaf0}
+  .sim .stage{background:#f7f8fb}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가 */
+  .jaryo,.method,.bogi{border:1.2px solid #8a93a6;border-radius:6px;padding:14px 16px 8px;margin:14px 0 10px;position:relative;background:#fff}
+  .jaryo>.jt,.method>.jt,.bogi>.jt{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#fff;padding:0 10px;font-size:.9em;font-weight:700;white-space:nowrap}
+  .method{background:#fbfbfd} .method>.jt{background:#fbfbfd}
+  .jaryo p{margin:0 0 6px} .jaryo table{font-size:.93em}
+  .method ul{margin:0;padding-left:18px;list-style:"◦ "}
+  .bogi ol{list-style:none;margin:0;padding:0} .bogi li{padding-left:20px;text-indent:-20px;margin-bottom:4px}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:3px 12px} .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:3px}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:4px 14px;margin:8px 0}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr))}
+  .choices .h{font-weight:600;text-decoration:underline;text-align:center} .choices .c{text-align:center}
+  .choices .ok{color:var(--ok);font-weight:800}
+  .mcqbox{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0;background:#fff}
+  .mcqbox .qh{font-weight:800;color:var(--accent)}
+  .cn td:first-child{width:12%;text-align:center;font-weight:700}
+  .cn tr.right td{background:var(--okbg)}
+  .rubric td:nth-child(2){width:9%;text-align:center;font-weight:700}
+  .hsbox{border:1px solid #e7b55a;border-left:5px solid #e0a020;background:#fff9ec;border-radius:0 10px 10px 0;padding:10px 16px;margin-top:10px}
+  .hsbox b{color:#9a6400}
+  .aud{display:inline-block;font-size:.8em;border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:0 9px;font-weight:700;margin-left:4px}
+  #rubric{--c:#0f8b8d} #hs{--c:#d08a00}
+  .simq{margin:14px 0 26px} .simq h3{display:flex;align-items:center;gap:8px}
+  .simframe{width:100%;height:calc(680px*var(--fig));border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+  @media (max-width:900px){.simframe{height:1100px}}
+  @media print{.simq{display:none}}
+  .tb2 a[href="#rubric"]{--c:#0f8b8d} .tb2 a[href="#hs"]{--c:#d08a00}
+</style>
+<style>:root{--accent:#3b3486;--soft:#f4f2fb} .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%)!important} .tbtn.solid{color:#3b3486!important} .stepper button,.stepper output{color:#3b3486!important} #problem,.tb2 a[href="#problem"]{--c:#3b3486} .qnum{background:#3b3486} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code" title="분류번호">PTE-2010-2-2-04</span><span class="code" style="background:transparent;font-weight:600" title="출제 연도">2010 2차 논술형 2교시 </span>
+    <span class="ttl">두 진자 그림자의 위치 차 — 라그랑지안·맥놀이 해석과 ‘주기·중첩’ 사고 활동 수업 계획<small>Shadows of two pendulums · Lagrangian, beats in y₂ − y₁, reading f₁, f₂ from an MBL graph · lesson plan with thinking skills · 교사용 · 서술형 · 내용학</small></span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#con/y=2010" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn solid" href="PTE-2010-2-2-04_학생용.html" title="학생용 학습지"><span class="ic">📝</span><span class="tx">학생용</span></a>
+      <span class="tbtn" style="opacity:.45;cursor:not-allowed" title="문항모음 폴더에 해당 시험지 PDF가 없습니다"><span class="ic">📄</span><span class="tx">문제 PDF(없음)</span></span>
+      <button class="tbtn" type="button" onclick="window.print()" title="인쇄"><span class="ic">🖨</span><span class="tx">인쇄</span></button>
+      <details class="view" id="viewMenu">
+        <summary class="tbtn" title="보기 설정"><span class="ic">⚙</span><span class="tx">보기 설정</span></summary>
+        <div class="vpanel">
+          <h4>보기 설정</h4>
+          <div class="vrow"><span>글자 크기</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+          <div class="vrow"><span>그림 크기</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+          <div class="vfoot"><button type="button" id="expandAll">풀이 모두 펼치기</button><button type="button" id="vReset">크기 초기화</button></div>
+        </div>
+      </details>
+    </div>
+  </div></div>
+  <nav class="tb2" aria-label="본문 바로가기"><div class="in">
+<a href="#problem"><span class="dot"></span>문제</a><a href="#answer"><span class="dot"></span>정답</a><a href="#ai"><span class="dot"></span>풀이</a><a href="#rubric"><span class="dot"></span>채점 기준</a><a href="#compare"><span class="dot"></span>검토</a><a href="#sim"><span class="dot"></span>모의실험</a><a href="#hs"><span class="dot"></span>고교 연계</a><a href="#teach"><span class="dot"></span>수업 활용</a>
+  </div></nav>
+</header>
+
+<main>
+
+  <div class="hero" id="problem">
+    <div>
+      <div class="kicker">2010학년도 2차 논술형 2교시 4번 · 중등학교교사 임용후보자 선정경쟁시험 물리</div>
+      <h1>두 진자 그림자의 위치 차 — 라그랑지안·맥놀이 해석과 ‘주기·중첩’ 사고 활동 수업 계획<small>Shadows of two pendulums · Lagrangian, beats in y₂ − y₁, reading f₁, f₂ from an MBL graph · lesson plan with thinking skills</small></h1>
+      <div class="tags"><span class="tag" style="background:var(--accent);color:#fff;font-weight:700">PTE-2010-2-2-04</span><span class="tag">단진자</span><span class="tag">라그랑지안</span><span class="tag">소각 근사</span><span class="tag">맥놀이</span><span class="tag">MBL</span><span class="tag">그림자</span><span class="tag">중첩</span><span class="tag">변인 통제</span><span class="tag">예측하기</span><span class="tag">수업 계획</span></div>
+      <div class="problem-box"><p>철수는 그림과 같이 길이가 \(l_1\), \(l_2\)인 줄에 질량 \(m\)인 쇠구슬을 달아 진자 실험을 하였다. 왼쪽에서 평행광선을 비추었더니 스크린에 비친 두 쇠구슬의 그림자가 동일한 수직선상에서 각각 위아래로 진동하였다. 두 쇠구슬의 그림자 위치 \(y_1\)과 \(y_2\)를 MBL (Micro-computer Based Laboratory)장치와 센서로 측정하여 시간에 대한 두 그림자 위치의 차이(\(y_2-y_1\)) 그래프를 얻었다.</p>
+<p>철수는 &lt;그래프&gt;에서 파형이 주기적으로 나타나는 것을 관찰하고, 이러한 특성을 다음과 같은 과정으로 알아보았다. <b>【30점】</b></p>
+<div class="jaryo">
+<p>① 라그랑지안 방정식을 이용하여 두 진자의 운동을 분석한다. 줄의 질량과 공기저항을 무시할 때, 라그랑지안은 \(L=T-V=\)____㉠____이다. 라그랑지안 방정식을 적용하면 두 진자의 각도에 대한 방정식이 아래와 같다.</p>
+\[ \ddot\theta+\frac{g}{l_1}\sin\theta=0,\qquad\ddot\phi+\frac{g}{l_2}\sin\phi=0 \]
+<p>초기값 \(\theta_0\)와 \(\phi_0\)가 작으면, \(\theta=\theta_0\cos\omega_1t\), \(\phi=\phi_0\cos\omega_2t\)이다.</p>
+<p>② 두 쇠구슬의 그림자 위치의 차이(\(y_2-y_1\))를 구한다. 천장을 기준으로 하고, 아랫방향을 양(+)의 방향으로 하면, \(y_1=l_1\cos\theta\), \(y_2=l_2\cos\phi\)이므로</p>
+\[ \begin{aligned} y_2-y_1&=l_2\cos\phi-l_1\cos\theta\\&\approx l_2\left(1-\tfrac12\phi^2\right)-l_1\left(1-\tfrac12\theta^2\right)\\
+&=(l_2-l_1)+\tfrac12(l_1\theta^2-l_2\phi^2)\\&=(l_2-l_1)+\tfrac12(l_1\theta_0^2\cos^2\omega_1t-l_2\phi_0^2\cos^2\omega_2t) \end{aligned} \]
+<p>(\(\theta_0\)가 작으므로, \(\cos\theta\approx1-\tfrac12\theta^2\)으로 근사하였다.)</p>
+<p>파형을 보면 ____㉡____ 이므로, \(A=\tfrac12l_1\theta_0^2=\tfrac12l_2\phi_0^2\)으로 두면,</p>
+\[ \begin{aligned} y_2-y_1&=(l_2-l_1)+A(\cos^2\omega_1t-\cos^2\omega_2t)\\&=(l_2-l_1)+\frac A2(\cos2\omega_1t-\cos2\omega_2t)\\&=(l_2-l_1)-A\sin(\omega_1+\omega_2)t\,\sin(\omega_1-\omega_2)t\\&=(l_2-l_1)-A\sin2\pi(f_1+f_2)t\,\sin2\pi(f_1-f_2)t \end{aligned} \]
+<p>③ 수학적으로 유도한 결과와 그래프 파형을 비교하여, 두 진자의 진동수를 각각 구한다. \(f_1=\)____㉢____, \(f_2=\)____㉣____</p></div><figure class="fig" style="max-width:calc(440px*var(--fig))"><img src="../../그림/2010/PTE-2010-2-2-04_1.png" alt="길이 l₁, l₂인 두 진자, 왼쪽의 평행광, 스크린의 그림자와 MBL 그래프 (원문) 원문"><figcaption>길이 l₁, l₂인 두 진자, 왼쪽의 평행광, 스크린의 그림자와 MBL 그래프 (원문) <span class="scan">원문</span></figcaption></figure>
+      <div class="psec"><h3>4-1</h3><p>위 과정에서 ㉠~㉣의 빈 칸에 들어갈 내용을 쓰고, 만일 위 실험에서 평행광선을 위에서 아래로 비추어 바닥에 비친 두 진자의 그림자 위치 차이를 측정한다면 결과가 어떻게 달라질지 정성적으로 설명하시오. <b>[20점]</b></p>
+      <div class="pq"><span class="qnum">4-1 ㉠</span><span class="pts">3점</span><p>㉠ 두 진자의 라그랑지안 \(L=T-V\)를 쓰시오.</p></div><div class="pq"><span class="qnum">4-1 ㉡</span><span class="pts">3점</span><p>㉡ 파형의 어떤 특징 때문에 \(A=\tfrac12l_1\theta_0^2=\tfrac12l_2\phi_0^2\)으로 둘 수 있는가?</p></div><div class="pq"><span class="qnum">4-1 ㉢㉣</span><span class="pts">6점</span><p>㉢, ㉣ 그래프에서 두 진자의 진동수 \(f_1\), \(f_2\)를 구하시오.</p></div><div class="pq"><span class="qnum">4-1 위에서 비출 때</span><span class="pts">8점</span><p>평행광선을 위에서 아래로 비추어 바닥에 비친 두 진자의 그림자 위치 차이를 측정한다면 결과가 어떻게 달라지는지 정성적으로 설명하시오.</p></div>
+      <div class="pq" style="border-color:#e0c070"><span class="qnum ext">확장 1</span><p>구한 진동수와 그래프(진폭 약 3 cm)로 두 진자의 길이와 처음 각을 추정하시오. (\(g=9.8\ \mathrm{m/s^2}\))</p></div></div>
+      <div class="psec"><h3>4-2</h3><p>김 교사는 고등학교 교육과정의 물리 내용에 나오는 ‘주기와 진동수’, ‘파동의 중첩 원리’ 개념을 다음에 제시한 &lt;사고 활동&gt;을 활용하여 고등학생을 지도하는 데 적절한 수업을 계획하고 있다. 김 교사가 계획 중인 아래의 &lt;수업 활동 계획&gt;에서 ‘상관관계 찾기’ 이외의 내용을 완성하시오. (단, 수업 내용을 이미 제시한 ‘상관관계 찾기’의 경우와 같이 &lt;사고 활동&gt;에 알맞은 주요 내용이 분명하게 나타나도록 간략하게 제시하시오.) <b>[10점]</b></p>
+<div class="jaryo"><span class="jt">&lt;사고 활동&gt;</span><table><tr><th>사고 활동</th><th>설명</th></tr><tr><td>상관관계 찾기</td><td>두 사물이나 두 사건 간에 있을 수 있는 상관관계를 찾기</td></tr>
+<tr><td>변인 통제하기</td><td>독립 변인이 두 개 이상일 때, 하나의 변인만을 변화시키고 나머지 변인들을 일정하게 유지하기</td></tr><tr><td>보존되는 것 찾기</td><td>겉보기에 다른 여러 사물이나 사건 속에서 일정한 값을 발견하기</td></tr>
+<tr><td>예측하기</td><td>주어진 법칙과 조건에 따라 어떤 현상이 일어날 지 연역 논리적으로 예측하기</td></tr></table></div>
+<div class="jaryo"><span class="jt">&lt;수업 활동 계획&gt;</span><table><tr><th>물리 개념</th><th>사고 활동</th><th>수업 내용</th></tr>
+<tr><td rowspan="2">주기와 진동수</td><td>상관관계 찾기</td><td>1개의 진자에 대해 길이를 달리해서 주기의 변화를 측정한다. 측정한 결과로부터 진자의 길이와 주기의 상관관계를 도출한다.</td></tr><tr><td>변인통제하기</td><td>(작성)</td></tr>
+<tr><td rowspan="2">파동의 중첩 원리</td><td>보존되는 것 찾기</td><td>(작성)</td></tr><tr><td>예측하기</td><td>(작성)</td></tr></table></div>
+      <div class="pq"><span class="qnum">4-2</span><span class="pts">10점</span><p>&lt;수업 활동 계획&gt;의 ‘변인통제하기’, ‘보존되는 것 찾기’, ‘예측하기’ 칸의 수업 내용을 완성하시오.</p></div>
+      </div></div>
+    </div>
+    <div class="heroside">
+      <dl class="meta"><dt>시험</dt><dd>2010학년도 2차 논술형 2교시 4번 · 서술형 · 내용학</dd><dt>대상</dt><dd>대학생(임용 준비·물리교육과) · 고등학생(심화·영재)</dd><dt>물리학 분류</dt><dd><b>[주]</b> 역학 › 진동 및 만유인력 › 진동 › <b>1.4.1.2 단진자와 물리 진자</b><br>[보조] 파동 및 광학 › 파동 역학 › 음파 › <b>4.1.2.2 맥놀이 현상과 도플러 효과</b><br>[보조] 파동 및 광학 › 파동 역학 › 기계적 파동 › <b>4.1.1.3 중첩의 원리, 정상파, 공명</b></dd><dt>원문</dt><dd><span title="문항모음 폴더에 해당 시험지 PDF가 없습니다">문제 PDF 없음</span><br><small>공식 정답·채점 기준 미공개 — 모범 답안은 AI 풀이를 수식·수치·모의실험으로 검증한 것</small></dd><dt>난이도</dt><dd>★★★☆☆ (소각 근사와 삼각함수 공식으로 맥놀이 꼴을 만들고 그래프에서 진동수를 읽는다. 위에서 비출 때의 차이를 정성적으로 설명)</dd><dt>대학 과목</dt><dd>고전역학(라그랑지안, 단진자) · 파동(맥놀이·중첩) · 물리교육론(사고 활동, 수업 계획)</dd><dt>고교 교육과정</dt><dd>물리학Ⅱ 단진자·진동(2015) · 물리학Ⅰ 파동의 중첩 · 탐구 기능(변인 통제·예측)</dd><dt>핵심 개념</dt><dd>\(y=l\cos\theta\approx l-\tfrac12l\theta^2\) → \(y_2-y_1=(l_2-l_1)-A\sin2\pi(f_1+f_2)t\,\sin2\pi(f_1-f_2)t\). 그래프: 빠른 진동 주기 1 s → \(f_1+f_2=1\) Hz, 마디 간격 5 s → \(|f_1-f_2|=0.1\) Hz → \(f_1=0.55\), \(f_2=0.45\) Hz.</dd></dl>
+    </div>
+  </div>
+  <section class="card" id="answer">
+    <h2><span class="num">정답</span>모범 답안 요약</h2>
+<div class="tablewrap"><table class="anstab"><tr><th style="width:10%">문항</th><th>모범 답안 (요약)</th><th style="width:26%">검증</th></tr><tr><td><b>4-1 ㉠</b></td><td>\(L=\tfrac12ml_1^2\dot\theta^2+\tfrac12ml_2^2\dot\phi^2+mgl_1\cos\theta+mgl_2\cos\phi\)</td><td>라그랑주 방정식 → 주어진 식 재현</td></tr><tr><td><b>4-1 ㉡</b></td><td>파형의 진폭(포락선)이 주기적으로 0이 되는(맥놀이 마디에서 진동이 완전히 사라지는) 모양이므로, 두 항의 진폭이 같다.</td><td>모의실험: A 슬라이더 — 같은 진폭 조건에서 마디의 진폭이 0</td></tr><tr><td><b>4-1 ㉢㉣</b></td><td>\(f_1=0.55\) Hz, \(f_2=0.45\) Hz</td><td>모의실험 RK4(비선형 진자): 측정 f₁ + f₂ ≈ 1 Hz, 마디 간격 ≈ 5 s</td></tr><tr><td><b>4-1 위에서 비출 때</b></td><td>바닥의 그림자 위치 차는 x₂ − x₁ ≈ D + l₂φ₀cos ω₂t − l₁θ₀cos ω₁t: ① 진폭이 훨씬 크고(1차), ② 각 그림자가 진자의 진동수 f로 진동(빠른 진동 ≈ 0.5 Hz), ③ 맥놀이 최소 간격이 10 s로 두 배, ④ 두 진폭이 달라 최소에서도 0이 되지 않으며, ⑤ 기준선이 매단 점 사이 거리 D가 된다.</td><td>모의실험 ‘위에서 아래로’ 모드의 RK4 그래프</td></tr><tr class=ext><td><b>확장 1</b><br><small>확장</small></td><td>l₁ ≈ 0.82 m, l₂ ≈ 1.23 m, θ₀ ≈ 0.27 rad, φ₀ ≈ 0.22 rad</td><td>모의실험 readout</td></tr><tr><td><b>4-2</b></td><td>변인통제하기: 길이·진폭은 일정, 추의 질량만 바꾸어 주기 측정(주기는 질량과 무관). 보존되는 것 찾기: 두 펄스가 겹쳤다 지나간 뒤 각 펄스의 모양·진폭·속력이 보존됨을 관찰(독립성). 예측하기: 중첩 원리로 두 펄스가 만날 때의 합성 파형(또는 두 소리굽쇠의 맥놀이 진동수 |f₁ − f₂|)을 미리 예측하고 실험으로 확인.</td><td>사고 활동 정의에 따른 계획 — 공식 정답 미공개</td></tr></table></div>
+  </section>
+  <section class="card" id="ai">
+    <h2><span class="num">1</span>소문항별 풀이 (AI 모범 답안)</h2>
+
+    <div class="partsol" id="sol-1">
+      <h3><span class="qnum">4-1 ㉠</span>4-1 <small>3점</small></h3>
+      <div class="pq"><p>㉠ 두 진자의 라그랑지안 \(L=T-V\)를 쓰시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(L=\tfrac12ml_1^2\dot\theta^2+\tfrac12ml_2^2\dot\phi^2+mgl_1\cos\theta+mgl_2\cos\phi\).</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>T와 V</summary><div class="body"><p>\(T=\tfrac12m(l_1\dot\theta)^2+\tfrac12m(l_2\dot\phi)^2\), 천장을 기준(0)으로 아래가 음의 높이: \(V=-mgl_1\cos\theta-mgl_2\cos\phi\).</p><p>오일러–라그랑주: \(ml_1^2\ddot\theta+mgl_1\sin\theta=0\) → \(\ddot\theta+\dfrac g{l_1}\sin\theta=0\) ✓.</p></div></details>
+      <div class="answer-box"><b>답</b> \(L=\tfrac12ml_1^2\dot\theta^2+\tfrac12ml_2^2\dot\phi^2+mgl_1\cos\theta+mgl_2\cos\phi\)</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>V의 부호(천장 기준)를 틀리면 운동 방정식의 부호가 바뀐다.</p></div>
+    </div>
+    <div class="partsol" id="sol-2">
+      <h3><span class="qnum">4-1 ㉡</span>4-1 <small>3점</small></h3>
+      <div class="pq"><p>㉡ 파형의 어떤 특징 때문에 \(A=\tfrac12l_1\theta_0^2=\tfrac12l_2\phi_0^2\)으로 둘 수 있는가?</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 파형의 진폭이 주기적으로 0(마디)이 된다 — 진폭이 완전히 상쇄되므로 두 항의 진폭이 같다.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>판단</summary><div class="body"><p>\(\tfrac12(l_1\theta_0^2\cos^2\omega_1t-l_2\phi_0^2\cos^2\omega_2t)\)에서 두 진폭이 다르면 맥놀이 마디에서도 진동이 남는다. 그래프는 약 5, 10, 15 s에서 진동이 거의 사라지는(완전 맥놀이) 모양 → 두 진폭이 같다: \(\tfrac12l_1\theta_0^2=\tfrac12l_2\phi_0^2=A\).</p></div></details>
+      <div class="answer-box"><b>답</b> 파형의 진폭(포락선)이 주기적으로 0이 되는(맥놀이 마디에서 진동이 완전히 사라지는) 모양이므로, 두 항의 진폭이 같다.</div>
+      
+    </div>
+    <div class="partsol" id="sol-3">
+      <h3><span class="qnum">4-1 ㉢㉣</span>4-1 <small>6점</small></h3>
+      <div class="pq"><p>㉢, ㉣ 그래프에서 두 진자의 진동수 \(f_1\), \(f_2\)를 구하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 빠른 진동 주기 1 s → f₁ + f₂ = 1 Hz. 마디(진폭 0) 간격 5 s → 1/(2|f₁ − f₂|) = 5 → |f₁ − f₂| = 0.1 Hz. l₁ < l₂ → f₁ = 0.55 Hz, f₂ = 0.45 Hz.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>그래프 읽기</summary><div class="body"><p>봉우리 간격 ≈ 1 s(예: 1.75, 2.7, 3.7 s …) → \(f_1+f_2=1\) Hz. 진동이 사라지는 시각 ≈ 0, 5, 10, 15 s → \(\dfrac{1}{2(f_1-f_2)}=5\) s → \(f_1-f_2=0.1\) Hz.</p></div></details>
+<details class="step" open><summary><span class="s">2</span>결과</summary><div class="body"><p>\(f_1=0.55\) Hz, \(f_2=0.45\) Hz (\(l_1\lt l_2\) → \(f_1\gt f_2\)). 확인: \(l=g/(2\pi f)^2\) → \(l_1\approx0.82\) m, \(l_2\approx1.23\) m, \(l_2-l_1\approx41\) cm (그래프의 기준선 ≈ 41 cm).</p></div></details>
+      <div class="answer-box"><b>답</b> \(f_1=0.55\) Hz, \(f_2=0.45\) Hz</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>마디 간격 5 s를 맥놀이 주기 1/Δf로 보아 Δf = 0.2 Hz(f = 0.6, 0.4 Hz)로 답하는 실수 — |sin|의 0점 간격은 1/(2Δf).</p></div>
+    </div>
+    <div class="partsol" id="sol-4">
+      <h3><span class="qnum">4-1 위에서 비출 때</span>4-1 <small>8점</small></h3>
+      <div class="pq"><p>평행광선을 위에서 아래로 비추어 바닥에 비친 두 진자의 그림자 위치 차이를 측정한다면 결과가 어떻게 달라지는지 정성적으로 설명하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — x₂ − x₁ = D + l₂φ₀cos ω₂t − l₁θ₀cos ω₁t: 진폭이 1차(수십 cm)로 훨씬 크고, 진동수가 2f가 아닌 f(빠른 진동 약 0.5 Hz, 주기 2 s), 맥놀이 최소 간격이 1/Δf = 10 s로 두 배, 두 진폭이 달라(l₁θ₀ ≠ l₂φ₀) 마디에서 0이 되지 않음, 기준선은 두 매달린 점 사이 거리 D.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>식</summary><div class="body"><p>\(x_2-x_1=D+l_2\sin\phi-l_1\sin\theta\approx D+l_2\phi_0\cos\omega_2t-l_1\theta_0\cos\omega_1t\) (D = 두 매단 점의 수평 거리).</p></div></details>
+<details class="step" open><summary><span class="s">2</span>달라지는 점</summary><div class="body"><ul><li><b>진폭</b>: 각도의 1차 항이라 수십 cm로 매우 크다(옆 빛은 2차 항, 약 3 cm).</li>
+<li><b>진동수</b>: 그림자는 진자의 진동수 f₁, f₂ 그대로 진동(옆 빛에서는 2f). 빠른 진동은 평균 진동수 \((f_1+f_2)/2=0.5\) Hz(주기 약 2 s).</li>
+<li><b>맥놀이</b>: 포락선 \(|\cos\pi(f_1-f_2)t|\)류 → 진폭이 최소가 되는 간격이 10 s로 길어진다(옆 빛 5 s).</li>
+<li><b>완전 상쇄 안 됨</b>: \(l_1\theta_0^2=l_2\phi_0^2\)이면 \(l_1\theta_0/l_2\phi_0=\sqrt{l_1/l_2}\neq1\) → 마디에서도 진폭이 0이 되지 않는다.</li>
+<li><b>기준선</b>: \(l_2-l_1\)이 아니라 두 매단 점 사이 거리 D. 또 t = 0에서 두 진자가 같은 쪽에서 출발하면 처음에 차이가 작고(위상 같음) 5 s 무렵 가장 커진다.</li></ul></div></details>
+      <div class="answer-box"><b>답</b> 바닥의 그림자 위치 차는 x₂ − x₁ ≈ D + l₂φ₀cos ω₂t − l₁θ₀cos ω₁t: ① 진폭이 훨씬 크고(1차), ② 각 그림자가 진자의 진동수 f로 진동(빠른 진동 ≈ 0.5 Hz), ③ 맥놀이 최소 간격이 10 s로 두 배, ④ 두 진폭이 달라 최소에서도 0이 되지 않으며, ⑤ 기준선이 매단 점 사이 거리 D가 된다.</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>‘빛의 방향과 무관하게 같은 그래프’라고 하거나, 진동수가 그대로 2f라고 쓰는 실수.</p></div>
+    </div>
+    <div class="partsol" id="sol-5">
+      <h3><span class="qnum ext">확장 1</span>4-1 </h3>
+      <div class="pq"><p>구한 진동수와 그래프(진폭 약 3 cm)로 두 진자의 길이와 처음 각을 추정하시오. (\(g=9.8\ \mathrm{m/s^2}\))</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — l₁ ≈ 0.82 m, l₂ ≈ 1.23 m (차 ≈ 40.5 cm), θ₀ ≈ 0.27 rad(15°), φ₀ ≈ 0.22 rad(13°).</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>계산</summary><div class="body"><p>\(l_1=\dfrac{9.8}{(2\pi\cdot0.55)^2}=0.821\) m, \(l_2=\dfrac{9.8}{(2\pi\cdot0.45)^2}=1.226\) m. \(\theta_0=\sqrt{2A/l_1}=\sqrt{0.06/0.821}=0.27\) rad, \(\phi_0=0.22\) rad — ‘작은 각’ 근사의 경계(주기 오차 약 0.5 %).</p></div></details>
+      <div class="answer-box"><b>답</b> l₁ ≈ 0.82 m, l₂ ≈ 1.23 m, θ₀ ≈ 0.27 rad, φ₀ ≈ 0.22 rad</div>
+      
+    </div>
+    <div class="partsol" id="sol-6">
+      <h3><span class="qnum">4-2</span>4-2 <small>10점</small></h3>
+      <div class="pq"><p>&lt;수업 활동 계획&gt;의 ‘변인통제하기’, ‘보존되는 것 찾기’, ‘예측하기’ 칸의 수업 내용을 완성하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 변인통제: 길이·진폭을 일정하게 하고 질량만(또는 질량·길이 일정, 진폭만) 바꿔 주기 측정 → 주기는 질량(작은 진폭)과 무관. 보존: 용수철(슬링키)의 두 펄스가 겹친 뒤 각 펄스의 모양·진폭·속력이 그대로(파동의 독립성). 예측: 중첩 원리로 합성 파형(보강·상쇄)이나 맥놀이 진동수 |f₁ − f₂|를 미리 예측하고 관찰로 확인.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>작성 예</summary><div class="body"><div class="tablewrap"><table><tr><th>사고 활동</th><th>수업 내용(예)</th></tr>
+<tr><td>변인통제하기</td><td>진자의 길이와 진폭(작은 각)을 일정하게 유지하고 추의 질량만 바꾸어 주기를 측정한다(또는 길이·질량을 일정하게 하고 진폭만 바꾼다). 주기가 질량(과 작은 진폭)에 무관하고 길이에만 관계됨을 확인한다.</td></tr>
+<tr><td>보존되는 것 찾기</td><td>긴 용수철(슬링키)의 양 끝에서 두 펄스를 마주 보내 겹쳤다가 지나가게 한다. 겹치는 동안 모양은 달라 보이지만 지나간 뒤 각 펄스의 <b>모양·진폭·속력(진동수)이 그대로 보존</b>됨을 찾는다(파동의 독립성). 또는 겹칠 때 변위의 합이 일정한 규칙(대수합)을 따름을 발견.</td></tr>
+<tr><td>예측하기</td><td>중첩 원리(합성 변위 = 각 변위의 합)를 이용해, 같은 쪽/반대쪽 변위의 두 펄스가 만나는 순간의 모양(보강·상쇄)을 미리 작도하여 예측한 뒤 관찰로 확인한다. 또는 진동수 440 Hz, 444 Hz 소리굽쇠를 함께 울릴 때 맥놀이 진동수(4 Hz)를 예측하고 MBL로 확인한다.</td></tr></table></div></div></details>
+      <div class="answer-box"><b>답</b> 변인통제하기: 길이·진폭은 일정, 추의 질량만 바꾸어 주기 측정(주기는 질량과 무관). 보존되는 것 찾기: 두 펄스가 겹쳤다 지나간 뒤 각 펄스의 모양·진폭·속력이 보존됨을 관찰(독립성). 예측하기: 중첩 원리로 두 펄스가 만날 때의 합성 파형(또는 두 소리굽쇠의 맥놀이 진동수 |f₁ − f₂|)을 미리 예측하고 실험으로 확인.</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>‘변인통제하기’에 길이와 질량을 동시에 바꾸거나, ‘예측하기’를 실험 후 결과 정리로 쓰는 경우(예측은 실험 전 연역).</p></div>
+    </div>
+  </section>
+  <section class="card" id="rubric">
+    <h2><span class="num">2</span>채점 기준 (예시)</h2>
+<p class="src">공식 채점 기준은 공개되지 않는다. 배점과 답안 요소를 바탕으로 만든 <b>예시 채점 기준</b>이다.</p><div class="tablewrap"><table class="rubric"><tr><th style="width:10%">문항</th><th>배점</th><th>채점 요소 (예시 답안의 핵심 표현)</th></tr><tr><td><b>4-1 ㉠</b></td><td>1</td><td>운동 에너지 두 항</td></tr><tr><td><b>4-1 ㉠</b></td><td>1</td><td>퍼텐셜 에너지(부호 포함) 두 항</td></tr><tr><td><b>4-1 ㉠</b></td><td>1</td><td>주어진 운동 방정식과 일관</td></tr><tr><td><b>4-1 ㉡</b></td><td>2</td><td>포락선이 0이 되는(완전 맥놀이) 특징 지적</td></tr><tr><td><b>4-1 ㉡</b></td><td>1</td><td>→ 두 진폭이 같음</td></tr><tr><td><b>4-1 ㉢㉣</b></td><td>2</td><td>f₁ + f₂ = 1 Hz (빠른 진동)</td></tr><tr><td><b>4-1 ㉢㉣</b></td><td>2</td><td>|f₁ − f₂| = 0.1 Hz (마디 간격 5 s = 1/2Δf)</td></tr><tr><td><b>4-1 ㉢㉣</b></td><td>2</td><td>f₁ = 0.55, f₂ = 0.45 Hz (l₁ < l₂ 고려)</td></tr><tr><td><b>4-1 위에서 비출 때</b></td><td>2</td><td>그림자가 수평 위치 l sinθ(1차 항)임을 지적 — 진폭 증가</td></tr><tr><td><b>4-1 위에서 비출 때</b></td><td>2</td><td>진동수가 2f → f (빠른 진동 주기 약 2 s)</td></tr><tr><td><b>4-1 위에서 비출 때</b></td><td>2</td><td>맥놀이 간격 변화(10 s)</td></tr><tr><td><b>4-1 위에서 비출 때</b></td><td>2</td><td>두 진폭이 달라 완전 상쇄 안 됨·기준선 D 등</td></tr><tr><td><b>4-2</b></td><td>4</td><td>변인통제: 하나의 변인만 바꾸고 나머지 고정이 분명</td></tr><tr><td><b>4-2</b></td><td>3</td><td>보존되는 것 찾기: 중첩 후 보존되는 양(모양·진폭·속력 등)이 분명</td></tr><tr><td><b>4-2</b></td><td>3</td><td>예측하기: 중첩 원리로 결과를 연역적으로 예측하고 확인</td></tr><tr><td colspan="2" style="text-align:right"><b>합계 30점</b></td><td></td></tr></table></div>
+  </section>
+  <section class="card" id="compare">
+    <h2><span class="num">3</span>출제 의도·검토</h2>
+<h3>출제 의도</h3><ul><li>라그랑지안으로 단진자 방정식을 세우고, 소각 근사·삼각함수 합성으로 ‘그림자 위치 차’가 맥놀이 꼴임을 보이는 능력, MBL 그래프에서 진동수를 읽어 내는 능력.</li>
+<li>측정 방법(빛의 방향)이 바뀌면 같은 운동이 다른 신호로 나타남을 정성적으로 추론하는 능력, 사고 활동을 반영한 수업 설계 능력.</li></ul>
+<div class="note"><b>공식 정답 미공개</b>(2010학년도 2차 논술형). 모범 답안 f₁ = 0.55 Hz, f₂ = 0.45 Hz는 비선형 진자의 RK4 수치 적분으로 원문 그래프의 모양(빠른 진동 1 s, 마디 5 s)을 재현해 확인했다. 원문 그래프의 기준선(약 41.3 cm)은 g = 9.8 m/s²로 계산한 l₂ − l₁ ≈ 40.5 cm보다 약간 크다 — 그래프가 개략적으로 그려진 것으로 보인다. 배점 나눔(㉠ 3, ㉡ 3, ㉢㉣ 6, 위에서 비출 때 8 / 4-2 10)은 예시이다.</div>
+  </section>
+  <section class="card" id="sim">
+    <h2><span class="num">4</span>3D 모의실험 — 두 진자의 그림자 위치 차와 맥놀이 <span class="kbd">(Space 재생/정지 · R 처음으로 · F 전체화면)</span></h2>
+    <div class="sim" id="simBox" tabindex="0">
+      <div class="cap"><span class="ph" id="capPh">모의실험</span><span id="capTx">3D 장면. 두 진자(l₁ < l₂)와 그림자(회색 점). 옆에서 비추면 그림자는 연직 위치 l cos θ(진동수 2f), 위에서 비추면 수평 위치 l sin θ(진동수 f)를 나타낸다.</span></div>
+      <div class="stage"><canvas id="cv"></canvas></div>
+      <div class="bar"><button class="btn primary" id="bPlay">▶ 재생</button><button class="btn" id="bReset">↺ 처음</button>
+        <input type="range" id="tScrub" min="0" max="1000" value="0" aria-label="시간">
+        <select id="selSpeed" class="btn" aria-label="재생 속도"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+        <button class="btn" id="bFull">⛶ 전체화면</button></div>
+      <div class="side"><div class="grp"><div class="lbl">빛의 방향</div><div class="seg" data-p="seg"><button type="button" data-v="side" class=on>왼쪽에서 (문제, 4-1 ①~③)</button><button type="button" data-v="top">위에서 아래로 (4-1 후반)</button></div></div>
+<div class="grp"><label>진자 1 진동수 f₁ (Hz) <output id="o_f1"></output></label><input type="range" data-p="f1" data-u="" min="0.4" max="0.7" step="0.005" value="0.55"></div>
+<div class="grp"><label>진자 2 진동수 f₂ (Hz) <output id="o_f2"></output></label><input type="range" data-p="f2" data-u="" min="0.35" max="0.6" step="0.005" value="0.45"></div>
+<div class="grp"><label>A = ½l₁θ₀² (cm) <output id="o_A"></output></label><input type="range" data-p="A" data-u="" min="0.5" max="5" step="0.1" value="3"></div>
+<table class="readout" id="ro"></table><div class="result" id="res">—</div>
+<div class="lbl" style="margin-top:10px">그림자 위치 차 – 시간 (RK4, 0~18 s): 옆 빛 = y₂ − y₁, 위 빛 = x₂ − x₁</div><canvas id="mini"></canvas></div>
+    </div>
+    <p class="src noprint">지도 팁: ① 기본값에서 그래프가 원문 그래프(빠른 진동 1 s, 마디 5 s)와 같은지 비교. ② ‘위에서’로 바꾸면 진폭이 훨씬 크고(1차), 빠른 진동 주기는 약 2 s, 마디 간격은 10 s, 진폭이 완전히 0이 되지 않는다. ③ f₁, f₂를 바꿔 맥놀이 간격의 변화를 예측(4-2 예측하기).</p>
+  </section>
+  <section class="card" id="hs">
+    <h2><span class="num">5</span>고등학생 지도 — 고교 교육과정과 잇기</h2>
+<div class="two"><div><h3>고교 교육과정과의 연결</h3><ul><li>물리학Ⅱ(2015) 단진자의 주기 \(T=2\pi\sqrt{l/g}\) — 길이·질량·진폭 변인 통제 실험</li><li>물리학Ⅰ 파동의 중첩·맥놀이(소리굽쇠), MBL을 이용한 진동 측정</li></ul></div><div><h3>고등학생용 변형 문항</h3><ol><li>길이 0.82 m, 1.23 m인 두 진자를 동시에 놓으면 몇 초마다 다시 같은 위상이 되는가? (1/(f₁ − f₂) = 10 s)</li><li>그림자가 진자의 진동수의 2배로 움직이는 이유를 설명하라.</li></ol></div></div>
+  </section>
+  <section class="card" id="teach">
+    <h2><span class="num">6</span>수업 활용 안내</h2>
+<div class="two"><div><h3>수업 흐름 (50분)</h3><ol><li><b>도입 (5분)</b> — 두 진자 그림자 시연·MBL 그래프 보여 주기</li><li><b>모형 (12분)</b> — 라그랑지안 → 단진자 방정식, 소각 근사</li><li><b>그래프 해석 (12분)</b> — 맥놀이 꼴 유도, f₁ + f₂·f₁ − f₂ 읽기</li><li><b>빛의 방향 바꾸기 (8분)</b> — 모의실험 ‘위에서 아래로’ 비교</li><li><b>수업 설계 (13분)</b> — 사고 활동별 수업 내용 작성·발표</li></ol></div><div><h3>자주 나오는 오개념</h3><ul><li>“그림자도 진자와 같은 진동수로 움직인다(옆 빛)”</li><li>“맥놀이 마디 간격 = 1/Δf”</li><li>“진자의 주기는 질량에 따라 달라진다”</li><li>“중첩이 끝나면 파동이 서로 영향을 받아 바뀐다”</li></ul><h3>평가 포인트</h3><ul><li>라그랑지안과 운동 방정식을 일관되게 쓰는가</li><li>그래프에서 f₁ + f₂, f₁ − f₂를 정확히 읽는가</li><li>위에서 비출 때 진동수·진폭·맥놀이의 변화를 설명하는가</li><li>사고 활동의 정의에 맞는 수업 내용을 쓰는가</li></ul><h3>더 나아가기</h3><p>스마트폰 가속도 센서나 영상 분석으로 두 진자의 그림자 위치를 직접 측정해 맥놀이 그래프를 얻고, 길이를 바꾸어 마디 간격을 예측·검증하는 탐구로 확장한다.</p></div></div>
+  </section>
+</main>
+
+<script>
+/* PTC 공통 라이브러리 — 모든 교사용 페이지의 모의실험이 사용 */
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id)};
+  var PTC=window.PTC={};
+  PTC.$=$;
+  PTC.DEG=Math.PI/180;
+  PTC.fs=function(){return window.PTC_FS||1};
+  PTC.font=function(px,weight,family){return (weight?weight+' ':'')+Math.round(px*PTC.fs())+'px '+(family||'"Noto Sans KR","Malgun Gothic",sans-serif')};
+  PTC.setupCanvas=function(c){
+    var r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;
+    c.width=Math.max(1,Math.round(r.width*d)); c.height=Math.max(1,Math.round(r.height*d));
+    var x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); return {x:x,w:r.width,h:r.height};
+  };
+  PTC.arrow=function(ctx,x,y,dx,dy,color,label,lw){
+    var L=Math.hypot(dx,dy); if(L<2) return;
+    ctx.save(); ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw||2.5;
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dx,y+dy); ctx.stroke();
+    var a=Math.atan2(dy,dx), h=Math.min(12,L*0.4);
+    ctx.beginPath(); ctx.moveTo(x+dx,y+dy);
+    ctx.lineTo(x+dx-h*Math.cos(a-0.4),y+dy-h*Math.sin(a-0.4));
+    ctx.lineTo(x+dx-h*Math.cos(a+0.4),y+dy-h*Math.sin(a+0.4)); ctx.closePath(); ctx.fill();
+    if(label){ctx.font=PTC.font(14,'600'); ctx.fillText(label,x+dx+6,y+dy-6);}
+    ctx.restore();
+  };
+  PTC.text=function(ctx,s,x,y,px,color,weight,align){
+    ctx.save(); ctx.fillStyle=color||'#1b1f2a'; ctx.font=PTC.font(px||14,weight); ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.restore();
+  };
+  /* 그래프: o={xmin,xmax,ymin,ymax,log,xticks,yticks,xlabel,ylabel,title,series:[{f|pts,color,label,dash}],marker,points:[[x,y,color]],fill:{f,color,x0,x1},xfmt} */
+  PTC.plot=function(c,o){
+    var cc=PTC.setupCanvas(c), x=cc.x, w=cc.w, h=cc.h; if(w<20) return;
+    var L=o.padL||52, R=14, T=o.title?30:12, B=36, fs=PTC.fs();
+    function px(v){return L+(v-o.xmin)/(o.xmax-o.xmin)*(w-L-R)}
+    function py(v){var a=o.log?Math.log10(v):v;return h-B-(a-o.ymin)/(o.ymax-o.ymin)*(h-T-B)}
+    x.clearRect(0,0,w,h);
+    if(o.title){x.fillStyle='#1b1f2a';x.font=PTC.font(13,'600');x.fillText(o.title,L,18);}
+    x.font=PTC.font(12); x.strokeStyle='#e6e9f0'; x.fillStyle='#5b6475'; x.lineWidth=1;
+    (o.yticks||[]).forEach(function(v){var yy=o.log?h-B-(v-o.ymin)/(o.ymax-o.ymin)*(h-T-B):py(v);x.beginPath();x.moveTo(L,yy);x.lineTo(w-R,yy);x.stroke();x.fillText(o.log?String(Math.pow(10,v)):(o.yfmt?o.yfmt(v):String(v)),4,yy+4);});
+    (o.xticks||[]).forEach(function(v){var xx=px(v);x.beginPath();x.moveTo(xx,T);x.lineTo(xx,h-B);x.stroke();var s=o.xfmt?o.xfmt(v):String(v);x.fillText(s,xx-x.measureText(s).width/2,h-B+16);});
+    x.strokeStyle='#1b1f2a'; x.beginPath(); x.moveTo(L,T); x.lineTo(L,h-B); x.lineTo(w-R,h-B); x.stroke();
+    if(o.xlabel){x.fillStyle='#5b6475';var xs=o.xlabel;x.fillText(xs,w-R-x.measureText(xs).width,h-4);}
+    if(o.ylabel){x.save();x.fillStyle='#5b6475';x.translate(12,T+4);x.fillText(o.ylabel,0,0);x.restore();}
+    if(o.fill){var F=o.fill;x.fillStyle=F.color;x.beginPath();x.moveTo(px(F.x0),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));
+      for(var k=0;k<=120;k++){var vv=F.x0+(F.x1-F.x0)*k/120;x.lineTo(px(vv),py(F.f(vv)));}
+      x.lineTo(px(F.x1),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));x.closePath();x.fill();}
+    (o.series||[]).forEach(function(sr,si){
+      x.strokeStyle=sr.color; x.lineWidth=sr.lw||2.2; x.setLineDash(sr.dash||[]); x.beginPath(); var started=false;
+      var N=sr.pts?sr.pts.length-1:300;
+      for(var i=0;i<=N;i++){
+        var v,y; if(sr.pts){v=sr.pts[i][0];y=sr.pts[i][1];} else {v=o.xmin+(o.xmax-o.xmin)*i/N;y=sr.f(v);}
+        if(!isFinite(y)||(o.log&&y<=0)){started=false;continue;}
+        var yy=py(y); if(yy<T-2||yy>h-B+2){started=false;continue;}
+        if(!started){x.moveTo(px(v),yy);started=true;}else x.lineTo(px(v),yy);
+      }
+      x.stroke(); x.setLineDash([]);
+      if(sr.label){x.fillStyle=sr.color;x.font=PTC.font(12,'600');x.fillText('— '+sr.label,L+10+si*((w-L)/o.series.length),T+14);}
+    });
+    if(o.marker!=null && o.marker>=o.xmin && o.marker<=o.xmax){x.strokeStyle='#d23b3b';x.setLineDash([5,4]);x.lineWidth=1.5;x.beginPath();x.moveTo(px(o.marker),T);x.lineTo(px(o.marker),h-B);x.stroke();x.setLineDash([]);}
+    (o.points||[]).forEach(function(p){ if(o.log&&p[1]<=0) return; x.fillStyle=p[2]||'#d23b3b'; x.beginPath(); x.arc(px(p[0]),Math.max(T,Math.min(h-B,py(p[1]))),5,0,2*Math.PI); x.fill(); });
+    return {px:px,py:py,ctx:x,w:w,h:h};
+  };
+  /* 시간 진행형 모의실험 제어: o={tMin(),tMax(),draw(t),pauses:[t..],loop} */
+  PTC.timeline=function(o){
+    var T={t:o.tMin(),playing:false,last:null,speed:$('selSpeed')?+$('selSpeed').value:1,passed:{}};
+    function sync(){var s=$('tScrub'); if(s) s.value=Math.round((T.t-o.tMin())/((o.tMax()-o.tMin())||1)*1000);}
+    function setP(p){T.playing=p; var b=$('bPlay'); if(b) b.textContent=p?'⏸ 정지':'▶ 재생'; T.last=null; if(p) requestAnimationFrame(tick);}
+    function tick(ts){
+      if(!T.playing) return;
+      if(T.last==null) T.last=ts;
+      var dt=Math.min(0.05,(ts-T.last)/1000); T.last=ts;
+      var prev=T.t; T.t+=dt*T.speed;
+      var ps=o.pauses||[], cp=$('cPause');
+      if(!cp||cp.checked){ for(var i=0;i<ps.length;i++){ if(prev<ps[i]&&T.t>=ps[i]&&!T.passed[i]){T.t=ps[i];T.passed[i]=true;setP(false);sync();o.draw(T.t);return;} } }
+      if(T.t>=o.tMax()){ if(o.loop){T.t=o.tMin();T.passed={};} else {T.t=o.tMax();setP(false);} }
+      sync(); o.draw(T.t);
+      if(T.playing) requestAnimationFrame(tick);
+    }
+    T.toggle=function(){ if(T.playing){setP(false);return;} if(T.t>=o.tMax()-1e-9){T.t=o.tMin();T.passed={};} setP(true); };
+    T.reset=function(){ T.t=o.tMin(); T.passed={}; setP(false); sync(); o.draw(T.t); };
+    T.set=function(t){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),t)); T.passed={}; (o.pauses||[]).forEach(function(p,i){if(T.t>=p)T.passed[i]=true}); sync(); o.draw(T.t); };
+    T.redraw=function(){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),T.t)); sync(); o.draw(T.t); };
+    T.pause=function(){setP(false)};
+    if($('bPlay')) $('bPlay').onclick=T.toggle;
+    if($('bReset')) $('bReset').onclick=T.reset;
+    if($('tScrub')) $('tScrub').oninput=function(){ setP(false); T.set(o.tMin()+(o.tMax()-o.tMin())*this.value/1000); };
+    if($('selSpeed')) $('selSpeed').onchange=function(){ T.speed=+this.value; };
+    window.SIM={toggle:T.toggle,reset:T.reset};
+    return T;
+  };
+  /* 연속 애니메이션 (정적 모의실험의 흐르는 전류 등) */
+  PTC.loop=function(fn){ var last=null; function f(ts){ var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts; fn(dt); requestAnimationFrame(f);} requestAnimationFrame(f); };
+  PTC.onResize=function(fn){ var st=document.querySelector('#simBox .stage'); if(window.ResizeObserver&&st) new ResizeObserver(function(){fn()}).observe(st); window.addEventListener('resize',fn); };
+  PTC.seg=function(id,cb){ var box=$(id); box.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ box.querySelectorAll('button').forEach(function(o){o.classList.toggle('on',o===b)}); cb(b.dataset.v); }; }); };
+  PTC.range=function(id,outId,fmt,cb){ var r=$(id),o=$(outId); function u(){ if(o) o.textContent=fmt(+r.value); if(cb) cb(+r.value); } r.addEventListener('input',u); if(o) o.textContent=fmt(+r.value); return r; };
+  PTC.readout=function(id,rows){ $(id).innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join(''); };
+  PTC.result=function(id,good,text){ var el=$(id); el.className='result '+(good===true?'good':good===false?'bad':''); el.textContent=text; };
+  PTC.caption=function(ph,tx){ if($('capPh')) $('capPh').textContent=ph; if($('capTx')) $('capTx').textContent=tx; };
+})();
+
+/* SK — 간단 모의실험 키트 (도구/도움.py 의 kit() 와 짝).
+   SK.run({mode:'static'|'time', T:function(P){return 초}, scene:function(g,P,t){…}, plot:function(P,t){return PTC.plot 옵션},
+           plot2:…, readout:function(P,t){return [[이름,값],…]}, check:function(P){return [true|false|null, 글]}, caption:function(P,t){return 글},
+           pre:function(P){…매개변수가 바뀔 때 한 번 계산…}})
+   매개변수: 오른쪽 칸의 [data-p] 요소 (range·checkbox·seg) → P.이름
+   g = {x:ctx, w, h} · SK.view(g,x0,x1,y0,y1,pad) → {X(x),Y(y),s} (가로세로 같은 축척)
+   3D: kit(…, three=True) 와 함께 view3d:{up:'z',cam:[…],target:[…],grid:10}, build:function(V,P){ …물체를 만들고 객체 O 를 돌려줌… },
+       frame:function(V,O,P,t){ …위치·화살표·라벨 갱신… } 를 쓰면 #cv 가 three.js 3D 장면이 된다 (마우스 끌기 회전·휠 확대).
+       (three.js 를 못 불러오면 scene 이 있으면 2D 로 대신 그린다.) */
+(function(){
+  'use strict';
+  var SK=window.SK={};
+  SK.read=function(){ var P={};
+    document.querySelectorAll('[data-p]').forEach(function(el){ var k=el.dataset.p;
+      if(el.type==='checkbox') P[k]=el.checked; else if(el.classList.contains('seg')){ var b=el.querySelector('button.on'); P[k]=b?(isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v):null; }
+      else P[k]=+el.value; });
+    return P; };
+  SK.view=function(g,x0,x1,y0,y1,pad){ pad=pad==null?24:pad; var s=Math.min((g.w-2*pad)/(x1-x0),(g.h-2*pad)/(y1-y0)),
+      ox=(g.w-(x1-x0)*s)/2-x0*s, oy=(g.h+(y1-y0)*s)/2+y0*s; return {s:s,X:function(x){return ox+x*s},Y:function(y){return oy-y*s}}; };
+  SK.line=function(c,pts,col,lw,dash){ c.save(); c.strokeStyle=col||'#1b1f2a'; c.lineWidth=lw||2; c.setLineDash(dash||[]); c.beginPath();
+    pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.stroke(); c.restore(); };
+  SK.poly=function(c,pts,fill,stroke){ c.save(); c.beginPath(); pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.closePath();
+    if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.stroke();} c.restore(); };
+  SK.circle=function(c,x,y,r,fill,stroke,lw){ c.save(); c.beginPath(); c.arc(x,y,r,0,6.2832); if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=lw||1.5;c.stroke();} c.restore(); };
+  SK.rect=function(c,x,y,w,h,fill,stroke){ c.save(); if(fill){c.fillStyle=fill;c.fillRect(x,y,w,h);} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.strokeRect(x,y,w,h);} c.restore(); };
+  SK.text=function(c,s,x,y,px,col,wt,al){ PTC.text(c,s,x,y,px||13,col||'#1b1f2a',wt||'600',al); };
+  SK.arrow=function(c,x,y,dx,dy,col,lab,lw){ PTC.arrow(c,x,y,dx,dy,col,lab,lw); };
+  SK.spring=function(c,x1,y1,x2,y2,n,amp,col){ n=n||10; amp=amp||7; var L=Math.hypot(x2-x1,y2-y1)||1, ux=(x2-x1)/L, uy=(y2-y1)/L, nx=-uy, ny=ux, pts=[[x1,y1]], lead=Math.min(8,L/6);
+    pts.push([x1+ux*lead,y1+uy*lead]); for(var i=0;i<2*n;i++){ var s=lead+(L-2*lead)*(i+0.5)/(2*n), sg=i%2?-1:1; pts.push([x1+ux*s+nx*amp*sg,y1+uy*s+ny*amp*sg]); }
+    pts.push([x2-ux*lead,y2-uy*lead]); pts.push([x2,y2]); SK.line(c,pts,col||'#4a5568',1.6); };
+  SK.ground=function(c,x0,x1,y,col){ SK.line(c,[[x0,y],[x1,y]],col||'#1b1f2a',2); c.save(); c.strokeStyle='#9aa2b2'; c.lineWidth=1; for(var x=x0;x<x1;x+=10){ c.beginPath(); c.moveTo(x,y); c.lineTo(x-7,y+8); c.stroke(); } c.restore(); };
+  SK.fmt=function(v,d){ if(!isFinite(v)) return '—'; var a=Math.abs(v); if(a!==0&&(a<1e-3||a>=1e5)) return v.toExponential(d==null?3:d); return v.toFixed(d==null?3:d); };
+  SK.rk4=function(f,y,t,dt){ var k1=f(t,y), y2=y.map(function(v,i){return v+dt/2*k1[i]}), k2=f(t+dt/2,y2), y3=y.map(function(v,i){return v+dt/2*k2[i]}), k3=f(t+dt/2,y3),
+      y4=y.map(function(v,i){return v+dt*k3[i]}), k4=f(t+dt,y4); return y.map(function(v,i){return v+dt/6*(k1[i]+2*k2[i]+2*k3[i]+k4[i])}); };
+  SK.run=function(o){
+    var P=SK.read(), TL=null;
+    function outs(){ document.querySelectorAll('input[type=range][data-p]').forEach(function(el){ var out=document.getElementById('o_'+el.dataset.p); if(!out) return;
+      var st=el.step&&el.step!=='any'?el.step:'0.01', d=st.indexOf('.')>=0?st.split('.')[1].length:0; out.textContent=(+el.value).toFixed(d)+(el.dataset.u||''); }); }
+    var V3=null, O3=null;
+    if(o.build&&window.PTC3&&PTC3.ok()){ V3=PTC3.view('cv',o.view3d||{up:'z',cam:[6,-8,5],target:[0,0,0],grid:10}); if(V3) O3=o.build(V3,P); }
+    else if(o.build&&!o.scene){ o.scene=function(g){ SK.text(g.x,'3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30,15,'#667'); }; }
+    function draw(t){ t=t||0;
+      if(V3){ try{ o.frame(V3,O3,P,t); }catch(e){ console.error(e); } V3.render(); }
+      else { var c=PTC.setupCanvas(document.getElementById('cv')); if(c.w<20) return; c.x.clearRect(0,0,c.w,c.h);
+        try{ o.scene(c,P,t); }catch(e){ console.error(e); } }
+      if(o.plot&&document.getElementById('mini')) PTC.plot(document.getElementById('mini'),o.plot(P,t));
+      if(o.plot2&&document.getElementById('mini2')) PTC.plot(document.getElementById('mini2'),o.plot2(P,t));
+      if(o.readout) PTC.readout('ro',o.readout(P,t));
+      if(o.caption){ var cp=o.caption(P,t); if(cp) PTC.caption(cp[0],cp[1]); } }
+    function update(){ P=SK.read(); outs(); if(o.pre) o.pre(P); if(V3&&o.rebuild) O3=o.rebuild(V3,O3,P); if(o.check){ var r=o.check(P); PTC.result('res',r[0],r[1]); } if(TL) TL.reset(); else draw(0); }
+    document.querySelectorAll('[data-p]').forEach(function(el){
+      if(el.classList.contains('seg')) el.querySelectorAll('button').forEach(function(b){ b.addEventListener('click',function(){ el.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)}); update(); }); });
+      else el.addEventListener(el.type==='checkbox'?'change':'input',update); });
+    if(o.mode==='time') TL=PTC.timeline({tMin:function(){return 0},tMax:function(){return o.T?o.T(P):10},draw:draw,loop:!!o.loop});
+    PTC.onResize(function(){ if(TL) TL.redraw(); else draw(0); });
+    SK.P=function(){return P}; SK.V3=function(){return V3}; SK.redraw=function(){ if(TL) TL.redraw(); else draw(0); };
+    update();
+  };
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+/* PTC3 — 3D 모의실험 공통 도우미 (three.js r147 + OrbitControls). sim 에 three=True 일 때만 들어간다.
+   사용:  var V=PTC3.view('cv',{up:'z', cam:[6,-8,5], target:[0,0,0], grid:10, axes:3});
+          var a=V.arrow([0,0,0],[1,0,0],'#d23b3b');  a.set(origin, vec)   // 화살표(길이 = |vec|)
+          var b=V.ball(0.2,'#3b6fd6');  b.position.set(x,y,z)               // 공
+          var L=V.line([[0,0,0],[1,1,1]],'#888'); L.set(points)            // 선(궤적)
+          var t=V.label('m',[0,0,1],'#333'); t.set('m₁',[x,y,z])           // 화면 크기 고정 글자
+          V.box([w,d,h],color,opacity) · V.cyl(r,h,color,opacity) · V.plane(w,h,color,opacity)
+          V.group() · V.onFrame(function(dt){…})  // 매 프레임 호출(재생과 무관)
+          V.render()  // 값을 바꾼 뒤 한 번 그리기 (onFrame 이 있으면 자동)
+   좌표: up:'z' 이면 z 가 위(물리 문제 관례), 기본 'y'.  마우스 끌기 = 회전, 휠 = 확대, 오른쪽 끌기 = 이동.
+   인터넷이 없어 three.js 를 못 불러오면 캔버스에 안내 글을 쓰고 null 을 돌려준다(2D 부분은 그대로 동작). */
+(function(){
+  'use strict';
+  var PTC3=window.PTC3={};
+  function col(c){ return new THREE.Color(c||'#555'); }
+  function v3(a){ return new THREE.Vector3(a[0]||0,a[1]||0,a[2]||0); }
+  PTC3.ok=function(){ return !!(window.THREE&&THREE.OrbitControls); };
+  PTC3.view=function(id,o){
+    o=o||{}; var cv=typeof id==='string'?document.getElementById(id):id;
+    if(!PTC3.ok()){
+      try{ var x=cv.getContext('2d'), r=cv.getBoundingClientRect(); cv.width=r.width; cv.height=r.height;
+        x.fillStyle='#667'; x.font='15px "Noto Sans KR",sans-serif'; x.fillText('3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30);}catch(e){}
+      return null;
+    }
+    var renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:false,preserveDrawingBuffer:true});
+    renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+    var scene=new THREE.Scene(); scene.background=col(o.bg||'#f7f8fb');
+    if(o.up==='z') THREE.Object3D.DefaultUp.set(0,0,1);
+    var cam=new THREE.PerspectiveCamera(o.fov||40,1,0.01,(o.far||1000));
+    if(o.up==='z') cam.up.set(0,0,1);
+    cam.position.copy(v3(o.cam||[6,5,8]));
+    var ctl=new THREE.OrbitControls(cam,cv); ctl.target.copy(v3(o.target||[0,0,0])); var off0=cam.position.clone().sub(ctl.target), touched=false, lastAuto=null; ctl.addEventListener('start',function(){touched=true;}); ctl.enableDamping=true; ctl.dampingFactor=0.12; ctl.update();
+    scene.add(new THREE.HemisphereLight(0xffffff,0x8890a0,0.85));
+    var dl=new THREE.DirectionalLight(0xffffff,0.55); dl.position.set(5,8,10); scene.add(dl);
+    var V={THREE:THREE,scene:scene,camera:cam,renderer:renderer,controls:ctl,canvas:cv}, frames=[], dirty=true, last=null;
+    /* (수정) 격자·좌표축은 한 번만 만든다 — 원래 resize() 안에 있어 창 크기가 바뀔 때마다 중복으로 쌓였음 */
+    function addHelpers(){
+    if(o.grid){ var g=new THREE.GridHelper(o.grid,o.gridDiv||o.grid,0xc5cad6,0xe1e4ec); if(o.up==='z') g.rotation.x=Math.PI/2; if(o.gridAt) g.position.copy(v3(o.gridAt)); scene.add(g); V.gridObj=g; }
+    if(o.axes){ var A=o.axes; [[1,0,0,'#d23b3b','x'],[0,1,0,'#2e9e5b','y'],[0,0,1,'#3b6fd6','z']].forEach(function(a){
+      scene.add(new THREE.ArrowHelper(new THREE.Vector3(a[0],a[1],a[2]),new THREE.Vector3(),A,col(a[3]).getHex(),A*0.08,A*0.04));
+      if(o.axisLabels!==false) V.label(a[4],[a[0]*A*1.08,a[1]*A*1.08,a[2]*A*1.08],a[3]); }); }
+    }
+    function resize(){
+      var st=cv.parentElement, w=Math.max(1,st.clientWidth), h=Math.max(1,st.clientHeight);
+      renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix();
+      /* 좁은(세로로 긴) 화면에서는 장면이 잘리지 않도록 카메라를 뒤로 뺀다(사용자가 돌리기 전까지만) */
+      if(lastAuto&&cam.position.distanceTo(lastAuto)>1e-6) touched=true;  /* 모의실험이 카메라를 직접 옮겼으면 손대지 않음 */
+      if(!touched){ var k=Math.max(1,(o.fitAspect||1.5)/cam.aspect); cam.position.copy(ctl.target).add(off0.clone().multiplyScalar(k)); lastAuto=cam.position.clone(); }
+      dirty=true;
+    }
+    V.resize=resize; V.render=function(){ dirty=true; };
+    V.onFrame=function(f){ frames.push(f); };
+    ctl.addEventListener('change',function(){dirty=true;});
+    function loop(ts){
+      var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts;
+      for(var i=0;i<frames.length;i++){ frames[i](dt); dirty=true; }
+      if(ctl.update()) dirty=true;
+      if(dirty){ renderer.render(scene,cam); dirty=false; }
+      requestAnimationFrame(loop);
+    }
+    function mat(c,op,extra){ var m=new THREE.MeshStandardMaterial(Object.assign({color:col(c),roughness:0.55,metalness:0.05},extra||{})); if(op!=null&&op<1){m.transparent=true;m.opacity=op;m.depthWrite=false;} return m; }
+    V.mat=mat;
+    V.add=function(obj,parent){ (parent||scene).add(obj); dirty=true; return obj; };
+    V.group=function(parent){ return V.add(new THREE.Group(),parent); };
+    V.ball=function(r,c,op,parent){ return V.add(new THREE.Mesh(new THREE.SphereGeometry(r,32,20),mat(c,op)),parent); };
+    V.box=function(s,c,op,parent){ return V.add(new THREE.Mesh(new THREE.BoxGeometry(s[0],s[1],s[2]),mat(c,op)),parent); };
+    /* 원기둥: 기본 축은 up 축(z 또는 y) */
+    V.cyl=function(r,h,c,op,parent,r2){ var g=new THREE.CylinderGeometry(r2==null?r:r2,r,h,40,1); if(o.up==='z') g.rotateX(Math.PI/2); return V.add(new THREE.Mesh(g,mat(c,op,{side:THREE.DoubleSide})),parent); };
+    V.plane=function(w,h,c,op,parent){ var g=new THREE.PlaneGeometry(w,h); return V.add(new THREE.Mesh(g,mat(c,op==null?0.35:op,{side:THREE.DoubleSide})),parent); };
+    V.torus=function(R,r,c,op,parent){ return V.add(new THREE.Mesh(new THREE.TorusGeometry(R,r,16,80),mat(c,op)),parent); };
+    V.line=function(pts,c,parent,opt){
+      opt=opt||{}; var n=Math.max(2,opt.max||pts.length||2), geo=new THREE.BufferGeometry(), arr=new Float32Array(n*3);
+      geo.setAttribute('position',new THREE.BufferAttribute(arr,3));
+      var m=opt.dash?new THREE.LineDashedMaterial({color:col(c),dashSize:opt.dash,gapSize:opt.dash*0.7}):new THREE.LineBasicMaterial({color:col(c),transparent:opt.opacity!=null,opacity:opt.opacity==null?1:opt.opacity});
+      var L=new THREE.Line(geo,m);
+      L.set=function(p){ var k=Math.min(n,p.length); for(var i=0;i<k;i++){arr[3*i]=p[i][0];arr[3*i+1]=p[i][1];arr[3*i+2]=p[i][2]||0;} geo.setDrawRange(0,k); geo.attributes.position.needsUpdate=true; geo.computeBoundingSphere(); if(opt.dash) L.computeLineDistances(); dirty=true; return L; };
+      L.set(pts||[]); return V.add(L,parent);
+    };
+    V.arrow=function(from,vec,c,parent,opt){
+      opt=opt||{}; var a=new THREE.ArrowHelper(new THREE.Vector3(1,0,0),new THREE.Vector3(),1,col(c).getHex());
+      a.line.material.linewidth=2;
+      a.set=function(f,v){ var d=v3(v), L=d.length(); a.visible=L>1e-9; if(!a.visible) return a; a.position.copy(v3(f)); a.setDirection(d.clone().normalize());
+        var h=opt.head||Math.min(0.35*L,opt.headMax||0.35); a.setLength(L,h,h*0.55); dirty=true; return a; };
+      a.set(from,vec); return V.add(a,parent);
+    };
+    V.label=function(text,pos,c,parent,px){
+      var cnv=document.createElement('canvas'), ctx=cnv.getContext('2d'), tex=new THREE.CanvasTexture(cnv);
+      var sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,depthTest:false,transparent:true,sizeAttenuation:false}));
+      sp.renderOrder=10;
+      sp.set=function(t,p,cc){
+        if(t!=null&&(t!==sp._t||(cc&&cc!==sp._c))){ sp._t=t; sp._c=cc; var f=(px||15)*2, FONT='600 '+f+'px "Noto Sans KR","Malgun Gothic",sans-serif';
+          ctx.font=FONT; var w=Math.ceil(ctx.measureText(t).width)+12;
+          cnv=document.createElement('canvas'); ctx=cnv.getContext('2d',{willReadFrequently:true});   /* 매번 새 캔버스(CPU) — GPU 업로드 중인 캔버스를 다시 쓰다 글자가 깨지는 일 방지 */
+          cnv.width=w; cnv.height=f+12;
+          ctx.font=FONT; ctx.textBaseline='middle'; ctx.lineJoin='round'; ctx.lineWidth=Math.max(3,f*0.2); ctx.strokeStyle='rgba(255,255,255,0.92)'; ctx.strokeText(t,6,cnv.height/2);   /* 흰 테두리: 뒤의 선·화살표가 글자와 겹쳐 보이지 않게 */
+          ctx.fillStyle=cc||c||'#1b1f2a'; ctx.fillText(t,6,cnv.height/2);
+          tex.dispose(); tex=new THREE.CanvasTexture(cnv); tex.minFilter=THREE.LinearFilter; tex.generateMipmaps=false;   /* 밉맵 번짐 방지 */
+          sp.material.map=tex; sp.material.needsUpdate=true;
+          var sy=0.045*(px||15)/15; sp.scale.set(sy*w/cnv.height,sy,1); sp.center.set(0,0.5); }
+        if(p) sp.position.copy(v3(p)); dirty=true; return sp; };
+      sp.set(text,pos); return V.add(sp,parent);
+    };
+    V.trail=function(c,max,parent){ var pts=[], L=V.line([],c,parent,{max:max||2000}); L.push=function(p){ pts.push(p); if(pts.length>(max||2000)) pts.shift(); L.set(pts); return L; }; L.clear=function(){ pts=[]; L.set(pts); return L; }; return L; };
+    addHelpers();
+    var st=cv.parentElement; if(window.ResizeObserver) new ResizeObserver(resize).observe(st); window.addEventListener('resize',resize);
+    resize(); requestAnimationFrame(loop);
+    return V;
+  };
+})();
+
+</script>
+<script>
+SK.run({mode:'time',loop:false,
+  view3d:{up:'z',cam:[0.6,-7,1.2],target:[0.6,0,-0.7],grid:0},
+  build:function(V,P){ var O={}; var c=V.box([2.6,0.4,0.06],'#8a93a6'); c.position.set(0.6,0,0.03); O.s1=V.line([],'#1b1f2a',null,{max:2}); O.s2=V.line([],'#1b1f2a',null,{max:2});
+    O.b1=V.ball(0.06,'#1b1f2a'); O.b2=V.ball(0.06,'#1b1f2a'); O.scr=V.box([0.03,1,2],'#ffffff',0.85); O.flo=V.box([3.2,1,0.03],'#ffffff',0.85);
+    O.h1=V.ball(0.05,'#5a5a6e'); O.h2=V.ball(0.05,'#5a5a6e'); O.light=[]; for(var k=0;k<6;k++) O.light.push(V.arrow([0,0,0],[1,0,0],'#f2a33a',null,{head:0.08}));
+    O.msg=V.label('',[-1.2,0,0.5],'#1b1f2a',null,13); return O; },
+  frame:function(V,O,P,t){ var i=Math.min(P.S.length-1,Math.round(t/P.dt/P.skip)), s=P.S[i], th=s[0], ph=s[1], p1=[0,0,0], p2=[P.D,0,0];
+    var b1=[p1[0]+P.l1*Math.sin(th),0,-P.l1*Math.cos(th)], b2=[p2[0]+P.l2*Math.sin(ph),0,-P.l2*Math.cos(ph)]; O.s1.set([p1,b1]); O.s2.set([p2,b2]); O.b1.position.set(b1[0],b1[1],b1[2]); O.b2.position.set(b2[0],b2[1],b2[2]);
+    var side=P.seg==='side', k; O.scr.visible=side; O.flo.visible=!side; O.scr.position.set(2.1,0,-0.9); O.flo.position.set(0.6,0,-1.75);
+    if(side){ O.h1.position.set(2.08,0,b1[2]); O.h2.position.set(2.08,0,b2[2]); for(k=0;k<6;k++) O.light[k].set([-1.4,0,-0.1-0.3*k],[0.5,0,0]); }
+    else { O.h1.position.set(b1[0],0,-1.73); O.h2.position.set(b2[0],0,-1.73); for(k=0;k<6;k++) O.light[k].set([-0.6+0.45*k,0,0.6],[0,0,-0.4]); }
+    var d=side?(b1[2]-b2[2]):(b2[0]-b1[0]); O.msg.set('t = '+t.toFixed(1)+' s,  '+(side?'y₂ − y₁ = ':'x₂ − x₁ = ')+(d*100).toFixed(2)+' cm',null); },
+  pre:function(P){ var G=9.8, w1=2*Math.PI*P.f1, w2=2*Math.PI*P.f2; P.l1=G/(w1*w1); P.l2=G/(w2*w2); P.D=1.0; var A=P.A/100; P.th0=Math.sqrt(2*A/P.l1); P.ph0=Math.sqrt(2*A/P.l2);
+    function f(t,y){ return [y[2],y[3],-G/P.l1*Math.sin(y[0]),-G/P.l2*Math.sin(y[1])]; } var y=[P.th0,P.ph0,0,0], dt=0.002, t=0, S=[], k, c1=[], c2=[]; P.dt=dt; P.skip=10;
+    for(k=0;k<=9000;k++){ if(k%10===0) S.push(y.slice()); var yp=y; y=SK.rk4(f,y,t,dt); t+=dt; if(yp[2]<0&&y[2]>=0) c1.push(t); if(yp[3]<0&&y[3]>=0) c2.push(t); }
+    P.S=S; P.fn1=(c1.length-1)/(c1[c1.length-1]-c1[0]); P.fn2=(c2.length-1)/(c2[c2.length-1]-c2[0]);
+    P.sig=S.map(function(s,i){ return [i*dt*10,(P.seg==='side'?(P.l2*Math.cos(s[1])-P.l1*Math.cos(s[0])):(P.D+P.l2*Math.sin(s[1])-P.l1*Math.sin(s[0])))*100]; }); },
+  plot:function(P,t){ var ys=P.sig.map(function(s){return s[1]}), mn=Math.min.apply(null,ys), mx=Math.max.apply(null,ys), pad=(mx-mn)*0.1;
+    return {xmin:0,xmax:18,ymin:mn-pad,ymax:mx+pad,padL:36,xticks:[0,2,4,6,8,10,12,14,16,18],xlabel:'시간 (s)',marker:t,series:[{pts:P.sig,color:'#1b1f2a'}]}; },
+  readout:function(P){ return [['l₁, l₂ (m)',P.l1.toFixed(4)+', '+P.l2.toFixed(4)],['l₂ − l₁ (cm)',((P.l2-P.l1)*100).toFixed(2)],['θ₀, φ₀ (rad)',P.th0.toFixed(3)+', '+P.ph0.toFixed(3)],['RK4 측정 f₁, f₂ (Hz)',P.fn1.toFixed(4)+', '+P.fn2.toFixed(4)],['f₁ + f₂ (빠른 진동)',(P.fn1+P.fn2).toFixed(4)+' Hz'],['맥놀이 마디 간격 1/(2|f₁ − f₂|)',(1/(2*Math.abs(P.fn1-P.fn2))).toFixed(3)+' s']]; },
+  check:function(P){ var dflt=Math.abs(P.f1-0.55)<1e-9&&Math.abs(P.f2-0.45)<1e-9; if(!dflt) return [null,'그래프 해석값(f₁ = 0.55, f₂ = 0.45 Hz)과 비교해 보자'];
+    var ok=Math.abs(P.fn1+P.fn2-1)<0.01&&Math.abs(1/(2*(P.fn1-P.fn2))-5)<0.3; return [ok, ok?'RK4: 빠른 진동 f₁ + f₂ ≈ 1 Hz, 맥놀이 마디 간격 ≈ 5 s → 그래프와 일치, f₁ = 0.55 Hz, f₂ = 0.45 Hz — 모범 답안과 일치 ✓':'확인 필요']; },
+  T:function(P){return 18;}
+});
+</script>
+<script>
+/* 교사용 페이지 공통 동작: 보기 설정, 메뉴, 전체화면, 키보드, 인쇄 */
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  // 글자/그림 크기
+  var KEY='ptc-teacher-view', LIM={fs:[0.7,1.6],fig:[0.5,1.5]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    $('vFs').textContent=Math.round(st.fs*100)+'%'; $('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){ var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10; st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply(); });
+  });
+  $('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+  // 풀이 모두 펼치기 / 인쇄 시 펼치기
+  $('expandAll').onclick=function(){var ds=document.querySelectorAll('details.step'),all=Array.prototype.every.call(ds,function(d){return d.open});ds.forEach(function(d){d.open=!all});this.textContent=all?'풀이 모두 펼치기':'풀이 모두 접기';};
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('details.step').forEach(function(d){d.open=true});});
+  // 보기 설정 메뉴 닫기
+  var vm=$('viewMenu');
+  document.addEventListener('click',function(e){ if(vm.open && !vm.contains(e.target)) vm.open=false; });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') vm.open=false; });
+  // 현재 구역 표시
+  var links=[].slice.call(document.querySelectorAll('.tb2 a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var y=window.scrollY+140, cur=0;
+    secs.forEach(function(el,i){ if(el && el.getBoundingClientRect().top+window.scrollY<=y) cur=i; });
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) cur=secs.length-1;
+    links.forEach(function(a,i){ var on=(i===cur); if(on!==a.classList.contains('on')){ a.classList.toggle('on',on); if(on) a.scrollIntoView({block:'nearest',inline:'nearest'}); } });
+  }
+  window.addEventListener('scroll',spy,{passive:true}); window.addEventListener('resize',spy); spy();
+  // 모의실험: 전체화면 + 키보드
+  var box=$('simBox'); if(!box) return;
+  function toggleFull(){
+    var fe=document.fullscreenElement||document.webkitFullscreenElement;
+    if(fe){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}
+    else{(box.requestFullscreen||box.webkitRequestFullscreen).call(box);}
+  }
+  if($('bFull')) $('bFull').onclick=toggleFull;
+  function onFs(){var fe=document.fullscreenElement||document.webkitFullscreenElement; if($('bFull')) $('bFull').textContent=fe?'✕ 전체화면 종료':'⛶ 전체화면'; setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);}
+  document.addEventListener('fullscreenchange',onFs); document.addEventListener('webkitfullscreenchange',onFs);
+  box.querySelectorAll('button').forEach(function(b){b.addEventListener('mousedown',function(e){e.preventDefault();});});
+  document.addEventListener('keydown',function(ev){
+    var tag=(ev.target.tagName||'').toLowerCase(); if((tag==='input'&&ev.target.type!=='range')||tag==='select'||tag==='textarea') return;
+    var inSim=box.contains(document.activeElement)||document.fullscreenElement===box||document.activeElement===document.body;
+    if(!inSim) return;
+    if(ev.code==='Space' && window.SIM){ev.preventDefault();window.SIM.toggle();}
+    else if((ev.key==='r'||ev.key==='R') && window.SIM){window.SIM.reset();}
+    else if(ev.key==='f'||ev.key==='F'){toggleFull();}
+  });
+})();
+
+</script>
+</body>
+</html>

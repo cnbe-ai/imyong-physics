@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2020-B-08] 중심력 F = −k/r⁴ 속 입자 — 유효 퍼텐셜, 원운동 반지름과 운동 에너지 · 교사용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#d5dae4; --accent:#3b3486; --accent2:#6a5fd6; --soft:#f4f2fb;
+    --bg:#f6f7fa; --card:#ffffff; --ok:#1e8f4e; --okbg:#e8f6ee; --warn:#b5541c; --warnbg:#fdf1e8;
+    --ball:#1e8f4e; --ramp:#ffe94d; --red:#d23b3b; --blue:#2f6fd6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:calc(16px*var(--fs));line-height:1.7}
+  a{color:var(--accent)}
+  .btn{font:inherit;font-size:14px;padding:6px 13px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn:hover{filter:brightness(.97)}
+  main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,calc(400px*var(--fig)));gap:22px;align-items:start}
+  .kicker{font-size:calc(13px*var(--fs));color:var(--muted)}
+  h1{font-size:calc(30px*var(--fs));margin:4px 0 6px;color:var(--accent);line-height:1.3}
+  h1 small{font-size:calc(16px*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  h2{font-size:calc(22px*var(--fs));margin:0 0 12px;color:var(--ink);display:flex;align-items:center;gap:10px}
+  h2 .num{background:var(--accent);color:#fff;border-radius:8px;font-size:calc(14px*var(--fs));padding:2px 9px}
+  h3{font-size:calc(17px*var(--fs));margin:18px 0 6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+  .tag{font-size:calc(12.5px*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:2px 11px}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:calc(14px*var(--fs));background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+  .meta dt{color:var(--muted)} .meta dd{margin:0}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px;scroll-margin-top:120px}
+  .problem-box{border-left:4px solid var(--accent);background:var(--soft);padding:12px 16px;border-radius:0 10px 10px 0}
+  .orig{font-size:calc(14px*var(--fs));color:var(--muted);font-style:italic;margin-top:8px}
+  .answer-box{border:2px solid var(--ok);background:var(--okbg);border-radius:12px;padding:14px 18px}
+  .answer-box .big{font-size:calc(20px*var(--fs))}
+  .note{background:var(--warnbg);border:1px solid #f0c9ad;border-radius:10px;padding:10px 14px;font-size:calc(15px*var(--fs))}
+  .note b{color:var(--warn)}
+  .ok{color:var(--ok);font-weight:700}
+  details.step{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#fff}
+  details.step>summary{cursor:pointer;padding:10px 14px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:center}
+  details.step>summary::-webkit-details-marker{display:none}
+  details.step>summary .s{background:var(--accent2);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:calc(13px*var(--fs));flex:none}
+  details.step>summary::after{content:"▸";margin-left:auto;color:var(--muted);transition:transform .2s}
+  details.step[open]>summary::after{transform:rotate(90deg)}
+  details.step .body{padding:0 18px 12px 50px}
+  .keyidea{border:2px dashed var(--accent2);border-radius:12px;padding:12px 16px;background:#fbfaff}
+  table{border-collapse:collapse;width:100%;font-size:calc(14.5px*var(--fs))}
+  th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+  th{background:var(--soft);color:var(--accent)}
+  .tablewrap{overflow-x:auto}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .src{font-size:calc(13px*var(--fs));color:var(--muted)}
+  figure{margin:0}
+  figure>svg{width:100%;height:auto;display:block}
+  .eqtag{float:right;color:var(--muted);font-size:calc(13px*var(--fs))}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+
+  /* ---------- simulation ---------- */
+  .sim{display:grid;grid-template-columns:1fr 310px;grid-template-rows:auto 1fr auto;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;height:calc(640px*var(--fig))}
+  .sim .cap{grid-column:1;grid-row:1;padding:8px 14px;background:#fbfbfd;border-bottom:1px solid var(--line);font-size:calc(15px*var(--fs));min-height:44px;display:flex;align-items:center;gap:8px}
+  .sim .cap .ph{background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;font-size:calc(13px*var(--fs));white-space:nowrap}
+  .sim .stage{grid-column:1;grid-row:2;position:relative;min-height:0}
+  .sim canvas#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .sim .bar{grid-column:1;grid-row:3;display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);background:#fbfbfd;flex-wrap:wrap}
+  .sim .bar input[type=range]{flex:1;min-width:140px}
+  .sim .side{grid-column:2;grid-row:1/4;border-left:1px solid var(--line);padding:12px 14px;overflow-y:auto;background:#fcfcfe;font-size:calc(14px*var(--fs))}
+  .side .grp{margin-bottom:12px}
+  .side .grp>label,.side .lbl{display:flex;justify-content:space-between;font-weight:600;font-size:calc(13.5px*var(--fs))}
+  .side .grp>label output{font-weight:700;color:var(--accent)}
+  .side input[type=range]{width:100%}
+  .side .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:4px}
+  .side .seg button{flex:1;font:inherit;font-size:calc(13px*var(--fs));border:0;background:#fff;padding:5px 4px;cursor:pointer}
+  .side .seg button.on{background:var(--accent);color:#fff}
+  .side .chk{display:flex;gap:10px;flex-wrap:wrap;font-size:calc(13px*var(--fs))}
+  .readout{width:100%;font-size:calc(13px*var(--fs));border-collapse:collapse}
+  .readout td{border:0;border-bottom:1px solid #eef0f4;padding:3px 2px}
+  .readout td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .result{margin-top:8px;border-radius:8px;padding:8px 10px;font-weight:700;font-size:calc(14px*var(--fs));background:#f1f2f6}
+  .result.good{background:var(--okbg);color:var(--ok)}
+  .result.bad{background:var(--warnbg);color:var(--warn)}
+  #mini{width:100%;height:150px;display:block;border:1px solid var(--line);border-radius:8px;background:#fff;margin-top:4px}
+  .sim:fullscreen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .sim:fullscreen .cap{font-size:calc(20px*var(--fs));min-height:56px}
+  .sim:fullscreen .side{font-size:calc(15px*var(--fs))}
+  .sim:-webkit-full-screen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .kbd{font-size:calc(12px*var(--fs));color:var(--muted)}
+  .graphs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .graphs canvas{width:100%;height:calc(280px*var(--fig));display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+
+  @media (max-width:900px){
+    .hero,.two,.graphs{grid-template-columns:minmax(0,1fr)}
+    .sim{grid-template-columns:minmax(0,1fr);grid-template-rows:auto calc(380px*var(--fig)) auto auto;height:auto}
+    .sim .side{grid-column:1;grid-row:4;border-left:0;border-top:1px solid var(--line)}
+    details.step .body{padding:0 12px 12px 14px}
+    body{overflow-x:hidden}
+    section.card{padding:16px}
+    h1{font-size:calc(24px*var(--fs))}
+  }
+  @page{size:A4;margin:14mm 12mm 16mm;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:10pt;color:#5b6475}}
+  @media print{
+    .topbar,.sim,.graphs,.noprint{display:none!important}
+    section.card{break-inside:auto;border:0;padding:0}
+    details.step{break-inside:avoid}
+    body{background:#fff}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  #problem{--c:#3b3486} #answer{--c:#1e8f4e} #ai{--c:#6a5fd6} #book{--c:#2f6fd6}
+  #compare{--c:#0f8b8d} #sim{--c:#d9731a} #graph{--c:#c2417a} #teach{--c:#a87a00}
+  .hero{scroll-margin-top:130px}
+  section.card{border-top:4px solid var(--c,var(--accent))}
+  h2 .num{background:var(--c,var(--accent))!important}
+  .topbar{position:sticky;top:0;z-index:30;font-size:15px;box-shadow:0 2px 10px rgba(30,25,80,.12)}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:1180px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .ttl small{font-weight:500;opacity:.75;font-size:13px;margin-left:6px}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;align-items:center;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 11px;cursor:pointer;white-space:nowrap;list-style:none}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tbtn .ic{font-size:15px;line-height:1}
+  details.view{position:relative}
+  details.view>summary::-webkit-details-marker{display:none}
+  details.view[open]>summary{background:rgba(255,255,255,.3)}
+  .vpanel{position:absolute;right:0;top:calc(100% + 8px);width:290px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 14px 40px rgba(20,20,60,.22);padding:14px 16px;z-index:40}
+  .vpanel h4{margin:0 0 10px;font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+  .vrow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef0f4;font-size:14px;font-weight:600}
+  .vrow:last-of-type{border-bottom:0}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .stepper button{font:inherit;width:32px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486;font-size:14px}
+  .vfoot{display:flex;gap:8px;margin-top:12px}
+  .vfoot button{flex:1;font:inherit;font-size:13px;font-weight:600;padding:7px 8px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  .vfoot button:hover{background:var(--soft)}
+  .tb2{background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .tb2 .in{height:46px;overflow-x:auto;scrollbar-width:none;gap:6px}
+  .tb2 .in::-webkit-scrollbar{display:none}
+  .tb2 a{--c:#3b3486;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;
+    color:#4a5163;padding:6px 13px;border-radius:999px;border:1px solid transparent;transition:background .15s,color .15s}
+  .tb2 a .dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+  .tb2 a:hover{background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--c)}
+  .tb2 a.on{background:var(--c);color:#fff}
+  .tb2 a.on .dot{background:#fff}
+  .tb2 a[href="#problem"]{--c:#3b3486} .tb2 a[href="#answer"]{--c:#1e8f4e} .tb2 a[href="#ai"]{--c:#6a5fd6} .tb2 a[href="#book"]{--c:#2f6fd6}
+  .tb2 a[href="#compare"]{--c:#0f8b8d} .tb2 a[href="#sim"]{--c:#d9731a} .tb2 a[href="#graph"]{--c:#c2417a} .tb2 a[href="#teach"]{--c:#a87a00}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:760px){
+    .tbtn .tx{display:none}
+    .tbtn{padding:6px 9px}
+    .tb1 .ttl small{display:none}
+    .vpanel{position:fixed;left:12px;right:12px;top:62px;width:auto}
+  }
+
+  .heroside .fig img{width:100%}
+  .fig{margin:0 0 10px}
+  .fig img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .fig figcaption{font-size:calc(13px*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(300px*var(--fig));max-width:45%;margin:0 0 10px 16px}
+  .psec{clear:both;margin-top:10px;overflow:hidden}
+  .psec h3{margin:8px 0 6px;color:var(--accent)}
+  h3 small,.sec h2 small{color:var(--muted);font-weight:500;font-size:.8em}
+  .pq{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0;clear:both}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;margin-right:6px;font-weight:700;font-size:.9em}
+  .pts{display:inline-block;color:var(--muted);font-size:.85em;margin-right:6px}
+  .partsol{border-top:2px solid var(--line);padding-top:12px;margin-top:22px}
+  .partsol:first-child{border-top:0;margin-top:0}
+  .partsol h3{display:flex;align-items:center;gap:6px;margin-top:0}
+  .ailab,.oflab{font-weight:800;font-size:calc(13px*var(--fs));letter-spacing:.04em;margin:12px 0 4px}
+  .ailab{color:#6a5fd6} .oflab{color:#2f6fd6}
+  .offic{border-left:4px solid #2f6fd6;background:#f2f7fe;border-radius:0 10px 10px 0;padding:8px 14px;margin-top:10px}
+  .partsol .answer-box{margin-top:10px;padding:10px 14px}
+  .anstab td:nth-child(3){font-size:calc(15px*var(--fs))}
+  .problem-box h3{font-size:calc(16px*var(--fs))}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  details.origimg{margin-top:8px;border:1px dashed #9db8e6;border-radius:8px;background:#fff}
+  details.origimg>summary{cursor:pointer;padding:6px 12px;font-size:calc(13.5px*var(--fs));font-weight:700;color:#2f6fd6}
+  details.origimg img{display:block;max-width:100%;margin:0 auto 8px;padding:0 8px}
+  .anstab tr.ext td{background:#fffaf0}
+  .sim .stage{background:#f7f8fb}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가 */
+  .jaryo,.method,.bogi{border:1.2px solid #8a93a6;border-radius:6px;padding:14px 16px 8px;margin:14px 0 10px;position:relative;background:#fff}
+  .jaryo>.jt,.method>.jt,.bogi>.jt{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#fff;padding:0 10px;font-size:.9em;font-weight:700;white-space:nowrap}
+  .method{background:#fbfbfd} .method>.jt{background:#fbfbfd}
+  .jaryo p{margin:0 0 6px} .jaryo table{font-size:.93em}
+  .method ul{margin:0;padding-left:18px;list-style:"◦ "}
+  .bogi ol{list-style:none;margin:0;padding:0} .bogi li{padding-left:20px;text-indent:-20px;margin-bottom:4px}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:3px 12px} .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:3px}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:4px 14px;margin:8px 0}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr))}
+  .choices .h{font-weight:600;text-decoration:underline;text-align:center} .choices .c{text-align:center}
+  .choices .ok{color:var(--ok);font-weight:800}
+  .mcqbox{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0;background:#fff}
+  .mcqbox .qh{font-weight:800;color:var(--accent)}
+  .cn td:first-child{width:12%;text-align:center;font-weight:700}
+  .cn tr.right td{background:var(--okbg)}
+  .rubric td:nth-child(2){width:9%;text-align:center;font-weight:700}
+  .hsbox{border:1px solid #e7b55a;border-left:5px solid #e0a020;background:#fff9ec;border-radius:0 10px 10px 0;padding:10px 16px;margin-top:10px}
+  .hsbox b{color:#9a6400}
+  .aud{display:inline-block;font-size:.8em;border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:0 9px;font-weight:700;margin-left:4px}
+  #rubric{--c:#0f8b8d} #hs{--c:#d08a00}
+  .simq{margin:14px 0 26px} .simq h3{display:flex;align-items:center;gap:8px}
+  .simframe{width:100%;height:calc(680px*var(--fig));border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+  @media (max-width:900px){.simframe{height:1100px}}
+  @media print{.simq{display:none}}
+  .tb2 a[href="#rubric"]{--c:#0f8b8d} .tb2 a[href="#hs"]{--c:#d08a00}
+</style>
+<style>:root{--accent:#3b3486;--soft:#f4f2fb} .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%)!important} .tbtn.solid{color:#3b3486!important} .stepper button,.stepper output{color:#3b3486!important} #problem,.tb2 a[href="#problem"]{--c:#3b3486} .qnum{background:#3b3486} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code" title="분류번호">PTE-2020-B-08</span><span class="code" style="background:transparent;font-weight:600" title="출제 연도">2020 1차 전공B </span>
+    <span class="ttl">중심력 F = −k/r⁴ 속 입자 — 유효 퍼텐셜, 원운동 반지름과 운동 에너지<small>Central force −k/r⁴ · effective potential · circular orbit radius and kinetic energy · 교사용 · 서술형 · 내용학</small></span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#con/y=2020" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn solid" href="PTE-2020-B-08_학생용.html" title="학생용 학습지"><span class="ic">📝</span><span class="tx">학생용</span></a>
+      <a class="tbtn" href="../../../문항모음/2020_중등1차_물리_전공B.pdf#page=5" target="_blank" title="원문 문제 PDF"><span class="ic">📄</span><span class="tx">문제 PDF</span></a>
+      <button class="tbtn" type="button" onclick="window.print()" title="인쇄"><span class="ic">🖨</span><span class="tx">인쇄</span></button>
+      <details class="view" id="viewMenu">
+        <summary class="tbtn" title="보기 설정"><span class="ic">⚙</span><span class="tx">보기 설정</span></summary>
+        <div class="vpanel">
+          <h4>보기 설정</h4>
+          <div class="vrow"><span>글자 크기</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+          <div class="vrow"><span>그림 크기</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+          <div class="vfoot"><button type="button" id="expandAll">풀이 모두 펼치기</button><button type="button" id="vReset">크기 초기화</button></div>
+        </div>
+      </details>
+    </div>
+  </div></div>
+  <nav class="tb2" aria-label="본문 바로가기"><div class="in">
+<a href="#problem"><span class="dot"></span>문제</a><a href="#answer"><span class="dot"></span>정답</a><a href="#ai"><span class="dot"></span>풀이</a><a href="#rubric"><span class="dot"></span>채점 기준</a><a href="#compare"><span class="dot"></span>검토</a><a href="#sim"><span class="dot"></span>모의실험</a><a href="#hs"><span class="dot"></span>고교 연계</a><a href="#teach"><span class="dot"></span>수업 활용</a>
+  </div></nav>
+</header>
+
+<main>
+
+  <div class="hero" id="problem">
+    <div>
+      <div class="kicker">2020학년도 1차 전공B 8번 · 중등학교교사 임용후보자 선정경쟁시험 물리</div>
+      <h1>중심력 F = −k/r⁴ 속 입자 — 유효 퍼텐셜, 원운동 반지름과 운동 에너지<small>Central force −k/r⁴ · effective potential · circular orbit radius and kinetic energy</small></h1>
+      <div class="tags"><span class="tag" style="background:var(--accent);color:#fff;font-weight:700">PTE-2020-B-08</span><span class="tag">중심력</span><span class="tag">유효 퍼텐셜</span><span class="tag">각운동량 보존</span><span class="tag">원 궤도</span><span class="tag">궤도 안정성</span><span class="tag">역사승 힘</span></div>
+      <div class="problem-box"><p>2차원 평면에서 질량 \(m\)인 입자가 \(\vec F=-k\dfrac{1}{r^4}\hat r\)인 중심력을 받아 운동하고 있다. 입자의 각운동량의 크기는 \(L\)이고, \(r=\infty\)에서 퍼텐셜 에너지는 0이다.</p>
+<p>입자의 유효 퍼텐셜 에너지 \(U_{\rm eff}(r)\)를 구하시오. 또한 입자가 원운동을 할 때, 회전 반지름 \(r_0\)을 풀이 과정과 함께 구하고, 운동 에너지를 \(m\), \(k\), \(L\)로 쓰시오. (단, \(k\)는 양의 상수이다.) <b>[4점]</b></p>
+      <div class="psec">
+      <div class="pq"><span class="qnum">(1)</span><span class="pts">1점</span><p>입자의 유효 퍼텐셜 에너지 \(U_{\rm eff}(r)\)를 구하시오.</p></div><div class="pq"><span class="qnum">(2)</span><span class="pts">2점</span><p>입자가 원운동을 할 때, 회전 반지름 \(r_0\)을 풀이 과정과 함께 구하시오.</p></div><div class="pq"><span class="qnum">(3)</span><span class="pts">1점</span><p>원운동할 때 운동 에너지를 \(m\), \(k\), \(L\)로 쓰시오.</p></div>
+      <div class="pq" style="border-color:#e0c070"><span class="qnum ext">확장 1</span><p>원운동 중 전체 역학적 에너지를 구하고, 이 원 궤도가 안정한지 판단하시오.</p></div></div></div>
+    </div>
+    <div class="heroside">
+      <dl class="meta"><dt>시험</dt><dd>2020학년도 1차 전공B 8번 · 서술형 · 내용학</dd><dt>대상</dt><dd>대학생(임용 준비·물리교육과) · 고등학생(심화·영재)</dd><dt>물리학 분류</dt><dd><b>[주]</b> 역학 › 진동 및 만유인력 › 만유인력 › <b>1.4.2.2 케플러 법칙과 궤도 운동</b><br>[보조] 역학 › 회전역학 및 유체역학 › 회전 운동 › <b>1.3.1.3 각운동량 보존과 롤링 운동</b></dd><dt>원문</dt><dd><a href="../../../문항모음/2020_중등1차_물리_전공B.pdf#page=5" target="_blank">문제 PDF (5쪽)</a><br><small>공식 정답·채점 기준 미공개 — 모범 답안은 AI 풀이를 수식·수치·모의실험으로 검증한 것</small></dd><dt>난이도</dt><dd>★★☆☆☆ (퍼텐셜 적분 → 유효 퍼텐셜 → 극값 조건. 원 궤도는 불안정(극대)이라는 점도 함께 생각해 볼 만함)</dd><dt>대학 과목</dt><dd>고전역학(중심력 운동, 유효 퍼텐셜, 각운동량 보존)</dd><dt>고교 교육과정</dt><dd>물리학Ⅱ(2015) 원운동·케플러 법칙 / 2022 「역학과 에너지」 — 고교에서는 구심력 = 중심력</dd><dt>핵심 개념</dt><dd>\(U=-\dfrac{k}{3r^3}\) (\(U(\infty)=0\)). \(U_{\rm eff}=\dfrac{L^2}{2mr^2}-\dfrac{k}{3r^3}\). 원운동: \(U_{\rm eff}'(r_0)=0\) → \(r_0=\dfrac{mk}{L^2}\), \(K=\dfrac{L^2}{2mr_0^2}=\dfrac{L^6}{2m^3k^2}\).</dd></dl>
+    </div>
+  </div>
+  <section class="card" id="answer">
+    <h2><span class="num">정답</span>모범 답안 요약</h2>
+<div class="tablewrap"><table class="anstab"><tr><th style="width:10%">문항</th><th>모범 답안 (요약)</th><th style="width:26%">검증</th></tr><tr><td><b>(1)</b></td><td>\(U_{\rm eff}(r)=\dfrac{L^2}{2mr^2}-\dfrac{k}{3r^3}\)</td><td>모의실험 그래프</td></tr><tr><td><b>(2)</b></td><td>\(r_0=\dfrac{mk}{L^2}\)</td><td>모의실험: U_eff′의 근을 이분법으로 → r₀ = mk/L²</td></tr><tr><td><b>(3)</b></td><td>\(K=\dfrac{L^6}{2m^3k^2}\)</td><td>모의실험 수치</td></tr><tr class=ext><td><b>확장 1</b><br><small>확장</small></td><td>\(E=\dfrac{L^6}{6m^3k^2}\), 불안정</td><td>모의실험 섭동 슬라이더</td></tr></table></div>
+  </section>
+  <section class="card" id="ai">
+    <h2><span class="num">1</span>소문항별 풀이 (AI 모범 답안)</h2>
+
+    <div class="partsol" id="sol-1">
+      <h3><span class="qnum">(1)</span> <small>1점</small></h3>
+      <div class="pq"><p>입자의 유효 퍼텐셜 에너지 \(U_{\rm eff}(r)\)를 구하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(U=-\dfrac{k}{3r^3}\), \(U_{\rm eff}=\dfrac{L^2}{2mr^2}+U\).</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>퍼텐셜</summary><div class="body"><p>\(U(r)=-\int_\infty^rF\,dr'=\int_\infty^r\dfrac{k}{r'^4}dr'=\left[-\dfrac{k}{3r'^3}\right]_\infty^r=-\dfrac{k}{3r^3}\).</p></div></details>
+<details class="step" open><summary><span class="s">2</span>유효 퍼텐셜</summary><div class="body"><p>\(E=\tfrac12m\dot r^2+\dfrac{L^2}{2mr^2}+U(r)\) →</p>\[ U_{\rm eff}(r)=\frac{L^2}{2mr^2}-\frac{k}{3r^3} \]</div></details>
+      <div class="answer-box"><b>답</b> \(U_{\rm eff}(r)=\dfrac{L^2}{2mr^2}-\dfrac{k}{3r^3}\)</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>\(U=-k/r^3\)(적분 계수 1/3 누락)이나 부호 실수.</p></div>
+    </div>
+    <div class="partsol" id="sol-2">
+      <h3><span class="qnum">(2)</span> <small>2점</small></h3>
+      <div class="pq"><p>입자가 원운동을 할 때, 회전 반지름 \(r_0\)을 풀이 과정과 함께 구하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(U_{\rm eff}'(r_0)=-\dfrac{L^2}{mr_0^3}+\dfrac{k}{r_0^4}=0\).</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>극값 조건</summary><div class="body"><p>\(\dfrac{dU_{\rm eff}}{dr}=-\dfrac{L^2}{mr^3}+\dfrac{k}{r^4}=0\) → \(r_0=\dfrac{mk}{L^2}\).</p></div></details>
+<details class="step"><summary><span class="s">2</span>구심력으로 점검</summary><div class="body"><p>\(\dfrac{k}{r_0^4}=\dfrac{m}{r_0}\left(\dfrac{L}{mr_0}\right)^2=\dfrac{L^2}{mr_0^3}\) → 같은 결과 ✔</p></div></details>
+<details class="step"><summary><span class="s">3</span>안정성(참고)</summary><div class="body"><p>\(U_{\rm eff}''(r_0)=\dfrac{3L^2}{mr_0^4}-\dfrac{4k}{r_0^5}=-\dfrac{k}{r_0^5}\lt 0\) → 극대: <b>불안정한 원 궤도</b>(조금만 흔들려도 안으로 떨어지거나 밖으로 탈출). \(1/r^n\) 힘에서 \(n\ge3\)이면 원 궤도가 불안정하다.</p></div></details>
+      <div class="answer-box"><b>답</b> \(r_0=\dfrac{mk}{L^2}\)</div>
+      <div class="offic"><div class="oflab">자주 하는 실수</div><p>\(U_{\rm eff}=0\)으로 놓거나, \(L=mvr\)을 쓰지 않고 \(v\)가 남는 실수.</p></div>
+    </div>
+    <div class="partsol" id="sol-3">
+      <h3><span class="qnum">(3)</span> <small>1점</small></h3>
+      <div class="pq"><p>원운동할 때 운동 에너지를 \(m\), \(k\), \(L\)로 쓰시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(K=\dfrac{L^2}{2mr_0^2}\).</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>대입</summary><div class="body">\[ K=\frac{L^2}{2m}\cdot\frac{L^4}{m^2k^2}=\frac{L^6}{2m^3k^2} \]</div></details>
+      <div class="answer-box"><b>답</b> \(K=\dfrac{L^6}{2m^3k^2}\)</div>
+      
+    </div>
+    <div class="partsol" id="sol-4">
+      <h3><span class="qnum ext">확장 1</span>확장 문항 </h3>
+      <div class="pq"><p>원운동 중 전체 역학적 에너지를 구하고, 이 원 궤도가 안정한지 판단하시오.</p></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(E=U_{\rm eff}(r_0)\), 극대 → 불안정.</div>
+      <div class="ailab">AI 풀이 (모범 답안)</div>
+      <details class="step" open><summary><span class="s">1</span>계산</summary><div class="body"><p>\(E=\dfrac{L^6}{2m^3k^2}-\dfrac{k}{3}\dfrac{L^6}{m^3k^3}=\dfrac{L^6}{6m^3k^2}\gt 0\). \(U_{\rm eff}\)의 극대이므로 불안정(모의실험에서 반지름을 0.1%만 바꿔도 궤도가 무너짐).</p></div></details>
+      <div class="answer-box"><b>답</b> \(E=\dfrac{L^6}{6m^3k^2}\), 불안정</div>
+      
+    </div>
+  </section>
+  <section class="card" id="rubric">
+    <h2><span class="num">2</span>채점 기준 (예시)</h2>
+<p class="src">공식 채점 기준은 공개되지 않는다. 배점과 답안 요소를 바탕으로 만든 <b>예시 채점 기준</b>이다.</p><div class="tablewrap"><table class="rubric"><tr><th style="width:10%">문항</th><th>배점</th><th>채점 요소 (예시 답안의 핵심 표현)</th></tr><tr><td><b>(1)</b></td><td>1</td><td>\(U_{\rm eff}=\dfrac{L^2}{2mr^2}-\dfrac{k}{3r^3}\) (배점 분할은 예시)</td></tr><tr><td><b>(2)</b></td><td>1</td><td>\(dU_{\rm eff}/dr=0\) (또는 구심력 조건)을 세움</td></tr><tr><td><b>(2)</b></td><td>1</td><td>\(r_0=mk/L^2\)</td></tr><tr><td><b>(3)</b></td><td>1</td><td>\(K=L^6/(2m^3k^2)\)</td></tr><tr><td colspan="2" style="text-align:right"><b>합계 4점</b></td><td></td></tr></table></div>
+  </section>
+  <section class="card" id="compare">
+    <h2><span class="num">3</span>출제 의도·검토</h2>
+<h3>출제 의도</h3><ul><li>중심력 문제의 표준 절차: 퍼텐셜 → 유효 퍼텐셜 → 원 궤도 조건.</li></ul>
+<div class="note"><b>공식 정답 미공개</b> — 표준 풀이이며 수치 근 찾기와 RK4 궤도로 확인했다. 원 궤도가 불안정하다는 점(극대)은 문항에서 묻지 않았지만 검토 포인트이다. 배점(1+2+1)은 예시이다.</div>
+  </section>
+  <section class="card" id="sim">
+    <h2><span class="num">4</span>3D 모의실험 — 1/r⁴ 중심력 속 궤도와 유효 퍼텐셜 (RK4) <span class="kbd">(Space 재생/정지 · R 처음으로 · F 전체화면)</span></h2>
+    <div class="sim" id="simBox" tabindex="0">
+      <div class="cap"><span class="ph" id="capPh">모의실험</span><span id="capTx">3D 궤도(파랑)와 기준 원 r₀(회색 점선), 보라 곡선 = U_eff 단면. 처음 반지름을 r₀에서 조금만 바꿔 보면 궤도가 무너진다 — 극대점의 불안정성.</span></div>
+      <div class="stage"><canvas id="cv"></canvas></div>
+      <div class="bar"><button class="btn primary" id="bPlay">▶ 재생</button><button class="btn" id="bReset">↺ 처음</button>
+        <input type="range" id="tScrub" min="0" max="1000" value="0" aria-label="시간">
+        <select id="selSpeed" class="btn" aria-label="재생 속도"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+        <button class="btn" id="bFull">⛶ 전체화면</button></div>
+      <div class="side"><div class="grp"><label>처음 반지름 섭동 δr/r₀ (%) <output id="o_eps"></output></label><input type="range" data-p="eps" data-u="" min="-3" max="3" step="0.1" value="0"></div>
+<div class="grp"><label>각운동량 L (m = k = 1 단위) <output id="o_Lm"></output></label><input type="range" data-p="Lm" data-u="" min="0.6" max="1.5" step="0.01" value="1"></div>
+<table class="readout" id="ro"></table><div class="result" id="res">—</div>
+<div class="lbl" style="margin-top:10px">U_eff(r) (m = k = 1): 주황 = 원 궤도 r₀ (극대!)</div><canvas id="mini"></canvas></div>
+    </div>
+    <p class="src noprint">지도 팁: ① 섭동 0%: 원 궤도(수치 오차로 결국은 벗어나므로 몇 바퀴만). ② +0.5%: 바깥으로 탈출, −0.5%: 중심으로 낙하 — U_eff 극대. ③ L을 바꾸면 r₀ ∝ 1/L².</p>
+  </section>
+  <section class="card" id="hs">
+    <h2><span class="num">5</span>고등학생 지도 — 고교 교육과정과 잇기</h2>
+<div class="two"><div><h3>고교 교육과정과의 연결</h3><ul><li>물리학Ⅱ(2015) 원운동·만유인력(1/r²)과 비교, 2022 「역학과 에너지」</li><li>고교: 구심력 = 중심력으로 원운동 반지름 구하기</li></ul></div><div><h3>고등학생용 변형 문항</h3><ol><li>힘 F = k/r⁴로 원운동하는 입자에서 \(k/r^4=mv^2/r\)과 \(L=mvr\)로 반지름을 구하라.</li><li>만유인력 궤도와 달리 이 궤도는 왜 조금만 흔들려도 무너질까?(그래프 해석)</li></ol></div></div>
+  </section>
+  <section class="card" id="teach">
+    <h2><span class="num">6</span>수업 활용 안내</h2>
+<div class="two"><div><h3>수업 흐름 (35분)</h3><ol><li><b>복습 (5분)</b> — 중심력·각운동량 보존</li><li><b>유효 퍼텐셜 (10분)</b> — 원심 항 + U</li><li><b>원 궤도 (10분)</b> — U_eff′ = 0, K</li><li><b>모의실험 (10분)</b> — 섭동으로 안정성 관찰</li></ol></div><div><h3>자주 나오는 오개념</h3><ul><li>“원 궤도면 항상 안정”</li><li>“U(r) = −k/r³”(1/3 누락)</li><li>“유효 퍼텐셜 = 실제 퍼텐셜”</li></ul><h3>평가 포인트</h3><ul><li>적분과 부호</li><li>극값 조건</li><li>안정성 판단(확장)</li></ul><h3>더 나아가기</h3><p>1/r² 힘(안정한 원 궤도, 극소)과 비교해 베르트랑 정리·궤도 안정성 일반 조건(n < 3)으로 확장한다.</p></div></div>
+  </section>
+</main>
+
+<script>
+/* PTC 공통 라이브러리 — 모든 교사용 페이지의 모의실험이 사용 */
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id)};
+  var PTC=window.PTC={};
+  PTC.$=$;
+  PTC.DEG=Math.PI/180;
+  PTC.fs=function(){return window.PTC_FS||1};
+  PTC.font=function(px,weight,family){return (weight?weight+' ':'')+Math.round(px*PTC.fs())+'px '+(family||'"Noto Sans KR","Malgun Gothic",sans-serif')};
+  PTC.setupCanvas=function(c){
+    var r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;
+    c.width=Math.max(1,Math.round(r.width*d)); c.height=Math.max(1,Math.round(r.height*d));
+    var x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); return {x:x,w:r.width,h:r.height};
+  };
+  PTC.arrow=function(ctx,x,y,dx,dy,color,label,lw){
+    var L=Math.hypot(dx,dy); if(L<2) return;
+    ctx.save(); ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw||2.5;
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dx,y+dy); ctx.stroke();
+    var a=Math.atan2(dy,dx), h=Math.min(12,L*0.4);
+    ctx.beginPath(); ctx.moveTo(x+dx,y+dy);
+    ctx.lineTo(x+dx-h*Math.cos(a-0.4),y+dy-h*Math.sin(a-0.4));
+    ctx.lineTo(x+dx-h*Math.cos(a+0.4),y+dy-h*Math.sin(a+0.4)); ctx.closePath(); ctx.fill();
+    if(label){ctx.font=PTC.font(14,'600'); ctx.fillText(label,x+dx+6,y+dy-6);}
+    ctx.restore();
+  };
+  PTC.text=function(ctx,s,x,y,px,color,weight,align){
+    ctx.save(); ctx.fillStyle=color||'#1b1f2a'; ctx.font=PTC.font(px||14,weight); ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.restore();
+  };
+  /* 그래프: o={xmin,xmax,ymin,ymax,log,xticks,yticks,xlabel,ylabel,title,series:[{f|pts,color,label,dash}],marker,points:[[x,y,color]],fill:{f,color,x0,x1},xfmt} */
+  PTC.plot=function(c,o){
+    var cc=PTC.setupCanvas(c), x=cc.x, w=cc.w, h=cc.h; if(w<20) return;
+    var L=o.padL||52, R=14, T=o.title?30:12, B=36, fs=PTC.fs();
+    function px(v){return L+(v-o.xmin)/(o.xmax-o.xmin)*(w-L-R)}
+    function py(v){var a=o.log?Math.log10(v):v;return h-B-(a-o.ymin)/(o.ymax-o.ymin)*(h-T-B)}
+    x.clearRect(0,0,w,h);
+    if(o.title){x.fillStyle='#1b1f2a';x.font=PTC.font(13,'600');x.fillText(o.title,L,18);}
+    x.font=PTC.font(12); x.strokeStyle='#e6e9f0'; x.fillStyle='#5b6475'; x.lineWidth=1;
+    (o.yticks||[]).forEach(function(v){var yy=o.log?h-B-(v-o.ymin)/(o.ymax-o.ymin)*(h-T-B):py(v);x.beginPath();x.moveTo(L,yy);x.lineTo(w-R,yy);x.stroke();x.fillText(o.log?String(Math.pow(10,v)):(o.yfmt?o.yfmt(v):String(v)),4,yy+4);});
+    (o.xticks||[]).forEach(function(v){var xx=px(v);x.beginPath();x.moveTo(xx,T);x.lineTo(xx,h-B);x.stroke();var s=o.xfmt?o.xfmt(v):String(v);x.fillText(s,xx-x.measureText(s).width/2,h-B+16);});
+    x.strokeStyle='#1b1f2a'; x.beginPath(); x.moveTo(L,T); x.lineTo(L,h-B); x.lineTo(w-R,h-B); x.stroke();
+    if(o.xlabel){x.fillStyle='#5b6475';var xs=o.xlabel;x.fillText(xs,w-R-x.measureText(xs).width,h-4);}
+    if(o.ylabel){x.save();x.fillStyle='#5b6475';x.translate(12,T+4);x.fillText(o.ylabel,0,0);x.restore();}
+    if(o.fill){var F=o.fill;x.fillStyle=F.color;x.beginPath();x.moveTo(px(F.x0),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));
+      for(var k=0;k<=120;k++){var vv=F.x0+(F.x1-F.x0)*k/120;x.lineTo(px(vv),py(F.f(vv)));}
+      x.lineTo(px(F.x1),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));x.closePath();x.fill();}
+    (o.series||[]).forEach(function(sr,si){
+      x.strokeStyle=sr.color; x.lineWidth=sr.lw||2.2; x.setLineDash(sr.dash||[]); x.beginPath(); var started=false;
+      var N=sr.pts?sr.pts.length-1:300;
+      for(var i=0;i<=N;i++){
+        var v,y; if(sr.pts){v=sr.pts[i][0];y=sr.pts[i][1];} else {v=o.xmin+(o.xmax-o.xmin)*i/N;y=sr.f(v);}
+        if(!isFinite(y)||(o.log&&y<=0)){started=false;continue;}
+        var yy=py(y); if(yy<T-2||yy>h-B+2){started=false;continue;}
+        if(!started){x.moveTo(px(v),yy);started=true;}else x.lineTo(px(v),yy);
+      }
+      x.stroke(); x.setLineDash([]);
+      if(sr.label){x.fillStyle=sr.color;x.font=PTC.font(12,'600');x.fillText('— '+sr.label,L+10+si*((w-L)/o.series.length),T+14);}
+    });
+    if(o.marker!=null && o.marker>=o.xmin && o.marker<=o.xmax){x.strokeStyle='#d23b3b';x.setLineDash([5,4]);x.lineWidth=1.5;x.beginPath();x.moveTo(px(o.marker),T);x.lineTo(px(o.marker),h-B);x.stroke();x.setLineDash([]);}
+    (o.points||[]).forEach(function(p){ if(o.log&&p[1]<=0) return; x.fillStyle=p[2]||'#d23b3b'; x.beginPath(); x.arc(px(p[0]),Math.max(T,Math.min(h-B,py(p[1]))),5,0,2*Math.PI); x.fill(); });
+    return {px:px,py:py,ctx:x,w:w,h:h};
+  };
+  /* 시간 진행형 모의실험 제어: o={tMin(),tMax(),draw(t),pauses:[t..],loop} */
+  PTC.timeline=function(o){
+    var T={t:o.tMin(),playing:false,last:null,speed:$('selSpeed')?+$('selSpeed').value:1,passed:{}};
+    function sync(){var s=$('tScrub'); if(s) s.value=Math.round((T.t-o.tMin())/((o.tMax()-o.tMin())||1)*1000);}
+    function setP(p){T.playing=p; var b=$('bPlay'); if(b) b.textContent=p?'⏸ 정지':'▶ 재생'; T.last=null; if(p) requestAnimationFrame(tick);}
+    function tick(ts){
+      if(!T.playing) return;
+      if(T.last==null) T.last=ts;
+      var dt=Math.min(0.05,(ts-T.last)/1000); T.last=ts;
+      var prev=T.t; T.t+=dt*T.speed;
+      var ps=o.pauses||[], cp=$('cPause');
+      if(!cp||cp.checked){ for(var i=0;i<ps.length;i++){ if(prev<ps[i]&&T.t>=ps[i]&&!T.passed[i]){T.t=ps[i];T.passed[i]=true;setP(false);sync();o.draw(T.t);return;} } }
+      if(T.t>=o.tMax()){ if(o.loop){T.t=o.tMin();T.passed={};} else {T.t=o.tMax();setP(false);} }
+      sync(); o.draw(T.t);
+      if(T.playing) requestAnimationFrame(tick);
+    }
+    T.toggle=function(){ if(T.playing){setP(false);return;} if(T.t>=o.tMax()-1e-9){T.t=o.tMin();T.passed={};} setP(true); };
+    T.reset=function(){ T.t=o.tMin(); T.passed={}; setP(false); sync(); o.draw(T.t); };
+    T.set=function(t){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),t)); T.passed={}; (o.pauses||[]).forEach(function(p,i){if(T.t>=p)T.passed[i]=true}); sync(); o.draw(T.t); };
+    T.redraw=function(){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),T.t)); sync(); o.draw(T.t); };
+    T.pause=function(){setP(false)};
+    if($('bPlay')) $('bPlay').onclick=T.toggle;
+    if($('bReset')) $('bReset').onclick=T.reset;
+    if($('tScrub')) $('tScrub').oninput=function(){ setP(false); T.set(o.tMin()+(o.tMax()-o.tMin())*this.value/1000); };
+    if($('selSpeed')) $('selSpeed').onchange=function(){ T.speed=+this.value; };
+    window.SIM={toggle:T.toggle,reset:T.reset};
+    return T;
+  };
+  /* 연속 애니메이션 (정적 모의실험의 흐르는 전류 등) */
+  PTC.loop=function(fn){ var last=null; function f(ts){ var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts; fn(dt); requestAnimationFrame(f);} requestAnimationFrame(f); };
+  PTC.onResize=function(fn){ var st=document.querySelector('#simBox .stage'); if(window.ResizeObserver&&st) new ResizeObserver(function(){fn()}).observe(st); window.addEventListener('resize',fn); };
+  PTC.seg=function(id,cb){ var box=$(id); box.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ box.querySelectorAll('button').forEach(function(o){o.classList.toggle('on',o===b)}); cb(b.dataset.v); }; }); };
+  PTC.range=function(id,outId,fmt,cb){ var r=$(id),o=$(outId); function u(){ if(o) o.textContent=fmt(+r.value); if(cb) cb(+r.value); } r.addEventListener('input',u); if(o) o.textContent=fmt(+r.value); return r; };
+  PTC.readout=function(id,rows){ $(id).innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join(''); };
+  PTC.result=function(id,good,text){ var el=$(id); el.className='result '+(good===true?'good':good===false?'bad':''); el.textContent=text; };
+  PTC.caption=function(ph,tx){ if($('capPh')) $('capPh').textContent=ph; if($('capTx')) $('capTx').textContent=tx; };
+})();
+
+/* SK — 간단 모의실험 키트 (도구/도움.py 의 kit() 와 짝).
+   SK.run({mode:'static'|'time', T:function(P){return 초}, scene:function(g,P,t){…}, plot:function(P,t){return PTC.plot 옵션},
+           plot2:…, readout:function(P,t){return [[이름,값],…]}, check:function(P){return [true|false|null, 글]}, caption:function(P,t){return 글},
+           pre:function(P){…매개변수가 바뀔 때 한 번 계산…}})
+   매개변수: 오른쪽 칸의 [data-p] 요소 (range·checkbox·seg) → P.이름
+   g = {x:ctx, w, h} · SK.view(g,x0,x1,y0,y1,pad) → {X(x),Y(y),s} (가로세로 같은 축척)
+   3D: kit(…, three=True) 와 함께 view3d:{up:'z',cam:[…],target:[…],grid:10}, build:function(V,P){ …물체를 만들고 객체 O 를 돌려줌… },
+       frame:function(V,O,P,t){ …위치·화살표·라벨 갱신… } 를 쓰면 #cv 가 three.js 3D 장면이 된다 (마우스 끌기 회전·휠 확대).
+       (three.js 를 못 불러오면 scene 이 있으면 2D 로 대신 그린다.) */
+(function(){
+  'use strict';
+  var SK=window.SK={};
+  SK.read=function(){ var P={};
+    document.querySelectorAll('[data-p]').forEach(function(el){ var k=el.dataset.p;
+      if(el.type==='checkbox') P[k]=el.checked; else if(el.classList.contains('seg')){ var b=el.querySelector('button.on'); P[k]=b?(isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v):null; }
+      else P[k]=+el.value; });
+    return P; };
+  SK.view=function(g,x0,x1,y0,y1,pad){ pad=pad==null?24:pad; var s=Math.min((g.w-2*pad)/(x1-x0),(g.h-2*pad)/(y1-y0)),
+      ox=(g.w-(x1-x0)*s)/2-x0*s, oy=(g.h+(y1-y0)*s)/2+y0*s; return {s:s,X:function(x){return ox+x*s},Y:function(y){return oy-y*s}}; };
+  SK.line=function(c,pts,col,lw,dash){ c.save(); c.strokeStyle=col||'#1b1f2a'; c.lineWidth=lw||2; c.setLineDash(dash||[]); c.beginPath();
+    pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.stroke(); c.restore(); };
+  SK.poly=function(c,pts,fill,stroke){ c.save(); c.beginPath(); pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.closePath();
+    if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.stroke();} c.restore(); };
+  SK.circle=function(c,x,y,r,fill,stroke,lw){ c.save(); c.beginPath(); c.arc(x,y,r,0,6.2832); if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=lw||1.5;c.stroke();} c.restore(); };
+  SK.rect=function(c,x,y,w,h,fill,stroke){ c.save(); if(fill){c.fillStyle=fill;c.fillRect(x,y,w,h);} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.strokeRect(x,y,w,h);} c.restore(); };
+  SK.text=function(c,s,x,y,px,col,wt,al){ PTC.text(c,s,x,y,px||13,col||'#1b1f2a',wt||'600',al); };
+  SK.arrow=function(c,x,y,dx,dy,col,lab,lw){ PTC.arrow(c,x,y,dx,dy,col,lab,lw); };
+  SK.spring=function(c,x1,y1,x2,y2,n,amp,col){ n=n||10; amp=amp||7; var L=Math.hypot(x2-x1,y2-y1)||1, ux=(x2-x1)/L, uy=(y2-y1)/L, nx=-uy, ny=ux, pts=[[x1,y1]], lead=Math.min(8,L/6);
+    pts.push([x1+ux*lead,y1+uy*lead]); for(var i=0;i<2*n;i++){ var s=lead+(L-2*lead)*(i+0.5)/(2*n), sg=i%2?-1:1; pts.push([x1+ux*s+nx*amp*sg,y1+uy*s+ny*amp*sg]); }
+    pts.push([x2-ux*lead,y2-uy*lead]); pts.push([x2,y2]); SK.line(c,pts,col||'#4a5568',1.6); };
+  SK.ground=function(c,x0,x1,y,col){ SK.line(c,[[x0,y],[x1,y]],col||'#1b1f2a',2); c.save(); c.strokeStyle='#9aa2b2'; c.lineWidth=1; for(var x=x0;x<x1;x+=10){ c.beginPath(); c.moveTo(x,y); c.lineTo(x-7,y+8); c.stroke(); } c.restore(); };
+  SK.fmt=function(v,d){ if(!isFinite(v)) return '—'; var a=Math.abs(v); if(a!==0&&(a<1e-3||a>=1e5)) return v.toExponential(d==null?3:d); return v.toFixed(d==null?3:d); };
+  SK.rk4=function(f,y,t,dt){ var k1=f(t,y), y2=y.map(function(v,i){return v+dt/2*k1[i]}), k2=f(t+dt/2,y2), y3=y.map(function(v,i){return v+dt/2*k2[i]}), k3=f(t+dt/2,y3),
+      y4=y.map(function(v,i){return v+dt*k3[i]}), k4=f(t+dt,y4); return y.map(function(v,i){return v+dt/6*(k1[i]+2*k2[i]+2*k3[i]+k4[i])}); };
+  SK.run=function(o){
+    var P=SK.read(), TL=null;
+    function outs(){ document.querySelectorAll('input[type=range][data-p]').forEach(function(el){ var out=document.getElementById('o_'+el.dataset.p); if(!out) return;
+      var st=el.step&&el.step!=='any'?el.step:'0.01', d=st.indexOf('.')>=0?st.split('.')[1].length:0; out.textContent=(+el.value).toFixed(d)+(el.dataset.u||''); }); }
+    var V3=null, O3=null;
+    if(o.build&&window.PTC3&&PTC3.ok()){ V3=PTC3.view('cv',o.view3d||{up:'z',cam:[6,-8,5],target:[0,0,0],grid:10}); if(V3) O3=o.build(V3,P); }
+    else if(o.build&&!o.scene){ o.scene=function(g){ SK.text(g.x,'3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30,15,'#667'); }; }
+    function draw(t){ t=t||0;
+      if(V3){ try{ o.frame(V3,O3,P,t); }catch(e){ console.error(e); } V3.render(); }
+      else { var c=PTC.setupCanvas(document.getElementById('cv')); if(c.w<20) return; c.x.clearRect(0,0,c.w,c.h);
+        try{ o.scene(c,P,t); }catch(e){ console.error(e); } }
+      if(o.plot&&document.getElementById('mini')) PTC.plot(document.getElementById('mini'),o.plot(P,t));
+      if(o.plot2&&document.getElementById('mini2')) PTC.plot(document.getElementById('mini2'),o.plot2(P,t));
+      if(o.readout) PTC.readout('ro',o.readout(P,t));
+      if(o.caption){ var cp=o.caption(P,t); if(cp) PTC.caption(cp[0],cp[1]); } }
+    function update(){ P=SK.read(); outs(); if(o.pre) o.pre(P); if(V3&&o.rebuild) O3=o.rebuild(V3,O3,P); if(o.check){ var r=o.check(P); PTC.result('res',r[0],r[1]); } if(TL) TL.reset(); else draw(0); }
+    document.querySelectorAll('[data-p]').forEach(function(el){
+      if(el.classList.contains('seg')) el.querySelectorAll('button').forEach(function(b){ b.addEventListener('click',function(){ el.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)}); update(); }); });
+      else el.addEventListener(el.type==='checkbox'?'change':'input',update); });
+    if(o.mode==='time') TL=PTC.timeline({tMin:function(){return 0},tMax:function(){return o.T?o.T(P):10},draw:draw,loop:!!o.loop});
+    PTC.onResize(function(){ if(TL) TL.redraw(); else draw(0); });
+    SK.P=function(){return P}; SK.V3=function(){return V3}; SK.redraw=function(){ if(TL) TL.redraw(); else draw(0); };
+    update();
+  };
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+/* PTC3 — 3D 모의실험 공통 도우미 (three.js r147 + OrbitControls). sim 에 three=True 일 때만 들어간다.
+   사용:  var V=PTC3.view('cv',{up:'z', cam:[6,-8,5], target:[0,0,0], grid:10, axes:3});
+          var a=V.arrow([0,0,0],[1,0,0],'#d23b3b');  a.set(origin, vec)   // 화살표(길이 = |vec|)
+          var b=V.ball(0.2,'#3b6fd6');  b.position.set(x,y,z)               // 공
+          var L=V.line([[0,0,0],[1,1,1]],'#888'); L.set(points)            // 선(궤적)
+          var t=V.label('m',[0,0,1],'#333'); t.set('m₁',[x,y,z])           // 화면 크기 고정 글자
+          V.box([w,d,h],color,opacity) · V.cyl(r,h,color,opacity) · V.plane(w,h,color,opacity)
+          V.group() · V.onFrame(function(dt){…})  // 매 프레임 호출(재생과 무관)
+          V.render()  // 값을 바꾼 뒤 한 번 그리기 (onFrame 이 있으면 자동)
+   좌표: up:'z' 이면 z 가 위(물리 문제 관례), 기본 'y'.  마우스 끌기 = 회전, 휠 = 확대, 오른쪽 끌기 = 이동.
+   인터넷이 없어 three.js 를 못 불러오면 캔버스에 안내 글을 쓰고 null 을 돌려준다(2D 부분은 그대로 동작). */
+(function(){
+  'use strict';
+  var PTC3=window.PTC3={};
+  function col(c){ return new THREE.Color(c||'#555'); }
+  function v3(a){ return new THREE.Vector3(a[0]||0,a[1]||0,a[2]||0); }
+  PTC3.ok=function(){ return !!(window.THREE&&THREE.OrbitControls); };
+  PTC3.view=function(id,o){
+    o=o||{}; var cv=typeof id==='string'?document.getElementById(id):id;
+    if(!PTC3.ok()){
+      try{ var x=cv.getContext('2d'), r=cv.getBoundingClientRect(); cv.width=r.width; cv.height=r.height;
+        x.fillStyle='#667'; x.font='15px "Noto Sans KR",sans-serif'; x.fillText('3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30);}catch(e){}
+      return null;
+    }
+    var renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:false,preserveDrawingBuffer:true});
+    renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+    var scene=new THREE.Scene(); scene.background=col(o.bg||'#f7f8fb');
+    if(o.up==='z') THREE.Object3D.DefaultUp.set(0,0,1);
+    var cam=new THREE.PerspectiveCamera(o.fov||40,1,0.01,(o.far||1000));
+    if(o.up==='z') cam.up.set(0,0,1);
+    cam.position.copy(v3(o.cam||[6,5,8]));
+    var ctl=new THREE.OrbitControls(cam,cv); ctl.target.copy(v3(o.target||[0,0,0])); var off0=cam.position.clone().sub(ctl.target), touched=false, lastAuto=null; ctl.addEventListener('start',function(){touched=true;}); ctl.enableDamping=true; ctl.dampingFactor=0.12; ctl.update();
+    scene.add(new THREE.HemisphereLight(0xffffff,0x8890a0,0.85));
+    var dl=new THREE.DirectionalLight(0xffffff,0.55); dl.position.set(5,8,10); scene.add(dl);
+    var V={THREE:THREE,scene:scene,camera:cam,renderer:renderer,controls:ctl,canvas:cv}, frames=[], dirty=true, last=null;
+    /* (수정) 격자·좌표축은 한 번만 만든다 — 원래 resize() 안에 있어 창 크기가 바뀔 때마다 중복으로 쌓였음 */
+    function addHelpers(){
+    if(o.grid){ var g=new THREE.GridHelper(o.grid,o.gridDiv||o.grid,0xc5cad6,0xe1e4ec); if(o.up==='z') g.rotation.x=Math.PI/2; if(o.gridAt) g.position.copy(v3(o.gridAt)); scene.add(g); V.gridObj=g; }
+    if(o.axes){ var A=o.axes; [[1,0,0,'#d23b3b','x'],[0,1,0,'#2e9e5b','y'],[0,0,1,'#3b6fd6','z']].forEach(function(a){
+      scene.add(new THREE.ArrowHelper(new THREE.Vector3(a[0],a[1],a[2]),new THREE.Vector3(),A,col(a[3]).getHex(),A*0.08,A*0.04));
+      if(o.axisLabels!==false) V.label(a[4],[a[0]*A*1.08,a[1]*A*1.08,a[2]*A*1.08],a[3]); }); }
+    }
+    function resize(){
+      var st=cv.parentElement, w=Math.max(1,st.clientWidth), h=Math.max(1,st.clientHeight);
+      renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix();
+      /* 좁은(세로로 긴) 화면에서는 장면이 잘리지 않도록 카메라를 뒤로 뺀다(사용자가 돌리기 전까지만) */
+      if(lastAuto&&cam.position.distanceTo(lastAuto)>1e-6) touched=true;  /* 모의실험이 카메라를 직접 옮겼으면 손대지 않음 */
+      if(!touched){ var k=Math.max(1,(o.fitAspect||1.5)/cam.aspect); cam.position.copy(ctl.target).add(off0.clone().multiplyScalar(k)); lastAuto=cam.position.clone(); }
+      dirty=true;
+    }
+    V.resize=resize; V.render=function(){ dirty=true; };
+    V.onFrame=function(f){ frames.push(f); };
+    ctl.addEventListener('change',function(){dirty=true;});
+    function loop(ts){
+      var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts;
+      for(var i=0;i<frames.length;i++){ frames[i](dt); dirty=true; }
+      if(ctl.update()) dirty=true;
+      if(dirty){ renderer.render(scene,cam); dirty=false; }
+      requestAnimationFrame(loop);
+    }
+    function mat(c,op,extra){ var m=new THREE.MeshStandardMaterial(Object.assign({color:col(c),roughness:0.55,metalness:0.05},extra||{})); if(op!=null&&op<1){m.transparent=true;m.opacity=op;m.depthWrite=false;} return m; }
+    V.mat=mat;
+    V.add=function(obj,parent){ (parent||scene).add(obj); dirty=true; return obj; };
+    V.group=function(parent){ return V.add(new THREE.Group(),parent); };
+    V.ball=function(r,c,op,parent){ return V.add(new THREE.Mesh(new THREE.SphereGeometry(r,32,20),mat(c,op)),parent); };
+    V.box=function(s,c,op,parent){ return V.add(new THREE.Mesh(new THREE.BoxGeometry(s[0],s[1],s[2]),mat(c,op)),parent); };
+    /* 원기둥: 기본 축은 up 축(z 또는 y) */
+    V.cyl=function(r,h,c,op,parent,r2){ var g=new THREE.CylinderGeometry(r2==null?r:r2,r,h,40,1); if(o.up==='z') g.rotateX(Math.PI/2); return V.add(new THREE.Mesh(g,mat(c,op,{side:THREE.DoubleSide})),parent); };
+    V.plane=function(w,h,c,op,parent){ var g=new THREE.PlaneGeometry(w,h); return V.add(new THREE.Mesh(g,mat(c,op==null?0.35:op,{side:THREE.DoubleSide})),parent); };
+    V.torus=function(R,r,c,op,parent){ return V.add(new THREE.Mesh(new THREE.TorusGeometry(R,r,16,80),mat(c,op)),parent); };
+    V.line=function(pts,c,parent,opt){
+      opt=opt||{}; var n=Math.max(2,opt.max||pts.length||2), geo=new THREE.BufferGeometry(), arr=new Float32Array(n*3);
+      geo.setAttribute('position',new THREE.BufferAttribute(arr,3));
+      var m=opt.dash?new THREE.LineDashedMaterial({color:col(c),dashSize:opt.dash,gapSize:opt.dash*0.7}):new THREE.LineBasicMaterial({color:col(c),transparent:opt.opacity!=null,opacity:opt.opacity==null?1:opt.opacity});
+      var L=new THREE.Line(geo,m);
+      L.set=function(p){ var k=Math.min(n,p.length); for(var i=0;i<k;i++){arr[3*i]=p[i][0];arr[3*i+1]=p[i][1];arr[3*i+2]=p[i][2]||0;} geo.setDrawRange(0,k); geo.attributes.position.needsUpdate=true; geo.computeBoundingSphere(); if(opt.dash) L.computeLineDistances(); dirty=true; return L; };
+      L.set(pts||[]); return V.add(L,parent);
+    };
+    V.arrow=function(from,vec,c,parent,opt){
+      opt=opt||{}; var a=new THREE.ArrowHelper(new THREE.Vector3(1,0,0),new THREE.Vector3(),1,col(c).getHex());
+      a.line.material.linewidth=2;
+      a.set=function(f,v){ var d=v3(v), L=d.length(); a.visible=L>1e-9; if(!a.visible) return a; a.position.copy(v3(f)); a.setDirection(d.clone().normalize());
+        var h=opt.head||Math.min(0.35*L,opt.headMax||0.35); a.setLength(L,h,h*0.55); dirty=true; return a; };
+      a.set(from,vec); return V.add(a,parent);
+    };
+    V.label=function(text,pos,c,parent,px){
+      var cnv=document.createElement('canvas'), ctx=cnv.getContext('2d'), tex=new THREE.CanvasTexture(cnv);
+      var sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,depthTest:false,transparent:true,sizeAttenuation:false}));
+      sp.renderOrder=10;
+      sp.set=function(t,p,cc){
+        if(t!=null&&(t!==sp._t||(cc&&cc!==sp._c))){ sp._t=t; sp._c=cc; var f=(px||15)*2, FONT='600 '+f+'px "Noto Sans KR","Malgun Gothic",sans-serif';
+          ctx.font=FONT; var w=Math.ceil(ctx.measureText(t).width)+12;
+          cnv=document.createElement('canvas'); ctx=cnv.getContext('2d',{willReadFrequently:true});   /* 매번 새 캔버스(CPU) — GPU 업로드 중인 캔버스를 다시 쓰다 글자가 깨지는 일 방지 */
+          cnv.width=w; cnv.height=f+12;
+          ctx.font=FONT; ctx.textBaseline='middle'; ctx.lineJoin='round'; ctx.lineWidth=Math.max(3,f*0.2); ctx.strokeStyle='rgba(255,255,255,0.92)'; ctx.strokeText(t,6,cnv.height/2);   /* 흰 테두리: 뒤의 선·화살표가 글자와 겹쳐 보이지 않게 */
+          ctx.fillStyle=cc||c||'#1b1f2a'; ctx.fillText(t,6,cnv.height/2);
+          tex.dispose(); tex=new THREE.CanvasTexture(cnv); tex.minFilter=THREE.LinearFilter; tex.generateMipmaps=false;   /* 밉맵 번짐 방지 */
+          sp.material.map=tex; sp.material.needsUpdate=true;
+          var sy=0.045*(px||15)/15; sp.scale.set(sy*w/cnv.height,sy,1); sp.center.set(0,0.5); }
+        if(p) sp.position.copy(v3(p)); dirty=true; return sp; };
+      sp.set(text,pos); return V.add(sp,parent);
+    };
+    V.trail=function(c,max,parent){ var pts=[], L=V.line([],c,parent,{max:max||2000}); L.push=function(p){ pts.push(p); if(pts.length>(max||2000)) pts.shift(); L.set(pts); return L; }; L.clear=function(){ pts=[]; L.set(pts); return L; }; return L; };
+    addHelpers();
+    var st=cv.parentElement; if(window.ResizeObserver) new ResizeObserver(resize).observe(st); window.addEventListener('resize',resize);
+    resize(); requestAnimationFrame(loop);
+    return V;
+  };
+})();
+
+</script>
+<script>
+SK.run({mode:'time',loop:false,
+  view3d:{up:'z',cam:[0,-3.4,3.0],target:[0,0,0],grid:0},
+  pre:function(P){ var m=1, k=1, L=P.Lm; function dU(r){ return -L*L/(m*r*r*r)+k/Math.pow(r,4); } var lo=0.05, hi=20; for(var i=0;i<200;i++){ var mid=(lo+hi)/2; if(dU(mid)>0) lo=mid; else hi=mid; } P.r0=(lo+hi)/2; P.r0th=m*k/(L*L);
+    P.K=L*L/(2*m*P.r0*P.r0); P.Kth=Math.pow(L,6)/(2*m*m*m*k*k);
+    var r=P.r0*(1+P.eps/100), y=[r,0,0,L/(m*r)], t=0, dt=0.002*P.r0th*P.r0th, tr=[], Tend=6*Math.PI*P.r0th*P.r0th*m/L, T1=2*Math.PI*P.r0th*P.r0th*m/L, rmax1=0;
+    function f(t,s){ var rr=Math.hypot(s[0],s[1]), a=-k/Math.pow(rr,4)/m; return [s[2],s[3],a*s[0]/rr,a*s[1]/rr]; }
+    var rmin=1e9, rmax=0; while(t<Tend){ var rr=Math.hypot(y[0],y[1]); if(rr<0.15*P.r0||rr>4*P.r0) break; tr.push([t,y[0],y[1]]); rmin=Math.min(rmin,rr); rmax=Math.max(rmax,rr); if(t<=T1) rmax1=Math.max(rmax1,rr); y=SK.rk4(f,y,t,dt); t+=dt; }
+    P.tr=tr; P.dt=dt; P.rmax1=rmax1; P.rmin=rmin; P.rmax=rmax; P.Tend=tr[tr.length-1][0]; },
+  build:function(V,P){ var O={}; O.c=V.ball(0.06,'#d23b3b'); O.p=V.ball(0.05,'#3b6fd6'); O.orb=V.line([],'#3b6fd6',null,{max:20000}); O.ref=V.line([],'#9aa2b2',null,{max:200,dash:0.03}); O.surf=V.line([],'#7a3fb0',null,{max:200}); O.lab=V.label('',[-1.4,0,1.3],'#1b1f2a',null,13); return O; },
+  frame:function(V,O,P,t){ var s=1/P.r0th, j=Math.min(P.tr.length-1,Math.round(t/P.dt)), q=P.tr[j]; O.p.position.set(q[1]*s,q[2]*s,0); O.orb.set(P.tr.slice(0,j+1).filter(function(a,i){return i%4===0}).map(function(a){return [a[1]*s,a[2]*s,0]}));
+    var c=[]; for(var i=0;i<=120;i++){ var a=2*Math.PI*i/120; c.push([Math.cos(a),Math.sin(a),0]); } O.ref.set(c);
+    var u=[]; for(var i=0;i<=150;i++){ var r=0.75+1.3*i/150, Ue=P.Lm*P.Lm/(2*r*r*P.r0th*P.r0th)-1/(3*Math.pow(r*P.r0th,3)); u.push([r,0,Math.max(-0.8,Ue/(P.Kth/3)*0.5)]); } O.surf.set(u);
+    O.lab.set('r/r₀ = '+(Math.hypot(q[1],q[2])/P.r0th).toFixed(4)+'  (보라 = U_eff 단면)',null); },
+  plot:function(P){ var L=P.Lm; return {xmin:0.3,xmax:3,ymin:-0.4,ymax:0.4,padL:34,xticks:[0.5,1,1.5,2,2.5,3],yticks:[-0.4,0,0.2,0.4],xlabel:'r (m = k = 1)',
+     series:[{f:function(r){return L*L/(2*r*r)-1/(3*r*r*r)},color:'#7a3fb0'}],points:[[P.r0,L*L/(2*P.r0*P.r0)-1/(3*Math.pow(P.r0,3)),'#e0782b']],marker:P.r0}; },
+  readout:function(P){ return [['r₀ (U_eff′ = 0 이분법)',P.r0.toFixed(6)],['mk/L²',P.r0th.toFixed(6)],['운동 에너지 (수치)',P.K.toFixed(6)],['L⁶/(2m³k²)',P.Kth.toFixed(6)],['궤도 r 최소 / 최대 (RK4)',(P.rmin/P.r0th).toFixed(4)+' / '+(P.rmax/P.r0th).toFixed(4)+' r₀']]; },
+  check:function(P){ var ok=Math.abs(P.r0-P.r0th)<1e-9&&Math.abs(P.K-P.Kth)<1e-9; if(P.eps!==0) return [null,'섭동 '+P.eps+'% → 궤도가 r₀에서 멀어짐: 원 궤도는 U_eff의 극대(불안정, 확장 1)'];
+    return [ok&&P.rmax1/P.r0th<1.001,'r₀ = mk/L², K = L⁶/(2m³k²), 섭동 없으면 한 바퀴 동안 원 궤도 유지 — 모범 답안과 일치 ✓']; },
+  T:function(P){return P.Tend;}
+});
+</script>
+<script>
+/* 교사용 페이지 공통 동작: 보기 설정, 메뉴, 전체화면, 키보드, 인쇄 */
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  // 글자/그림 크기
+  var KEY='ptc-teacher-view', LIM={fs:[0.7,1.6],fig:[0.5,1.5]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    $('vFs').textContent=Math.round(st.fs*100)+'%'; $('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){ var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10; st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply(); });
+  });
+  $('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+  // 풀이 모두 펼치기 / 인쇄 시 펼치기
+  $('expandAll').onclick=function(){var ds=document.querySelectorAll('details.step'),all=Array.prototype.every.call(ds,function(d){return d.open});ds.forEach(function(d){d.open=!all});this.textContent=all?'풀이 모두 펼치기':'풀이 모두 접기';};
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('details.step').forEach(function(d){d.open=true});});
+  // 보기 설정 메뉴 닫기
+  var vm=$('viewMenu');
+  document.addEventListener('click',function(e){ if(vm.open && !vm.contains(e.target)) vm.open=false; });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') vm.open=false; });
+  // 현재 구역 표시
+  var links=[].slice.call(document.querySelectorAll('.tb2 a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var y=window.scrollY+140, cur=0;
+    secs.forEach(function(el,i){ if(el && el.getBoundingClientRect().top+window.scrollY<=y) cur=i; });
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) cur=secs.length-1;
+    links.forEach(function(a,i){ var on=(i===cur); if(on!==a.classList.contains('on')){ a.classList.toggle('on',on); if(on) a.scrollIntoView({block:'nearest',inline:'nearest'}); } });
+  }
+  window.addEventListener('scroll',spy,{passive:true}); window.addEventListener('resize',spy); spy();
+  // 모의실험: 전체화면 + 키보드
+  var box=$('simBox'); if(!box) return;
+  function toggleFull(){
+    var fe=document.fullscreenElement||document.webkitFullscreenElement;
+    if(fe){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}
+    else{(box.requestFullscreen||box.webkitRequestFullscreen).call(box);}
+  }
+  if($('bFull')) $('bFull').onclick=toggleFull;
+  function onFs(){var fe=document.fullscreenElement||document.webkitFullscreenElement; if($('bFull')) $('bFull').textContent=fe?'✕ 전체화면 종료':'⛶ 전체화면'; setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);}
+  document.addEventListener('fullscreenchange',onFs); document.addEventListener('webkitfullscreenchange',onFs);
+  box.querySelectorAll('button').forEach(function(b){b.addEventListener('mousedown',function(e){e.preventDefault();});});
+  document.addEventListener('keydown',function(ev){
+    var tag=(ev.target.tagName||'').toLowerCase(); if((tag==='input'&&ev.target.type!=='range')||tag==='select'||tag==='textarea') return;
+    var inSim=box.contains(document.activeElement)||document.fullscreenElement===box||document.activeElement===document.body;
+    if(!inSim) return;
+    if(ev.code==='Space' && window.SIM){ev.preventDefault();window.SIM.toggle();}
+    else if((ev.key==='r'||ev.key==='R') && window.SIM){window.SIM.reset();}
+    else if(ev.key==='f'||ev.key==='F'){toggleFull();}
+  });
+})();
+
+</script>
+</body>
+</html>
