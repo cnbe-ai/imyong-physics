@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2013-MC-21-25] 전자기 객관식 5문항 — 정상 전류·운동 기전력·자화체의 자기장·변위 전류·교류 공명 · 교사용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#d5dae4; --accent:#3b3486; --accent2:#6a5fd6; --soft:#f4f2fb;
+    --bg:#f6f7fa; --card:#ffffff; --ok:#1e8f4e; --okbg:#e8f6ee; --warn:#b5541c; --warnbg:#fdf1e8;
+    --ball:#1e8f4e; --ramp:#ffe94d; --red:#d23b3b; --blue:#2f6fd6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:calc(16px*var(--fs));line-height:1.7}
+  a{color:var(--accent)}
+  .btn{font:inherit;font-size:14px;padding:6px 13px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn:hover{filter:brightness(.97)}
+  main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,calc(400px*var(--fig)));gap:22px;align-items:start}
+  .kicker{font-size:calc(13px*var(--fs));color:var(--muted)}
+  h1{font-size:calc(30px*var(--fs));margin:4px 0 6px;color:var(--accent);line-height:1.3}
+  h1 small{font-size:calc(16px*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  h2{font-size:calc(22px*var(--fs));margin:0 0 12px;color:var(--ink);display:flex;align-items:center;gap:10px}
+  h2 .num{background:var(--accent);color:#fff;border-radius:8px;font-size:calc(14px*var(--fs));padding:2px 9px}
+  h3{font-size:calc(17px*var(--fs));margin:18px 0 6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+  .tag{font-size:calc(12.5px*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:2px 11px}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:calc(14px*var(--fs));background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+  .meta dt{color:var(--muted)} .meta dd{margin:0}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px;scroll-margin-top:120px}
+  .problem-box{border-left:4px solid var(--accent);background:var(--soft);padding:12px 16px;border-radius:0 10px 10px 0}
+  .orig{font-size:calc(14px*var(--fs));color:var(--muted);font-style:italic;margin-top:8px}
+  .answer-box{border:2px solid var(--ok);background:var(--okbg);border-radius:12px;padding:14px 18px}
+  .answer-box .big{font-size:calc(20px*var(--fs))}
+  .note{background:var(--warnbg);border:1px solid #f0c9ad;border-radius:10px;padding:10px 14px;font-size:calc(15px*var(--fs))}
+  .note b{color:var(--warn)}
+  .ok{color:var(--ok);font-weight:700}
+  details.step{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#fff}
+  details.step>summary{cursor:pointer;padding:10px 14px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:center}
+  details.step>summary::-webkit-details-marker{display:none}
+  details.step>summary .s{background:var(--accent2);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:calc(13px*var(--fs));flex:none}
+  details.step>summary::after{content:"▸";margin-left:auto;color:var(--muted);transition:transform .2s}
+  details.step[open]>summary::after{transform:rotate(90deg)}
+  details.step .body{padding:0 18px 12px 50px}
+  .keyidea{border:2px dashed var(--accent2);border-radius:12px;padding:12px 16px;background:#fbfaff}
+  table{border-collapse:collapse;width:100%;font-size:calc(14.5px*var(--fs))}
+  th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+  th{background:var(--soft);color:var(--accent)}
+  .tablewrap{overflow-x:auto}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .src{font-size:calc(13px*var(--fs));color:var(--muted)}
+  figure{margin:0}
+  figure>svg{width:100%;height:auto;display:block}
+  .eqtag{float:right;color:var(--muted);font-size:calc(13px*var(--fs))}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+
+  /* ---------- simulation ---------- */
+  .sim{display:grid;grid-template-columns:1fr 310px;grid-template-rows:auto 1fr auto;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;height:calc(640px*var(--fig))}
+  .sim .cap{grid-column:1;grid-row:1;padding:8px 14px;background:#fbfbfd;border-bottom:1px solid var(--line);font-size:calc(15px*var(--fs));min-height:44px;display:flex;align-items:center;gap:8px}
+  .sim .cap .ph{background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;font-size:calc(13px*var(--fs));white-space:nowrap}
+  .sim .stage{grid-column:1;grid-row:2;position:relative;min-height:0}
+  .sim canvas#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .sim .bar{grid-column:1;grid-row:3;display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);background:#fbfbfd;flex-wrap:wrap}
+  .sim .bar input[type=range]{flex:1;min-width:140px}
+  .sim .side{grid-column:2;grid-row:1/4;border-left:1px solid var(--line);padding:12px 14px;overflow-y:auto;background:#fcfcfe;font-size:calc(14px*var(--fs))}
+  .side .grp{margin-bottom:12px}
+  .side .grp>label,.side .lbl{display:flex;justify-content:space-between;font-weight:600;font-size:calc(13.5px*var(--fs))}
+  .side .grp>label output{font-weight:700;color:var(--accent)}
+  .side input[type=range]{width:100%}
+  .side .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:4px}
+  .side .seg button{flex:1;font:inherit;font-size:calc(13px*var(--fs));border:0;background:#fff;padding:5px 4px;cursor:pointer}
+  .side .seg button.on{background:var(--accent);color:#fff}
+  .side .chk{display:flex;gap:10px;flex-wrap:wrap;font-size:calc(13px*var(--fs))}
+  .readout{width:100%;font-size:calc(13px*var(--fs));border-collapse:collapse}
+  .readout td{border:0;border-bottom:1px solid #eef0f4;padding:3px 2px}
+  .readout td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .result{margin-top:8px;border-radius:8px;padding:8px 10px;font-weight:700;font-size:calc(14px*var(--fs));background:#f1f2f6}
+  .result.good{background:var(--okbg);color:var(--ok)}
+  .result.bad{background:var(--warnbg);color:var(--warn)}
+  #mini{width:100%;height:150px;display:block;border:1px solid var(--line);border-radius:8px;background:#fff;margin-top:4px}
+  .sim:fullscreen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .sim:fullscreen .cap{font-size:calc(20px*var(--fs));min-height:56px}
+  .sim:fullscreen .side{font-size:calc(15px*var(--fs))}
+  .sim:-webkit-full-screen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .kbd{font-size:calc(12px*var(--fs));color:var(--muted)}
+  .graphs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .graphs canvas{width:100%;height:calc(280px*var(--fig));display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+
+  @media (max-width:900px){
+    .hero,.two,.graphs{grid-template-columns:minmax(0,1fr)}
+    .sim{grid-template-columns:minmax(0,1fr);grid-template-rows:auto calc(380px*var(--fig)) auto auto;height:auto}
+    .sim .side{grid-column:1;grid-row:4;border-left:0;border-top:1px solid var(--line)}
+    details.step .body{padding:0 12px 12px 14px}
+    body{overflow-x:hidden}
+    section.card{padding:16px}
+    h1{font-size:calc(24px*var(--fs))}
+  }
+  @page{size:A4;margin:14mm 12mm 16mm;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:10pt;color:#5b6475}}
+  @media print{
+    .topbar,.sim,.graphs,.noprint{display:none!important}
+    section.card{break-inside:auto;border:0;padding:0}
+    details.step{break-inside:avoid}
+    body{background:#fff}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  #problem{--c:#3b3486} #answer{--c:#1e8f4e} #ai{--c:#6a5fd6} #book{--c:#2f6fd6}
+  #compare{--c:#0f8b8d} #sim{--c:#d9731a} #graph{--c:#c2417a} #teach{--c:#a87a00}
+  .hero{scroll-margin-top:130px}
+  section.card{border-top:4px solid var(--c,var(--accent))}
+  h2 .num{background:var(--c,var(--accent))!important}
+  .topbar{position:sticky;top:0;z-index:30;font-size:15px;box-shadow:0 2px 10px rgba(30,25,80,.12)}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:1180px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .ttl small{font-weight:500;opacity:.75;font-size:13px;margin-left:6px}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;align-items:center;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 11px;cursor:pointer;white-space:nowrap;list-style:none}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tbtn .ic{font-size:15px;line-height:1}
+  details.view{position:relative}
+  details.view>summary::-webkit-details-marker{display:none}
+  details.view[open]>summary{background:rgba(255,255,255,.3)}
+  .vpanel{position:absolute;right:0;top:calc(100% + 8px);width:290px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 14px 40px rgba(20,20,60,.22);padding:14px 16px;z-index:40}
+  .vpanel h4{margin:0 0 10px;font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+  .vrow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef0f4;font-size:14px;font-weight:600}
+  .vrow:last-of-type{border-bottom:0}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .stepper button{font:inherit;width:32px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486;font-size:14px}
+  .vfoot{display:flex;gap:8px;margin-top:12px}
+  .vfoot button{flex:1;font:inherit;font-size:13px;font-weight:600;padding:7px 8px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  .vfoot button:hover{background:var(--soft)}
+  .tb2{background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .tb2 .in{height:46px;overflow-x:auto;scrollbar-width:none;gap:6px}
+  .tb2 .in::-webkit-scrollbar{display:none}
+  .tb2 a{--c:#3b3486;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;
+    color:#4a5163;padding:6px 13px;border-radius:999px;border:1px solid transparent;transition:background .15s,color .15s}
+  .tb2 a .dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+  .tb2 a:hover{background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--c)}
+  .tb2 a.on{background:var(--c);color:#fff}
+  .tb2 a.on .dot{background:#fff}
+  .tb2 a[href="#problem"]{--c:#3b3486} .tb2 a[href="#answer"]{--c:#1e8f4e} .tb2 a[href="#ai"]{--c:#6a5fd6} .tb2 a[href="#book"]{--c:#2f6fd6}
+  .tb2 a[href="#compare"]{--c:#0f8b8d} .tb2 a[href="#sim"]{--c:#d9731a} .tb2 a[href="#graph"]{--c:#c2417a} .tb2 a[href="#teach"]{--c:#a87a00}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:760px){
+    .tbtn .tx{display:none}
+    .tbtn{padding:6px 9px}
+    .tb1 .ttl small{display:none}
+    .vpanel{position:fixed;left:12px;right:12px;top:62px;width:auto}
+  }
+
+  .heroside .fig img{width:100%}
+  .fig{margin:0 0 10px}
+  .fig img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .fig figcaption{font-size:calc(13px*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(300px*var(--fig));max-width:45%;margin:0 0 10px 16px}
+  .psec{clear:both;margin-top:10px;overflow:hidden}
+  .psec h3{margin:8px 0 6px;color:var(--accent)}
+  h3 small,.sec h2 small{color:var(--muted);font-weight:500;font-size:.8em}
+  .pq{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0;clear:both}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;margin-right:6px;font-weight:700;font-size:.9em}
+  .pts{display:inline-block;color:var(--muted);font-size:.85em;margin-right:6px}
+  .partsol{border-top:2px solid var(--line);padding-top:12px;margin-top:22px}
+  .partsol:first-child{border-top:0;margin-top:0}
+  .partsol h3{display:flex;align-items:center;gap:6px;margin-top:0}
+  .ailab,.oflab{font-weight:800;font-size:calc(13px*var(--fs));letter-spacing:.04em;margin:12px 0 4px}
+  .ailab{color:#6a5fd6} .oflab{color:#2f6fd6}
+  .offic{border-left:4px solid #2f6fd6;background:#f2f7fe;border-radius:0 10px 10px 0;padding:8px 14px;margin-top:10px}
+  .partsol .answer-box{margin-top:10px;padding:10px 14px}
+  .anstab td:nth-child(3){font-size:calc(15px*var(--fs))}
+  .problem-box h3{font-size:calc(16px*var(--fs))}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  details.origimg{margin-top:8px;border:1px dashed #9db8e6;border-radius:8px;background:#fff}
+  details.origimg>summary{cursor:pointer;padding:6px 12px;font-size:calc(13.5px*var(--fs));font-weight:700;color:#2f6fd6}
+  details.origimg img{display:block;max-width:100%;margin:0 auto 8px;padding:0 8px}
+  .anstab tr.ext td{background:#fffaf0}
+  .sim .stage{background:#f7f8fb}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가 */
+  .jaryo,.method,.bogi{border:1.2px solid #8a93a6;border-radius:6px;padding:14px 16px 8px;margin:14px 0 10px;position:relative;background:#fff}
+  .jaryo>.jt,.method>.jt,.bogi>.jt{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#fff;padding:0 10px;font-size:.9em;font-weight:700;white-space:nowrap}
+  .method{background:#fbfbfd} .method>.jt{background:#fbfbfd}
+  .jaryo p{margin:0 0 6px} .jaryo table{font-size:.93em}
+  .method ul{margin:0;padding-left:18px;list-style:"◦ "}
+  .bogi ol{list-style:none;margin:0;padding:0} .bogi li{padding-left:20px;text-indent:-20px;margin-bottom:4px}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:3px 12px} .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:3px}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:4px 14px;margin:8px 0}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr))}
+  .choices .h{font-weight:600;text-decoration:underline;text-align:center} .choices .c{text-align:center}
+  .choices .ok{color:var(--ok);font-weight:800}
+  .mcqbox{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0;background:#fff}
+  .mcqbox .qh{font-weight:800;color:var(--accent)}
+  .cn td:first-child{width:12%;text-align:center;font-weight:700}
+  .cn tr.right td{background:var(--okbg)}
+  .rubric td:nth-child(2){width:9%;text-align:center;font-weight:700}
+  .hsbox{border:1px solid #e7b55a;border-left:5px solid #e0a020;background:#fff9ec;border-radius:0 10px 10px 0;padding:10px 16px;margin-top:10px}
+  .hsbox b{color:#9a6400}
+  .aud{display:inline-block;font-size:.8em;border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:0 9px;font-weight:700;margin-left:4px}
+  #rubric{--c:#0f8b8d} #hs{--c:#d08a00}
+  .simq{margin:14px 0 26px} .simq h3{display:flex;align-items:center;gap:8px}
+  .simframe{width:100%;height:calc(680px*var(--fig));border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+  @media (max-width:900px){.simframe{height:1100px}}
+  @media print{.simq{display:none}}
+  .tb2 a[href="#rubric"]{--c:#0f8b8d} .tb2 a[href="#hs"]{--c:#d08a00}
+</style>
+<style>:root{--accent:#9a4d0b;--soft:#fbf1e6} .tb1{background:linear-gradient(100deg,#5e2c06 0%,#9a4d0b 45%,#d9822b 100%)!important} .tbtn.solid{color:#9a4d0b!important} .stepper button,.stepper output{color:#9a4d0b!important} #problem,.tb2 a[href="#problem"]{--c:#9a4d0b} .qnum{background:#9a4d0b} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code" title="분류번호">PTE-2013-MC-21-25</span><span class="code" style="background:transparent;font-weight:600" title="출제 연도">2013 1차 </span>
+    <span class="ttl">전자기 객관식 5문항 — 정상 전류·운동 기전력·자화체의 자기장·변위 전류·교류 공명<small>Steady current in layered media · motional emf of rotating rods · magnetized hollow cylinder · displacement current & Poynting · RLC resonance · 교사용 · 객관식 묶음</small></span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#mc/y=2013" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn solid" href="PTE-2013-MC-21-25_학생용.html" title="학생용 학습지"><span class="ic">📝</span><span class="tx">학생용</span></a>
+      <a class="tbtn" href="../../../문항모음/2013_중등1차_물리_전공%20문제.pdf#page=7" target="_blank" title="원문 문제 PDF"><span class="ic">📄</span><span class="tx">문제 PDF</span></a><a class="tbtn" href="../../../문항모음/2013_중등1차_물리_전공%20정답.pdf#page=1" target="_blank" title="정답표 PDF"><span class="ic">📗</span><span class="tx">정답표</span></a>
+      <button class="tbtn" type="button" onclick="window.print()" title="인쇄"><span class="ic">🖨</span><span class="tx">인쇄</span></button>
+      <details class="view" id="viewMenu">
+        <summary class="tbtn" title="보기 설정"><span class="ic">⚙</span><span class="tx">보기 설정</span></summary>
+        <div class="vpanel">
+          <h4>보기 설정</h4>
+          <div class="vrow"><span>글자 크기</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+          <div class="vrow"><span>그림 크기</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+          <div class="vfoot"><button type="button" id="expandAll">풀이 모두 펼치기</button><button type="button" id="vReset">크기 초기화</button></div>
+        </div>
+      </details>
+    </div>
+  </div></div>
+  <nav class="tb2" aria-label="본문 바로가기"><div class="in">
+<a href="#problem"><span class="dot"></span>문제</a><a href="#answer"><span class="dot"></span>정답</a><a href="#ai"><span class="dot"></span>풀이</a><a href="#compare"><span class="dot"></span>검토</a><a href="#sim"><span class="dot"></span>모의실험</a><a href="#hs"><span class="dot"></span>고교 연계</a><a href="#teach"><span class="dot"></span>수업 활용</a>
+  </div></nav>
+</header>
+
+<main>
+
+  <div class="hero" id="problem">
+    <div>
+      <div class="kicker">2013학년도 1차 21~25번 (내용학 묶음) · 중등학교교사 임용후보자 선정경쟁시험 물리</div>
+      <h1>전자기 객관식 5문항 — 정상 전류·운동 기전력·자화체의 자기장·변위 전류·교류 공명<small>Steady current in layered media · motional emf of rotating rods · magnetized hollow cylinder · displacement current & Poynting · RLC resonance</small></h1>
+      <div class="tags"><span class="tag" style="background:var(--accent);color:#fff;font-weight:700">PTE-2013-MC-21-25</span><span class="tag">전류 밀도</span><span class="tag">전기 전도도</span><span class="tag">운동 기전력</span><span class="tag">패러데이 원판</span><span class="tag">자화</span><span class="tag">속박 전류</span><span class="tag">변위 전류</span><span class="tag">포인팅 벡터</span><span class="tag">RLC 공명</span><span class="tag">필터</span></div>
+      <div class="problem-box"><div class="mcqbox"><span class="qnum">21</span><span class="pts">1.5점</span><p>그림은 면적이 같은 두 개의 평행한 원형 도체판 사이에 전기 전도도 \(\sigma_1\), 두께 \(d_1\)인 물질 1과 전기 전도도 \(\sigma_2\), 두께 \(d_2\)인 물질 2가 각각 채워져 있는 것을 나타낸 것이다. 두 도체판 사이의 전압은 \(V\)이다.</p><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_1.svg" alt="21번: 두 원형 도체판 사이의 물질 1(σ₁, d₁)과 물질 2(σ₂, d₂), 전압 V (다시 그림)"><figcaption>21번: 두 원형 도체판 사이의 물질 1(σ₁, d₁)과 물질 2(σ₂, d₂), 전압 V (다시 그림)</figcaption></figure><p>전류가 정상상태로 흐를 때, 도체판 사이의 전류밀도 크기는? (단, 두 물질은 모두 균일하고 등방적이며 선형적이고, 가장자리 효과는 무시한다.)</p><div class="choices" style="--cols:3"><span class="">① \(\dfrac{V\sigma_1\sigma_2}{d_1\sigma_2+d_2\sigma_1}\)</span><span class="">② \(\dfrac{V(\sigma_1+\sigma_2)^2}{d_1\sigma_2+d_2\sigma_1}\)</span><span class="">③ \(\dfrac{V\sigma_1\sigma_2}{d_1\sigma_1+d_2\sigma_2}\)</span><span class="">④ \(V\left(\dfrac{\sigma_1}{d_1}+\dfrac{\sigma_2}{d_2}\right)\)</span><span class="">⑤ \(V\left(\dfrac{\sigma_1}{d_2}+\dfrac{\sigma_2}{d_1}\right)\)</span></div></div><div class="mcqbox"><span class="qnum">22</span><span class="pts">2.0점</span><p>그림과 같이 길이가 각각 \(a\), \(b\)인 두 도체 막대가 두 원형 도체 고리와 접촉하며, 두 고리를 수직으로 통과하는 크기가 \(B\)인 균일한 자기장 속에서 두 고리의 중심 O, O′을 중심으로 회전한다. 두 막대의 각속도의 방향은 같고, 크기는 모두 \(\omega\)로 일정하다. O, O′은 도선으로 연결되어 있고, 두 고리는 저항과 도선으로 연결되어 회로를 형성하며, 저항 양단의 점 P, Q에서 전위는 각각 \(V_{\rm P}\), \(V_{\rm Q}\)이다.</p><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_2.png" alt="22번: 균일한 자기장 B 속에서 고리 위를 회전하는 막대 a, b와 저항 원문"><figcaption>22번: 균일한 자기장 B 속에서 고리 위를 회전하는 막대 a, b와 저항 <span class="scan">원문</span></figcaption></figure><p>\((V_{\rm P}-V_{\rm Q})\)는? (단, 두 고리는 고정되어 있으며, 막대와 고리의 굵기는 무시한다.)</p><div class="choices" style="--cols:2"><span class="">① \(\tfrac12\omega B(a^2-b^2)\)</span><span class="">② \(\tfrac12\omega B(b^2-a^2)\)</span><span class="">③ \(\omega B(a^2-b^2)\)</span><span class="">④ \(\omega B(b^2-a^2)\)</span><span class="">⑤ \(\tfrac32\omega B(a^2-b^2)\)</span></div></div><div class="mcqbox"><span class="qnum">23</span><span class="pts">2.0점</span><p>그림은 내부와 외부 반지름이 각각 \(a\), \(b\,(a\lt b)\)인 무한히 길고 속이 빈 원통형 자화체를 나타낸 것이며, 자화체의 자화(magnetization)의 방향은 원통의 중심축과 나란하고 크기는 일정하다.</p><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_3.png" alt="23번: 축 방향으로 자화된 속이 빈 원통형 자화체(반지름 a, b) 원문"><figcaption>23번: 축 방향으로 자화된 속이 빈 원통형 자화체(반지름 a, b) <span class="scan">원문</span></figcaption></figure><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_4.png" alt="23번 선지: 중심축으로부터의 거리 r에 따른 B 그래프 ①~⑤ 원문"><figcaption>23번 선지: 중심축으로부터의 거리 r에 따른 B 그래프 ①~⑤ <span class="scan">원문</span></figcaption></figure><p>자화체의 중심축으로부터 거리 \(r\)에 따른 자기장의 크기 \(B\)를 가장 적절히 나타낸 것은? (선지는 위 그래프 ①~⑤)</p><div class="choices" style="--cols:5"><span class="">① 그래프 ①</span><span class="">② 그래프 ②</span><span class="">③ 그래프 ③</span><span class="">④ 그래프 ④</span><span class="">⑤ 그래프 ⑤</span></div></div><div class="mcqbox"><span class="qnum">24</span><span class="pts">2.0점</span><p>그림은 시간에 따라 변하는 전류가 흐르는 도선이 연결된 원형 도체판으로 이루어진 평행판 축전기에서, 시간 \(t\)일 때의 전류 \(I(t)\)와 도체판의 전하량 \(Q(t)\)를 나타낸 것이다. 두 도체판의 반지름은 \(R\)로 같고 중심축이 일치한다. 두 도체판 사이의 간격은 \(d(\ll R)\)이고 유전체로 채워져 있다. 점 P는 중심축으로부터 거리 \(r(\lt R)\)인 두 도체판 사이의 가운데 지점이다.</p><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_5.png" alt="24번: 전류 I(t)가 흐르는 원형 도체판 축전기(반지름 R, 간격 d, 유전체) 원문"><figcaption>24번: 전류 I(t)가 흐르는 원형 도체판 축전기(반지름 R, 간격 d, 유전체) <span class="scan">원문</span></figcaption></figure><p>시간 \(t\)일 때, 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 유전체는 균일하고 등방적이며 선형적이고, 유전율, 투자율은 각각 \(\varepsilon\), \(\mu\)이며, 가장자리 효과는 무시한다.)</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. P에서 전기 변위(electric displacement) \(\vec D\)의 크기는 \(\dfrac{Q(t)}{\pi r^2}\)이다.</li><li>ㄴ. P에서 자기 세기(magnetic intensity) \(\vec H\)의 크기는 \(\dfrac{rI(t)}{2\pi R^2}\)이다.</li><li>ㄷ. 반지름 \(R\)인 유전체 옆면 전체를 통과하는 단위 시간당 전자기 에너지의 흐름은 \(\dfrac{I(t)Q(t)}{2\pi^2\varepsilon R^3}\)이다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄴ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div><div class="mcqbox"><span class="qnum">25</span><span class="pts">2.0점</span><p>그림 (가)는 블랙박스에 사인파(sine wave) 신호발생기가 연결된 것을 나타낸 것이다. 블랙박스 안에는 저항 \(R\)인 저항기, 전기 용량 \(C\)인 축전기, 자체 인덕턴스 \(L\)인 코일로 이루어진 회로가 들어 있다. 그림 (나)는 신호발생기의 진동수를 변화시키면서 블랙박스의 출력전압을 측정한 결과를 나타낸 것이다. (나)에서 \(f_0\)은 \(\dfrac{1}{2\pi\sqrt{LC}}\)이다.</p><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_6.png" alt="25번: (가) 신호발생기와 블랙박스, (나) 진동수에 따른 출력 전압 원문"><figcaption>25번: (가) 신호발생기와 블랙박스, (나) 진동수에 따른 출력 전압 <span class="scan">원문</span></figcaption></figure><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_7.png" alt="25번 보기: 회로 ㄱ, ㄴ, ㄷ 원문"><figcaption>25번 보기: 회로 ㄱ, ㄴ, ㄷ <span class="scan">원문</span></figcaption></figure><p>블랙박스 안의 전기회로로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 블랙박스의 입력전압은 진동수에 관계없이 항상 일정하며, 입력 및 출력전압은 실효전압이다.)</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 직렬 R–L–C, 출력 = R 양단 (위 보기 그림 ㄱ)</li><li>ㄴ. 직렬 R–L–C, 출력 = L–C 양단 (보기 그림 ㄴ)</li><li>ㄷ. R과 병렬 L‖C의 직렬, 출력 = R 양단 (보기 그림 ㄷ)</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄴ</span><span class="">③ ㄷ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div></div>
+    </div>
+    <div class="heroside">
+      <dl class="meta"><dt>시험</dt><dd>2013학년도 1차 21~25번 (내용학 묶음) · 객관식 묶음</dd><dt>대상</dt><dd>대학생(임용 준비·물리교육과) · 고등학생(심화·영재)</dd><dt>물리학 분류</dt><dd><b>[주]</b> 전자기학 › 전류, 자기장 및 유도 › 자기장과 전자기 유도 › <b>3.2.2.5 맥스웰 방정식과 전자기파</b><br>[보조] 전자기학 › 전류, 자기장 및 유도 › 전류와 직류 회로 › <b>3.2.1.1 전류, 저항, 옴의 법칙</b><br>[보조] 전자기학 › 전류, 자기장 및 유도 › 자기장과 전자기 유도 › <b>3.2.2.3 패러데이 전자기 유도 법칙과 렌츠의 법칙</b><br>[보조] 전자기학 › 전류, 자기장 및 유도 › 자기장과 전자기 유도 › <b>3.2.2.2 비오-사바르 법칙과 앙페르 법칙</b><br>[보조] 전자기학 › 전류, 자기장 및 유도 › 자기장과 전자기 유도 › <b>3.2.2.4 인덕턴스와 LC/RLC 교류 회로</b></dd><dt>원문</dt><dd><a href="../../../문항모음/2013_중등1차_물리_전공%20문제.pdf#page=7" target="_blank">문제 PDF (7쪽)</a> · <a href="../../../문항모음/2013_중등1차_물리_전공%20정답.pdf#page=1" target="_blank">정답표</a><br><small>정답표 공개(객관식) — AI 풀이와 대조함</small></dd><dt>난이도</dt><dd>★★★☆☆ (전자기학 기본 법칙(옴, 패러데이, 앙페르–맥스웰, 포인팅, 교류 임피던스)의 직접 적용. 24번 ㄷ은 ‘단위 넓이당’과 ‘전체’를 구별해야 함)</dd><dt>대학 과목</dt><dd>전자기학(정상 전류, 운동 기전력, 자화와 속박 전류, 맥스웰 방정식, 교류 회로)</dd><dt>고교 교육과정</dt><dd>물리학Ⅰ 전기 회로·전자기 유도 / 물리학Ⅱ 교류와 공명(2015) — 자화·변위 전류는 대학 과정</dd><dt>핵심 개념</dt><dd>21 직렬: \(J=\dfrac{V}{d_1/\sigma_1+d_2/\sigma_2}\). 22 회전 막대 \(\mathcal E=\tfrac12\omega Br^2\), 중심 연결 → 차. 23 속박 표면 전류 \(K_b=M\) → \(a\lt r\lt b\)에서 \(B=\mu_0M\). 24 \(D=Q/\pi R^2\), \(H=\dfrac{rI}{2\pi R^2}\). 25 직렬 RLC 저항 양단 = 대역 통과.</dd></dl>
+    </div>
+  </div>
+  <section class="card" id="answer">
+    <h2><span class="num">정답</span>문항별 정답 (AI 풀이 ↔ 정답표)</h2>
+<div class="tablewrap"><table class="anstab"><tr><th style="width:7%">문항</th><th style="width:8%">AI 풀이</th><th style="width:8%">정답표</th><th style="width:7%">배점</th><th style="width:10%">판정</th><th>핵심 아이디어</th></tr><tr><td><b>21</b></td><td class="big">①</td><td>①</td><td>1.5</td><td><span class=ok>일치 ✓</span></td><td>직렬 연결: \(J\)가 같고 \(V=J\left(\dfrac{d_1}{\sigma_1}+\dfrac{d_2}{\sigma_2}\right)\).</td></tr><tr><td><b>22</b></td><td class="big">②</td><td>②</td><td>2.0</td><td><span class=ok>일치 ✓</span></td><td>각 막대 \(V_{\rm 중심}-V_{\rm 고리}=\tfrac12\omega BL^2\). O = O′ 전위 → \(V_{\rm P}-V_{\rm Q}=-\tfrac12\omega Ba^2+\tfrac12\omega Bb^2\).</td></tr><tr><td><b>23</b></td><td class="big">①</td><td>①</td><td>2.0</td><td><span class=ok>일치 ✓</span></td><td>바깥면 \(K=M\) → \(r\lt b\)에 \(\mu_0M\), 안쪽면 \(K=M\)(반대) → \(r\lt a\)에 \(-\mu_0M\). 합: \(a\lt r\lt b\)에서만 \(\mu_0M\).</td></tr><tr><td><b>24</b></td><td class="big">②</td><td>②</td><td>2.0</td><td><span class=ok>일치 ✓</span></td><td>\(D=\dfrac{Q}{\pi R^2}\)(ㄱ ✗), \(H\cdot2\pi r=I\dfrac{r^2}{R^2}\)(ㄴ ✓), \(S=EH=\dfrac{Q}{\varepsilon\pi R^2}\dfrac{I}{2\pi R}=\dfrac{IQ}{2\pi^2\varepsilon R^3}\)는 단위 넓이당 — 전체는 \(\times2\pi Rd=\dfrac{QId}{\pi\varepsilon R^2}\) (ㄷ ✗).</td></tr><tr><td><b>25</b></td><td class="big">①</td><td>①</td><td>2.0</td><td><span class=ok>일치 ✓</span></td><td>ㄱ: f₀에서 전류 최대 → R 전압 최대(봉우리). ㄴ: f₀에서 LC 양단 전압 0. ㄷ: f₀에서 병렬 LC가 전류 차단 → R 전압 0.</td></tr></table></div>
+  </section>
+  <section class="card" id="ai">
+    <h2><span class="num">1</span>문항별 풀이 — 선지·보기 분석 포함</h2>
+
+    <div class="partsol" id="sol-21">
+      <h3><span class="qnum">21</span>두 물질층을 흐르는 정상 전류 <small>1.5점</small></h3>
+      <div class="pq"><p>그림은 면적이 같은 두 개의 평행한 원형 도체판 사이에 전기 전도도 \(\sigma_1\), 두께 \(d_1\)인 물질 1과 전기 전도도 \(\sigma_2\), 두께 \(d_2\)인 물질 2가 각각 채워져 있는 것을 나타낸 것이다. 두 도체판 사이의 전압은 \(V\)이다.</p><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_1.svg" alt="21번: 두 원형 도체판 사이의 물질 1(σ₁, d₁)과 물질 2(σ₂, d₂), 전압 V (다시 그림)"><figcaption>21번: 두 원형 도체판 사이의 물질 1(σ₁, d₁)과 물질 2(σ₂, d₂), 전압 V (다시 그림)</figcaption></figure><p>전류가 정상상태로 흐를 때, 도체판 사이의 전류밀도 크기는? (단, 두 물질은 모두 균일하고 등방적이며 선형적이고, 가장자리 효과는 무시한다.)</p><div class="choices" style="--cols:3"><span class="ok">① \(\dfrac{V\sigma_1\sigma_2}{d_1\sigma_2+d_2\sigma_1}\)</span><span class="">② \(\dfrac{V(\sigma_1+\sigma_2)^2}{d_1\sigma_2+d_2\sigma_1}\)</span><span class="">③ \(\dfrac{V\sigma_1\sigma_2}{d_1\sigma_1+d_2\sigma_2}\)</span><span class="">④ \(V\left(\dfrac{\sigma_1}{d_1}+\dfrac{\sigma_2}{d_2}\right)\)</span><span class="">⑤ \(V\left(\dfrac{\sigma_1}{d_2}+\dfrac{\sigma_2}{d_1}\right)\)</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 직렬 연결: \(J\)가 같고 \(V=J\left(\dfrac{d_1}{\sigma_1}+\dfrac{d_2}{\sigma_2}\right)\).</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>직렬 조건</summary><div class="body">\[ J=\sigma_1E_1=\sigma_2E_2,\quad E_1d_1+E_2d_2=V \Rightarrow J=\frac{V}{d_1/\sigma_1+d_2/\sigma_2}=\frac{V\sigma_1\sigma_2}{d_1\sigma_2+d_2\sigma_1} \]</div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>①</td><td>직렬 저항 합 ✓</td></tr><tr><td>③</td><td>분모의 σ를 바꿔 씀</td></tr><tr><td>④⑤</td><td>병렬 연결(전도도의 합)로 착각 — 층이 전류 방향으로 쌓였으므로 직렬</td></tr><tr><td>②</td><td>차원이 맞지 않음</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">①</span> &nbsp; \(J=\dfrac{V\sigma_1\sigma_2}{d_1\sigma_2+d_2\sigma_1}\)
+      <span class="src" style="margin-left:8px">(정답표 ①)</span></div>
+      <p><a class="btn" href="#simq-21">▶ 21번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 물리학Ⅰ 직렬 저항 \(R=\rho\dfrac{L}{A}\)의 합으로 바로 풀린다 — ‘두께 = 길이, 판 면적 = 단면적’으로 대응시키자.</div>
+    </div>
+    <div class="partsol" id="sol-22">
+      <h3><span class="qnum">22</span>회전하는 두 막대의 운동 기전력 <small>2.0점</small></h3>
+      <div class="pq"><p>그림과 같이 길이가 각각 \(a\), \(b\)인 두 도체 막대가 두 원형 도체 고리와 접촉하며, 두 고리를 수직으로 통과하는 크기가 \(B\)인 균일한 자기장 속에서 두 고리의 중심 O, O′을 중심으로 회전한다. 두 막대의 각속도의 방향은 같고, 크기는 모두 \(\omega\)로 일정하다. O, O′은 도선으로 연결되어 있고, 두 고리는 저항과 도선으로 연결되어 회로를 형성하며, 저항 양단의 점 P, Q에서 전위는 각각 \(V_{\rm P}\), \(V_{\rm Q}\)이다.</p><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_2.png" alt="22번: 균일한 자기장 B 속에서 고리 위를 회전하는 막대 a, b와 저항 원문"><figcaption>22번: 균일한 자기장 B 속에서 고리 위를 회전하는 막대 a, b와 저항 <span class="scan">원문</span></figcaption></figure><p>\((V_{\rm P}-V_{\rm Q})\)는? (단, 두 고리는 고정되어 있으며, 막대와 고리의 굵기는 무시한다.)</p><div class="choices" style="--cols:2"><span class="">① \(\tfrac12\omega B(a^2-b^2)\)</span><span class="ok">② \(\tfrac12\omega B(b^2-a^2)\)</span><span class="">③ \(\omega B(a^2-b^2)\)</span><span class="">④ \(\omega B(b^2-a^2)\)</span><span class="">⑤ \(\tfrac32\omega B(a^2-b^2)\)</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 각 막대 \(V_{\rm 중심}-V_{\rm 고리}=\tfrac12\omega BL^2\). O = O′ 전위 → \(V_{\rm P}-V_{\rm Q}=-\tfrac12\omega Ba^2+\tfrac12\omega Bb^2\).</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>한 막대의 기전력</summary><div class="body"><p>\(\vec v=\omega r\hat\phi\), \(\vec B=-B\hat z\) → \(\vec v\times\vec B=-\omega rB\,\hat r\) (중심 쪽). \(\mathcal E=\int_0^L\omega Br\,dr=\tfrac12\omega BL^2\), 중심이 고전위.</p></div></details>
+<details class="step" open><summary><span class="s">2</span>전위차</summary><div class="body"><p>\(V_{\rm P}=V_{\rm O}-\tfrac12\omega Ba^2\), \(V_{\rm Q}=V_{\rm O'}-\tfrac12\omega Bb^2\), \(V_{\rm O}=V_{\rm O'}\) → \(V_{\rm P}-V_{\rm Q}=\tfrac12\omega B(b^2-a^2)\). (막대·도선의 저항을 무시하므로 회로에 전류가 흘러도 같다.)</p></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr><td>①</td><td>회전 방향(또는 B 방향)의 부호를 반대로 — 시계 방향이면 이 값</td></tr><tr class=right><td>②</td><td>v×B 방향으로 부호 결정 ✓</td></tr><tr><td>③④</td><td>½ 누락 — 막대 위 속력이 r에 비례함을 무시(끝 속력 ωL 사용)</td></tr><tr><td>⑤</td><td>두 막대 기전력을 더함</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">②</span> &nbsp; \(V_{\rm P}-V_{\rm Q}=\tfrac12\omega B(b^2-a^2)\)
+      <span class="src" style="margin-left:8px">(정답표 ②)</span></div>
+      <p><a class="btn" href="#simq-22">▶ 22번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 물리학Ⅰ 전자기 유도: ‘막대가 휩쓸고 지나간 면적의 자속 변화’ \(\mathcal E=B\dfrac{dA}{dt}=B\cdot\tfrac12L^2\omega\)로도 같은 결과 — 패러데이 원판 발전기와 연결.</div>
+    </div>
+    <div class="partsol" id="sol-23">
+      <h3><span class="qnum">23</span>자화된 속이 빈 원통의 자기장 <small>2.0점</small></h3>
+      <div class="pq"><p>그림은 내부와 외부 반지름이 각각 \(a\), \(b\,(a\lt b)\)인 무한히 길고 속이 빈 원통형 자화체를 나타낸 것이며, 자화체의 자화(magnetization)의 방향은 원통의 중심축과 나란하고 크기는 일정하다.</p><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_3.png" alt="23번: 축 방향으로 자화된 속이 빈 원통형 자화체(반지름 a, b) 원문"><figcaption>23번: 축 방향으로 자화된 속이 빈 원통형 자화체(반지름 a, b) <span class="scan">원문</span></figcaption></figure><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_4.png" alt="23번 선지: 중심축으로부터의 거리 r에 따른 B 그래프 ①~⑤ 원문"><figcaption>23번 선지: 중심축으로부터의 거리 r에 따른 B 그래프 ①~⑤ <span class="scan">원문</span></figcaption></figure><p>자화체의 중심축으로부터 거리 \(r\)에 따른 자기장의 크기 \(B\)를 가장 적절히 나타낸 것은? (선지는 위 그래프 ①~⑤)</p><div class="choices" style="--cols:5"><span class="ok">① 그래프 ①</span><span class="">② 그래프 ②</span><span class="">③ 그래프 ③</span><span class="">④ 그래프 ④</span><span class="">⑤ 그래프 ⑤</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 바깥면 \(K=M\) → \(r\lt b\)에 \(\mu_0M\), 안쪽면 \(K=M\)(반대) → \(r\lt a\)에 \(-\mu_0M\). 합: \(a\lt r\lt b\)에서만 \(\mu_0M\).</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>속박 전류</summary><div class="body"><p>\(\vec J_b=\nabla\times\vec M=0\). 바깥면(\(\hat n=\hat r\)): \(\vec K_b=M\hat z\times\hat r=M\hat\phi\), 안쪽면(\(\hat n=-\hat r\)): \(-M\hat\phi\).</p></div></details>
+<details class="step" open><summary><span class="s">2</span>솔레노이드 중첩</summary><div class="body"><p>무한 솔레노이드 안 \(B=\mu_0K\), 밖 0. 따라서 \(r\lt a\): \(\mu_0M-\mu_0M=0\), \(a\lt r\lt b\): \(\mu_0M\), \(r\gt b\): 0 → 그래프 ①. (또는 \(\vec H\): 자유 전류가 없고 무한히 길어 \(H=0\) → \(\vec B=\mu_0\vec M\), 자화체 안에서만.)</p></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>①</td><td>자화체 안에서만 μ₀M ✓</td></tr><tr><td>②⑤</td><td>B가 r에 따라 변함 — 원통 축 방향 자화에서는 일정</td></tr><tr><td>③</td><td>구멍과 바깥에 B가 있고 자화체 안에서 0 — 반대</td></tr><tr><td>④</td><td>구멍 안에서 더 큼 — 안쪽면 전류 방향 오류</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">①</span> &nbsp; ①: \(a\lt r\lt b\)에서만 \(B=\mu_0M\)(일정), 나머지 0
+      <span class="src" style="margin-left:8px">(정답표 ①)</span></div>
+      <p><a class="btn" href="#simq-23">▶ 23번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교에서는 ‘속이 빈 막대자석’ 대신 ‘두 겹 솔레노이드(바깥 코일과 안쪽 코일에 반대 방향 전류)’로 바꾸어 물리학Ⅰ 솔레노이드 자기장 \(B=\mu_0nI\)의 중첩 문제로 쓸 수 있다.</div>
+    </div>
+    <div class="partsol" id="sol-24">
+      <h3><span class="qnum">24</span>충전 중인 축전기 — D, H, 포인팅 벡터 <small>2.0점</small></h3>
+      <div class="pq"><p>그림은 시간에 따라 변하는 전류가 흐르는 도선이 연결된 원형 도체판으로 이루어진 평행판 축전기에서, 시간 \(t\)일 때의 전류 \(I(t)\)와 도체판의 전하량 \(Q(t)\)를 나타낸 것이다. 두 도체판의 반지름은 \(R\)로 같고 중심축이 일치한다. 두 도체판 사이의 간격은 \(d(\ll R)\)이고 유전체로 채워져 있다. 점 P는 중심축으로부터 거리 \(r(\lt R)\)인 두 도체판 사이의 가운데 지점이다.</p><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_5.png" alt="24번: 전류 I(t)가 흐르는 원형 도체판 축전기(반지름 R, 간격 d, 유전체) 원문"><figcaption>24번: 전류 I(t)가 흐르는 원형 도체판 축전기(반지름 R, 간격 d, 유전체) <span class="scan">원문</span></figcaption></figure><p>시간 \(t\)일 때, 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 유전체는 균일하고 등방적이며 선형적이고, 유전율, 투자율은 각각 \(\varepsilon\), \(\mu\)이며, 가장자리 효과는 무시한다.)</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. P에서 전기 변위(electric displacement) \(\vec D\)의 크기는 \(\dfrac{Q(t)}{\pi r^2}\)이다.</li><li>ㄴ. P에서 자기 세기(magnetic intensity) \(\vec H\)의 크기는 \(\dfrac{rI(t)}{2\pi R^2}\)이다.</li><li>ㄷ. 반지름 \(R\)인 유전체 옆면 전체를 통과하는 단위 시간당 전자기 에너지의 흐름은 \(\dfrac{I(t)Q(t)}{2\pi^2\varepsilon R^3}\)이다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="ok">② ㄴ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(D=\dfrac{Q}{\pi R^2}\)(ㄱ ✗), \(H\cdot2\pi r=I\dfrac{r^2}{R^2}\)(ㄴ ✓), \(S=EH=\dfrac{Q}{\varepsilon\pi R^2}\dfrac{I}{2\pi R}=\dfrac{IQ}{2\pi^2\varepsilon R^3}\)는 단위 넓이당 — 전체는 \(\times2\pi Rd=\dfrac{QId}{\pi\varepsilon R^2}\) (ㄷ ✗).</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>ㄱ·ㄴ</summary><div class="body"><p>가우스: \(D=\sigma_f=\dfrac{Q}{\pi R^2}\) (r에 무관) → ㄱ 거짓. 앙페르–맥스웰: \(\oint\vec H\cdot d\vec l=\dfrac{d}{dt}\int\vec D\cdot d\vec a=\dfrac{I}{\pi R^2}\pi r^2\) → \(H=\dfrac{rI}{2\pi R^2}\) → ㄴ 참.</p></div></details>
+<details class="step" open><summary><span class="s">2</span>ㄷ</summary><div class="body"><p>옆면(r = R)에서 \(E=\dfrac{Q}{\varepsilon\pi R^2}\), \(H=\dfrac{I}{2\pi R}\), \(\vec S=\vec E\times\vec H\)는 안쪽 방향, 크기 \(\dfrac{IQ}{2\pi^2\varepsilon R^3}\). 옆면 전체: \(S\cdot2\pi Rd=\dfrac{IQd}{\pi\varepsilon R^2}=\dfrac{Q}{C}I=\dfrac{dU}{dt}\). 보기의 값은 단위 넓이당 흐름이므로 거짓.</p></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr><td>ㄱ</td><td>D는 판 전체의 면전하 밀도 Q/πR² — r을 넣은 것은 오류 ✗</td></tr><tr class=right><td>ㄴ</td><td>감싼 변위 전류 I r²/R² ✓</td></tr><tr><td>ㄷ</td><td>포인팅 벡터의 크기(W/m²)일 뿐, 옆면 전체 흐름은 2πRd를 곱해야 ✗</td></tr><tr class=right><td>정답</td><td>② ㄴ</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">②</span> &nbsp; ㄴ
+      <span class="src" style="margin-left:8px">(정답표 ②)</span></div>
+      <p><a class="btn" href="#simq-24">▶ 24번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 물리학Ⅱ(2015) ‘전자기파의 발생’ 도입에서 ‘축전기 사이에도 전류가 흐른다?’(변위 전류) 질문으로 맥스웰의 아이디어를 소개할 수 있다.</div>
+    </div>
+    <div class="partsol" id="sol-25">
+      <h3><span class="qnum">25</span>블랙박스 회로의 공명 응답 <small>2.0점</small></h3>
+      <div class="pq"><p>그림 (가)는 블랙박스에 사인파(sine wave) 신호발생기가 연결된 것을 나타낸 것이다. 블랙박스 안에는 저항 \(R\)인 저항기, 전기 용량 \(C\)인 축전기, 자체 인덕턴스 \(L\)인 코일로 이루어진 회로가 들어 있다. 그림 (나)는 신호발생기의 진동수를 변화시키면서 블랙박스의 출력전압을 측정한 결과를 나타낸 것이다. (나)에서 \(f_0\)은 \(\dfrac{1}{2\pi\sqrt{LC}}\)이다.</p><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_6.png" alt="25번: (가) 신호발생기와 블랙박스, (나) 진동수에 따른 출력 전압 원문"><figcaption>25번: (가) 신호발생기와 블랙박스, (나) 진동수에 따른 출력 전압 <span class="scan">원문</span></figcaption></figure><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2013/PTE-2013-MC-21-25_7.png" alt="25번 보기: 회로 ㄱ, ㄴ, ㄷ 원문"><figcaption>25번 보기: 회로 ㄱ, ㄴ, ㄷ <span class="scan">원문</span></figcaption></figure><p>블랙박스 안의 전기회로로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 블랙박스의 입력전압은 진동수에 관계없이 항상 일정하며, 입력 및 출력전압은 실효전압이다.)</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 직렬 R–L–C, 출력 = R 양단 (위 보기 그림 ㄱ)</li><li>ㄴ. 직렬 R–L–C, 출력 = L–C 양단 (보기 그림 ㄴ)</li><li>ㄷ. R과 병렬 L‖C의 직렬, 출력 = R 양단 (보기 그림 ㄷ)</li></ol></div><div class="choices" style="--cols:5"><span class="ok">① ㄱ</span><span class="">② ㄴ</span><span class="">③ ㄷ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — ㄱ: f₀에서 전류 최대 → R 전압 최대(봉우리). ㄴ: f₀에서 LC 양단 전압 0. ㄷ: f₀에서 병렬 LC가 전류 차단 → R 전압 0.</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>각 회로의 f₀ 응답</summary><div class="body"><ul><li>ㄱ: \(\dfrac{V_R}{V}=\dfrac{R}{\sqrt{R^2+(\omega L-1/\omega C)^2}}\) → \(f_0\)에서 1(최대), 멀어지면 0 → (나)와 같음 ✓</li>
+<li>ㄴ: \(\dfrac{V_{LC}}{V}=\dfrac{|\omega L-1/\omega C|}{\sqrt{R^2+(\omega L-1/\omega C)^2}}\) → \(f_0\)에서 0(골) ✗</li>
+<li>ㄷ: 병렬 LC 임피던스 \(\dfrac{\omega L}{|1-\omega^2LC|}\to\infty\) → 전류 0, \(V_R=0\) ✗</li></ul></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>ㄱ</td><td>대역 통과 필터 — f₀에서 최대 ✓</td></tr><tr><td>ㄴ</td><td>대역 저지 — f₀에서 출력 0 ✗</td></tr><tr><td>ㄷ</td><td>병렬 공진(무한 임피던스) — f₀에서 출력 0 ✗</td></tr><tr class=right><td>정답</td><td>① ㄱ</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">①</span> &nbsp; ㄱ
+      <span class="src" style="margin-left:8px">(정답표 ①)</span></div>
+      <p><a class="btn" href="#simq-25">▶ 25번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 물리학Ⅱ(2015) ‘교류 회로와 공명’: 라디오 동조 회로가 원하는 진동수만 골라내는 원리. 그래프 (나)를 보고 ‘어떤 진동수에서 전류가 가장 큰가’를 묻는다.</div>
+    </div>
+  </section>
+  <section class="card" id="compare">
+    <h2><span class="num">2</span>출제 의도·검토</h2>
+
+<h3>출제 의도</h3>
+<ul><li><b>21</b> 직렬 매질의 정상 전류. <b>22</b> 운동 기전력의 크기와 부호(회로 연결 해석). <b>23</b> 자화와 속박 전류(또는 H = 0). <b>24</b> 변위 전류·포인팅 정리. <b>25</b> RLC 회로의 주파수 응답(필터).</li></ul>
+<h3>검토 의견</h3>
+<div class="note"><b>정답표와 AI 풀이 다섯 문항 모두 일치</b>(21 ①, 22 ②, 23 ①, 24 ②, 25 ①). 22번은 그림에서 B가 아래 방향, 막대가 위에서 볼 때 반시계 방향으로 회전하므로 중심이 고전위가 되어 ②가 된다(회전 방향이 반대면 ①). 24번 ㄷ은 포인팅 벡터의 <b>크기</b>를 ‘옆면 전체를 통과하는 흐름’이라고 한 것이 오류다. 23·25번은 원문에서 선지·보기가 그림이므로 학습지에서는 원문 그림을 싣고 선지·보기를 글로 요약했다.</div>
+  </section>
+  <section class="card" id="sim">
+    <h2><span class="num">3</span>문항별 모의실험 <span class="kbd">(5개 — 문항마다 하나, 마우스로 돌리기·휠 확대)</span></h2>
+
+    <div class="simq" id="simq-21"><h3><span class="qnum">21</span>3D 모의실험 — 21번 두 물질을 채운 평행판의 정상 전류</h3>
+      <iframe class="simframe" src="PTE-2013-MC-21-25_모의21.html" title="21번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① 정상 상태에서 전하가 쌓이지 않으려면 J가 두 층에서 같아야 한다(직렬). ② 저항 d/(σA)의 직렬 합 → J = V/(d₁/σ₁ + d₂/σ₂). ③ 전위 그래프의 꺾임: σ가 작은 층에 전압이 많이 걸린다. <a href="PTE-2013-MC-21-25_모의21.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-22"><h3><span class="qnum">22</span>3D 모의실험 — 22번 두 고리 위를 회전하는 도체 막대의 기전력</h3>
+      <iframe class="simframe" src="PTE-2013-MC-21-25_모의22.html" title="22번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① 막대 위 전하가 받는 힘 q v×B는 반지름 방향 — 반시계 회전, B 아래 방향이면 양전하가 중심 쪽으로 → 중심의 전위가 높다. ② 각 막대 기전력 ½ωBr², 중심끼리 연결되어 있으므로 고리 사이 전위차는 두 기전력의 차. ③ 회전 방향을 바꾸면 부호가 바뀐다. <a href="PTE-2013-MC-21-25_모의22.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-23"><h3><span class="qnum">23</span>3D 모의실험 — 23번 축 방향으로 자화된 속이 빈 원통의 자기장</h3>
+      <iframe class="simframe" src="PTE-2013-MC-21-25_모의23.html" title="23번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① 바깥면 전류 → r < b 전체에 μ₀M, 안쪽면(반대) 전류 → r < a에 −μ₀M. ② 합: a < r < b에서만 μ₀M (그래프 ①). ③ 원통 길이를 줄이면 끝 효과로 값이 줄어든다. <a href="PTE-2013-MC-21-25_모의23.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-24"><h3><span class="qnum">24</span>3D 모의실험 — 24번 충전되는 원판 축전기: 변위 전류와 포인팅 벡터</h3>
+      <iframe class="simframe" src="PTE-2013-MC-21-25_모의24.html" title="24번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① D는 판의 면전하 밀도 Q/πR² — r에 무관(ㄱ은 r을 넣은 함정). ② P를 지나는 고리가 감싼 변위 전류 I r²/R² → H = rI/2πR². ③ ㄷ의 식은 단위 넓이당 흐름(포인팅 벡터 크기)이고, 옆면 전체(× 2πRd)는 dU/dt. <a href="PTE-2013-MC-21-25_모의24.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-25"><h3><span class="qnum">25</span>모의실험 — 25번 블랙박스 회로의 주파수 응답 (2D 그래프)</h3>
+      <iframe class="simframe" src="PTE-2013-MC-21-25_모의25.html" title="25번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① 직렬 LC는 f₀에서 임피던스 0, 병렬 LC는 f₀에서 임피던스 ∞. ② ㄱ: 전류 최대 → R 전압 최대. ③ ㄴ: LC 양단 전압 0. ④ ㄷ: 병렬 LC가 전류를 막아 R 전압 0. <a href="PTE-2013-MC-21-25_모의25.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+  </section>
+  <section class="card" id="hs">
+    <h2><span class="num">4</span>고등학생 지도 — 고교 교육과정과 잇기</h2>
+<div class="two"><div><h3>고등학생에게 쓰기</h3><ul>
+<li>21번: 직렬 저항, 25번: 공명 — 물리학Ⅰ·Ⅱ 범위로 바로 사용.</li><li>22번: 패러데이 원판(단극 발전기) 실험·영상과 연결.</li>
+<li>23·24번은 대학 내용 — ‘두 겹 솔레노이드’, ‘축전기 사이의 자기장’ 질문으로 축소.</li></ul></div>
+<div><h3>모의실험 활용</h3><p>25번은 실제 함수 발생기와 오실로스코프(또는 MBL 전압 센서)로 세 회로를 꾸며 응답 곡선을 측정하는 실험으로 확장할 수 있다.</p></div></div>
+  </section>
+  <section class="card" id="teach">
+    <h2><span class="num">5</span>수업 활용 안내</h2>
+<div class="two"><div><h3>수업 흐름 (50분)</h3><ol><li><b>개별 풀이 (12분)</b> — 문항당 2~3분</li><li><b>정상 전류·기전력 (10분)</b> — 21 직렬 매질, 22 v×B 부호(모의실험 회전 방향 바꾸기)</li><li><b>자화·변위 전류 (13분)</b> — 23 속박 전류 중첩, 24 D·H·S 계산</li><li><b>교류 공명 (10분)</b> — 25 세 회로의 응답 곡선 비교</li><li><b>정리 (5분)</b> — 법칙–문항 대응표</li></ol></div><div><h3>자주 나오는 오개념</h3><ul><li>“층을 쌓으면 병렬”</li><li>“막대 끝의 속력 ωL을 쓰면 기전력 ωBL²”</li><li>“자화체 바깥에도 자기장이 있다(막대자석처럼)” — 무한히 긴 경우 0</li><li>“포인팅 벡터 = 전체 에너지 흐름”</li><li>“공명이면 어느 소자 전압이나 최대”</li></ul><h3>평가 포인트</h3><ul><li>직렬·병렬을 기하 구조로 판단하는가</li><li>v×B로 전위의 높낮이를 정하는가</li><li>속박 전류를 그리는가</li><li>단위 넓이당과 전체를 구분하는가</li><li>직렬·병렬 LC의 공명 임피던스를 아는가</li></ul><h3>더 나아가기</h3><p>23번에서 원통 길이가 유한할 때(막대자석) 바깥 자기장이 생기는 것을 모의실험의 길이 슬라이더로 확인하고, 막대자석의 자기력선 모양과 연결한다.</p></div></div>
+  </section>
+</main>
+
+<script>
+/* PTC 공통 라이브러리 — 모든 교사용 페이지의 모의실험이 사용 */
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id)};
+  var PTC=window.PTC={};
+  PTC.$=$;
+  PTC.DEG=Math.PI/180;
+  PTC.fs=function(){return window.PTC_FS||1};
+  PTC.font=function(px,weight,family){return (weight?weight+' ':'')+Math.round(px*PTC.fs())+'px '+(family||'"Noto Sans KR","Malgun Gothic",sans-serif')};
+  PTC.setupCanvas=function(c){
+    var r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;
+    c.width=Math.max(1,Math.round(r.width*d)); c.height=Math.max(1,Math.round(r.height*d));
+    var x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); return {x:x,w:r.width,h:r.height};
+  };
+  PTC.arrow=function(ctx,x,y,dx,dy,color,label,lw){
+    var L=Math.hypot(dx,dy); if(L<2) return;
+    ctx.save(); ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw||2.5;
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dx,y+dy); ctx.stroke();
+    var a=Math.atan2(dy,dx), h=Math.min(12,L*0.4);
+    ctx.beginPath(); ctx.moveTo(x+dx,y+dy);
+    ctx.lineTo(x+dx-h*Math.cos(a-0.4),y+dy-h*Math.sin(a-0.4));
+    ctx.lineTo(x+dx-h*Math.cos(a+0.4),y+dy-h*Math.sin(a+0.4)); ctx.closePath(); ctx.fill();
+    if(label){ctx.font=PTC.font(14,'600'); ctx.fillText(label,x+dx+6,y+dy-6);}
+    ctx.restore();
+  };
+  PTC.text=function(ctx,s,x,y,px,color,weight,align){
+    ctx.save(); ctx.fillStyle=color||'#1b1f2a'; ctx.font=PTC.font(px||14,weight); ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.restore();
+  };
+  /* 그래프: o={xmin,xmax,ymin,ymax,log,xticks,yticks,xlabel,ylabel,title,series:[{f|pts,color,label,dash}],marker,points:[[x,y,color]],fill:{f,color,x0,x1},xfmt} */
+  PTC.plot=function(c,o){
+    var cc=PTC.setupCanvas(c), x=cc.x, w=cc.w, h=cc.h; if(w<20) return;
+    var L=o.padL||52, R=14, T=o.title?30:12, B=36, fs=PTC.fs();
+    function px(v){return L+(v-o.xmin)/(o.xmax-o.xmin)*(w-L-R)}
+    function py(v){var a=o.log?Math.log10(v):v;return h-B-(a-o.ymin)/(o.ymax-o.ymin)*(h-T-B)}
+    x.clearRect(0,0,w,h);
+    if(o.title){x.fillStyle='#1b1f2a';x.font=PTC.font(13,'600');x.fillText(o.title,L,18);}
+    x.font=PTC.font(12); x.strokeStyle='#e6e9f0'; x.fillStyle='#5b6475'; x.lineWidth=1;
+    (o.yticks||[]).forEach(function(v){var yy=o.log?h-B-(v-o.ymin)/(o.ymax-o.ymin)*(h-T-B):py(v);x.beginPath();x.moveTo(L,yy);x.lineTo(w-R,yy);x.stroke();x.fillText(o.log?String(Math.pow(10,v)):(o.yfmt?o.yfmt(v):String(v)),4,yy+4);});
+    (o.xticks||[]).forEach(function(v){var xx=px(v);x.beginPath();x.moveTo(xx,T);x.lineTo(xx,h-B);x.stroke();var s=o.xfmt?o.xfmt(v):String(v);x.fillText(s,xx-x.measureText(s).width/2,h-B+16);});
+    x.strokeStyle='#1b1f2a'; x.beginPath(); x.moveTo(L,T); x.lineTo(L,h-B); x.lineTo(w-R,h-B); x.stroke();
+    if(o.xlabel){x.fillStyle='#5b6475';var xs=o.xlabel;x.fillText(xs,w-R-x.measureText(xs).width,h-4);}
+    if(o.ylabel){x.save();x.fillStyle='#5b6475';x.translate(12,T+4);x.fillText(o.ylabel,0,0);x.restore();}
+    if(o.fill){var F=o.fill;x.fillStyle=F.color;x.beginPath();x.moveTo(px(F.x0),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));
+      for(var k=0;k<=120;k++){var vv=F.x0+(F.x1-F.x0)*k/120;x.lineTo(px(vv),py(F.f(vv)));}
+      x.lineTo(px(F.x1),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));x.closePath();x.fill();}
+    (o.series||[]).forEach(function(sr,si){
+      x.strokeStyle=sr.color; x.lineWidth=sr.lw||2.2; x.setLineDash(sr.dash||[]); x.beginPath(); var started=false;
+      var N=sr.pts?sr.pts.length-1:300;
+      for(var i=0;i<=N;i++){
+        var v,y; if(sr.pts){v=sr.pts[i][0];y=sr.pts[i][1];} else {v=o.xmin+(o.xmax-o.xmin)*i/N;y=sr.f(v);}
+        if(!isFinite(y)||(o.log&&y<=0)){started=false;continue;}
+        var yy=py(y); if(yy<T-2||yy>h-B+2){started=false;continue;}
+        if(!started){x.moveTo(px(v),yy);started=true;}else x.lineTo(px(v),yy);
+      }
+      x.stroke(); x.setLineDash([]);
+      if(sr.label){x.fillStyle=sr.color;x.font=PTC.font(12,'600');x.fillText('— '+sr.label,L+10+si*((w-L)/o.series.length),T+14);}
+    });
+    if(o.marker!=null && o.marker>=o.xmin && o.marker<=o.xmax){x.strokeStyle='#d23b3b';x.setLineDash([5,4]);x.lineWidth=1.5;x.beginPath();x.moveTo(px(o.marker),T);x.lineTo(px(o.marker),h-B);x.stroke();x.setLineDash([]);}
+    (o.points||[]).forEach(function(p){ if(o.log&&p[1]<=0) return; x.fillStyle=p[2]||'#d23b3b'; x.beginPath(); x.arc(px(p[0]),Math.max(T,Math.min(h-B,py(p[1]))),5,0,2*Math.PI); x.fill(); });
+    return {px:px,py:py,ctx:x,w:w,h:h};
+  };
+  /* 시간 진행형 모의실험 제어: o={tMin(),tMax(),draw(t),pauses:[t..],loop} */
+  PTC.timeline=function(o){
+    var T={t:o.tMin(),playing:false,last:null,speed:$('selSpeed')?+$('selSpeed').value:1,passed:{}};
+    function sync(){var s=$('tScrub'); if(s) s.value=Math.round((T.t-o.tMin())/((o.tMax()-o.tMin())||1)*1000);}
+    function setP(p){T.playing=p; var b=$('bPlay'); if(b) b.textContent=p?'⏸ 정지':'▶ 재생'; T.last=null; if(p) requestAnimationFrame(tick);}
+    function tick(ts){
+      if(!T.playing) return;
+      if(T.last==null) T.last=ts;
+      var dt=Math.min(0.05,(ts-T.last)/1000); T.last=ts;
+      var prev=T.t; T.t+=dt*T.speed;
+      var ps=o.pauses||[], cp=$('cPause');
+      if(!cp||cp.checked){ for(var i=0;i<ps.length;i++){ if(prev<ps[i]&&T.t>=ps[i]&&!T.passed[i]){T.t=ps[i];T.passed[i]=true;setP(false);sync();o.draw(T.t);return;} } }
+      if(T.t>=o.tMax()){ if(o.loop){T.t=o.tMin();T.passed={};} else {T.t=o.tMax();setP(false);} }
+      sync(); o.draw(T.t);
+      if(T.playing) requestAnimationFrame(tick);
+    }
+    T.toggle=function(){ if(T.playing){setP(false);return;} if(T.t>=o.tMax()-1e-9){T.t=o.tMin();T.passed={};} setP(true); };
+    T.reset=function(){ T.t=o.tMin(); T.passed={}; setP(false); sync(); o.draw(T.t); };
+    T.set=function(t){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),t)); T.passed={}; (o.pauses||[]).forEach(function(p,i){if(T.t>=p)T.passed[i]=true}); sync(); o.draw(T.t); };
+    T.redraw=function(){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),T.t)); sync(); o.draw(T.t); };
+    T.pause=function(){setP(false)};
+    if($('bPlay')) $('bPlay').onclick=T.toggle;
+    if($('bReset')) $('bReset').onclick=T.reset;
+    if($('tScrub')) $('tScrub').oninput=function(){ setP(false); T.set(o.tMin()+(o.tMax()-o.tMin())*this.value/1000); };
+    if($('selSpeed')) $('selSpeed').onchange=function(){ T.speed=+this.value; };
+    window.SIM={toggle:T.toggle,reset:T.reset};
+    return T;
+  };
+  /* 연속 애니메이션 (정적 모의실험의 흐르는 전류 등) */
+  PTC.loop=function(fn){ var last=null; function f(ts){ var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts; fn(dt); requestAnimationFrame(f);} requestAnimationFrame(f); };
+  PTC.onResize=function(fn){ var st=document.querySelector('#simBox .stage'); if(window.ResizeObserver&&st) new ResizeObserver(function(){fn()}).observe(st); window.addEventListener('resize',fn); };
+  PTC.seg=function(id,cb){ var box=$(id); box.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ box.querySelectorAll('button').forEach(function(o){o.classList.toggle('on',o===b)}); cb(b.dataset.v); }; }); };
+  PTC.range=function(id,outId,fmt,cb){ var r=$(id),o=$(outId); function u(){ if(o) o.textContent=fmt(+r.value); if(cb) cb(+r.value); } r.addEventListener('input',u); if(o) o.textContent=fmt(+r.value); return r; };
+  PTC.readout=function(id,rows){ $(id).innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join(''); };
+  PTC.result=function(id,good,text){ var el=$(id); el.className='result '+(good===true?'good':good===false?'bad':''); el.textContent=text; };
+  PTC.caption=function(ph,tx){ if($('capPh')) $('capPh').textContent=ph; if($('capTx')) $('capTx').textContent=tx; };
+})();
+
+/* SK — 간단 모의실험 키트 (도구/도움.py 의 kit() 와 짝).
+   SK.run({mode:'static'|'time', T:function(P){return 초}, scene:function(g,P,t){…}, plot:function(P,t){return PTC.plot 옵션},
+           plot2:…, readout:function(P,t){return [[이름,값],…]}, check:function(P){return [true|false|null, 글]}, caption:function(P,t){return 글},
+           pre:function(P){…매개변수가 바뀔 때 한 번 계산…}})
+   매개변수: 오른쪽 칸의 [data-p] 요소 (range·checkbox·seg) → P.이름
+   g = {x:ctx, w, h} · SK.view(g,x0,x1,y0,y1,pad) → {X(x),Y(y),s} (가로세로 같은 축척)
+   3D: kit(…, three=True) 와 함께 view3d:{up:'z',cam:[…],target:[…],grid:10}, build:function(V,P){ …물체를 만들고 객체 O 를 돌려줌… },
+       frame:function(V,O,P,t){ …위치·화살표·라벨 갱신… } 를 쓰면 #cv 가 three.js 3D 장면이 된다 (마우스 끌기 회전·휠 확대).
+       (three.js 를 못 불러오면 scene 이 있으면 2D 로 대신 그린다.) */
+(function(){
+  'use strict';
+  var SK=window.SK={};
+  SK.read=function(){ var P={};
+    document.querySelectorAll('[data-p]').forEach(function(el){ var k=el.dataset.p;
+      if(el.type==='checkbox') P[k]=el.checked; else if(el.classList.contains('seg')){ var b=el.querySelector('button.on'); P[k]=b?(isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v):null; }
+      else P[k]=+el.value; });
+    return P; };
+  SK.view=function(g,x0,x1,y0,y1,pad){ pad=pad==null?24:pad; var s=Math.min((g.w-2*pad)/(x1-x0),(g.h-2*pad)/(y1-y0)),
+      ox=(g.w-(x1-x0)*s)/2-x0*s, oy=(g.h+(y1-y0)*s)/2+y0*s; return {s:s,X:function(x){return ox+x*s},Y:function(y){return oy-y*s}}; };
+  SK.line=function(c,pts,col,lw,dash){ c.save(); c.strokeStyle=col||'#1b1f2a'; c.lineWidth=lw||2; c.setLineDash(dash||[]); c.beginPath();
+    pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.stroke(); c.restore(); };
+  SK.poly=function(c,pts,fill,stroke){ c.save(); c.beginPath(); pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.closePath();
+    if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.stroke();} c.restore(); };
+  SK.circle=function(c,x,y,r,fill,stroke,lw){ c.save(); c.beginPath(); c.arc(x,y,r,0,6.2832); if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=lw||1.5;c.stroke();} c.restore(); };
+  SK.rect=function(c,x,y,w,h,fill,stroke){ c.save(); if(fill){c.fillStyle=fill;c.fillRect(x,y,w,h);} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.strokeRect(x,y,w,h);} c.restore(); };
+  SK.text=function(c,s,x,y,px,col,wt,al){ PTC.text(c,s,x,y,px||13,col||'#1b1f2a',wt||'600',al); };
+  SK.arrow=function(c,x,y,dx,dy,col,lab,lw){ PTC.arrow(c,x,y,dx,dy,col,lab,lw); };
+  SK.spring=function(c,x1,y1,x2,y2,n,amp,col){ n=n||10; amp=amp||7; var L=Math.hypot(x2-x1,y2-y1)||1, ux=(x2-x1)/L, uy=(y2-y1)/L, nx=-uy, ny=ux, pts=[[x1,y1]], lead=Math.min(8,L/6);
+    pts.push([x1+ux*lead,y1+uy*lead]); for(var i=0;i<2*n;i++){ var s=lead+(L-2*lead)*(i+0.5)/(2*n), sg=i%2?-1:1; pts.push([x1+ux*s+nx*amp*sg,y1+uy*s+ny*amp*sg]); }
+    pts.push([x2-ux*lead,y2-uy*lead]); pts.push([x2,y2]); SK.line(c,pts,col||'#4a5568',1.6); };
+  SK.ground=function(c,x0,x1,y,col){ SK.line(c,[[x0,y],[x1,y]],col||'#1b1f2a',2); c.save(); c.strokeStyle='#9aa2b2'; c.lineWidth=1; for(var x=x0;x<x1;x+=10){ c.beginPath(); c.moveTo(x,y); c.lineTo(x-7,y+8); c.stroke(); } c.restore(); };
+  SK.fmt=function(v,d){ if(!isFinite(v)) return '—'; var a=Math.abs(v); if(a!==0&&(a<1e-3||a>=1e5)) return v.toExponential(d==null?3:d); return v.toFixed(d==null?3:d); };
+  SK.rk4=function(f,y,t,dt){ var k1=f(t,y), y2=y.map(function(v,i){return v+dt/2*k1[i]}), k2=f(t+dt/2,y2), y3=y.map(function(v,i){return v+dt/2*k2[i]}), k3=f(t+dt/2,y3),
+      y4=y.map(function(v,i){return v+dt*k3[i]}), k4=f(t+dt,y4); return y.map(function(v,i){return v+dt/6*(k1[i]+2*k2[i]+2*k3[i]+k4[i])}); };
+  SK.run=function(o){
+    var P=SK.read(), TL=null;
+    function outs(){ document.querySelectorAll('input[type=range][data-p]').forEach(function(el){ var out=document.getElementById('o_'+el.dataset.p); if(!out) return;
+      var st=el.step&&el.step!=='any'?el.step:'0.01', d=st.indexOf('.')>=0?st.split('.')[1].length:0; out.textContent=(+el.value).toFixed(d)+(el.dataset.u||''); }); }
+    var V3=null, O3=null;
+    if(o.build&&window.PTC3&&PTC3.ok()){ V3=PTC3.view('cv',o.view3d||{up:'z',cam:[6,-8,5],target:[0,0,0],grid:10}); if(V3) O3=o.build(V3,P); }
+    else if(o.build&&!o.scene){ o.scene=function(g){ SK.text(g.x,'3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30,15,'#667'); }; }
+    function draw(t){ t=t||0;
+      if(V3){ try{ o.frame(V3,O3,P,t); }catch(e){ console.error(e); } V3.render(); }
+      else { var c=PTC.setupCanvas(document.getElementById('cv')); if(c.w<20) return; c.x.clearRect(0,0,c.w,c.h);
+        try{ o.scene(c,P,t); }catch(e){ console.error(e); } }
+      if(o.plot&&document.getElementById('mini')) PTC.plot(document.getElementById('mini'),o.plot(P,t));
+      if(o.plot2&&document.getElementById('mini2')) PTC.plot(document.getElementById('mini2'),o.plot2(P,t));
+      if(o.readout) PTC.readout('ro',o.readout(P,t));
+      if(o.caption){ var cp=o.caption(P,t); if(cp) PTC.caption(cp[0],cp[1]); } }
+    function update(){ P=SK.read(); outs(); if(o.pre) o.pre(P); if(V3&&o.rebuild) O3=o.rebuild(V3,O3,P); if(o.check){ var r=o.check(P); PTC.result('res',r[0],r[1]); } if(TL) TL.reset(); else draw(0); }
+    document.querySelectorAll('[data-p]').forEach(function(el){
+      if(el.classList.contains('seg')) el.querySelectorAll('button').forEach(function(b){ b.addEventListener('click',function(){ el.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)}); update(); }); });
+      else el.addEventListener(el.type==='checkbox'?'change':'input',update); });
+    if(o.mode==='time') TL=PTC.timeline({tMin:function(){return 0},tMax:function(){return o.T?o.T(P):10},draw:draw,loop:!!o.loop});
+    PTC.onResize(function(){ if(TL) TL.redraw(); else draw(0); });
+    SK.P=function(){return P}; SK.V3=function(){return V3}; SK.redraw=function(){ if(TL) TL.redraw(); else draw(0); };
+    update();
+  };
+})();
+</script>
+<script>
+
+</script>
+<script>
+/* 교사용 페이지 공통 동작: 보기 설정, 메뉴, 전체화면, 키보드, 인쇄 */
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  // 글자/그림 크기
+  var KEY='ptc-teacher-view', LIM={fs:[0.7,1.6],fig:[0.5,1.5]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    $('vFs').textContent=Math.round(st.fs*100)+'%'; $('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){ var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10; st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply(); });
+  });
+  $('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+  // 풀이 모두 펼치기 / 인쇄 시 펼치기
+  $('expandAll').onclick=function(){var ds=document.querySelectorAll('details.step'),all=Array.prototype.every.call(ds,function(d){return d.open});ds.forEach(function(d){d.open=!all});this.textContent=all?'풀이 모두 펼치기':'풀이 모두 접기';};
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('details.step').forEach(function(d){d.open=true});});
+  // 보기 설정 메뉴 닫기
+  var vm=$('viewMenu');
+  document.addEventListener('click',function(e){ if(vm.open && !vm.contains(e.target)) vm.open=false; });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') vm.open=false; });
+  // 현재 구역 표시
+  var links=[].slice.call(document.querySelectorAll('.tb2 a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var y=window.scrollY+140, cur=0;
+    secs.forEach(function(el,i){ if(el && el.getBoundingClientRect().top+window.scrollY<=y) cur=i; });
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) cur=secs.length-1;
+    links.forEach(function(a,i){ var on=(i===cur); if(on!==a.classList.contains('on')){ a.classList.toggle('on',on); if(on) a.scrollIntoView({block:'nearest',inline:'nearest'}); } });
+  }
+  window.addEventListener('scroll',spy,{passive:true}); window.addEventListener('resize',spy); spy();
+  // 모의실험: 전체화면 + 키보드
+  var box=$('simBox'); if(!box) return;
+  function toggleFull(){
+    var fe=document.fullscreenElement||document.webkitFullscreenElement;
+    if(fe){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}
+    else{(box.requestFullscreen||box.webkitRequestFullscreen).call(box);}
+  }
+  if($('bFull')) $('bFull').onclick=toggleFull;
+  function onFs(){var fe=document.fullscreenElement||document.webkitFullscreenElement; if($('bFull')) $('bFull').textContent=fe?'✕ 전체화면 종료':'⛶ 전체화면'; setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);}
+  document.addEventListener('fullscreenchange',onFs); document.addEventListener('webkitfullscreenchange',onFs);
+  box.querySelectorAll('button').forEach(function(b){b.addEventListener('mousedown',function(e){e.preventDefault();});});
+  document.addEventListener('keydown',function(ev){
+    var tag=(ev.target.tagName||'').toLowerCase(); if((tag==='input'&&ev.target.type!=='range')||tag==='select'||tag==='textarea') return;
+    var inSim=box.contains(document.activeElement)||document.fullscreenElement===box||document.activeElement===document.body;
+    if(!inSim) return;
+    if(ev.code==='Space' && window.SIM){ev.preventDefault();window.SIM.toggle();}
+    else if((ev.key==='r'||ev.key==='R') && window.SIM){window.SIM.reset();}
+    else if(ev.key==='f'||ev.key==='F'){toggleFull();}
+  });
+})();
+
+</script>
+</body>
+</html>

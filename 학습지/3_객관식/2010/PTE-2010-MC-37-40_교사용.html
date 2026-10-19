@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2010-MC-37-40] 전자기·양자·역학 객관식 4문항 — 변위 전류의 자기장·에르미트 행렬과 축퇴·중첩 상태의 기댓값·쓰러지는 막대 · 교사용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#d5dae4; --accent:#3b3486; --accent2:#6a5fd6; --soft:#f4f2fb;
+    --bg:#f6f7fa; --card:#ffffff; --ok:#1e8f4e; --okbg:#e8f6ee; --warn:#b5541c; --warnbg:#fdf1e8;
+    --ball:#1e8f4e; --ramp:#ffe94d; --red:#d23b3b; --blue:#2f6fd6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:calc(16px*var(--fs));line-height:1.7}
+  a{color:var(--accent)}
+  .btn{font:inherit;font-size:14px;padding:6px 13px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn:hover{filter:brightness(.97)}
+  main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,calc(400px*var(--fig)));gap:22px;align-items:start}
+  .kicker{font-size:calc(13px*var(--fs));color:var(--muted)}
+  h1{font-size:calc(30px*var(--fs));margin:4px 0 6px;color:var(--accent);line-height:1.3}
+  h1 small{font-size:calc(16px*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  h2{font-size:calc(22px*var(--fs));margin:0 0 12px;color:var(--ink);display:flex;align-items:center;gap:10px}
+  h2 .num{background:var(--accent);color:#fff;border-radius:8px;font-size:calc(14px*var(--fs));padding:2px 9px}
+  h3{font-size:calc(17px*var(--fs));margin:18px 0 6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+  .tag{font-size:calc(12.5px*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:2px 11px}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:calc(14px*var(--fs));background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+  .meta dt{color:var(--muted)} .meta dd{margin:0}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px;scroll-margin-top:120px}
+  .problem-box{border-left:4px solid var(--accent);background:var(--soft);padding:12px 16px;border-radius:0 10px 10px 0}
+  .orig{font-size:calc(14px*var(--fs));color:var(--muted);font-style:italic;margin-top:8px}
+  .answer-box{border:2px solid var(--ok);background:var(--okbg);border-radius:12px;padding:14px 18px}
+  .answer-box .big{font-size:calc(20px*var(--fs))}
+  .note{background:var(--warnbg);border:1px solid #f0c9ad;border-radius:10px;padding:10px 14px;font-size:calc(15px*var(--fs))}
+  .note b{color:var(--warn)}
+  .ok{color:var(--ok);font-weight:700}
+  details.step{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#fff}
+  details.step>summary{cursor:pointer;padding:10px 14px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:center}
+  details.step>summary::-webkit-details-marker{display:none}
+  details.step>summary .s{background:var(--accent2);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:calc(13px*var(--fs));flex:none}
+  details.step>summary::after{content:"▸";margin-left:auto;color:var(--muted);transition:transform .2s}
+  details.step[open]>summary::after{transform:rotate(90deg)}
+  details.step .body{padding:0 18px 12px 50px}
+  .keyidea{border:2px dashed var(--accent2);border-radius:12px;padding:12px 16px;background:#fbfaff}
+  table{border-collapse:collapse;width:100%;font-size:calc(14.5px*var(--fs))}
+  th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+  th{background:var(--soft);color:var(--accent)}
+  .tablewrap{overflow-x:auto}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .src{font-size:calc(13px*var(--fs));color:var(--muted)}
+  figure{margin:0}
+  figure>svg{width:100%;height:auto;display:block}
+  .eqtag{float:right;color:var(--muted);font-size:calc(13px*var(--fs))}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+
+  /* ---------- simulation ---------- */
+  .sim{display:grid;grid-template-columns:1fr 310px;grid-template-rows:auto 1fr auto;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;height:calc(640px*var(--fig))}
+  .sim .cap{grid-column:1;grid-row:1;padding:8px 14px;background:#fbfbfd;border-bottom:1px solid var(--line);font-size:calc(15px*var(--fs));min-height:44px;display:flex;align-items:center;gap:8px}
+  .sim .cap .ph{background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;font-size:calc(13px*var(--fs));white-space:nowrap}
+  .sim .stage{grid-column:1;grid-row:2;position:relative;min-height:0}
+  .sim canvas#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .sim .bar{grid-column:1;grid-row:3;display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);background:#fbfbfd;flex-wrap:wrap}
+  .sim .bar input[type=range]{flex:1;min-width:140px}
+  .sim .side{grid-column:2;grid-row:1/4;border-left:1px solid var(--line);padding:12px 14px;overflow-y:auto;background:#fcfcfe;font-size:calc(14px*var(--fs))}
+  .side .grp{margin-bottom:12px}
+  .side .grp>label,.side .lbl{display:flex;justify-content:space-between;font-weight:600;font-size:calc(13.5px*var(--fs))}
+  .side .grp>label output{font-weight:700;color:var(--accent)}
+  .side input[type=range]{width:100%}
+  .side .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:4px}
+  .side .seg button{flex:1;font:inherit;font-size:calc(13px*var(--fs));border:0;background:#fff;padding:5px 4px;cursor:pointer}
+  .side .seg button.on{background:var(--accent);color:#fff}
+  .side .chk{display:flex;gap:10px;flex-wrap:wrap;font-size:calc(13px*var(--fs))}
+  .readout{width:100%;font-size:calc(13px*var(--fs));border-collapse:collapse}
+  .readout td{border:0;border-bottom:1px solid #eef0f4;padding:3px 2px}
+  .readout td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .result{margin-top:8px;border-radius:8px;padding:8px 10px;font-weight:700;font-size:calc(14px*var(--fs));background:#f1f2f6}
+  .result.good{background:var(--okbg);color:var(--ok)}
+  .result.bad{background:var(--warnbg);color:var(--warn)}
+  #mini{width:100%;height:150px;display:block;border:1px solid var(--line);border-radius:8px;background:#fff;margin-top:4px}
+  .sim:fullscreen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .sim:fullscreen .cap{font-size:calc(20px*var(--fs));min-height:56px}
+  .sim:fullscreen .side{font-size:calc(15px*var(--fs))}
+  .sim:-webkit-full-screen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .kbd{font-size:calc(12px*var(--fs));color:var(--muted)}
+  .graphs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .graphs canvas{width:100%;height:calc(280px*var(--fig));display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+
+  @media (max-width:900px){
+    .hero,.two,.graphs{grid-template-columns:minmax(0,1fr)}
+    .sim{grid-template-columns:minmax(0,1fr);grid-template-rows:auto calc(380px*var(--fig)) auto auto;height:auto}
+    .sim .side{grid-column:1;grid-row:4;border-left:0;border-top:1px solid var(--line)}
+    details.step .body{padding:0 12px 12px 14px}
+    body{overflow-x:hidden}
+    section.card{padding:16px}
+    h1{font-size:calc(24px*var(--fs))}
+  }
+  @page{size:A4;margin:14mm 12mm 16mm;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:10pt;color:#5b6475}}
+  @media print{
+    .topbar,.sim,.graphs,.noprint{display:none!important}
+    section.card{break-inside:auto;border:0;padding:0}
+    details.step{break-inside:avoid}
+    body{background:#fff}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  #problem{--c:#3b3486} #answer{--c:#1e8f4e} #ai{--c:#6a5fd6} #book{--c:#2f6fd6}
+  #compare{--c:#0f8b8d} #sim{--c:#d9731a} #graph{--c:#c2417a} #teach{--c:#a87a00}
+  .hero{scroll-margin-top:130px}
+  section.card{border-top:4px solid var(--c,var(--accent))}
+  h2 .num{background:var(--c,var(--accent))!important}
+  .topbar{position:sticky;top:0;z-index:30;font-size:15px;box-shadow:0 2px 10px rgba(30,25,80,.12)}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:1180px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .ttl small{font-weight:500;opacity:.75;font-size:13px;margin-left:6px}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;align-items:center;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 11px;cursor:pointer;white-space:nowrap;list-style:none}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tbtn .ic{font-size:15px;line-height:1}
+  details.view{position:relative}
+  details.view>summary::-webkit-details-marker{display:none}
+  details.view[open]>summary{background:rgba(255,255,255,.3)}
+  .vpanel{position:absolute;right:0;top:calc(100% + 8px);width:290px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 14px 40px rgba(20,20,60,.22);padding:14px 16px;z-index:40}
+  .vpanel h4{margin:0 0 10px;font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+  .vrow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef0f4;font-size:14px;font-weight:600}
+  .vrow:last-of-type{border-bottom:0}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .stepper button{font:inherit;width:32px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486;font-size:14px}
+  .vfoot{display:flex;gap:8px;margin-top:12px}
+  .vfoot button{flex:1;font:inherit;font-size:13px;font-weight:600;padding:7px 8px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  .vfoot button:hover{background:var(--soft)}
+  .tb2{background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .tb2 .in{height:46px;overflow-x:auto;scrollbar-width:none;gap:6px}
+  .tb2 .in::-webkit-scrollbar{display:none}
+  .tb2 a{--c:#3b3486;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;
+    color:#4a5163;padding:6px 13px;border-radius:999px;border:1px solid transparent;transition:background .15s,color .15s}
+  .tb2 a .dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+  .tb2 a:hover{background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--c)}
+  .tb2 a.on{background:var(--c);color:#fff}
+  .tb2 a.on .dot{background:#fff}
+  .tb2 a[href="#problem"]{--c:#3b3486} .tb2 a[href="#answer"]{--c:#1e8f4e} .tb2 a[href="#ai"]{--c:#6a5fd6} .tb2 a[href="#book"]{--c:#2f6fd6}
+  .tb2 a[href="#compare"]{--c:#0f8b8d} .tb2 a[href="#sim"]{--c:#d9731a} .tb2 a[href="#graph"]{--c:#c2417a} .tb2 a[href="#teach"]{--c:#a87a00}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:760px){
+    .tbtn .tx{display:none}
+    .tbtn{padding:6px 9px}
+    .tb1 .ttl small{display:none}
+    .vpanel{position:fixed;left:12px;right:12px;top:62px;width:auto}
+  }
+
+  .heroside .fig img{width:100%}
+  .fig{margin:0 0 10px}
+  .fig img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .fig figcaption{font-size:calc(13px*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(300px*var(--fig));max-width:45%;margin:0 0 10px 16px}
+  .psec{clear:both;margin-top:10px;overflow:hidden}
+  .psec h3{margin:8px 0 6px;color:var(--accent)}
+  h3 small,.sec h2 small{color:var(--muted);font-weight:500;font-size:.8em}
+  .pq{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0;clear:both}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;margin-right:6px;font-weight:700;font-size:.9em}
+  .pts{display:inline-block;color:var(--muted);font-size:.85em;margin-right:6px}
+  .partsol{border-top:2px solid var(--line);padding-top:12px;margin-top:22px}
+  .partsol:first-child{border-top:0;margin-top:0}
+  .partsol h3{display:flex;align-items:center;gap:6px;margin-top:0}
+  .ailab,.oflab{font-weight:800;font-size:calc(13px*var(--fs));letter-spacing:.04em;margin:12px 0 4px}
+  .ailab{color:#6a5fd6} .oflab{color:#2f6fd6}
+  .offic{border-left:4px solid #2f6fd6;background:#f2f7fe;border-radius:0 10px 10px 0;padding:8px 14px;margin-top:10px}
+  .partsol .answer-box{margin-top:10px;padding:10px 14px}
+  .anstab td:nth-child(3){font-size:calc(15px*var(--fs))}
+  .problem-box h3{font-size:calc(16px*var(--fs))}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  details.origimg{margin-top:8px;border:1px dashed #9db8e6;border-radius:8px;background:#fff}
+  details.origimg>summary{cursor:pointer;padding:6px 12px;font-size:calc(13.5px*var(--fs));font-weight:700;color:#2f6fd6}
+  details.origimg img{display:block;max-width:100%;margin:0 auto 8px;padding:0 8px}
+  .anstab tr.ext td{background:#fffaf0}
+  .sim .stage{background:#f7f8fb}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가 */
+  .jaryo,.method,.bogi{border:1.2px solid #8a93a6;border-radius:6px;padding:14px 16px 8px;margin:14px 0 10px;position:relative;background:#fff}
+  .jaryo>.jt,.method>.jt,.bogi>.jt{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#fff;padding:0 10px;font-size:.9em;font-weight:700;white-space:nowrap}
+  .method{background:#fbfbfd} .method>.jt{background:#fbfbfd}
+  .jaryo p{margin:0 0 6px} .jaryo table{font-size:.93em}
+  .method ul{margin:0;padding-left:18px;list-style:"◦ "}
+  .bogi ol{list-style:none;margin:0;padding:0} .bogi li{padding-left:20px;text-indent:-20px;margin-bottom:4px}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:3px 12px} .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:3px}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:4px 14px;margin:8px 0}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr))}
+  .choices .h{font-weight:600;text-decoration:underline;text-align:center} .choices .c{text-align:center}
+  .choices .ok{color:var(--ok);font-weight:800}
+  .mcqbox{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0;background:#fff}
+  .mcqbox .qh{font-weight:800;color:var(--accent)}
+  .cn td:first-child{width:12%;text-align:center;font-weight:700}
+  .cn tr.right td{background:var(--okbg)}
+  .rubric td:nth-child(2){width:9%;text-align:center;font-weight:700}
+  .hsbox{border:1px solid #e7b55a;border-left:5px solid #e0a020;background:#fff9ec;border-radius:0 10px 10px 0;padding:10px 16px;margin-top:10px}
+  .hsbox b{color:#9a6400}
+  .aud{display:inline-block;font-size:.8em;border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:0 9px;font-weight:700;margin-left:4px}
+  #rubric{--c:#0f8b8d} #hs{--c:#d08a00}
+  .simq{margin:14px 0 26px} .simq h3{display:flex;align-items:center;gap:8px}
+  .simframe{width:100%;height:calc(680px*var(--fig));border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+  @media (max-width:900px){.simframe{height:1100px}}
+  @media print{.simq{display:none}}
+  .tb2 a[href="#rubric"]{--c:#0f8b8d} .tb2 a[href="#hs"]{--c:#d08a00}
+</style>
+<style>:root{--accent:#9a4d0b;--soft:#fbf1e6} .tb1{background:linear-gradient(100deg,#5e2c06 0%,#9a4d0b 45%,#d9822b 100%)!important} .tbtn.solid{color:#9a4d0b!important} .stepper button,.stepper output{color:#9a4d0b!important} #problem,.tb2 a[href="#problem"]{--c:#9a4d0b} .qnum{background:#9a4d0b} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code" title="분류번호">PTE-2010-MC-37-40</span><span class="code" style="background:transparent;font-weight:600" title="출제 연도">2010 1차 </span>
+    <span class="ttl">전자기·양자·역학 객관식 4문항 — 변위 전류의 자기장·에르미트 행렬과 축퇴·중첩 상태의 기댓값·쓰러지는 막대<small>Magnetic field of displacement current · Hermitian matrix & degeneracy · energy expectation · falling rod on a frictionless floor · 교사용 · 객관식 묶음</small></span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#mc/y=2010" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn solid" href="PTE-2010-MC-37-40_학생용.html" title="학생용 학습지"><span class="ic">📝</span><span class="tx">학생용</span></a>
+      <a class="tbtn" href="../../../문항모음/2010_중등1차_물리_전공%20문제.pdf#page=12" target="_blank" title="원문 문제 PDF"><span class="ic">📄</span><span class="tx">문제 PDF</span></a><a class="tbtn" href="../../../문항모음/2010_중등1차_물리_전공%20정답.pdf#page=1" target="_blank" title="정답표 PDF"><span class="ic">📗</span><span class="tx">정답표</span></a>
+      <button class="tbtn" type="button" onclick="window.print()" title="인쇄"><span class="ic">🖨</span><span class="tx">인쇄</span></button>
+      <details class="view" id="viewMenu">
+        <summary class="tbtn" title="보기 설정"><span class="ic">⚙</span><span class="tx">보기 설정</span></summary>
+        <div class="vpanel">
+          <h4>보기 설정</h4>
+          <div class="vrow"><span>글자 크기</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+          <div class="vrow"><span>그림 크기</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+          <div class="vfoot"><button type="button" id="expandAll">풀이 모두 펼치기</button><button type="button" id="vReset">크기 초기화</button></div>
+        </div>
+      </details>
+    </div>
+  </div></div>
+  <nav class="tb2" aria-label="본문 바로가기"><div class="in">
+<a href="#problem"><span class="dot"></span>문제</a><a href="#answer"><span class="dot"></span>정답</a><a href="#ai"><span class="dot"></span>풀이</a><a href="#compare"><span class="dot"></span>검토</a><a href="#sim"><span class="dot"></span>모의실험</a><a href="#hs"><span class="dot"></span>고교 연계</a><a href="#teach"><span class="dot"></span>수업 활용</a>
+  </div></nav>
+</header>
+
+<main>
+
+  <div class="hero" id="problem">
+    <div>
+      <div class="kicker">2010학년도 1차 37~40번 (내용학 묶음) · 중등학교교사 임용후보자 선정경쟁시험 물리</div>
+      <h1>전자기·양자·역학 객관식 4문항 — 변위 전류의 자기장·에르미트 행렬과 축퇴·중첩 상태의 기댓값·쓰러지는 막대<small>Magnetic field of displacement current · Hermitian matrix & degeneracy · energy expectation · falling rod on a frictionless floor</small></h1>
+      <div class="tags"><span class="tag" style="background:var(--accent);color:#fff;font-weight:700">PTE-2010-MC-37-40</span><span class="tag">변위 전류</span><span class="tag">앙페르-맥스웰 법칙</span><span class="tag">RC 회로</span><span class="tag">에르미트 연산자</span><span class="tag">축퇴</span><span class="tag">기댓값</span><span class="tag">중첩</span><span class="tag">강체</span><span class="tag">질량 중심</span><span class="tag">역학적 에너지 보존</span></div>
+      <div class="problem-box"><div class="mcqbox"><span class="qnum">37</span><span class="pts">2.5점</span><p>그림은 기전력 \(\mathcal E\)인 기전력원, 전기용량 \(C\)인 축전기, 저항값 \(R\)인 저항 및 스위치 S로 구성된 \(RC\) 회로를 나타낸 것이다. 축전기는 반지름 \(a\)인 두 개의 원형 도체판으로 만들어진 간격 \(d\) (\(d\ll a\))인 평행판 축전기이며, 점 P는 도체판의 중심축으로부터 거리 \(b\) (\(b\ll a\))인 지점이다. 회로의 시간 상수는 \(\tau=RC\)이다.</p><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2010/PTE-2010-MC-37-40_1.png" alt="37번: 평행판 축전기 RC 회로와 점 P (원문) 원문"><figcaption>37번: 평행판 축전기 RC 회로와 점 P (원문) <span class="scan">원문</span></figcaption></figure><p>시간 \(t=0\)에서 스위치를 닫았을 때, P점에서 시간 \(t\)에 따른 자기장(magnetic induction)의 크기 \(B\)는? (단, 두 도체판 사이의 매질의 투자율은 \(\mu_0\)이다.) [2.5점]</p><div class="choices" style="--cols:3"><span class="">① \(\left(\dfrac{\mu_0b\mathcal E}{4\pi a^2R}\right)e^{-t/\tau}\)</span><span class="">② \(\left(\dfrac{\mu_0b\mathcal E}{2\pi a^2R}\right)e^{-t/\tau}\)</span><span class="">③ \(\left(\dfrac{\mu_0\mathcal E}{4\pi b^2R}\right)e^{-t/\tau}\)</span><span class="">④ \(\left(\dfrac{\mu_0\mathcal E}{2\pi b^2R}\right)e^{-t/\tau}\)</span><span class="">⑤ \(\left(\dfrac{\mu_0b\mathcal E}{4\pi aR}\right)e^{-t/\tau}\)</span></div></div><div class="mcqbox"><span class="qnum">38</span><span class="pts">2.0점</span><p>어느 입자에 대한 해밀토니안 연산자가 다음과 같이 표현되며, \(\alpha\)는 양의 상수이다.</p>
+\[ H=\alpha\begin{bmatrix}1&0&0\\0&2&i\\0&-i&2\end{bmatrix} \]<p>이에 대한 설명으로 옳은 것을 &lt;보기&gt;에서 모두 고른 것은? (단, \(h\)는 플랑크 상수이다.)</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 임의의 상태에 대해 \(H\)는 실수의 기대값을 갖는다.</li><li>ㄴ. 바닥상태는 2중으로 축퇴되어(degenerate) 있다.</li><li>ㄷ. 입자가 첫 번째 들뜬상태에서 바닥상태로 전이하면서 전자기파를 방출할 때, 전자기파의 진동수는 \(\dfrac\alpha h\)이다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄷ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div><div class="mcqbox"><span class="qnum">39</span><span class="pts">1.5점</span><p>규격화된 에너지 고유함수와 에너지 고유값이 각각 \(u_n\)과 \(E_n=-\dfrac{\epsilon_0}{n^2}\) (\(n=1,2,3,\cdots\))인 어떤 계가 있다. 이 계의 상태가 규격화된 파동함수 \(\psi=au_1+2au_2\)로 기술될 때, 에너지에 대한 기대값은? (단, \(\epsilon_0\)과 \(a\)는 0이 아닌 실수이다.) [1.5점]</p><div class="choices" style="--cols:5"><span class="">① \(-\dfrac34\epsilon_0\)</span><span class="">② \(-\dfrac35\epsilon_0\)</span><span class="">③ \(-\dfrac25\epsilon_0\)</span><span class="">④ \(-\dfrac14\epsilon_0\)</span><span class="">⑤ \(-\dfrac15\epsilon_0\)</span></div></div><div class="mcqbox"><span class="qnum">40</span><span class="pts">2.5점</span><p>그림과 같이 길이 \(\ell\), 질량 \(m\)인 균일한 강체 막대가 마찰이 없는 수평면과 각 \(\theta_0\)을 이루며 천장에 연결된 실에 매달려 정지해 있다. 왼쪽 끝은 수평면에 닿아 있다. 막대의 질량중심을 지나고 막대에 수직인 회전축에 대한 관성모멘트는 \(\dfrac1{12}m\ell^2\)이다.</p><figure class="fig" style="max-width:calc(380px*var(--fig))"><img src="../../그림/2010/PTE-2010-MC-37-40_2.png" alt="40번: 실에 매달린 막대, 왼쪽 끝은 수평면에 닿음 (원문) 원문"><figcaption>40번: 실에 매달린 막대, 왼쪽 끝은 수평면에 닿음 (원문) <span class="scan">원문</span></figcaption></figure><p>실을 끊었더니, 막대의 왼쪽 끝이 미끄러지면서 바닥으로 넘어졌다. 막대의 오른쪽 끝이 바닥에 닿는 순간, 막대의 질량중심의 속력은? (단, \(g\)는 중력가속도이고, 실의 질량은 무시한다.) [2.5점]</p><div class="choices" style="--cols:3"><span class="">① \(\sqrt{\tfrac12g\ell\sin\theta_0}\)</span><span class="">② \(\sqrt{\tfrac34g\ell\sin\theta_0}\)</span><span class="">③ \(\sqrt{g\ell\sin\theta_0}\)</span><span class="">④ \(\sqrt{\tfrac54g\ell\sin\theta_0}\)</span><span class="">⑤ \(\sqrt{\tfrac32g\ell\sin\theta_0}\)</span></div></div></div>
+    </div>
+    <div class="heroside">
+      <dl class="meta"><dt>시험</dt><dd>2010학년도 1차 37~40번 (내용학 묶음) · 객관식 묶음</dd><dt>대상</dt><dd>대학생(임용 준비·물리교육과) · 고등학생(심화·영재)</dd><dt>물리학 분류</dt><dd><b>[주]</b> 전자기학 › 전류, 자기장 및 유도 › 자기장과 전자기 유도 › <b>3.2.2.5 맥스웰 방정식과 전자기파</b><br>[보조] 현대물리학 › 양자역학, 원자 및 핵물리학 › 파동-입자 이중성과 양자역학 › <b>5.2.1.3 슈뢰딩거 방정식과 파동함수</b><br>[보조] 현대물리학 › 양자역학, 원자 및 핵물리학 › 파동-입자 이중성과 양자역학 › <b>5.2.1.3 슈뢰딩거 방정식과 파동함수</b><br>[보조] 역학 › 회전역학 및 유체역학 › 회전 운동 › <b>1.3.1.2 관성모멘트와 회전운동에너지</b></dd><dt>원문</dt><dd><a href="../../../문항모음/2010_중등1차_물리_전공%20문제.pdf#page=12" target="_blank">문제 PDF (12쪽)</a> · <a href="../../../문항모음/2010_중등1차_물리_전공%20정답.pdf#page=1" target="_blank">정답표</a><br><small>정답표 공개(객관식) — AI 풀이와 대조함</small></dd><dt>난이도</dt><dd>★★★☆☆ (37·40번이 2.5점 계산형(앙페르–맥스웰, 강체 에너지 보존), 38·39번은 선형대수 기본)</dd><dt>대학 과목</dt><dd>전자기학(맥스웰 방정식) · 양자역학(행렬 역학, 기댓값) · 고전역학(강체)</dd><dt>고교 교육과정</dt><dd>물리학Ⅱ 전자기파(변위 전류) · 물리학Ⅱ 양자역학 기초 · 물리학Ⅱ 강체·회전(2015)</dd><dt>핵심 개념</dt><dd>37 \(\oint\vec B\cdot d\vec l=\mu_0\epsilon_0\dfrac{d\Phi_E}{dt}\) → \(B=\dfrac{\mu_0b}{2\pi a^2}I\) · 38 고유값 \(\alpha,\alpha,3\alpha\) · 39 \(\langle E\rangle=\sum|c_n|^2E_n\) · 40 질량 중심 연직 낙하, \(v_{cm}=\tfrac\ell2\omega\).</dd></dl>
+    </div>
+  </div>
+  <section class="card" id="answer">
+    <h2><span class="num">정답</span>문항별 정답 (AI 풀이 ↔ 정답표)</h2>
+<div class="tablewrap"><table class="anstab"><tr><th style="width:7%">문항</th><th style="width:8%">AI 풀이</th><th style="width:8%">정답표</th><th style="width:7%">배점</th><th style="width:10%">판정</th><th>핵심 아이디어</th></tr><tr><td><b>37</b></td><td class="big">②</td><td>②</td><td>2.5</td><td><span class=ok>일치 ✓</span></td><td>\(B\cdot2\pi b=\mu_0I\dfrac{b^2}{a^2}\) → \(B=\dfrac{\mu_0bI}{2\pi a^2}=\dfrac{\mu_0b\mathcal E}{2\pi a^2R}e^{-t/\tau}\).</td></tr><tr><td><b>38</b></td><td class="big">③</td><td>③</td><td>2.0</td><td><span class=ok>일치 ✓</span></td><td>에르미트 → 기댓값 실수 ✓. 고유값 \(\alpha,\ \alpha,\ 3\alpha\) → 바닥상태 2중 축퇴 ✓. 전이 에너지 \(2\alpha\) → \(\nu=2\alpha/h\) ✗.</td></tr><tr><td><b>39</b></td><td class="big">③</td><td>③</td><td>1.5</td><td><span class=ok>일치 ✓</span></td><td>\(a^2=\tfrac15\), \(\langle E\rangle=\tfrac15(-\epsilon_0)+\tfrac45\left(-\tfrac{\epsilon_0}4\right)=-\tfrac25\epsilon_0\).</td></tr><tr><td><b>40</b></td><td class="big">②</td><td>②</td><td>2.5</td><td><span class=ok>일치 ✓</span></td><td>\(mg\dfrac\ell2\sin\theta_0=\dfrac12mv^2+\dfrac12\cdot\dfrac{m\ell^2}{12}\left(\dfrac{2v}\ell\right)^2=\dfrac23mv^2\) → \(v^2=\dfrac34g\ell\sin\theta_0\).</td></tr></table></div>
+  </section>
+  <section class="card" id="ai">
+    <h2><span class="num">1</span>문항별 풀이 — 선지·보기 분석 포함</h2>
+
+    <div class="partsol" id="sol-37">
+      <h3><span class="qnum">37</span>충전 중인 원형 평행판 축전기 속 자기장 <small>2.5점</small></h3>
+      <div class="pq"><p>그림은 기전력 \(\mathcal E\)인 기전력원, 전기용량 \(C\)인 축전기, 저항값 \(R\)인 저항 및 스위치 S로 구성된 \(RC\) 회로를 나타낸 것이다. 축전기는 반지름 \(a\)인 두 개의 원형 도체판으로 만들어진 간격 \(d\) (\(d\ll a\))인 평행판 축전기이며, 점 P는 도체판의 중심축으로부터 거리 \(b\) (\(b\ll a\))인 지점이다. 회로의 시간 상수는 \(\tau=RC\)이다.</p><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2010/PTE-2010-MC-37-40_1.png" alt="37번: 평행판 축전기 RC 회로와 점 P (원문) 원문"><figcaption>37번: 평행판 축전기 RC 회로와 점 P (원문) <span class="scan">원문</span></figcaption></figure><p>시간 \(t=0\)에서 스위치를 닫았을 때, P점에서 시간 \(t\)에 따른 자기장(magnetic induction)의 크기 \(B\)는? (단, 두 도체판 사이의 매질의 투자율은 \(\mu_0\)이다.) [2.5점]</p><div class="choices" style="--cols:3"><span class="">① \(\left(\dfrac{\mu_0b\mathcal E}{4\pi a^2R}\right)e^{-t/\tau}\)</span><span class="ok">② \(\left(\dfrac{\mu_0b\mathcal E}{2\pi a^2R}\right)e^{-t/\tau}\)</span><span class="">③ \(\left(\dfrac{\mu_0\mathcal E}{4\pi b^2R}\right)e^{-t/\tau}\)</span><span class="">④ \(\left(\dfrac{\mu_0\mathcal E}{2\pi b^2R}\right)e^{-t/\tau}\)</span><span class="">⑤ \(\left(\dfrac{\mu_0b\mathcal E}{4\pi aR}\right)e^{-t/\tau}\)</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(B\cdot2\pi b=\mu_0I\dfrac{b^2}{a^2}\) → \(B=\dfrac{\mu_0bI}{2\pi a^2}=\dfrac{\mu_0b\mathcal E}{2\pi a^2R}e^{-t/\tau}\).</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>변위 전류</summary><div class="body"><p>\(E=\dfrac{q}{\epsilon_0\pi a^2}\) → \(\epsilon_0\dfrac{d}{dt}(E\pi b^2)=\dfrac{b^2}{a^2}\dfrac{dq}{dt}=\dfrac{b^2}{a^2}I\).</p></div></details>
+<details class="step" open><summary><span class="s">2</span>앙페르–맥스웰</summary><div class="body"><p>\(B(2\pi b)=\mu_0\dfrac{b^2}{a^2}I\), \(I=\dfrac{\mathcal E}Re^{-t/\tau}\) → 선지 ②.</p></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr><td>①</td><td>2π 대신 4π</td></tr><tr class=right><td>②</td><td>B = μ₀bI/(2πa²) ✓</td></tr><tr><td>③④</td><td>b < a인데 판 밖처럼(1/b) 계산</td></tr><tr><td>⑤</td><td>넓이 비 b²/a²를 b/a로 잘못 씀</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">②</span> &nbsp; \(B=\dfrac{\mu_0b\mathcal E}{2\pi a^2R}e^{-t/\tau}\)
+      <span class="src" style="margin-left:8px">(정답표 ②)</span></div>
+      <p><a class="btn" href="#simq-37">▶ 37번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 물리학Ⅱ ‘전자기파’: 맥스웰이 변위 전류를 도입한 이유(축전기 사이에서도 자기장)를 이 상황으로 설명.</div>
+    </div>
+    <div class="partsol" id="sol-38">
+      <h3><span class="qnum">38</span>3×3 해밀토니안의 고유값과 축퇴 <small>2.0점</small></h3>
+      <div class="pq"><p>어느 입자에 대한 해밀토니안 연산자가 다음과 같이 표현되며, \(\alpha\)는 양의 상수이다.</p>
+\[ H=\alpha\begin{bmatrix}1&0&0\\0&2&i\\0&-i&2\end{bmatrix} \]<p>이에 대한 설명으로 옳은 것을 &lt;보기&gt;에서 모두 고른 것은? (단, \(h\)는 플랑크 상수이다.)</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 임의의 상태에 대해 \(H\)는 실수의 기대값을 갖는다.</li><li>ㄴ. 바닥상태는 2중으로 축퇴되어(degenerate) 있다.</li><li>ㄷ. 입자가 첫 번째 들뜬상태에서 바닥상태로 전이하면서 전자기파를 방출할 때, 전자기파의 진동수는 \(\dfrac\alpha h\)이다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄷ</span><span class="ok">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 에르미트 → 기댓값 실수 ✓. 고유값 \(\alpha,\ \alpha,\ 3\alpha\) → 바닥상태 2중 축퇴 ✓. 전이 에너지 \(2\alpha\) → \(\nu=2\alpha/h\) ✗.</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>대각화</summary><div class="body"><p>블록: \((2-\lambda)^2-1=0\) → \(\lambda=1,3\). 전체 고유값 \(\alpha,\alpha,3\alpha\). 첫 들뜬상태 \(3\alpha\) → 바닥 \(\alpha\): \(h\nu=2\alpha\).</p></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>ㄱ</td><td>H† = H ✓</td></tr><tr class=right><td>ㄴ</td><td>α가 두 번 ✓</td></tr><tr><td>ㄷ</td><td>ν = 2α/h ✗</td></tr><tr class=right><td>정답</td><td>③ ㄱ, ㄴ</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">③</span> &nbsp; ㄱ, ㄴ
+      <span class="src" style="margin-left:8px">(정답표 ③)</span></div>
+      <p><a class="btn" href="#simq-38">▶ 38번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 밖 내용. 고교에서는 ‘에너지 준위 차 = 광자 에너지 hν’만 연결(수소 스펙트럼).</div>
+    </div>
+    <div class="partsol" id="sol-39">
+      <h3><span class="qnum">39</span>중첩 상태의 에너지 기댓값 <small>1.5점</small></h3>
+      <div class="pq"><p>규격화된 에너지 고유함수와 에너지 고유값이 각각 \(u_n\)과 \(E_n=-\dfrac{\epsilon_0}{n^2}\) (\(n=1,2,3,\cdots\))인 어떤 계가 있다. 이 계의 상태가 규격화된 파동함수 \(\psi=au_1+2au_2\)로 기술될 때, 에너지에 대한 기대값은? (단, \(\epsilon_0\)과 \(a\)는 0이 아닌 실수이다.) [1.5점]</p><div class="choices" style="--cols:5"><span class="">① \(-\dfrac34\epsilon_0\)</span><span class="">② \(-\dfrac35\epsilon_0\)</span><span class="ok">③ \(-\dfrac25\epsilon_0\)</span><span class="">④ \(-\dfrac14\epsilon_0\)</span><span class="">⑤ \(-\dfrac15\epsilon_0\)</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(a^2=\tfrac15\), \(\langle E\rangle=\tfrac15(-\epsilon_0)+\tfrac45\left(-\tfrac{\epsilon_0}4\right)=-\tfrac25\epsilon_0\).</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>계산</summary><div class="body"><p>\(\langle E\rangle=\dfrac15(-\epsilon_0)+\dfrac45\left(-\dfrac{\epsilon_0}{4}\right)=-\dfrac{2}{5}\epsilon_0\).</p></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>③</td><td>−ε₀/5 − ε₀/5 = −2ε₀/5 ✓</td></tr><tr><td>①</td><td>규격화 없이 단순 평균</td></tr><tr><td>②④⑤</td><td>확률 가중치를 잘못 씀</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">③</span> &nbsp; \(\langle E\rangle=-\dfrac25\epsilon_0\)
+      <span class="src" style="margin-left:8px">(정답표 ③)</span></div>
+      <p><a class="btn" href="#simq-39">▶ 39번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 수준: ‘측정하면 −ε₀가 1/5 확률, −ε₀/4가 4/5 확률로 나온다’는 확률 해석만 소개.</div>
+    </div>
+    <div class="partsol" id="sol-40">
+      <h3><span class="qnum">40</span>매끄러운 바닥에서 쓰러지는 막대 <small>2.5점</small></h3>
+      <div class="pq"><p>그림과 같이 길이 \(\ell\), 질량 \(m\)인 균일한 강체 막대가 마찰이 없는 수평면과 각 \(\theta_0\)을 이루며 천장에 연결된 실에 매달려 정지해 있다. 왼쪽 끝은 수평면에 닿아 있다. 막대의 질량중심을 지나고 막대에 수직인 회전축에 대한 관성모멘트는 \(\dfrac1{12}m\ell^2\)이다.</p><figure class="fig" style="max-width:calc(340px*var(--fig))"><img src="../../그림/2010/PTE-2010-MC-37-40_2.png" alt="40번: 실에 매달린 막대, 왼쪽 끝은 수평면에 닿음 (원문) 원문"><figcaption>40번: 실에 매달린 막대, 왼쪽 끝은 수평면에 닿음 (원문) <span class="scan">원문</span></figcaption></figure><p>실을 끊었더니, 막대의 왼쪽 끝이 미끄러지면서 바닥으로 넘어졌다. 막대의 오른쪽 끝이 바닥에 닿는 순간, 막대의 질량중심의 속력은? (단, \(g\)는 중력가속도이고, 실의 질량은 무시한다.) [2.5점]</p><div class="choices" style="--cols:3"><span class="">① \(\sqrt{\tfrac12g\ell\sin\theta_0}\)</span><span class="ok">② \(\sqrt{\tfrac34g\ell\sin\theta_0}\)</span><span class="">③ \(\sqrt{g\ell\sin\theta_0}\)</span><span class="">④ \(\sqrt{\tfrac54g\ell\sin\theta_0}\)</span><span class="">⑤ \(\sqrt{\tfrac32g\ell\sin\theta_0}\)</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — \(mg\dfrac\ell2\sin\theta_0=\dfrac12mv^2+\dfrac12\cdot\dfrac{m\ell^2}{12}\left(\dfrac{2v}\ell\right)^2=\dfrac23mv^2\) → \(v^2=\dfrac34g\ell\sin\theta_0\).</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>구속 조건</summary><div class="body"><p>마찰이 없으므로 수평 외력 0 → 질량 중심은 연직선 위. 막대가 수평이 되는 순간 \(v_{cm}=\dfrac\ell2\omega\) (왼쪽 끝은 수평으로만 움직임).</p></div></details>
+<details class="step" open><summary><span class="s">2</span>에너지 보존</summary><div class="body"><p>\(mg\dfrac\ell2\sin\theta_0=\dfrac12mv^2\left(1+\dfrac13\right)\) → \(v=\sqrt{\dfrac34g\ell\sin\theta_0}\).</p></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>②</td><td>회전 에너지 포함 ✓</td></tr><tr><td>③</td><td>회전 에너지를 무시</td></tr><tr><td>①④⑤</td><td>관성 모멘트나 v–ω 관계를 잘못 씀</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">②</span> &nbsp; \(v_{cm}=\sqrt{\tfrac34g\ell\sin\theta_0}\)
+      <span class="src" style="margin-left:8px">(정답표 ②)</span></div>
+      <p><a class="btn" href="#simq-40">▶ 40번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 물리 범위 밖(강체 회전)이지만 ‘질량 중심이 똑바로 떨어진다’는 관찰은 연필을 매끄러운 책상 위에 세웠다 놓아 보는 활동으로 확인 가능.</div>
+    </div>
+  </section>
+  <section class="card" id="compare">
+    <h2><span class="num">2</span>출제 의도·검토</h2>
+
+<h3>출제 의도</h3><ul><li>37: 변위 전류(앙페르–맥스웰). 38: 에르미트 행렬의 고유값·축퇴. 39: 기댓값과 규격화. 40: 구속 조건 + 강체 에너지 보존.</li></ul>
+<h3>검토 의견</h3><div class="note"><b>정답표와 AI 풀이 네 문항 모두 일치</b>(37 ②, 38 ③, 39 ③, 40 ②). 40번은 모의실험의 라그랑주 방정식 수치 적분(RK4)으로도 \(\sqrt{\tfrac34g\ell\sin\theta_0}\)가 확인된다(θ₀와 무관하게 비가 1).</div>
+  </section>
+  <section class="card" id="sim">
+    <h2><span class="num">3</span>문항별 모의실험 <span class="kbd">(4개 — 문항마다 하나, 마우스로 돌리기·휠 확대)</span></h2>
+
+    <div class="simq" id="simq-37"><h3><span class="qnum">37</span>3D 모의실험 — 37번 충전 중인 평행판 축전기 속의 자기장</h3>
+      <iframe class="simframe" src="PTE-2010-MC-37-40_모의37.html" title="37번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① 판 사이에는 전도 전류가 없지만 dE/dt가 만드는 변위 전류가 있다. ② 반지름 b 안의 변위 전류 = I·b²/a² → B ∝ b. ③ 충전 전류 I = (ε/R)e^(−t/τ). <a href="PTE-2010-MC-37-40_모의37.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-38"><h3><span class="qnum">38</span>3D 모의실험 — 38번 3×3 해밀토니안 행렬의 고유값</h3>
+      <iframe class="simframe" src="PTE-2010-MC-37-40_모의38.html" title="38번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① H가 에르미트이면 고유값·기댓값이 실수. ② 아래 2×2 블록 [[2, i], [−i, 2]]의 고유값 2 ± 1 → 1, 3. ③ 전이 에너지 2α → ν = 2α/h. <a href="PTE-2010-MC-37-40_모의38.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-39"><h3><span class="qnum">39</span>3D 모의실험 — 39번 중첩 상태의 에너지 기댓값</h3>
+      <iframe class="simframe" src="PTE-2010-MC-37-40_모의39.html" title="39번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① 먼저 규격화: a²(1 + 4) = 1. ② ⟨E⟩ = Σ|cₙ|²Eₙ. ③ 기댓값은 두 준위 사이의 값이며 어느 고유값과도 같지 않을 수 있다. <a href="PTE-2010-MC-37-40_모의39.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-40"><h3><span class="qnum">40</span>3D 모의실험 — 40번 매끄러운 바닥에서 쓰러지는 막대</h3>
+      <iframe class="simframe" src="PTE-2010-MC-37-40_모의40.html" title="40번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① 수평 외력이 없으므로 질량 중심은 연직선을 따라 떨어진다. ② 수평이 되는 순간 v_cm = (ℓ/2)ω. ③ mg(ℓ/2)sinθ₀ = ½mv² + ½(mℓ²/12)(2v/ℓ)² → v² = ¾gℓ sinθ₀. <a href="PTE-2010-MC-37-40_모의40.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+  </section>
+  <section class="card" id="hs">
+    <h2><span class="num">4</span>고등학생 지도 — 고교 교육과정과 잇기</h2>
+<div class="two"><div><h3>고등학생에게 쓰기</h3><ul><li>37번: 축전기 사이 나침반이 충전 중에만 움직이는 사고 실험.</li><li>39번: 확률 × 값의 합 = 기댓값(수학의 기댓값과 같은 개념).</li></ul></div>
+<div><h3>40번 활동</h3><p>매끄러운 판 위에 세운 연필·자를 놓아 질량 중심이 연직으로 떨어지는지 슬로 모션으로 촬영해 확인.</p></div></div>
+  </section>
+  <section class="card" id="teach">
+    <h2><span class="num">5</span>수업 활용 안내</h2>
+<div class="two"><div><h3>수업 흐름 (50분)</h3><ol><li><b>개별 풀이 (10분)</b> — 문항당 2~3분</li><li><b>변위 전류 (12분)</b> — 37번 앙페르–맥스웰 유도, 모의실험</li><li><b>행렬·기댓값 (12분)</b> — 38·39번 대각화와 확률</li><li><b>강체 (12분)</b> — 40번 구속 조건과 에너지 보존</li><li><b>정리 (4분)</b> — 핵심 식</li></ol></div><div><h3>자주 나오는 오개념</h3><ul><li>“축전기 판 사이에는 전류가 없으니 자기장도 없다”</li><li>“바닥상태는 언제나 하나뿐이다”</li><li>“막대의 질량 중심도 왼쪽으로 미끄러진다”</li></ul><h3>평가 포인트</h3><ul><li>변위 전류의 넓이 비를 쓰는가</li><li>고유값과 축퇴를 계산하는가</li><li>구속 조건 v_cm = ωℓ/2를 찾는가</li></ul><h3>더 나아가기</h3><p>40번에서 왼쪽 끝이 고정된 경우(고정 회전축)와 비교한다 — 수평이 되는 순간의 v_cm은 둘 다 √(¾gℓ sin θ₀)로 같지만, 질량 중심의 경로와 넘어지는 시간이 다르다는 것을 수치로 확인한다.</p></div></div>
+  </section>
+</main>
+
+<script>
+/* PTC 공통 라이브러리 — 모든 교사용 페이지의 모의실험이 사용 */
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id)};
+  var PTC=window.PTC={};
+  PTC.$=$;
+  PTC.DEG=Math.PI/180;
+  PTC.fs=function(){return window.PTC_FS||1};
+  PTC.font=function(px,weight,family){return (weight?weight+' ':'')+Math.round(px*PTC.fs())+'px '+(family||'"Noto Sans KR","Malgun Gothic",sans-serif')};
+  PTC.setupCanvas=function(c){
+    var r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;
+    c.width=Math.max(1,Math.round(r.width*d)); c.height=Math.max(1,Math.round(r.height*d));
+    var x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); return {x:x,w:r.width,h:r.height};
+  };
+  PTC.arrow=function(ctx,x,y,dx,dy,color,label,lw){
+    var L=Math.hypot(dx,dy); if(L<2) return;
+    ctx.save(); ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw||2.5;
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dx,y+dy); ctx.stroke();
+    var a=Math.atan2(dy,dx), h=Math.min(12,L*0.4);
+    ctx.beginPath(); ctx.moveTo(x+dx,y+dy);
+    ctx.lineTo(x+dx-h*Math.cos(a-0.4),y+dy-h*Math.sin(a-0.4));
+    ctx.lineTo(x+dx-h*Math.cos(a+0.4),y+dy-h*Math.sin(a+0.4)); ctx.closePath(); ctx.fill();
+    if(label){ctx.font=PTC.font(14,'600'); ctx.fillText(label,x+dx+6,y+dy-6);}
+    ctx.restore();
+  };
+  PTC.text=function(ctx,s,x,y,px,color,weight,align){
+    ctx.save(); ctx.fillStyle=color||'#1b1f2a'; ctx.font=PTC.font(px||14,weight); ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.restore();
+  };
+  /* 그래프: o={xmin,xmax,ymin,ymax,log,xticks,yticks,xlabel,ylabel,title,series:[{f|pts,color,label,dash}],marker,points:[[x,y,color]],fill:{f,color,x0,x1},xfmt} */
+  PTC.plot=function(c,o){
+    var cc=PTC.setupCanvas(c), x=cc.x, w=cc.w, h=cc.h; if(w<20) return;
+    var L=o.padL||52, R=14, T=o.title?30:12, B=36, fs=PTC.fs();
+    function px(v){return L+(v-o.xmin)/(o.xmax-o.xmin)*(w-L-R)}
+    function py(v){var a=o.log?Math.log10(v):v;return h-B-(a-o.ymin)/(o.ymax-o.ymin)*(h-T-B)}
+    x.clearRect(0,0,w,h);
+    if(o.title){x.fillStyle='#1b1f2a';x.font=PTC.font(13,'600');x.fillText(o.title,L,18);}
+    x.font=PTC.font(12); x.strokeStyle='#e6e9f0'; x.fillStyle='#5b6475'; x.lineWidth=1;
+    (o.yticks||[]).forEach(function(v){var yy=o.log?h-B-(v-o.ymin)/(o.ymax-o.ymin)*(h-T-B):py(v);x.beginPath();x.moveTo(L,yy);x.lineTo(w-R,yy);x.stroke();x.fillText(o.log?String(Math.pow(10,v)):(o.yfmt?o.yfmt(v):String(v)),4,yy+4);});
+    (o.xticks||[]).forEach(function(v){var xx=px(v);x.beginPath();x.moveTo(xx,T);x.lineTo(xx,h-B);x.stroke();var s=o.xfmt?o.xfmt(v):String(v);x.fillText(s,xx-x.measureText(s).width/2,h-B+16);});
+    x.strokeStyle='#1b1f2a'; x.beginPath(); x.moveTo(L,T); x.lineTo(L,h-B); x.lineTo(w-R,h-B); x.stroke();
+    if(o.xlabel){x.fillStyle='#5b6475';var xs=o.xlabel;x.fillText(xs,w-R-x.measureText(xs).width,h-4);}
+    if(o.ylabel){x.save();x.fillStyle='#5b6475';x.translate(12,T+4);x.fillText(o.ylabel,0,0);x.restore();}
+    if(o.fill){var F=o.fill;x.fillStyle=F.color;x.beginPath();x.moveTo(px(F.x0),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));
+      for(var k=0;k<=120;k++){var vv=F.x0+(F.x1-F.x0)*k/120;x.lineTo(px(vv),py(F.f(vv)));}
+      x.lineTo(px(F.x1),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));x.closePath();x.fill();}
+    (o.series||[]).forEach(function(sr,si){
+      x.strokeStyle=sr.color; x.lineWidth=sr.lw||2.2; x.setLineDash(sr.dash||[]); x.beginPath(); var started=false;
+      var N=sr.pts?sr.pts.length-1:300;
+      for(var i=0;i<=N;i++){
+        var v,y; if(sr.pts){v=sr.pts[i][0];y=sr.pts[i][1];} else {v=o.xmin+(o.xmax-o.xmin)*i/N;y=sr.f(v);}
+        if(!isFinite(y)||(o.log&&y<=0)){started=false;continue;}
+        var yy=py(y); if(yy<T-2||yy>h-B+2){started=false;continue;}
+        if(!started){x.moveTo(px(v),yy);started=true;}else x.lineTo(px(v),yy);
+      }
+      x.stroke(); x.setLineDash([]);
+      if(sr.label){x.fillStyle=sr.color;x.font=PTC.font(12,'600');x.fillText('— '+sr.label,L+10+si*((w-L)/o.series.length),T+14);}
+    });
+    if(o.marker!=null && o.marker>=o.xmin && o.marker<=o.xmax){x.strokeStyle='#d23b3b';x.setLineDash([5,4]);x.lineWidth=1.5;x.beginPath();x.moveTo(px(o.marker),T);x.lineTo(px(o.marker),h-B);x.stroke();x.setLineDash([]);}
+    (o.points||[]).forEach(function(p){ if(o.log&&p[1]<=0) return; x.fillStyle=p[2]||'#d23b3b'; x.beginPath(); x.arc(px(p[0]),Math.max(T,Math.min(h-B,py(p[1]))),5,0,2*Math.PI); x.fill(); });
+    return {px:px,py:py,ctx:x,w:w,h:h};
+  };
+  /* 시간 진행형 모의실험 제어: o={tMin(),tMax(),draw(t),pauses:[t..],loop} */
+  PTC.timeline=function(o){
+    var T={t:o.tMin(),playing:false,last:null,speed:$('selSpeed')?+$('selSpeed').value:1,passed:{}};
+    function sync(){var s=$('tScrub'); if(s) s.value=Math.round((T.t-o.tMin())/((o.tMax()-o.tMin())||1)*1000);}
+    function setP(p){T.playing=p; var b=$('bPlay'); if(b) b.textContent=p?'⏸ 정지':'▶ 재생'; T.last=null; if(p) requestAnimationFrame(tick);}
+    function tick(ts){
+      if(!T.playing) return;
+      if(T.last==null) T.last=ts;
+      var dt=Math.min(0.05,(ts-T.last)/1000); T.last=ts;
+      var prev=T.t; T.t+=dt*T.speed;
+      var ps=o.pauses||[], cp=$('cPause');
+      if(!cp||cp.checked){ for(var i=0;i<ps.length;i++){ if(prev<ps[i]&&T.t>=ps[i]&&!T.passed[i]){T.t=ps[i];T.passed[i]=true;setP(false);sync();o.draw(T.t);return;} } }
+      if(T.t>=o.tMax()){ if(o.loop){T.t=o.tMin();T.passed={};} else {T.t=o.tMax();setP(false);} }
+      sync(); o.draw(T.t);
+      if(T.playing) requestAnimationFrame(tick);
+    }
+    T.toggle=function(){ if(T.playing){setP(false);return;} if(T.t>=o.tMax()-1e-9){T.t=o.tMin();T.passed={};} setP(true); };
+    T.reset=function(){ T.t=o.tMin(); T.passed={}; setP(false); sync(); o.draw(T.t); };
+    T.set=function(t){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),t)); T.passed={}; (o.pauses||[]).forEach(function(p,i){if(T.t>=p)T.passed[i]=true}); sync(); o.draw(T.t); };
+    T.redraw=function(){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),T.t)); sync(); o.draw(T.t); };
+    T.pause=function(){setP(false)};
+    if($('bPlay')) $('bPlay').onclick=T.toggle;
+    if($('bReset')) $('bReset').onclick=T.reset;
+    if($('tScrub')) $('tScrub').oninput=function(){ setP(false); T.set(o.tMin()+(o.tMax()-o.tMin())*this.value/1000); };
+    if($('selSpeed')) $('selSpeed').onchange=function(){ T.speed=+this.value; };
+    window.SIM={toggle:T.toggle,reset:T.reset};
+    return T;
+  };
+  /* 연속 애니메이션 (정적 모의실험의 흐르는 전류 등) */
+  PTC.loop=function(fn){ var last=null; function f(ts){ var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts; fn(dt); requestAnimationFrame(f);} requestAnimationFrame(f); };
+  PTC.onResize=function(fn){ var st=document.querySelector('#simBox .stage'); if(window.ResizeObserver&&st) new ResizeObserver(function(){fn()}).observe(st); window.addEventListener('resize',fn); };
+  PTC.seg=function(id,cb){ var box=$(id); box.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ box.querySelectorAll('button').forEach(function(o){o.classList.toggle('on',o===b)}); cb(b.dataset.v); }; }); };
+  PTC.range=function(id,outId,fmt,cb){ var r=$(id),o=$(outId); function u(){ if(o) o.textContent=fmt(+r.value); if(cb) cb(+r.value); } r.addEventListener('input',u); if(o) o.textContent=fmt(+r.value); return r; };
+  PTC.readout=function(id,rows){ $(id).innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join(''); };
+  PTC.result=function(id,good,text){ var el=$(id); el.className='result '+(good===true?'good':good===false?'bad':''); el.textContent=text; };
+  PTC.caption=function(ph,tx){ if($('capPh')) $('capPh').textContent=ph; if($('capTx')) $('capTx').textContent=tx; };
+})();
+
+/* SK — 간단 모의실험 키트 (도구/도움.py 의 kit() 와 짝).
+   SK.run({mode:'static'|'time', T:function(P){return 초}, scene:function(g,P,t){…}, plot:function(P,t){return PTC.plot 옵션},
+           plot2:…, readout:function(P,t){return [[이름,값],…]}, check:function(P){return [true|false|null, 글]}, caption:function(P,t){return 글},
+           pre:function(P){…매개변수가 바뀔 때 한 번 계산…}})
+   매개변수: 오른쪽 칸의 [data-p] 요소 (range·checkbox·seg) → P.이름
+   g = {x:ctx, w, h} · SK.view(g,x0,x1,y0,y1,pad) → {X(x),Y(y),s} (가로세로 같은 축척)
+   3D: kit(…, three=True) 와 함께 view3d:{up:'z',cam:[…],target:[…],grid:10}, build:function(V,P){ …물체를 만들고 객체 O 를 돌려줌… },
+       frame:function(V,O,P,t){ …위치·화살표·라벨 갱신… } 를 쓰면 #cv 가 three.js 3D 장면이 된다 (마우스 끌기 회전·휠 확대).
+       (three.js 를 못 불러오면 scene 이 있으면 2D 로 대신 그린다.) */
+(function(){
+  'use strict';
+  var SK=window.SK={};
+  SK.read=function(){ var P={};
+    document.querySelectorAll('[data-p]').forEach(function(el){ var k=el.dataset.p;
+      if(el.type==='checkbox') P[k]=el.checked; else if(el.classList.contains('seg')){ var b=el.querySelector('button.on'); P[k]=b?(isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v):null; }
+      else P[k]=+el.value; });
+    return P; };
+  SK.view=function(g,x0,x1,y0,y1,pad){ pad=pad==null?24:pad; var s=Math.min((g.w-2*pad)/(x1-x0),(g.h-2*pad)/(y1-y0)),
+      ox=(g.w-(x1-x0)*s)/2-x0*s, oy=(g.h+(y1-y0)*s)/2+y0*s; return {s:s,X:function(x){return ox+x*s},Y:function(y){return oy-y*s}}; };
+  SK.line=function(c,pts,col,lw,dash){ c.save(); c.strokeStyle=col||'#1b1f2a'; c.lineWidth=lw||2; c.setLineDash(dash||[]); c.beginPath();
+    pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.stroke(); c.restore(); };
+  SK.poly=function(c,pts,fill,stroke){ c.save(); c.beginPath(); pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.closePath();
+    if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.stroke();} c.restore(); };
+  SK.circle=function(c,x,y,r,fill,stroke,lw){ c.save(); c.beginPath(); c.arc(x,y,r,0,6.2832); if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=lw||1.5;c.stroke();} c.restore(); };
+  SK.rect=function(c,x,y,w,h,fill,stroke){ c.save(); if(fill){c.fillStyle=fill;c.fillRect(x,y,w,h);} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.strokeRect(x,y,w,h);} c.restore(); };
+  SK.text=function(c,s,x,y,px,col,wt,al){ PTC.text(c,s,x,y,px||13,col||'#1b1f2a',wt||'600',al); };
+  SK.arrow=function(c,x,y,dx,dy,col,lab,lw){ PTC.arrow(c,x,y,dx,dy,col,lab,lw); };
+  SK.spring=function(c,x1,y1,x2,y2,n,amp,col){ n=n||10; amp=amp||7; var L=Math.hypot(x2-x1,y2-y1)||1, ux=(x2-x1)/L, uy=(y2-y1)/L, nx=-uy, ny=ux, pts=[[x1,y1]], lead=Math.min(8,L/6);
+    pts.push([x1+ux*lead,y1+uy*lead]); for(var i=0;i<2*n;i++){ var s=lead+(L-2*lead)*(i+0.5)/(2*n), sg=i%2?-1:1; pts.push([x1+ux*s+nx*amp*sg,y1+uy*s+ny*amp*sg]); }
+    pts.push([x2-ux*lead,y2-uy*lead]); pts.push([x2,y2]); SK.line(c,pts,col||'#4a5568',1.6); };
+  SK.ground=function(c,x0,x1,y,col){ SK.line(c,[[x0,y],[x1,y]],col||'#1b1f2a',2); c.save(); c.strokeStyle='#9aa2b2'; c.lineWidth=1; for(var x=x0;x<x1;x+=10){ c.beginPath(); c.moveTo(x,y); c.lineTo(x-7,y+8); c.stroke(); } c.restore(); };
+  SK.fmt=function(v,d){ if(!isFinite(v)) return '—'; var a=Math.abs(v); if(a!==0&&(a<1e-3||a>=1e5)) return v.toExponential(d==null?3:d); return v.toFixed(d==null?3:d); };
+  SK.rk4=function(f,y,t,dt){ var k1=f(t,y), y2=y.map(function(v,i){return v+dt/2*k1[i]}), k2=f(t+dt/2,y2), y3=y.map(function(v,i){return v+dt/2*k2[i]}), k3=f(t+dt/2,y3),
+      y4=y.map(function(v,i){return v+dt*k3[i]}), k4=f(t+dt,y4); return y.map(function(v,i){return v+dt/6*(k1[i]+2*k2[i]+2*k3[i]+k4[i])}); };
+  SK.run=function(o){
+    var P=SK.read(), TL=null;
+    function outs(){ document.querySelectorAll('input[type=range][data-p]').forEach(function(el){ var out=document.getElementById('o_'+el.dataset.p); if(!out) return;
+      var st=el.step&&el.step!=='any'?el.step:'0.01', d=st.indexOf('.')>=0?st.split('.')[1].length:0; out.textContent=(+el.value).toFixed(d)+(el.dataset.u||''); }); }
+    var V3=null, O3=null;
+    if(o.build&&window.PTC3&&PTC3.ok()){ V3=PTC3.view('cv',o.view3d||{up:'z',cam:[6,-8,5],target:[0,0,0],grid:10}); if(V3) O3=o.build(V3,P); }
+    else if(o.build&&!o.scene){ o.scene=function(g){ SK.text(g.x,'3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30,15,'#667'); }; }
+    function draw(t){ t=t||0;
+      if(V3){ try{ o.frame(V3,O3,P,t); }catch(e){ console.error(e); } V3.render(); }
+      else { var c=PTC.setupCanvas(document.getElementById('cv')); if(c.w<20) return; c.x.clearRect(0,0,c.w,c.h);
+        try{ o.scene(c,P,t); }catch(e){ console.error(e); } }
+      if(o.plot&&document.getElementById('mini')) PTC.plot(document.getElementById('mini'),o.plot(P,t));
+      if(o.plot2&&document.getElementById('mini2')) PTC.plot(document.getElementById('mini2'),o.plot2(P,t));
+      if(o.readout) PTC.readout('ro',o.readout(P,t));
+      if(o.caption){ var cp=o.caption(P,t); if(cp) PTC.caption(cp[0],cp[1]); } }
+    function update(){ P=SK.read(); outs(); if(o.pre) o.pre(P); if(V3&&o.rebuild) O3=o.rebuild(V3,O3,P); if(o.check){ var r=o.check(P); PTC.result('res',r[0],r[1]); } if(TL) TL.reset(); else draw(0); }
+    document.querySelectorAll('[data-p]').forEach(function(el){
+      if(el.classList.contains('seg')) el.querySelectorAll('button').forEach(function(b){ b.addEventListener('click',function(){ el.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)}); update(); }); });
+      else el.addEventListener(el.type==='checkbox'?'change':'input',update); });
+    if(o.mode==='time') TL=PTC.timeline({tMin:function(){return 0},tMax:function(){return o.T?o.T(P):10},draw:draw,loop:!!o.loop});
+    PTC.onResize(function(){ if(TL) TL.redraw(); else draw(0); });
+    SK.P=function(){return P}; SK.V3=function(){return V3}; SK.redraw=function(){ if(TL) TL.redraw(); else draw(0); };
+    update();
+  };
+})();
+</script>
+<script>
+
+</script>
+<script>
+/* 교사용 페이지 공통 동작: 보기 설정, 메뉴, 전체화면, 키보드, 인쇄 */
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  // 글자/그림 크기
+  var KEY='ptc-teacher-view', LIM={fs:[0.7,1.6],fig:[0.5,1.5]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    $('vFs').textContent=Math.round(st.fs*100)+'%'; $('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){ var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10; st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply(); });
+  });
+  $('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+  // 풀이 모두 펼치기 / 인쇄 시 펼치기
+  $('expandAll').onclick=function(){var ds=document.querySelectorAll('details.step'),all=Array.prototype.every.call(ds,function(d){return d.open});ds.forEach(function(d){d.open=!all});this.textContent=all?'풀이 모두 펼치기':'풀이 모두 접기';};
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('details.step').forEach(function(d){d.open=true});});
+  // 보기 설정 메뉴 닫기
+  var vm=$('viewMenu');
+  document.addEventListener('click',function(e){ if(vm.open && !vm.contains(e.target)) vm.open=false; });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') vm.open=false; });
+  // 현재 구역 표시
+  var links=[].slice.call(document.querySelectorAll('.tb2 a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var y=window.scrollY+140, cur=0;
+    secs.forEach(function(el,i){ if(el && el.getBoundingClientRect().top+window.scrollY<=y) cur=i; });
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) cur=secs.length-1;
+    links.forEach(function(a,i){ var on=(i===cur); if(on!==a.classList.contains('on')){ a.classList.toggle('on',on); if(on) a.scrollIntoView({block:'nearest',inline:'nearest'}); } });
+  }
+  window.addEventListener('scroll',spy,{passive:true}); window.addEventListener('resize',spy); spy();
+  // 모의실험: 전체화면 + 키보드
+  var box=$('simBox'); if(!box) return;
+  function toggleFull(){
+    var fe=document.fullscreenElement||document.webkitFullscreenElement;
+    if(fe){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}
+    else{(box.requestFullscreen||box.webkitRequestFullscreen).call(box);}
+  }
+  if($('bFull')) $('bFull').onclick=toggleFull;
+  function onFs(){var fe=document.fullscreenElement||document.webkitFullscreenElement; if($('bFull')) $('bFull').textContent=fe?'✕ 전체화면 종료':'⛶ 전체화면'; setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);}
+  document.addEventListener('fullscreenchange',onFs); document.addEventListener('webkitfullscreenchange',onFs);
+  box.querySelectorAll('button').forEach(function(b){b.addEventListener('mousedown',function(e){e.preventDefault();});});
+  document.addEventListener('keydown',function(ev){
+    var tag=(ev.target.tagName||'').toLowerCase(); if((tag==='input'&&ev.target.type!=='range')||tag==='select'||tag==='textarea') return;
+    var inSim=box.contains(document.activeElement)||document.fullscreenElement===box||document.activeElement===document.body;
+    if(!inSim) return;
+    if(ev.code==='Space' && window.SIM){ev.preventDefault();window.SIM.toggle();}
+    else if((ev.key==='r'||ev.key==='R') && window.SIM){window.SIM.reset();}
+    else if(ev.key==='f'||ev.key==='F'){toggleFull();}
+  });
+})();
+
+</script>
+</body>
+</html>

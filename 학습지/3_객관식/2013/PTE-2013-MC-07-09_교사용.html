@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2013-MC-07-09] 물리교육론 객관식 3문항 — 쿤의 수수께끼 풀이·직소 협동 학습·원자 모형의 과학사 · 교사용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#d5dae4; --accent:#3b3486; --accent2:#6a5fd6; --soft:#f4f2fb;
+    --bg:#f6f7fa; --card:#ffffff; --ok:#1e8f4e; --okbg:#e8f6ee; --warn:#b5541c; --warnbg:#fdf1e8;
+    --ball:#1e8f4e; --ramp:#ffe94d; --red:#d23b3b; --blue:#2f6fd6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:calc(16px*var(--fs));line-height:1.7}
+  a{color:var(--accent)}
+  .btn{font:inherit;font-size:14px;padding:6px 13px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn:hover{filter:brightness(.97)}
+  main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,calc(400px*var(--fig)));gap:22px;align-items:start}
+  .kicker{font-size:calc(13px*var(--fs));color:var(--muted)}
+  h1{font-size:calc(30px*var(--fs));margin:4px 0 6px;color:var(--accent);line-height:1.3}
+  h1 small{font-size:calc(16px*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  h2{font-size:calc(22px*var(--fs));margin:0 0 12px;color:var(--ink);display:flex;align-items:center;gap:10px}
+  h2 .num{background:var(--accent);color:#fff;border-radius:8px;font-size:calc(14px*var(--fs));padding:2px 9px}
+  h3{font-size:calc(17px*var(--fs));margin:18px 0 6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+  .tag{font-size:calc(12.5px*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:2px 11px}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:calc(14px*var(--fs));background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+  .meta dt{color:var(--muted)} .meta dd{margin:0}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px;scroll-margin-top:120px}
+  .problem-box{border-left:4px solid var(--accent);background:var(--soft);padding:12px 16px;border-radius:0 10px 10px 0}
+  .orig{font-size:calc(14px*var(--fs));color:var(--muted);font-style:italic;margin-top:8px}
+  .answer-box{border:2px solid var(--ok);background:var(--okbg);border-radius:12px;padding:14px 18px}
+  .answer-box .big{font-size:calc(20px*var(--fs))}
+  .note{background:var(--warnbg);border:1px solid #f0c9ad;border-radius:10px;padding:10px 14px;font-size:calc(15px*var(--fs))}
+  .note b{color:var(--warn)}
+  .ok{color:var(--ok);font-weight:700}
+  details.step{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:#fff}
+  details.step>summary{cursor:pointer;padding:10px 14px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:center}
+  details.step>summary::-webkit-details-marker{display:none}
+  details.step>summary .s{background:var(--accent2);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:calc(13px*var(--fs));flex:none}
+  details.step>summary::after{content:"▸";margin-left:auto;color:var(--muted);transition:transform .2s}
+  details.step[open]>summary::after{transform:rotate(90deg)}
+  details.step .body{padding:0 18px 12px 50px}
+  .keyidea{border:2px dashed var(--accent2);border-radius:12px;padding:12px 16px;background:#fbfaff}
+  table{border-collapse:collapse;width:100%;font-size:calc(14.5px*var(--fs))}
+  th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+  th{background:var(--soft);color:var(--accent)}
+  .tablewrap{overflow-x:auto}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .src{font-size:calc(13px*var(--fs));color:var(--muted)}
+  figure{margin:0}
+  figure>svg{width:100%;height:auto;display:block}
+  .eqtag{float:right;color:var(--muted);font-size:calc(13px*var(--fs))}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+
+  /* ---------- simulation ---------- */
+  .sim{display:grid;grid-template-columns:1fr 310px;grid-template-rows:auto 1fr auto;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;height:calc(640px*var(--fig))}
+  .sim .cap{grid-column:1;grid-row:1;padding:8px 14px;background:#fbfbfd;border-bottom:1px solid var(--line);font-size:calc(15px*var(--fs));min-height:44px;display:flex;align-items:center;gap:8px}
+  .sim .cap .ph{background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;font-size:calc(13px*var(--fs));white-space:nowrap}
+  .sim .stage{grid-column:1;grid-row:2;position:relative;min-height:0}
+  .sim canvas#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .sim .bar{grid-column:1;grid-row:3;display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);background:#fbfbfd;flex-wrap:wrap}
+  .sim .bar input[type=range]{flex:1;min-width:140px}
+  .sim .side{grid-column:2;grid-row:1/4;border-left:1px solid var(--line);padding:12px 14px;overflow-y:auto;background:#fcfcfe;font-size:calc(14px*var(--fs))}
+  .side .grp{margin-bottom:12px}
+  .side .grp>label,.side .lbl{display:flex;justify-content:space-between;font-weight:600;font-size:calc(13.5px*var(--fs))}
+  .side .grp>label output{font-weight:700;color:var(--accent)}
+  .side input[type=range]{width:100%}
+  .side .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:4px}
+  .side .seg button{flex:1;font:inherit;font-size:calc(13px*var(--fs));border:0;background:#fff;padding:5px 4px;cursor:pointer}
+  .side .seg button.on{background:var(--accent);color:#fff}
+  .side .chk{display:flex;gap:10px;flex-wrap:wrap;font-size:calc(13px*var(--fs))}
+  .readout{width:100%;font-size:calc(13px*var(--fs));border-collapse:collapse}
+  .readout td{border:0;border-bottom:1px solid #eef0f4;padding:3px 2px}
+  .readout td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .result{margin-top:8px;border-radius:8px;padding:8px 10px;font-weight:700;font-size:calc(14px*var(--fs));background:#f1f2f6}
+  .result.good{background:var(--okbg);color:var(--ok)}
+  .result.bad{background:var(--warnbg);color:var(--warn)}
+  #mini{width:100%;height:150px;display:block;border:1px solid var(--line);border-radius:8px;background:#fff;margin-top:4px}
+  .sim:fullscreen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .sim:fullscreen .cap{font-size:calc(20px*var(--fs));min-height:56px}
+  .sim:fullscreen .side{font-size:calc(15px*var(--fs))}
+  .sim:-webkit-full-screen{height:100vh;width:100vw;border-radius:0;border:0;grid-template-columns:1fr 360px}
+  .kbd{font-size:calc(12px*var(--fs));color:var(--muted)}
+  .graphs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .graphs canvas{width:100%;height:calc(280px*var(--fig));display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+
+  @media (max-width:900px){
+    .hero,.two,.graphs{grid-template-columns:minmax(0,1fr)}
+    .sim{grid-template-columns:minmax(0,1fr);grid-template-rows:auto calc(380px*var(--fig)) auto auto;height:auto}
+    .sim .side{grid-column:1;grid-row:4;border-left:0;border-top:1px solid var(--line)}
+    details.step .body{padding:0 12px 12px 14px}
+    body{overflow-x:hidden}
+    section.card{padding:16px}
+    h1{font-size:calc(24px*var(--fs))}
+  }
+  @page{size:A4;margin:14mm 12mm 16mm;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:10pt;color:#5b6475}}
+  @media print{
+    .topbar,.sim,.graphs,.noprint{display:none!important}
+    section.card{break-inside:auto;border:0;padding:0}
+    details.step{break-inside:avoid}
+    body{background:#fff}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  #problem{--c:#3b3486} #answer{--c:#1e8f4e} #ai{--c:#6a5fd6} #book{--c:#2f6fd6}
+  #compare{--c:#0f8b8d} #sim{--c:#d9731a} #graph{--c:#c2417a} #teach{--c:#a87a00}
+  .hero{scroll-margin-top:130px}
+  section.card{border-top:4px solid var(--c,var(--accent))}
+  h2 .num{background:var(--c,var(--accent))!important}
+  .topbar{position:sticky;top:0;z-index:30;font-size:15px;box-shadow:0 2px 10px rgba(30,25,80,.12)}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:1180px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .ttl small{font-weight:500;opacity:.75;font-size:13px;margin-left:6px}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;align-items:center;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 11px;cursor:pointer;white-space:nowrap;list-style:none}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tbtn .ic{font-size:15px;line-height:1}
+  details.view{position:relative}
+  details.view>summary::-webkit-details-marker{display:none}
+  details.view[open]>summary{background:rgba(255,255,255,.3)}
+  .vpanel{position:absolute;right:0;top:calc(100% + 8px);width:290px;background:#fff;color:var(--ink);border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 14px 40px rgba(20,20,60,.22);padding:14px 16px;z-index:40}
+  .vpanel h4{margin:0 0 10px;font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+  .vrow{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef0f4;font-size:14px;font-weight:600}
+  .vrow:last-of-type{border-bottom:0}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .stepper button{font:inherit;width:32px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:54px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486;font-size:14px}
+  .vfoot{display:flex;gap:8px;margin-top:12px}
+  .vfoot button{flex:1;font:inherit;font-size:13px;font-weight:600;padding:7px 8px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  .vfoot button:hover{background:var(--soft)}
+  .tb2{background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .tb2 .in{height:46px;overflow-x:auto;scrollbar-width:none;gap:6px}
+  .tb2 .in::-webkit-scrollbar{display:none}
+  .tb2 a{--c:#3b3486;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;
+    color:#4a5163;padding:6px 13px;border-radius:999px;border:1px solid transparent;transition:background .15s,color .15s}
+  .tb2 a .dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+  .tb2 a:hover{background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--c)}
+  .tb2 a.on{background:var(--c);color:#fff}
+  .tb2 a.on .dot{background:#fff}
+  .tb2 a[href="#problem"]{--c:#3b3486} .tb2 a[href="#answer"]{--c:#1e8f4e} .tb2 a[href="#ai"]{--c:#6a5fd6} .tb2 a[href="#book"]{--c:#2f6fd6}
+  .tb2 a[href="#compare"]{--c:#0f8b8d} .tb2 a[href="#sim"]{--c:#d9731a} .tb2 a[href="#graph"]{--c:#c2417a} .tb2 a[href="#teach"]{--c:#a87a00}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:760px){
+    .tbtn .tx{display:none}
+    .tbtn{padding:6px 9px}
+    .tb1 .ttl small{display:none}
+    .vpanel{position:fixed;left:12px;right:12px;top:62px;width:auto}
+  }
+
+  .heroside .fig img{width:100%}
+  .fig{margin:0 0 10px}
+  .fig img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .fig figcaption{font-size:calc(13px*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(300px*var(--fig));max-width:45%;margin:0 0 10px 16px}
+  .psec{clear:both;margin-top:10px;overflow:hidden}
+  .psec h3{margin:8px 0 6px;color:var(--accent)}
+  h3 small,.sec h2 small{color:var(--muted);font-weight:500;font-size:.8em}
+  .pq{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0;clear:both}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;padding:0 8px;margin-right:6px;font-weight:700;font-size:.9em}
+  .pts{display:inline-block;color:var(--muted);font-size:.85em;margin-right:6px}
+  .partsol{border-top:2px solid var(--line);padding-top:12px;margin-top:22px}
+  .partsol:first-child{border-top:0;margin-top:0}
+  .partsol h3{display:flex;align-items:center;gap:6px;margin-top:0}
+  .ailab,.oflab{font-weight:800;font-size:calc(13px*var(--fs));letter-spacing:.04em;margin:12px 0 4px}
+  .ailab{color:#6a5fd6} .oflab{color:#2f6fd6}
+  .offic{border-left:4px solid #2f6fd6;background:#f2f7fe;border-radius:0 10px 10px 0;padding:8px 14px;margin-top:10px}
+  .partsol .answer-box{margin-top:10px;padding:10px 14px}
+  .anstab td:nth-child(3){font-size:calc(15px*var(--fs))}
+  .problem-box h3{font-size:calc(16px*var(--fs))}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  details.origimg{margin-top:8px;border:1px dashed #9db8e6;border-radius:8px;background:#fff}
+  details.origimg>summary{cursor:pointer;padding:6px 12px;font-size:calc(13.5px*var(--fs));font-weight:700;color:#2f6fd6}
+  details.origimg img{display:block;max-width:100%;margin:0 auto 8px;padding:0 8px}
+  .anstab tr.ext td{background:#fffaf0}
+  .sim .stage{background:#f7f8fb}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가 */
+  .jaryo,.method,.bogi{border:1.2px solid #8a93a6;border-radius:6px;padding:14px 16px 8px;margin:14px 0 10px;position:relative;background:#fff}
+  .jaryo>.jt,.method>.jt,.bogi>.jt{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#fff;padding:0 10px;font-size:.9em;font-weight:700;white-space:nowrap}
+  .method{background:#fbfbfd} .method>.jt{background:#fbfbfd}
+  .jaryo p{margin:0 0 6px} .jaryo table{font-size:.93em}
+  .method ul{margin:0;padding-left:18px;list-style:"◦ "}
+  .bogi ol{list-style:none;margin:0;padding:0} .bogi li{padding-left:20px;text-indent:-20px;margin-bottom:4px}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:3px 12px} .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:3px}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:4px 14px;margin:8px 0}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr))}
+  .choices .h{font-weight:600;text-decoration:underline;text-align:center} .choices .c{text-align:center}
+  .choices .ok{color:var(--ok);font-weight:800}
+  .mcqbox{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0;background:#fff}
+  .mcqbox .qh{font-weight:800;color:var(--accent)}
+  .cn td:first-child{width:12%;text-align:center;font-weight:700}
+  .cn tr.right td{background:var(--okbg)}
+  .rubric td:nth-child(2){width:9%;text-align:center;font-weight:700}
+  .hsbox{border:1px solid #e7b55a;border-left:5px solid #e0a020;background:#fff9ec;border-radius:0 10px 10px 0;padding:10px 16px;margin-top:10px}
+  .hsbox b{color:#9a6400}
+  .aud{display:inline-block;font-size:.8em;border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:0 9px;font-weight:700;margin-left:4px}
+  #rubric{--c:#0f8b8d} #hs{--c:#d08a00}
+  .simq{margin:14px 0 26px} .simq h3{display:flex;align-items:center;gap:8px}
+  .simframe{width:100%;height:calc(680px*var(--fig));border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+  @media (max-width:900px){.simframe{height:1100px}}
+  @media print{.simq{display:none}}
+  .tb2 a[href="#rubric"]{--c:#0f8b8d} .tb2 a[href="#hs"]{--c:#d08a00}
+</style>
+<style>:root{--accent:#9a4d0b;--soft:#fbf1e6} .tb1{background:linear-gradient(100deg,#5e2c06 0%,#9a4d0b 45%,#d9822b 100%)!important} .tbtn.solid{color:#9a4d0b!important} .stepper button,.stepper output{color:#9a4d0b!important} #problem,.tb2 a[href="#problem"]{--c:#9a4d0b} .qnum{background:#9a4d0b} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code" title="분류번호">PTE-2013-MC-07-09</span><span class="code" style="background:transparent;font-weight:600" title="출제 연도">2013 1차 </span>
+    <span class="ttl">물리교육론 객관식 3문항 — 쿤의 수수께끼 풀이·직소 협동 학습·원자 모형의 과학사<small>Kuhn's puzzle-solving · Jigsaw cooperative learning · history of atomic models and the nature of science · 교사용 · 객관식 묶음</small></span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#mc/y=2013" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn solid" href="PTE-2013-MC-07-09_학생용.html" title="학생용 학습지"><span class="ic">📝</span><span class="tx">학생용</span></a>
+      <a class="tbtn" href="../../../문항모음/2013_중등1차_물리_전공%20문제.pdf#page=2" target="_blank" title="원문 문제 PDF"><span class="ic">📄</span><span class="tx">문제 PDF</span></a><a class="tbtn" href="../../../문항모음/2013_중등1차_물리_전공%20정답.pdf#page=1" target="_blank" title="정답표 PDF"><span class="ic">📗</span><span class="tx">정답표</span></a>
+      <button class="tbtn" type="button" onclick="window.print()" title="인쇄"><span class="ic">🖨</span><span class="tx">인쇄</span></button>
+      <details class="view" id="viewMenu">
+        <summary class="tbtn" title="보기 설정"><span class="ic">⚙</span><span class="tx">보기 설정</span></summary>
+        <div class="vpanel">
+          <h4>보기 설정</h4>
+          <div class="vrow"><span>글자 크기</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+          <div class="vrow"><span>그림 크기</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+          <div class="vfoot"><button type="button" id="expandAll">풀이 모두 펼치기</button><button type="button" id="vReset">크기 초기화</button></div>
+        </div>
+      </details>
+    </div>
+  </div></div>
+  <nav class="tb2" aria-label="본문 바로가기"><div class="in">
+<a href="#problem"><span class="dot"></span>문제</a><a href="#answer"><span class="dot"></span>정답</a><a href="#ai"><span class="dot"></span>풀이</a><a href="#compare"><span class="dot"></span>검토</a><a href="#sim"><span class="dot"></span>모의실험</a><a href="#hs"><span class="dot"></span>고교 연계</a><a href="#teach"><span class="dot"></span>수업 활용</a>
+  </div></nav>
+</header>
+
+<main>
+
+  <div class="hero" id="problem">
+    <div>
+      <div class="kicker">2013학년도 1차 7~9번 (교육론 묶음) · 중등학교교사 임용후보자 선정경쟁시험 물리</div>
+      <h1>물리교육론 객관식 3문항 — 쿤의 수수께끼 풀이·직소 협동 학습·원자 모형의 과학사<small>Kuhn's puzzle-solving · Jigsaw cooperative learning · history of atomic models and the nature of science</small></h1>
+      <div class="tags"><span class="tag" style="background:var(--accent);color:#fff;font-weight:700">PTE-2013-MC-07-09</span><span class="tag">쿤</span><span class="tag">수수께끼 풀이</span><span class="tag">정상 과학</span><span class="tag">비정상 제만 효과</span><span class="tag">직소</span><span class="tag">STAD</span><span class="tag">협동 학습</span><span class="tag">보어 모형</span><span class="tag">사회적 구성주의</span><span class="tag">귀납주의</span></div>
+      <div class="problem-box"><div class="mcqbox"><span class="qnum">7</span><span class="pts">2.5점</span><p>&lt;보기&gt;는 현대 물리학에 관련된 과학사 사례이다. 쿤(T. Kuhn)의 과학혁명 이론에서 ‘수수께끼 풀이(puzzle-solving)’에 해당하는 사례로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 양자 역학의 체계가 정립되면서 과학자들은 그전까지 설명하지 못했던 비정상 제만 효과(anomalous Zeeman effect)를 그 이론 체계를 이용하여 설명하는 데 성공하였다. 또한, 과학자들은 양자 역학을 이용해 그전까지 경험 법칙에 그쳤던 파울리 배타 원리가 왜 성립하는지 설명할 수 있게 되었다.</li><li>ㄴ. 물질파 이론이 정립된 후 데이비슨(C. Davisson)은 그전에는 의미를 해석할 수 없었던 전자 산란 실험 결과가 전자의 파동성에 기인한다고 보고, 새로운 실험들에서 회절 무늬를 관측함으로써 전자의 파동성을 실험으로 검증하였다.</li><li>ㄷ. 아인슈타인(A. Einstein)은 에테르를 전제한 빛의 전파에 관한 이론과 고전 전자기 이론에서 등속으로 움직이는 계와 정지한 계에서의 관찰을 구별할 방법이 없음을 주장하였다. 예를 들면, 그는 고전 전자기 이론의 전자기 유도에 대한 설명의 난점을 지적하였다. 에테르의 존재는 증명이 되지 않았고 금속 고리와 자성체가 서로 접근하거나 멀어질 때 전류가 흐른다는 것만 관측할 수 있기 때문에, 관측된 것이 자성체의 움직임에 의한 것인지 고리의 움직임에 의한 것인지 알 수 없다고 주장하였다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄷ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div><div class="mcqbox"><span class="qnum">8</span><span class="pts">1.5점</span><p>다음은 30명의 학생으로 이루어진 학급에서 교사가 교과서에 소개된 5가지 신소재(그래핀, 초전도체, 탄소나노튜브, 유전체, 액정)에 관해 수업하는 과정을 나타낸 것이다.</p>
+<div class="jaryo"><p>(가) 수업 진행 방법을 학생들에게 설명하고 5명씩으로 구성된 학습 모둠을 만든다. 각 학습 모둠의 구성원들에게 신소재의 기본 성질과 이용 사례에 대한 조사 과제를 적은 학습지를 나누어 주고 한 명씩 서로 다른 신소재를 담당하여 전문가 역할을 하게 한다.<br>
+(나) 각 모둠에서 동일한 과제를 맡은 학생들끼리 따로 전문가 모둠을 구성하여 함께 학습 활동을 하게 한다. 이 학습 활동은 <u>㉠ 담당한 조사 과제</u>를 수행하는 것이다.<br>
+(다) 각 학생은 전문가 모둠 활동을 끝내고 학습 모둠으로 돌아와서 학습한 내용을 다른 동료들에게 설명하게 한다.</p></div>
+<p>이에 대한 설명으로 옳은 것을 &lt;보기&gt;에서 고른 것은?</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. (나)의 ㉠은 ‘초전도체의 기본 성질과 이용 사례 조사하기’를 포함한다.</li><li>ㄴ. (나)에서 전문가 모둠의 수는 6개이다.</li><li>ㄷ. (다)에서 학습 모둠의 모둠원들은 새로 배우는 내용의 대부분을 동료 모둠원들에게서 배운다.</li><li>ㄹ. 이 수업은 STAD(Student Teams-Achievement Divisions) 모형을 이용하였다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ, ㄴ</span><span class="">② ㄱ, ㄷ</span><span class="">③ ㄴ, ㄷ</span><span class="">④ ㄴ, ㄹ</span><span class="">⑤ ㄷ, ㄹ</span></div></div><div class="mcqbox"><span class="qnum">9</span><span class="pts">2.0점</span><p>다음은 원자 모형에 대한 과학사 사례를 기술한 것이다.</p>
+<div class="jaryo"><p>1904년에 제안된 톰슨(J. J. Thomson)의 원자 모형은 알파 입자 산란 실험과 이에 대한 러더퍼드(E. Rutherford)의 해석(양전하가 원자의 중심에 있고 아주 작은 영역을 차지하는 핵을 이루어야 한다.)에 의해 오류인 것으로 증명되었다. 러더퍼드의 해석은 원자에 대한 러더퍼드 모형으로 발전하였다.</p>
+<p>그러나 이 모형은 고전 전자기 이론으로는 설명될 수 없는 문제를 가지고 있었다. 고전 전자기 이론에 따르면 회전 운동하는 전자는 전자기파를 방출해야 한다. 그런데 전자가 에너지를 방출하면 전자의 궤도 반경은 계속 감소하게 되고, 결국 핵에 흡수되어 원자는 붕괴하게 된다.</p>
+<p>보어(N. Bohr)는 1913년에 안정성을 ‘조건(가정, postulate)’으로 설정함으로써 이 문제를 해결했다. 논리적 추론에 의해서가 아니라 ‘조건’ 설정을 통해 문제를 해결한 것임에도 불구하고, 당시 과학계는 러더퍼드의 모형 대신에 보어의 모형을 받아들였다.</p></div>
+<p>이에 대한 설명 중 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 과학 개념(또는 이론)이 변할 수 있다는 것을 나타낸 사례이다.</li><li>ㄴ. 과학자 사회의 합의(또는 인정)가 사회적 구성주의의 관점에서 과학적 방법이 될 수 있다는 것을 보여 준 사례이다.</li><li>ㄷ. 이 사례에 나타난 원자 모형의 변화 과정은 귀납주의에 의해 설명된다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄴ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div></div>
+    </div>
+    <div class="heroside">
+      <dl class="meta"><dt>시험</dt><dd>2013학년도 1차 7~9번 (교육론 묶음) · 객관식 묶음</dd><dt>대상</dt><dd>대학생(임용 준비·물리교육과) · 고등학생(심화·영재)</dd><dt>물리학 분류</dt><dd><b>[주]</b> 현대물리학 › 양자역학, 원자 및 핵물리학 › 원자, 고체 및 핵물리 › <b>5.2.2.1 보어 원자 모형과 수소 스펙트럼</b><br>[보조] 현대물리학 › 양자역학, 원자 및 핵물리학 › 원자, 고체 및 핵물리 › <b>5.2.2.2 양자수와 파울리 배타 원리</b><br>[보조] 전자기학 › 전류, 자기장 및 유도 › 자기장과 전자기 유도 › <b>3.2.2.5 맥스웰 방정식과 전자기파</b></dd><dt>교육론 분류</dt><dd>E5 과학의 본성과 과학사 (패러다임·이상화·모형)<br>E6 과학 수업 모형과 교수 전략 (순환 학습·STS·발견 학습)</dd><dt>원문</dt><dd><a href="../../../문항모음/2013_중등1차_물리_전공%20문제.pdf#page=2" target="_blank">문제 PDF (2쪽)</a> · <a href="../../../문항모음/2013_중등1차_물리_전공%20정답.pdf#page=1" target="_blank">정답표</a><br><small>정답표 공개(객관식) — AI 풀이와 대조함</small></dd><dt>난이도</dt><dd>★★☆☆☆ (과학철학(쿤, 귀납주의, 사회적 구성주의)과 협동 학습 모형(직소·STAD)의 특징을 사례에 적용)</dd><dt>대학 과목</dt><dd>물리교육론(과학의 본성·과학사, 협동 학습) · 현대물리(제만 효과, 원자 모형)</dd><dt>고교 교육과정</dt><dd>물리학Ⅱ(2009) 미시 세계와 양자 현상 · 과학사(원자 모형의 변천) · 신소재(물리학Ⅰ)</dd><dt>핵심 개념</dt><dd>쿤: 정상 과학의 <b>수수께끼 풀이</b>(패러다임 안에서 문제를 푸는 활동) ↔ 이상 현상·위기·혁명. 직소: 학습 모둠 → 전문가 모둠 → 학습 모둠에서 서로 가르치기. 보어: 고전적 붕괴 문제를 정상 상태 <b>가정</b>으로 해결, 과학자 사회의 합의로 수용.</dd></dl>
+    </div>
+  </div>
+  <section class="card" id="answer">
+    <h2><span class="num">정답</span>문항별 정답 (AI 풀이 ↔ 정답표)</h2>
+<div class="tablewrap"><table class="anstab"><tr><th style="width:7%">문항</th><th style="width:8%">AI 풀이</th><th style="width:8%">정답표</th><th style="width:7%">배점</th><th style="width:10%">판정</th><th>핵심 아이디어</th></tr><tr><td><b>7</b></td><td class="big">③</td><td>③</td><td>2.5</td><td><span class=ok>일치 ✓</span></td><td>ㄱ·ㄴ: 새로 정립된 양자 역학·물질파 이론(패러다임)을 적용해 남은 문제를 푼 정상 과학 = 수수께끼 풀이. ㄷ: 고전 패러다임의 이상 현상·난점 지적 → 위기·혁명 단계.</td></tr><tr><td><b>8</b></td><td class="big">②</td><td>②</td><td>1.5</td><td><span class=ok>일치 ✓</span></td><td>직소(Jigsaw): 학습 모둠 6개(5명), 전문가 모둠 5개(신소재별, 6명). 돌아와서 서로 가르치므로 새 내용의 대부분은 동료에게서 배움.</td></tr><tr><td><b>9</b></td><td class="big">③</td><td>③</td><td>2.0</td><td><span class=ok>일치 ✓</span></td><td>모형이 바뀜 = 과학 지식의 잠정성(ㄱ). 가정을 과학자 사회가 수용 = 사회적 구성주의(ㄴ). 반증·가정 설정에 의한 변화는 귀납주의로 설명되지 않음(ㄷ ✗).</td></tr></table></div>
+  </section>
+  <section class="card" id="ai">
+    <h2><span class="num">1</span>문항별 풀이 — 선지·보기 분석 포함</h2>
+
+    <div class="partsol" id="sol-7">
+      <h3><span class="qnum">7</span>쿤의 수수께끼 풀이(puzzle-solving) <small>2.5점</small></h3>
+      <div class="pq"><p>&lt;보기&gt;는 현대 물리학에 관련된 과학사 사례이다. 쿤(T. Kuhn)의 과학혁명 이론에서 ‘수수께끼 풀이(puzzle-solving)’에 해당하는 사례로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 양자 역학의 체계가 정립되면서 과학자들은 그전까지 설명하지 못했던 비정상 제만 효과(anomalous Zeeman effect)를 그 이론 체계를 이용하여 설명하는 데 성공하였다. 또한, 과학자들은 양자 역학을 이용해 그전까지 경험 법칙에 그쳤던 파울리 배타 원리가 왜 성립하는지 설명할 수 있게 되었다.</li><li>ㄴ. 물질파 이론이 정립된 후 데이비슨(C. Davisson)은 그전에는 의미를 해석할 수 없었던 전자 산란 실험 결과가 전자의 파동성에 기인한다고 보고, 새로운 실험들에서 회절 무늬를 관측함으로써 전자의 파동성을 실험으로 검증하였다.</li><li>ㄷ. 아인슈타인(A. Einstein)은 에테르를 전제한 빛의 전파에 관한 이론과 고전 전자기 이론에서 등속으로 움직이는 계와 정지한 계에서의 관찰을 구별할 방법이 없음을 주장하였다. 예를 들면, 그는 고전 전자기 이론의 전자기 유도에 대한 설명의 난점을 지적하였다. 에테르의 존재는 증명이 되지 않았고 금속 고리와 자성체가 서로 접근하거나 멀어질 때 전류가 흐른다는 것만 관측할 수 있기 때문에, 관측된 것이 자성체의 움직임에 의한 것인지 고리의 움직임에 의한 것인지 알 수 없다고 주장하였다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄷ</span><span class="ok">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — ㄱ·ㄴ: 새로 정립된 양자 역학·물질파 이론(패러다임)을 적용해 남은 문제를 푼 정상 과학 = 수수께끼 풀이. ㄷ: 고전 패러다임의 이상 현상·난점 지적 → 위기·혁명 단계.</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>쿤의 과학 변화 단계</summary><div class="body"><p>전(前) 과학 → <b>정상 과학</b>(패러다임 안에서 수수께끼 풀이) → 이상 현상 → 위기 → 과학 혁명(새 패러다임) → 새로운 정상 과학.</p></div></details>
+<details class="step" open><summary><span class="s">2</span>보기 판단</summary><div class="body"><ul><li>ㄱ: 양자 역학(새 패러다임)으로 비정상 제만 효과·배타 원리를 설명 — 패러다임의 적용 범위를 넓히는 <b>수수께끼 풀이</b> ✓ (모의실험: 란데 g 인자로 4·6선)</li>
+<li>ㄴ: 물질파 이론을 바탕으로 실험 결과를 해석·검증 — 정상 과학의 수수께끼 풀이 ✓</li><li>ㄷ: 고전 이론(에테르)의 비대칭·난점 지적 → 기존 패러다임의 위기, 특수 상대성 이론으로의 혁명 ✗</li></ul></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>ㄱ</td><td>새 패러다임(양자 역학)으로 남은 문제를 해결 ✓</td></tr><tr class=right><td>ㄴ</td><td>물질파 이론에 따라 실험을 해석·검증 ✓</td></tr><tr><td>ㄷ</td><td>기존 패러다임의 이상 현상·위기 → 과학 혁명의 계기 ✗</td></tr><tr class=right><td>정답</td><td>③ ㄱ, ㄴ</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">③</span> &nbsp; ㄱ, ㄴ
+      <span class="src" style="margin-left:8px">(정답표 ③)</span></div>
+      <p><a class="btn" href="#simq-7">▶ 7번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 물리학Ⅱ의 ‘물질파와 데이비슨–거머 실험’을 쿤의 관점으로 다시 읽기: ‘새 이론이 먼저인가, 실험이 먼저인가?’를 토의 주제로 쓴다.</div>
+    </div>
+    <div class="partsol" id="sol-8">
+      <h3><span class="qnum">8</span>신소재 수업의 협동 학습 모형 <small>1.5점</small></h3>
+      <div class="pq"><p>다음은 30명의 학생으로 이루어진 학급에서 교사가 교과서에 소개된 5가지 신소재(그래핀, 초전도체, 탄소나노튜브, 유전체, 액정)에 관해 수업하는 과정을 나타낸 것이다.</p>
+<div class="jaryo"><p>(가) 수업 진행 방법을 학생들에게 설명하고 5명씩으로 구성된 학습 모둠을 만든다. 각 학습 모둠의 구성원들에게 신소재의 기본 성질과 이용 사례에 대한 조사 과제를 적은 학습지를 나누어 주고 한 명씩 서로 다른 신소재를 담당하여 전문가 역할을 하게 한다.<br>
+(나) 각 모둠에서 동일한 과제를 맡은 학생들끼리 따로 전문가 모둠을 구성하여 함께 학습 활동을 하게 한다. 이 학습 활동은 <u>㉠ 담당한 조사 과제</u>를 수행하는 것이다.<br>
+(다) 각 학생은 전문가 모둠 활동을 끝내고 학습 모둠으로 돌아와서 학습한 내용을 다른 동료들에게 설명하게 한다.</p></div>
+<p>이에 대한 설명으로 옳은 것을 &lt;보기&gt;에서 고른 것은?</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. (나)의 ㉠은 ‘초전도체의 기본 성질과 이용 사례 조사하기’를 포함한다.</li><li>ㄴ. (나)에서 전문가 모둠의 수는 6개이다.</li><li>ㄷ. (다)에서 학습 모둠의 모둠원들은 새로 배우는 내용의 대부분을 동료 모둠원들에게서 배운다.</li><li>ㄹ. 이 수업은 STAD(Student Teams-Achievement Divisions) 모형을 이용하였다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ, ㄴ</span><span class="ok">② ㄱ, ㄷ</span><span class="">③ ㄴ, ㄷ</span><span class="">④ ㄴ, ㄹ</span><span class="">⑤ ㄷ, ㄹ</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 직소(Jigsaw): 학습 모둠 6개(5명), 전문가 모둠 5개(신소재별, 6명). 돌아와서 서로 가르치므로 새 내용의 대부분은 동료에게서 배움.</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>모둠 수 계산</summary><div class="body"><p>학습 모둠: 30 ÷ 5 = <b>6개</b>(각 모둠에 5가지 신소재 담당자가 1명씩). 전문가 모둠: 같은 신소재 담당자끼리 → 신소재 수 = <b>5개</b>(각 6명). → ㄴ 거짓.</p></div></details>
+<details class="step" open><summary><span class="s">2</span>모형과 보기</summary><div class="body"><ul><li>ㄱ: 초전도체 담당자들의 ㉠은 초전도체의 성질·이용 사례 조사 ✓</li><li>ㄷ: 직소에서는 자기 담당 1/5만 직접 조사하고 나머지 4/5는 동료에게서 배움 ✓</li>
+<li>ㄹ: 과제 분담·전문가 모둠 → <b>직소(Jigsaw)</b> 모형. STAD는 교사 강의 → 모둠 학습 → 개별 퀴즈 → 향상 점수로 모둠 보상 ✗</li></ul></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>ㄱ</td><td>초전도체 담당 전문가 모둠의 과제 ✓</td></tr><tr><td>ㄴ</td><td>전문가 모둠은 신소재 수와 같은 5개(학습 모둠이 6개) ✗</td></tr><tr class=right><td>ㄷ</td><td>직소의 핵심 — 동료 가르치기 ✓</td></tr><tr><td>ㄹ</td><td>직소 모형이지 STAD가 아님 ✗</td></tr><tr class=right><td>정답</td><td>② ㄱ, ㄷ</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">②</span> &nbsp; ㄱ, ㄷ
+      <span class="src" style="margin-left:8px">(정답표 ②)</span></div>
+      <p><a class="btn" href="#simq-8">▶ 8번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고등학생 신소재 단원(물리학Ⅰ 물질과 전자기장)에서 그대로 쓸 수 있는 수업 설계다. 전문가 모둠 활동지에 ‘친구에게 설명할 핵심 3가지’ 칸을 두면 (다) 단계의 질이 높아진다.</div>
+    </div>
+    <div class="partsol" id="sol-9">
+      <h3><span class="qnum">9</span>원자 모형의 변천과 과학의 본성 <small>2.0점</small></h3>
+      <div class="pq"><p>다음은 원자 모형에 대한 과학사 사례를 기술한 것이다.</p>
+<div class="jaryo"><p>1904년에 제안된 톰슨(J. J. Thomson)의 원자 모형은 알파 입자 산란 실험과 이에 대한 러더퍼드(E. Rutherford)의 해석(양전하가 원자의 중심에 있고 아주 작은 영역을 차지하는 핵을 이루어야 한다.)에 의해 오류인 것으로 증명되었다. 러더퍼드의 해석은 원자에 대한 러더퍼드 모형으로 발전하였다.</p>
+<p>그러나 이 모형은 고전 전자기 이론으로는 설명될 수 없는 문제를 가지고 있었다. 고전 전자기 이론에 따르면 회전 운동하는 전자는 전자기파를 방출해야 한다. 그런데 전자가 에너지를 방출하면 전자의 궤도 반경은 계속 감소하게 되고, 결국 핵에 흡수되어 원자는 붕괴하게 된다.</p>
+<p>보어(N. Bohr)는 1913년에 안정성을 ‘조건(가정, postulate)’으로 설정함으로써 이 문제를 해결했다. 논리적 추론에 의해서가 아니라 ‘조건’ 설정을 통해 문제를 해결한 것임에도 불구하고, 당시 과학계는 러더퍼드의 모형 대신에 보어의 모형을 받아들였다.</p></div>
+<p>이에 대한 설명 중 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p><div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 과학 개념(또는 이론)이 변할 수 있다는 것을 나타낸 사례이다.</li><li>ㄴ. 과학자 사회의 합의(또는 인정)가 사회적 구성주의의 관점에서 과학적 방법이 될 수 있다는 것을 보여 준 사례이다.</li><li>ㄷ. 이 사례에 나타난 원자 모형의 변화 과정은 귀납주의에 의해 설명된다.</li></ol></div><div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄴ</span><span class="ok">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div></div>
+      <div class="keyidea"><b>핵심 아이디어</b> — 모형이 바뀜 = 과학 지식의 잠정성(ㄱ). 가정을 과학자 사회가 수용 = 사회적 구성주의(ㄴ). 반증·가정 설정에 의한 변화는 귀납주의로 설명되지 않음(ㄷ ✗).</div>
+      <div class="ailab">AI 풀이</div>
+      <details class="step" open><summary><span class="s">1</span>물리: 고전적 붕괴</summary><div class="body"><p>라모어 복사 \(P=\dfrac{e^2a^2}{6\pi\varepsilon_0c^3}\)와 \(E=-\dfrac{ke^2}{2r}\)에서 \(\dfrac{dr}{dt}=-\dfrac{4r_e^2c}{3r^2}\) → 붕괴 시간 \(t=\dfrac{a_0^3}{4r_e^2c}\approx1.6\times10^{-11}\) s (모의실험). 원자가 안정하다는 사실과 모순.</p></div></details>
+<details class="step" open><summary><span class="s">2</span>보기 판단</summary><div class="body"><ul><li>ㄱ: 톰슨 → 러더퍼드 → 보어로 모형이 변함 ✓</li><li>ㄴ: 논리적 추론이 아닌 가정임에도 과학계가 수용 — 과학 지식이 과학자 사회의 합의로 정당화됨(사회적 구성주의) ✓</li>
+<li>ㄷ: 톰슨 모형은 실험으로 반증되었고, 보어는 가정을 세움 — 관찰 사실의 누적·일반화(귀납주의)로 설명되지 않음 ✗</li></ul></div></details>
+      <div class="tablewrap" style="margin-top:10px"><table class="cn"><tr><th>선지·보기</th><th>해설</th></tr><tr class=right><td>ㄱ</td><td>과학 지식의 잠정성 ✓</td></tr><tr class=right><td>ㄴ</td><td>과학자 공동체의 합의에 의한 수용 ✓</td></tr><tr><td>ㄷ</td><td>반증·가정 설정 → 귀납주의로 설명되지 않음 ✗</td></tr><tr class=right><td>정답</td><td>③ ㄱ, ㄴ</td></tr></table></div>
+      <div class="answer-box"><b>정답</b> <span class="big">③</span> &nbsp; ㄱ, ㄴ
+      <span class="src" style="margin-left:8px">(정답표 ③)</span></div>
+      <p><a class="btn" href="#simq-9">▶ 9번 모의실험 보기</a></p>
+      <div class="hsbox"><b>고등학생 지도</b> — 고교 물리학Ⅰ ‘보어 원자 모형’ 도입 시, 모의실험으로 ‘고전적으로는 원자가 10⁻¹¹ s 만에 붕괴한다’를 먼저 보여 주면 보어 가정의 필요성이 분명해진다.</div>
+    </div>
+  </section>
+  <section class="card" id="compare">
+    <h2><span class="num">2</span>출제 의도·검토</h2>
+
+<h3>출제 의도</h3>
+<ul><li><b>7번</b>: 쿤의 정상 과학(수수께끼 풀이)과 이상 현상·위기를 실제 과학사 사례로 구별.</li>
+<li><b>8번</b>: 직소 협동 학습의 구조(학습 모둠·전문가 모둠)와 STAD의 차이.</li>
+<li><b>9번</b>: 과학의 본성 — 잠정성, 사회적 구성주의, 귀납주의 비판.</li></ul>
+<h3>검토 의견</h3>
+<div class="note"><b>정답표와 AI 풀이 세 문항 모두 일치</b>(7 ③, 8 ②, 9 ③). 7번 ㄱ의 비정상 제만 효과는 모의실험(란데 g 인자)으로 4선·6선을 재현해, ‘새 패러다임이 남은 문제를 푸는’ 수수께끼 풀이의 의미를 물리적으로 확인할 수 있다.</div>
+  </section>
+  <section class="card" id="sim">
+    <h2><span class="num">3</span>문항별 모의실험 <span class="kbd">(3개 — 문항마다 하나, 마우스로 돌리기·휠 확대)</span></h2>
+
+    <div class="simq" id="simq-7"><h3><span class="qnum">7</span>3D 모의실험 — 7번 제만 효과: 정상 vs 비정상 (양자 역학이 푼 ‘퍼즐’)</h3>
+      <iframe class="simframe" src="PTE-2013-MC-07-09_모의7.html" title="7번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① ‘정상’은 3선(고전 로렌츠 이론으로도 설명). ② Na D1·D2는 4선·6선 — 고전 이론과 초기 양자론이 설명 못 한 ‘비정상’ 제만 효과. ③ 양자 역학 + 스핀(란데 g 인자)으로 풀린 것 = 쿤의 정상 과학 속 ‘수수께끼 풀이’. <a href="PTE-2013-MC-07-09_모의7.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-8"><h3><span class="qnum">8</span>3D 모의실험 — 8번 직소(Jigsaw) 협동 학습의 모둠 재편성</h3>
+      <iframe class="simframe" src="PTE-2013-MC-07-09_모의8.html" title="8번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① (가) 6개 학습 모둠(5명, 색이 모두 다름). ② (나) 같은 색끼리 모이면 전문가 모둠은 5개(6명). ③ (다) 돌아가 서로 가르침 — 새 내용의 대부분을 동료에게서 배운다(직소의 특징). <a href="PTE-2013-MC-07-09_모의8.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+    <div class="simq" id="simq-9"><h3><span class="qnum">9</span>3D 모의실험 — 9번 고전 전자기 이론의 원자 붕괴(러더퍼드 모형의 문제)</h3>
+      <iframe class="simframe" src="PTE-2013-MC-07-09_모의9.html" title="9번 모의실험" loading="lazy"></iframe>
+      <p class="src noprint">지도 팁: ① 수소 원자(r = 5.29×10⁻¹¹ m)의 고전적 붕괴 시간은 약 1.6×10⁻¹¹ s — ‘원자가 안정하다’는 사실과 모순. ② 보어는 이것을 논리적 추론이 아닌 ‘조건(가정)’으로 해결했고, 과학자 사회가 이를 받아들였다(사회적 구성주의 관점). <a href="PTE-2013-MC-07-09_모의9.html" target="_blank">새 창으로 열기 ↗</a></p></div>
+  </section>
+  <section class="card" id="hs">
+    <h2><span class="num">4</span>고등학생 지도 — 고교 교육과정과 잇기</h2>
+<div class="two"><div><h3>고등학생에게 쓰기</h3><ul>
+<li>7·9번: 물리학Ⅰ·Ⅱ 현대 물리 단원 도입에서 ‘과학 이론은 어떻게 바뀌는가’ 토의.</li><li>8번: 신소재 단원의 직소 수업 설계로 바로 활용.</li></ul></div>
+<div><h3>과학의 본성 수업</h3><p>잠정성·사회적 구성·이론 의존성 등 과학의 본성 요소를 각 사례에 붙이는 활동지로 만들 수 있다.</p></div></div>
+  </section>
+  <section class="card" id="teach">
+    <h2><span class="num">5</span>수업 활용 안내</h2>
+<div class="two"><div><h3>수업 흐름 (45분)</h3><ol><li><b>개별 풀이 (7분)</b> — 문항당 2~3분</li><li><b>쿤의 단계 (12분)</b> — 7번: 정상 과학–이상 현상–위기–혁명, 제만 효과 모의실험</li><li><b>협동 학습 (10분)</b> — 8번: 직소 vs STAD 비교, 모둠 재편성 모의실험</li><li><b>과학의 본성 (12분)</b> — 9번: 고전적 원자 붕괴 계산과 보어 가정의 수용</li><li><b>정리 (4분)</b> — 핵심 용어 정리</li></ol></div><div><h3>자주 나오는 오개념</h3><ul><li>“새 실험 결과를 해석하는 것은 모두 과학 혁명” → 패러다임 안의 해석은 수수께끼 풀이</li><li>“전문가 모둠 수 = 학습 모둠 수”</li><li>“과학 이론은 관찰을 모아 귀납적으로 만들어진다”</li></ul><h3>평가 포인트</h3><ul><li>쿤의 단계에 사례를 배치하는가</li><li>직소의 구조를 수치로 설명하는가</li><li>과학의 본성 관점을 근거와 함께 쓰는가</li></ul><h3>더 나아가기</h3><p>보어 모형이 수용된 근거(수소 스펙트럼 설명, 리드베리 상수 계산)를 조사해 ‘합의’가 무엇에 기초했는지 토론한다.</p></div></div>
+  </section>
+</main>
+
+<script>
+/* PTC 공통 라이브러리 — 모든 교사용 페이지의 모의실험이 사용 */
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id)};
+  var PTC=window.PTC={};
+  PTC.$=$;
+  PTC.DEG=Math.PI/180;
+  PTC.fs=function(){return window.PTC_FS||1};
+  PTC.font=function(px,weight,family){return (weight?weight+' ':'')+Math.round(px*PTC.fs())+'px '+(family||'"Noto Sans KR","Malgun Gothic",sans-serif')};
+  PTC.setupCanvas=function(c){
+    var r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;
+    c.width=Math.max(1,Math.round(r.width*d)); c.height=Math.max(1,Math.round(r.height*d));
+    var x=c.getContext('2d'); x.setTransform(d,0,0,d,0,0); return {x:x,w:r.width,h:r.height};
+  };
+  PTC.arrow=function(ctx,x,y,dx,dy,color,label,lw){
+    var L=Math.hypot(dx,dy); if(L<2) return;
+    ctx.save(); ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw||2.5;
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dx,y+dy); ctx.stroke();
+    var a=Math.atan2(dy,dx), h=Math.min(12,L*0.4);
+    ctx.beginPath(); ctx.moveTo(x+dx,y+dy);
+    ctx.lineTo(x+dx-h*Math.cos(a-0.4),y+dy-h*Math.sin(a-0.4));
+    ctx.lineTo(x+dx-h*Math.cos(a+0.4),y+dy-h*Math.sin(a+0.4)); ctx.closePath(); ctx.fill();
+    if(label){ctx.font=PTC.font(14,'600'); ctx.fillText(label,x+dx+6,y+dy-6);}
+    ctx.restore();
+  };
+  PTC.text=function(ctx,s,x,y,px,color,weight,align){
+    ctx.save(); ctx.fillStyle=color||'#1b1f2a'; ctx.font=PTC.font(px||14,weight); ctx.textAlign=align||'left'; ctx.fillText(s,x,y); ctx.restore();
+  };
+  /* 그래프: o={xmin,xmax,ymin,ymax,log,xticks,yticks,xlabel,ylabel,title,series:[{f|pts,color,label,dash}],marker,points:[[x,y,color]],fill:{f,color,x0,x1},xfmt} */
+  PTC.plot=function(c,o){
+    var cc=PTC.setupCanvas(c), x=cc.x, w=cc.w, h=cc.h; if(w<20) return;
+    var L=o.padL||52, R=14, T=o.title?30:12, B=36, fs=PTC.fs();
+    function px(v){return L+(v-o.xmin)/(o.xmax-o.xmin)*(w-L-R)}
+    function py(v){var a=o.log?Math.log10(v):v;return h-B-(a-o.ymin)/(o.ymax-o.ymin)*(h-T-B)}
+    x.clearRect(0,0,w,h);
+    if(o.title){x.fillStyle='#1b1f2a';x.font=PTC.font(13,'600');x.fillText(o.title,L,18);}
+    x.font=PTC.font(12); x.strokeStyle='#e6e9f0'; x.fillStyle='#5b6475'; x.lineWidth=1;
+    (o.yticks||[]).forEach(function(v){var yy=o.log?h-B-(v-o.ymin)/(o.ymax-o.ymin)*(h-T-B):py(v);x.beginPath();x.moveTo(L,yy);x.lineTo(w-R,yy);x.stroke();x.fillText(o.log?String(Math.pow(10,v)):(o.yfmt?o.yfmt(v):String(v)),4,yy+4);});
+    (o.xticks||[]).forEach(function(v){var xx=px(v);x.beginPath();x.moveTo(xx,T);x.lineTo(xx,h-B);x.stroke();var s=o.xfmt?o.xfmt(v):String(v);x.fillText(s,xx-x.measureText(s).width/2,h-B+16);});
+    x.strokeStyle='#1b1f2a'; x.beginPath(); x.moveTo(L,T); x.lineTo(L,h-B); x.lineTo(w-R,h-B); x.stroke();
+    if(o.xlabel){x.fillStyle='#5b6475';var xs=o.xlabel;x.fillText(xs,w-R-x.measureText(xs).width,h-4);}
+    if(o.ylabel){x.save();x.fillStyle='#5b6475';x.translate(12,T+4);x.fillText(o.ylabel,0,0);x.restore();}
+    if(o.fill){var F=o.fill;x.fillStyle=F.color;x.beginPath();x.moveTo(px(F.x0),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));
+      for(var k=0;k<=120;k++){var vv=F.x0+(F.x1-F.x0)*k/120;x.lineTo(px(vv),py(F.f(vv)));}
+      x.lineTo(px(F.x1),py(o.log?Math.pow(10,o.ymin):Math.max(o.ymin,0)));x.closePath();x.fill();}
+    (o.series||[]).forEach(function(sr,si){
+      x.strokeStyle=sr.color; x.lineWidth=sr.lw||2.2; x.setLineDash(sr.dash||[]); x.beginPath(); var started=false;
+      var N=sr.pts?sr.pts.length-1:300;
+      for(var i=0;i<=N;i++){
+        var v,y; if(sr.pts){v=sr.pts[i][0];y=sr.pts[i][1];} else {v=o.xmin+(o.xmax-o.xmin)*i/N;y=sr.f(v);}
+        if(!isFinite(y)||(o.log&&y<=0)){started=false;continue;}
+        var yy=py(y); if(yy<T-2||yy>h-B+2){started=false;continue;}
+        if(!started){x.moveTo(px(v),yy);started=true;}else x.lineTo(px(v),yy);
+      }
+      x.stroke(); x.setLineDash([]);
+      if(sr.label){x.fillStyle=sr.color;x.font=PTC.font(12,'600');x.fillText('— '+sr.label,L+10+si*((w-L)/o.series.length),T+14);}
+    });
+    if(o.marker!=null && o.marker>=o.xmin && o.marker<=o.xmax){x.strokeStyle='#d23b3b';x.setLineDash([5,4]);x.lineWidth=1.5;x.beginPath();x.moveTo(px(o.marker),T);x.lineTo(px(o.marker),h-B);x.stroke();x.setLineDash([]);}
+    (o.points||[]).forEach(function(p){ if(o.log&&p[1]<=0) return; x.fillStyle=p[2]||'#d23b3b'; x.beginPath(); x.arc(px(p[0]),Math.max(T,Math.min(h-B,py(p[1]))),5,0,2*Math.PI); x.fill(); });
+    return {px:px,py:py,ctx:x,w:w,h:h};
+  };
+  /* 시간 진행형 모의실험 제어: o={tMin(),tMax(),draw(t),pauses:[t..],loop} */
+  PTC.timeline=function(o){
+    var T={t:o.tMin(),playing:false,last:null,speed:$('selSpeed')?+$('selSpeed').value:1,passed:{}};
+    function sync(){var s=$('tScrub'); if(s) s.value=Math.round((T.t-o.tMin())/((o.tMax()-o.tMin())||1)*1000);}
+    function setP(p){T.playing=p; var b=$('bPlay'); if(b) b.textContent=p?'⏸ 정지':'▶ 재생'; T.last=null; if(p) requestAnimationFrame(tick);}
+    function tick(ts){
+      if(!T.playing) return;
+      if(T.last==null) T.last=ts;
+      var dt=Math.min(0.05,(ts-T.last)/1000); T.last=ts;
+      var prev=T.t; T.t+=dt*T.speed;
+      var ps=o.pauses||[], cp=$('cPause');
+      if(!cp||cp.checked){ for(var i=0;i<ps.length;i++){ if(prev<ps[i]&&T.t>=ps[i]&&!T.passed[i]){T.t=ps[i];T.passed[i]=true;setP(false);sync();o.draw(T.t);return;} } }
+      if(T.t>=o.tMax()){ if(o.loop){T.t=o.tMin();T.passed={};} else {T.t=o.tMax();setP(false);} }
+      sync(); o.draw(T.t);
+      if(T.playing) requestAnimationFrame(tick);
+    }
+    T.toggle=function(){ if(T.playing){setP(false);return;} if(T.t>=o.tMax()-1e-9){T.t=o.tMin();T.passed={};} setP(true); };
+    T.reset=function(){ T.t=o.tMin(); T.passed={}; setP(false); sync(); o.draw(T.t); };
+    T.set=function(t){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),t)); T.passed={}; (o.pauses||[]).forEach(function(p,i){if(T.t>=p)T.passed[i]=true}); sync(); o.draw(T.t); };
+    T.redraw=function(){ T.t=Math.max(o.tMin(),Math.min(o.tMax(),T.t)); sync(); o.draw(T.t); };
+    T.pause=function(){setP(false)};
+    if($('bPlay')) $('bPlay').onclick=T.toggle;
+    if($('bReset')) $('bReset').onclick=T.reset;
+    if($('tScrub')) $('tScrub').oninput=function(){ setP(false); T.set(o.tMin()+(o.tMax()-o.tMin())*this.value/1000); };
+    if($('selSpeed')) $('selSpeed').onchange=function(){ T.speed=+this.value; };
+    window.SIM={toggle:T.toggle,reset:T.reset};
+    return T;
+  };
+  /* 연속 애니메이션 (정적 모의실험의 흐르는 전류 등) */
+  PTC.loop=function(fn){ var last=null; function f(ts){ var dt=last==null?0:Math.min(0.05,(ts-last)/1000); last=ts; fn(dt); requestAnimationFrame(f);} requestAnimationFrame(f); };
+  PTC.onResize=function(fn){ var st=document.querySelector('#simBox .stage'); if(window.ResizeObserver&&st) new ResizeObserver(function(){fn()}).observe(st); window.addEventListener('resize',fn); };
+  PTC.seg=function(id,cb){ var box=$(id); box.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ box.querySelectorAll('button').forEach(function(o){o.classList.toggle('on',o===b)}); cb(b.dataset.v); }; }); };
+  PTC.range=function(id,outId,fmt,cb){ var r=$(id),o=$(outId); function u(){ if(o) o.textContent=fmt(+r.value); if(cb) cb(+r.value); } r.addEventListener('input',u); if(o) o.textContent=fmt(+r.value); return r; };
+  PTC.readout=function(id,rows){ $(id).innerHTML=rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join(''); };
+  PTC.result=function(id,good,text){ var el=$(id); el.className='result '+(good===true?'good':good===false?'bad':''); el.textContent=text; };
+  PTC.caption=function(ph,tx){ if($('capPh')) $('capPh').textContent=ph; if($('capTx')) $('capTx').textContent=tx; };
+})();
+
+/* SK — 간단 모의실험 키트 (도구/도움.py 의 kit() 와 짝).
+   SK.run({mode:'static'|'time', T:function(P){return 초}, scene:function(g,P,t){…}, plot:function(P,t){return PTC.plot 옵션},
+           plot2:…, readout:function(P,t){return [[이름,값],…]}, check:function(P){return [true|false|null, 글]}, caption:function(P,t){return 글},
+           pre:function(P){…매개변수가 바뀔 때 한 번 계산…}})
+   매개변수: 오른쪽 칸의 [data-p] 요소 (range·checkbox·seg) → P.이름
+   g = {x:ctx, w, h} · SK.view(g,x0,x1,y0,y1,pad) → {X(x),Y(y),s} (가로세로 같은 축척)
+   3D: kit(…, three=True) 와 함께 view3d:{up:'z',cam:[…],target:[…],grid:10}, build:function(V,P){ …물체를 만들고 객체 O 를 돌려줌… },
+       frame:function(V,O,P,t){ …위치·화살표·라벨 갱신… } 를 쓰면 #cv 가 three.js 3D 장면이 된다 (마우스 끌기 회전·휠 확대).
+       (three.js 를 못 불러오면 scene 이 있으면 2D 로 대신 그린다.) */
+(function(){
+  'use strict';
+  var SK=window.SK={};
+  SK.read=function(){ var P={};
+    document.querySelectorAll('[data-p]').forEach(function(el){ var k=el.dataset.p;
+      if(el.type==='checkbox') P[k]=el.checked; else if(el.classList.contains('seg')){ var b=el.querySelector('button.on'); P[k]=b?(isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v):null; }
+      else P[k]=+el.value; });
+    return P; };
+  SK.view=function(g,x0,x1,y0,y1,pad){ pad=pad==null?24:pad; var s=Math.min((g.w-2*pad)/(x1-x0),(g.h-2*pad)/(y1-y0)),
+      ox=(g.w-(x1-x0)*s)/2-x0*s, oy=(g.h+(y1-y0)*s)/2+y0*s; return {s:s,X:function(x){return ox+x*s},Y:function(y){return oy-y*s}}; };
+  SK.line=function(c,pts,col,lw,dash){ c.save(); c.strokeStyle=col||'#1b1f2a'; c.lineWidth=lw||2; c.setLineDash(dash||[]); c.beginPath();
+    pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.stroke(); c.restore(); };
+  SK.poly=function(c,pts,fill,stroke){ c.save(); c.beginPath(); pts.forEach(function(p,i){ if(i) c.lineTo(p[0],p[1]); else c.moveTo(p[0],p[1]); }); c.closePath();
+    if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.stroke();} c.restore(); };
+  SK.circle=function(c,x,y,r,fill,stroke,lw){ c.save(); c.beginPath(); c.arc(x,y,r,0,6.2832); if(fill){c.fillStyle=fill;c.fill();} if(stroke){c.strokeStyle=stroke;c.lineWidth=lw||1.5;c.stroke();} c.restore(); };
+  SK.rect=function(c,x,y,w,h,fill,stroke){ c.save(); if(fill){c.fillStyle=fill;c.fillRect(x,y,w,h);} if(stroke){c.strokeStyle=stroke;c.lineWidth=1.5;c.strokeRect(x,y,w,h);} c.restore(); };
+  SK.text=function(c,s,x,y,px,col,wt,al){ PTC.text(c,s,x,y,px||13,col||'#1b1f2a',wt||'600',al); };
+  SK.arrow=function(c,x,y,dx,dy,col,lab,lw){ PTC.arrow(c,x,y,dx,dy,col,lab,lw); };
+  SK.spring=function(c,x1,y1,x2,y2,n,amp,col){ n=n||10; amp=amp||7; var L=Math.hypot(x2-x1,y2-y1)||1, ux=(x2-x1)/L, uy=(y2-y1)/L, nx=-uy, ny=ux, pts=[[x1,y1]], lead=Math.min(8,L/6);
+    pts.push([x1+ux*lead,y1+uy*lead]); for(var i=0;i<2*n;i++){ var s=lead+(L-2*lead)*(i+0.5)/(2*n), sg=i%2?-1:1; pts.push([x1+ux*s+nx*amp*sg,y1+uy*s+ny*amp*sg]); }
+    pts.push([x2-ux*lead,y2-uy*lead]); pts.push([x2,y2]); SK.line(c,pts,col||'#4a5568',1.6); };
+  SK.ground=function(c,x0,x1,y,col){ SK.line(c,[[x0,y],[x1,y]],col||'#1b1f2a',2); c.save(); c.strokeStyle='#9aa2b2'; c.lineWidth=1; for(var x=x0;x<x1;x+=10){ c.beginPath(); c.moveTo(x,y); c.lineTo(x-7,y+8); c.stroke(); } c.restore(); };
+  SK.fmt=function(v,d){ if(!isFinite(v)) return '—'; var a=Math.abs(v); if(a!==0&&(a<1e-3||a>=1e5)) return v.toExponential(d==null?3:d); return v.toFixed(d==null?3:d); };
+  SK.rk4=function(f,y,t,dt){ var k1=f(t,y), y2=y.map(function(v,i){return v+dt/2*k1[i]}), k2=f(t+dt/2,y2), y3=y.map(function(v,i){return v+dt/2*k2[i]}), k3=f(t+dt/2,y3),
+      y4=y.map(function(v,i){return v+dt*k3[i]}), k4=f(t+dt,y4); return y.map(function(v,i){return v+dt/6*(k1[i]+2*k2[i]+2*k3[i]+k4[i])}); };
+  SK.run=function(o){
+    var P=SK.read(), TL=null;
+    function outs(){ document.querySelectorAll('input[type=range][data-p]').forEach(function(el){ var out=document.getElementById('o_'+el.dataset.p); if(!out) return;
+      var st=el.step&&el.step!=='any'?el.step:'0.01', d=st.indexOf('.')>=0?st.split('.')[1].length:0; out.textContent=(+el.value).toFixed(d)+(el.dataset.u||''); }); }
+    var V3=null, O3=null;
+    if(o.build&&window.PTC3&&PTC3.ok()){ V3=PTC3.view('cv',o.view3d||{up:'z',cam:[6,-8,5],target:[0,0,0],grid:10}); if(V3) O3=o.build(V3,P); }
+    else if(o.build&&!o.scene){ o.scene=function(g){ SK.text(g.x,'3D 장면을 불러오지 못했습니다 (인터넷 연결 필요: three.js).',16,30,15,'#667'); }; }
+    function draw(t){ t=t||0;
+      if(V3){ try{ o.frame(V3,O3,P,t); }catch(e){ console.error(e); } V3.render(); }
+      else { var c=PTC.setupCanvas(document.getElementById('cv')); if(c.w<20) return; c.x.clearRect(0,0,c.w,c.h);
+        try{ o.scene(c,P,t); }catch(e){ console.error(e); } }
+      if(o.plot&&document.getElementById('mini')) PTC.plot(document.getElementById('mini'),o.plot(P,t));
+      if(o.plot2&&document.getElementById('mini2')) PTC.plot(document.getElementById('mini2'),o.plot2(P,t));
+      if(o.readout) PTC.readout('ro',o.readout(P,t));
+      if(o.caption){ var cp=o.caption(P,t); if(cp) PTC.caption(cp[0],cp[1]); } }
+    function update(){ P=SK.read(); outs(); if(o.pre) o.pre(P); if(V3&&o.rebuild) O3=o.rebuild(V3,O3,P); if(o.check){ var r=o.check(P); PTC.result('res',r[0],r[1]); } if(TL) TL.reset(); else draw(0); }
+    document.querySelectorAll('[data-p]').forEach(function(el){
+      if(el.classList.contains('seg')) el.querySelectorAll('button').forEach(function(b){ b.addEventListener('click',function(){ el.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)}); update(); }); });
+      else el.addEventListener(el.type==='checkbox'?'change':'input',update); });
+    if(o.mode==='time') TL=PTC.timeline({tMin:function(){return 0},tMax:function(){return o.T?o.T(P):10},draw:draw,loop:!!o.loop});
+    PTC.onResize(function(){ if(TL) TL.redraw(); else draw(0); });
+    SK.P=function(){return P}; SK.V3=function(){return V3}; SK.redraw=function(){ if(TL) TL.redraw(); else draw(0); };
+    update();
+  };
+})();
+</script>
+<script>
+
+</script>
+<script>
+/* 교사용 페이지 공통 동작: 보기 설정, 메뉴, 전체화면, 키보드, 인쇄 */
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  // 글자/그림 크기
+  var KEY='ptc-teacher-view', LIM={fs:[0.7,1.6],fig:[0.5,1.5]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    $('vFs').textContent=Math.round(st.fs*100)+'%'; $('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){ var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10; st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply(); });
+  });
+  $('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+  // 풀이 모두 펼치기 / 인쇄 시 펼치기
+  $('expandAll').onclick=function(){var ds=document.querySelectorAll('details.step'),all=Array.prototype.every.call(ds,function(d){return d.open});ds.forEach(function(d){d.open=!all});this.textContent=all?'풀이 모두 펼치기':'풀이 모두 접기';};
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('details.step').forEach(function(d){d.open=true});});
+  // 보기 설정 메뉴 닫기
+  var vm=$('viewMenu');
+  document.addEventListener('click',function(e){ if(vm.open && !vm.contains(e.target)) vm.open=false; });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') vm.open=false; });
+  // 현재 구역 표시
+  var links=[].slice.call(document.querySelectorAll('.tb2 a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){
+    var y=window.scrollY+140, cur=0;
+    secs.forEach(function(el,i){ if(el && el.getBoundingClientRect().top+window.scrollY<=y) cur=i; });
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) cur=secs.length-1;
+    links.forEach(function(a,i){ var on=(i===cur); if(on!==a.classList.contains('on')){ a.classList.toggle('on',on); if(on) a.scrollIntoView({block:'nearest',inline:'nearest'}); } });
+  }
+  window.addEventListener('scroll',spy,{passive:true}); window.addEventListener('resize',spy); spy();
+  // 모의실험: 전체화면 + 키보드
+  var box=$('simBox'); if(!box) return;
+  function toggleFull(){
+    var fe=document.fullscreenElement||document.webkitFullscreenElement;
+    if(fe){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}
+    else{(box.requestFullscreen||box.webkitRequestFullscreen).call(box);}
+  }
+  if($('bFull')) $('bFull').onclick=toggleFull;
+  function onFs(){var fe=document.fullscreenElement||document.webkitFullscreenElement; if($('bFull')) $('bFull').textContent=fe?'✕ 전체화면 종료':'⛶ 전체화면'; setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);}
+  document.addEventListener('fullscreenchange',onFs); document.addEventListener('webkitfullscreenchange',onFs);
+  box.querySelectorAll('button').forEach(function(b){b.addEventListener('mousedown',function(e){e.preventDefault();});});
+  document.addEventListener('keydown',function(ev){
+    var tag=(ev.target.tagName||'').toLowerCase(); if((tag==='input'&&ev.target.type!=='range')||tag==='select'||tag==='textarea') return;
+    var inSim=box.contains(document.activeElement)||document.fullscreenElement===box||document.activeElement===document.body;
+    if(!inSim) return;
+    if(ev.code==='Space' && window.SIM){ev.preventDefault();window.SIM.toggle();}
+    else if((ev.key==='r'||ev.key==='R') && window.SIM){window.SIM.reset();}
+    else if(ev.key==='f'||ev.key==='F'){toggleFull();}
+  });
+})();
+
+</script>
+</body>
+</html>

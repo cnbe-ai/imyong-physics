@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2012-MC-01-04] 물리교육론 객관식 4문항 — 과학철학·POE 수업·2009 개정 「과학」·학생 가설 · 학생용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#c9cfdb; --accent:#3b3486; --soft:#f4f2fb;
+    --grid:#e6e9f0; --paper:#ffffff; --bg:#eef0f4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    font-size:calc(10.5pt*var(--fs));line-height:1.55}
+
+  .page{width:210mm;min-height:297mm;margin:0 auto 24px;background:var(--paper);padding:12mm 14mm 11mm;
+    box-shadow:0 2px 14px rgba(0,0,0,.12);}
+  header.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2.5px solid var(--accent);padding-bottom:5px}
+  .kicker{font-size:calc(8.5pt*var(--fs));color:var(--muted);letter-spacing:.02em}
+  h1{margin:2px 0 0;font-size:calc(17pt*var(--fs));color:var(--accent);letter-spacing:-.01em}
+  h1 small{font-size:calc(10pt*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  .idbox{display:flex;gap:6px;flex:none;font-size:calc(9.5pt*var(--fs))}
+  .idbox span{border:1px solid var(--line);border-radius:4px;padding:3px 8px;min-width:18mm}
+  .idbox span.name{min-width:30mm}
+  .idbox span.pcode{border:0;background:var(--accent);color:#fff;font-weight:700;min-width:0;letter-spacing:.04em;white-space:nowrap}
+  .tags{margin:6px 0 0;display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:calc(8pt*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:1px 9px}
+
+  .problem{display:grid;grid-template-columns:minmax(0,1fr) calc(70mm*var(--fig));gap:5mm;margin-top:5mm}
+  .problem .text p{margin:0 0 2.5mm}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:4px;padding:0 7px;margin-right:4px;font-weight:700}
+  .cond{font-size:calc(9.3pt*var(--fs));color:var(--muted)}
+  .orig{font-size:calc(8pt*var(--fs));color:var(--muted);border-left:2px solid var(--line);padding-left:6px;margin-top:2mm;line-height:1.4;font-style:italic}
+  figure{margin:0;border:1px solid var(--line);border-radius:6px;padding:2mm;align-self:start}
+  figure>svg{width:100%;height:auto;display:block}
+  figcaption{font-size:calc(8pt*var(--fs));color:var(--muted);text-align:center}
+
+  .hints{display:none;margin-top:3mm;border:1px dashed var(--accent);border-radius:6px;padding:2mm 4mm;font-size:calc(9.2pt*var(--fs));background:var(--soft)}
+  .hints.on{display:block}
+  .kicker.off,.orig.off{display:none}
+  .sw.org{--c:#c2417a}
+  .hints b{color:var(--accent)}
+  .hints ol{margin:1mm 0 0;padding-left:5mm}
+
+  .work{flex:1;margin-top:4mm;border:1.2px solid var(--ink);border-radius:6px;position:relative;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:5mm 5mm;background-position:-1px -1px}
+  .work .lbl{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:calc(9pt*var(--fs));padding:1px 9px;border-radius:5px 0 6px 0}
+  .answer{margin-top:3.5mm;display:flex;align-items:center;gap:4mm;border:1.6px solid var(--accent);border-radius:6px;padding:3mm 4mm}
+  .answer .k{font-weight:700;color:var(--accent);white-space:nowrap}
+  .answer .blank{flex:1;border-bottom:1px solid var(--ink);height:8mm}
+  .answer .small{font-size:calc(8.5pt*var(--fs));color:var(--muted);white-space:nowrap}
+  footer{margin-top:2.5mm;font-size:9pt;color:var(--muted);text-align:center}
+
+  @media screen and (max-width:820px){
+    .page{width:100%;height:auto;min-height:0;padding:16px}
+    .problem{grid-template-columns:minmax(0,1fr)}
+    .work{min-height:120mm}
+    header.top{flex-direction:column;align-items:flex-start;gap:6px}
+    .answer{flex-wrap:wrap}
+  }
+  @page{size:A4;margin:0 0 8mm 0;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:9pt;color:#5b6475}}
+  @media print{
+    body{background:#fff}
+    .topbar{display:none}
+    .page{margin:0;box-shadow:none;width:210mm;height:289mm;padding-bottom:4mm}
+    footer{display:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  .topbar{position:sticky;top:0;z-index:30;font-size:14px;margin-bottom:18px;box-shadow:0 2px 10px rgba(30,25,80,.12);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:900px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .who{background:#ffd84d;color:#3b2f00;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:800;white-space:nowrap}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tb2{background:#fff;border-bottom:1px solid var(--line)}
+  .tb2 .in{min-height:52px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px;gap:8px 14px}
+  .grp{display:flex;align-items:center;gap:8px}
+  .grp .gl{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+  .sep{width:1px;height:26px;background:var(--line)}
+  .sw{--c:#3b3486;display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;font-weight:600;color:#3a4152;
+    padding:5px 12px 5px 6px;border-radius:999px;border:1px solid var(--line);background:#fafbfd}
+  .sw:hover{border-color:var(--c)}
+  .sw input{position:absolute;opacity:0;pointer-events:none}
+  .sw .trk{width:34px;height:20px;border-radius:999px;background:#cfd4de;position:relative;transition:background .15s;flex:none}
+  .sw .trk::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .15s}
+  .sw input:checked+.trk{background:var(--c)}
+  .sw input:checked+.trk::after{left:16px}
+  .sw input:focus-visible+.trk{outline:2px solid var(--c);outline-offset:2px}
+  .sw.src{--c:#2f6fd6} .sw.hint{--c:#1e8f4e}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .stepper button{font:inherit;width:30px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:50px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486}
+  .rst{font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:9px;padding:5px 10px;cursor:pointer}
+  .rst:hover{background:var(--soft);color:#3b3486}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:640px){
+    .tbtn .tx{display:none}
+    .tb1 .who{display:none}
+    .sep{display:none}
+  }
+
+  .intro{margin-top:4mm}
+  .intro p{margin:0 0 2mm}
+  .sec{margin-top:6mm;clear:both}
+  .sec h2{font-size:calc(14pt*var(--fs));color:var(--accent);border-bottom:1.5px solid var(--line);padding-bottom:2px;margin:0 0 3mm}
+  .sec h2 small{color:var(--muted);font-weight:500;font-size:.75em}
+  .secintro{overflow:hidden}
+  .secintro p{margin:0 0 2mm}
+  .fig{margin:0 0 3mm;border:1px solid var(--line);border-radius:6px;padding:2mm;background:#fff}
+  .fig img{width:100%;height:auto;display:block}
+  .fig figcaption{font-size:calc(8pt*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(70mm*var(--fig));max-width:48%;margin:0 0 3mm 5mm}
+  .part{margin-top:4mm;clear:both;break-inside:avoid}
+  .part .q p{display:inline;margin:0}
+  .part .q p+p{display:block;margin-top:1.5mm}
+  .pts{color:var(--muted);font-size:calc(8.5pt*var(--fs));margin-right:4px}
+  .part .work{margin-top:2.5mm;flex:none}
+  .part .answer{margin-top:2mm}
+  .hints{margin-top:2mm}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+  @media print{.part{break-inside:avoid}.sec h2{break-after:avoid}}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가: 자료·작성 방법·보기·선지·고교 디딤돌 */
+  .jaryo{border:1.2px solid var(--ink);border-radius:4px;padding:3mm 4mm 2mm;margin:4mm 0 3mm;position:relative}
+  .jaryo>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 3mm;font-size:.92em;font-weight:600;white-space:nowrap}
+  .jaryo p{margin:0 0 1.6mm}
+  .jaryo table{border-collapse:collapse;width:100%;font-size:.93em}
+  .jaryo td,.jaryo th{border:1px solid var(--line);padding:1.2mm 2mm;vertical-align:top}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:1mm 3mm}
+  .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:2px}
+  .method{border:1.2px solid var(--ink);border-radius:4px;padding:3mm 4mm 2mm;margin:4mm 0 3mm;position:relative;background:#fbfbfd}
+  .method>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:#fbfbfd;padding:0 3mm;font-size:.92em;font-weight:600}
+  .method ul{margin:0;padding-left:4.5mm;list-style:"◦ "}
+  .bogi{border:1.2px solid var(--ink);border-radius:3px;padding:3mm 4mm 1.5mm;margin:3mm 0;position:relative}
+  .bogi>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 3mm;font-size:.92em}
+  .bogi ol{list-style:none;margin:0;padding:0}
+  .bogi li{padding-left:5mm;text-indent:-5mm;margin-bottom:1.2mm}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:1.5mm 4mm;margin:3mm 0 2mm;padding-left:1mm}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr));gap:1mm 6mm}
+  .choices .h{font-weight:600;text-decoration:underline;text-underline-offset:2px;text-align:center}
+  .choices .c{text-align:center}
+  .omr{display:flex;align-items:center;gap:3mm;margin-top:2mm;font-size:.95em}
+  .omr span.b{display:inline-grid;place-items:center;width:7mm;height:7mm;border:1.3px solid var(--accent);border-radius:50%;color:var(--accent);font-weight:700;cursor:pointer;user-select:none}
+  .omr span.b.on{background:var(--accent);color:#fff}
+  .mcq{border-top:1.5px solid var(--line);padding-top:4mm;margin-top:6mm;break-inside:avoid}
+  .mcq:first-of-type{border-top:0;margin-top:3mm}
+  .mcq .qh{font-weight:700}
+  .bridge{display:none;margin-top:3mm;border:1px solid #e7b55a;border-left:4px solid #e0a020;border-radius:6px;padding:2mm 4mm;font-size:calc(9.2pt*var(--fs));background:#fff9ec}
+  .bridge.on{display:block}
+  .bridge b{color:#9a6400}
+  .bridge ul{margin:1mm 0 0;padding-left:5mm}
+  .sw.brg{--c:#d08a00}
+  .aud{font-size:calc(8pt*var(--fs));border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:1px 9px;font-weight:700}
+</style>
+<style>:root{--accent:#9a4d0b;--soft:#fbf1e6} .tb1{background:linear-gradient(100deg,#5e2c06 0%,#9a4d0b 45%,#d9822b 100%)!important} .tbtn.solid{color:#9a4d0b!important} .stepper button,.stepper output{color:#9a4d0b!important} #problem,.tb2 a[href="#problem"]{--c:#9a4d0b} .qnum{background:#9a4d0b} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code">PTE-2012-MC-01-04</span>
+    <span class="ttl">물리교육론 객관식 4문항 — 과학철학·POE 수업·2009 개정 「과학」·학생 가설</span>
+    <span class="who">학생용 · 객관식 묶음</span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#mc/y=2012" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn" href="PTE-2012-MC-01-04_교사용.html" title="교사용 열기"><span>📘</span><span class="tx">교사용</span></a><a class="tbtn" href="../../../문항모음/2012_중등1차_물리_전공%20문제.pdf#page=1" target="_blank" title="원문 문제 PDF"><span>📄</span><span class="tx">원문 PDF</span></a>
+      <button class="tbtn solid" type="button" onclick="window.print()" title="A4 인쇄"><span>🖨</span><span class="tx">인쇄</span></button>
+    </div>
+  </div></div>
+  <div class="tb2"><div class="in">
+    <div class="grp">
+      <label class="sw src"><input type="checkbox" id="srcToggle"><span class="trk"></span>출처 보이기</label>
+      <label class="sw hint"><input type="checkbox" id="hintToggle"><span class="trk"></span>힌트 보이기</label>
+      <label class="sw brg"><input type="checkbox" id="brgToggle"><span class="trk"></span>고교 디딤돌</label>
+    </div>
+    <span class="sep"></span>
+    <div class="grp"><span class="gl">글자</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+    <div class="grp"><span class="gl">그림</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+    <button type="button" class="rst" id="vReset">↺ 초기화</button>
+  </div></div>
+</header>
+
+<main class="page">
+  <header class="top">
+    <div>
+      <div class="kicker off" id="srcLine">2012학년도 1차 1~4번 (교육론 묶음) · 원문 PDF 1쪽</div>
+      <h1>물리교육론 객관식 4문항 — 과학철학·POE 수업·2009 개정 「과학」·학생 가설<small>Philosophy of science (Kuhn, Lakatos) · POE with simulation · 2009 integrated Science · student hypotheses</small></h1>
+      <div class="tags"><span class="aud">대상: 대학생(임용 준비) · 고등학생(심화)</span><span class="tag">객관식</span><span class="tag">물리교육론</span><span class="tag">과학의 본성</span><span class="tag">탐구</span><span class="tag">난이도 ★★☆☆☆</span></div>
+    </div>
+    <div class="idbox"><span class="pcode" title="문항 ID">PTE-2012-MC-01-04</span><span>학번</span><span class="name">이름</span></div>
+  </header>
+  <div class="intro"><p>2012학년도 중등교사 임용시험 물리 1차(객관식) <b>1~4번</b> — 물리교육론 문항 묶음. 각 문항에서 알맞은 답을 고르시오.</p><div class="bridge"><b>고교 디딤돌</b> — 고등학생은 이것부터 확인하자.<ul><li>과학 이론은 맞지 않는 관찰 하나로 바로 버려지지 않는다 — 과학자는 먼저 이론을 지키는 방법(보조 가설)을 찾는다.</li><li>POE 수업: 결과를 먼저 <b>예상</b>하고, <b>관찰</b>한 뒤, 예상과 다르면 그 까닭을 <b>설명</b>한다.</li><li>좋은 가설: ‘(조작 변인)이 클수록 (종속 변인)이 커질 것이다’처럼 두 변인의 관계로 쓴다.</li></ul></div></div>
+
+  <section class="mcq">
+    <div class="q"><span class="qnum">1</span><span class="pts">2.5점</span><p>다음은 수성 궤도의 근일점 이동과 관련된 과학사 사례이다.</p>
+<div class="jaryo"><p>(가) 뉴턴의 중력 이론으로 계산하였을 때, 태양 주위를 공전하는 수성 궤도의 근일점은 고정된 것이 아니라 다른 천체들의 영향에 의해서 움직이게 된다. (중략) 그러나 수성 궤도의 근일점이 이동하는 정도가 뉴턴의 이론과는 다르다는 것이 관측되었다. 뉴턴의 이론을 옹호하기 위해 몇 가지 시도가 있었다. 그 중 하나로 차이를 보정하는 ‘벌컨(Vulcan)’이라는 다른 행성을 가정하였으나, 그런 행성은 발견되지 않았다. 수성 궤도의 문제는 한동안 미해결된 문제로 남게 되었다.</p>
+<p>(나) 아인슈타인은 일반상대성 이론을 통해서 질량을 가진 물체가 중력에 끌리듯이 빛이 태양과 같은 질량이 큰 물체의 중력에 의해서 끌려야 한다고 주장했다. 에딩턴은 아인슈타인의 상대성 이론에 따라 태양 근처에서 빛이 편향된다는 것을 증명하고자 했다. 에딩턴은 낮과 밤에 태양 근처의 별들이 어떻게 보이는지를 비교하려고 했고, 실제로 개기 일식이 일어나는 동안 실시한 관측을 통해서 아인슈타인의 이론을 확증할 수 있었다. 이러한 아인슈타인의 이론은 뉴턴의 중력 법칙으로 설명할 수 없었던 수성 궤도의 문제를 정량적이고 자연스러운 설명으로 해결할 수 있었다. 또한 아인슈타인의 이론은 많은 부가적인 것들을 예측할 수 있었다.</p></div>
+    
+    <p>이에 대한 과학 철학적 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? [2.5점]</p></div>
+    <div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. (가)는 과학 이론이 변칙 사례에 의해 즉각적으로 폐기되는 것은 아니라는 것을 보여준다.</li><li>ㄴ. 쿤(T. Kuhn)의 관점에 의하면, (가)에서 행성 ‘벌컨(Vulcan)’은 패러다임을 위협하는 변칙 사례가 나타났을 때 정상과학 안에서 해결해 나가기 위해서 도입된 것이다.</li><li>ㄷ. 라카토스(I. Lakatos)의 이론에 의하면, (나)에서 아인슈타인의 이론은 전진적(progressive) 연구 프로그램의 사례에 해당된다.</li></ol></div>
+    <div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄷ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄴ, ㄷ</span><span class="">⑤ ㄱ, ㄴ, ㄷ</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>변칙 사례가 나타났을 때 과학자들은 이론을 곧바로 버렸는가?</li><li>라카토스의 ‘전진적’ 연구 프로그램의 조건: 새로운 사실을 예측하고 그것이 확인되는가.</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">2</span><span class="pts">2.0점</span><p>다음은 컴퓨터 시뮬레이션을 이용한 수업에 대한 것이다.</p>
+<div class="jaryo"><p><b>[학습 과제]</b> 에너지가 \(E\,(\lt U)\)인 전자가 영역 Ⅰ에서 퍼텐셜 에너지가 \(U\)인 장벽이 있는 \(x\) 방향으로 운동할 때, 영역 Ⅲ에서 전자를 발견할 수 있을까?</p></div>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2012/PTE-2012-MC-01-04_1.svg" alt="2번: 에너지 E(&lt; U)인 전자와 높이 U, 폭 L인 퍼텐셜 장벽 (다시 그림)"><figcaption>2번: 에너지 E(&lt; U)인 전자와 높이 U, 폭 L인 퍼텐셜 장벽 (다시 그림)</figcaption></figure>
+    <div class="jaryo"><p><b>[수업 과정]</b></p><ol><li>학습 과제에서 컴퓨터 시뮬레이션의 결과를 예상하게 하였다.</li><li>학생들은 컴퓨터 시뮬레이션에서 \(E\)가 \(U\)보다 작아도 영역 Ⅲ에서 전자가 발견될 확률이 있다는 것을 관찰하였다.</li><li>관찰 결과를 예상과 관련지어 학생들이 설명하였다.</li></ol>
+<p><b>[학생들의 학습 과제에 대한 예상과 설명]</b></p>
+<div class="tablewrap"><table><tr><th></th><th>예상</th><th>결과 설명</th></tr>
+<tr><th>학생 A</th><td>전자는 매우 작기 때문에 퍼텐셜 장벽을 통과하여 영역 Ⅲ에 모두 도달할 것이다.</td><td>전자의 크기가 모두 다르기 때문에 전자들의 일부가 발견되었다.</td></tr>
+<tr><th>학생 B</th><td>전자는 입자이고, \(E\)가 \(U\)보다 작으므로 영역 Ⅲ에 도달할 수 없을 것이다.</td><td>전자가 입자라는 것은 확실하다. \(E\)가 \(U\)보다 작을 때, 영역 Ⅲ에서 발견된 것은 예외적인 현상이다.</td></tr></table></div></div>
+<p>이 수업에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p></div>
+    <div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 이 수업의 진행 순서는 POE 수업 모형의 단계와 순서가 일치한다.</li><li>ㄴ. 학생 A는 보조 가설을 제시하여 자신의 주장을 정당화하였다.</li><li>ㄷ. 학생 B가 올바른 개념을 갖게 하기 위해서 총알이 벽을 뚫고 통과하는 자료를 제시하는 것은 타당하다.</li></ol></div>
+    <div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄷ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄴ, ㄷ</span><span class="">⑤ ㄱ, ㄴ, ㄷ</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>수업 과정 1·2·3을 POE의 세 단계에 대응시켜 보자.</li><li>학생 A는 ‘모두 도달’이라는 예상이 틀리자 무엇을 덧붙였나?</li><li>총알이 벽을 뚫는 것은 E > U(고전) 현상인가, 터널 효과인가?</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">3</span><span class="pts">1.5점</span><p>2009 개정 과학과 교육과정의 고등학교 「과학」에 관한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? [1.5점]</p>
+    
+    </div>
+    <div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. ‘목표’에는 우주와 생명, 그리고 현대 문명과 사회를 이해하는 데 필요한 과학 개념을 통합적으로 이해하는 것이 포함되어 있다.</li><li>ㄴ. ‘내용 체계’에서는 물리 및 화학 분야와 지구 과학 및 생명 과학 분야로 나누어, 제1부 ‘우주와 생명’에서는 지구 과학 및 생명 과학 분야를 다루고, 제2부 ‘과학과 문명’에서는 물리 및 화학 분야를 다루도록 하였다.</li><li>ㄷ. ‘학습 지도 계획’에는 과학적 소양 함양을 위해 특정 내용이나 개념의 도입이 필요하다면 학생들의 선수 학습이 다소 부족하더라도 흥미를 느끼면서 이해할 수 있도록 이야기 형식 등으로 제시하는 것이 포함되어 있다.</li><li>ㄹ. ‘평가의 주안점’으로 과학에 대한 흥미와 가치 인식, 과학 학습 참여의 적극성, 협동성, 과학적으로 문제를 해결하는 태도, 창의성 등을 평가하는 것이 포함되어 있다.</li></ol></div>
+    <div class="choices" style="--cols:5"><span class="">① ㄱ, ㄴ</span><span class="">② ㄱ, ㄹ</span><span class="">③ ㄴ, ㄷ</span><span class="">④ ㄱ, ㄷ, ㄹ</span><span class="">⑤ ㄴ, ㄷ, ㄹ</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>2009 개정 「과학」의 가장 큰 특징은 ‘융합(통합)형’이라는 점.</li><li>1부·2부가 분야별로 나뉘어 있다면 융합형이라 할 수 있을까?</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">4</span><span class="pts">2.0점</span><p>다음은 전자기 유도에 관한 [탐구 문제]와 [학생들의 가설]이다.</p>
+<div class="jaryo"><p><b>[탐구 문제]</b></p><p>가. 솔레노이드에 전류가 흐르면 자기장이 생기며, 그 크기가 전류의 세기에 비례하는 것을 관찰하시오.</p>
+<p>나. 솔레노이드에 자석을 넣고 뺄 때 전류가 유도되는 현상을 관찰하고, 발생한 유도 전류의 세기에 대한 가설을 세우고 그 이유를 설명하시오.</p>
+<p><b>[학생들의 가설]</b></p>
+<div class="tablewrap"><table><tr><th></th><th>가설</th><th>이유</th></tr>
+<tr><th>학생 A</th><td>자석의 속력이 클수록 솔레노이드에 유도되는 전류의 세기가 커질 것이다.</td><td>솔레노이드에서 자석이 움직일 때만 전류가 흘렀다는 점에서 자석의 속력이 전류와 관련이 있을 것이다.</td></tr>
+<tr><th>학생 B</th><td>자석의 세기가 셀수록 솔레노이드에 유도되는 전류의 세기가 커질 것이다.</td><td>솔레노이드에서 발생하는 자기장의 크기는 전류의 세기에 비례하였다. 자석을 넣고 뺄 때 솔레노이드에 유도되는 전류의 세기가 자기장의 크기와 관련이 있을 것이다.</td></tr></table></div></div>
+    
+    <p>학생들의 가설에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p></div>
+    <div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 학생 A의 가설은 조작 변인과 종속 변인의 관계로 서술되어 있지 않다.</li><li>ㄴ. 학생 B는 가설을 세우는 과정에서 귀추적 추론을 사용하였다.</li><li>ㄷ. 학생 A의 가설과 학생 B의 가설은 서로 모순되므로 모두 참이 될 수는 없다.</li></ol></div>
+    <div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄴ</span><span class="">③ ㄱ, ㄷ</span><span class="">④ ㄴ, ㄷ</span><span class="">⑤ ㄱ, ㄴ, ㄷ</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>A의 가설에서 조작 변인과 종속 변인을 찾아보자.</li><li>B는 [탐구 문제] 가의 결과(전류 → 자기장)를 어떻게 이용했나?</li><li>패러데이 법칙 \(\varepsilon=-N\,d\Phi/dt\)에서 속력과 자석 세기는 어떻게 들어가는가?</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <footer>중등교사 임용시험 물리 기출 학습지 · 객관식 묶음 · PTE-2012-MC-01-04 · <a href="../../../학습지.html">문항 지도</a></footer>
+</main>
+
+<script>
+  (function(){
+    var t=document.getElementById('hintToggle');
+    function apply(){document.querySelectorAll('.hints').forEach(function(h){h.classList.toggle('on',t.checked)})}
+    t.addEventListener('change',apply);apply();
+    var sc=document.getElementById('srcToggle'),sl=document.getElementById('srcLine');
+    sc.checked=false; function applySrc(){sl.classList.toggle('off',!sc.checked)}
+    sc.addEventListener('change',applySrc);applySrc();
+    var bt=document.getElementById('brgToggle');
+    function applyB(){document.querySelectorAll('.bridge').forEach(function(h){h.classList.toggle('on',bt.checked)})}
+    bt.addEventListener('change',applyB);applyB();
+    document.querySelectorAll('.omr').forEach(function(o){o.addEventListener('click',function(e){var b=e.target.closest('.b');if(!b)return;
+      o.querySelectorAll('.b').forEach(function(x){x.classList.toggle('on',x===b&&!x.classList.contains('on'))});});});
+  })();
+</script>
+<script>
+(function(){
+  var KEY='ptc-student-view', LIM={fs:[0.8,1.4],fig:[0.6,1.4]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    document.getElementById('vFs').textContent=Math.round(st.fs*100)+'%';
+    document.getElementById('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10;
+      st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply();
+    });
+  });
+  document.getElementById('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+})();
+</script>
+</body>
+</html>

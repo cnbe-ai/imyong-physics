@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2012-MC-13-16] 역학 객관식 4문항 — 못에 걸리는 진자·굴러가는 원통·마찰면 진입·판의 각운동량 · 학생용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#c9cfdb; --accent:#3b3486; --soft:#f4f2fb;
+    --grid:#e6e9f0; --paper:#ffffff; --bg:#eef0f4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    font-size:calc(10.5pt*var(--fs));line-height:1.55}
+
+  .page{width:210mm;min-height:297mm;margin:0 auto 24px;background:var(--paper);padding:12mm 14mm 11mm;
+    box-shadow:0 2px 14px rgba(0,0,0,.12);}
+  header.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2.5px solid var(--accent);padding-bottom:5px}
+  .kicker{font-size:calc(8.5pt*var(--fs));color:var(--muted);letter-spacing:.02em}
+  h1{margin:2px 0 0;font-size:calc(17pt*var(--fs));color:var(--accent);letter-spacing:-.01em}
+  h1 small{font-size:calc(10pt*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  .idbox{display:flex;gap:6px;flex:none;font-size:calc(9.5pt*var(--fs))}
+  .idbox span{border:1px solid var(--line);border-radius:4px;padding:3px 8px;min-width:18mm}
+  .idbox span.name{min-width:30mm}
+  .idbox span.pcode{border:0;background:var(--accent);color:#fff;font-weight:700;min-width:0;letter-spacing:.04em;white-space:nowrap}
+  .tags{margin:6px 0 0;display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:calc(8pt*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:1px 9px}
+
+  .problem{display:grid;grid-template-columns:minmax(0,1fr) calc(70mm*var(--fig));gap:5mm;margin-top:5mm}
+  .problem .text p{margin:0 0 2.5mm}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:4px;padding:0 7px;margin-right:4px;font-weight:700}
+  .cond{font-size:calc(9.3pt*var(--fs));color:var(--muted)}
+  .orig{font-size:calc(8pt*var(--fs));color:var(--muted);border-left:2px solid var(--line);padding-left:6px;margin-top:2mm;line-height:1.4;font-style:italic}
+  figure{margin:0;border:1px solid var(--line);border-radius:6px;padding:2mm;align-self:start}
+  figure>svg{width:100%;height:auto;display:block}
+  figcaption{font-size:calc(8pt*var(--fs));color:var(--muted);text-align:center}
+
+  .hints{display:none;margin-top:3mm;border:1px dashed var(--accent);border-radius:6px;padding:2mm 4mm;font-size:calc(9.2pt*var(--fs));background:var(--soft)}
+  .hints.on{display:block}
+  .kicker.off,.orig.off{display:none}
+  .sw.org{--c:#c2417a}
+  .hints b{color:var(--accent)}
+  .hints ol{margin:1mm 0 0;padding-left:5mm}
+
+  .work{flex:1;margin-top:4mm;border:1.2px solid var(--ink);border-radius:6px;position:relative;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:5mm 5mm;background-position:-1px -1px}
+  .work .lbl{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:calc(9pt*var(--fs));padding:1px 9px;border-radius:5px 0 6px 0}
+  .answer{margin-top:3.5mm;display:flex;align-items:center;gap:4mm;border:1.6px solid var(--accent);border-radius:6px;padding:3mm 4mm}
+  .answer .k{font-weight:700;color:var(--accent);white-space:nowrap}
+  .answer .blank{flex:1;border-bottom:1px solid var(--ink);height:8mm}
+  .answer .small{font-size:calc(8.5pt*var(--fs));color:var(--muted);white-space:nowrap}
+  footer{margin-top:2.5mm;font-size:9pt;color:var(--muted);text-align:center}
+
+  @media screen and (max-width:820px){
+    .page{width:100%;height:auto;min-height:0;padding:16px}
+    .problem{grid-template-columns:minmax(0,1fr)}
+    .work{min-height:120mm}
+    header.top{flex-direction:column;align-items:flex-start;gap:6px}
+    .answer{flex-wrap:wrap}
+  }
+  @page{size:A4;margin:0 0 8mm 0;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:9pt;color:#5b6475}}
+  @media print{
+    body{background:#fff}
+    .topbar{display:none}
+    .page{margin:0;box-shadow:none;width:210mm;height:289mm;padding-bottom:4mm}
+    footer{display:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  .topbar{position:sticky;top:0;z-index:30;font-size:14px;margin-bottom:18px;box-shadow:0 2px 10px rgba(30,25,80,.12);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:900px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .who{background:#ffd84d;color:#3b2f00;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:800;white-space:nowrap}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tb2{background:#fff;border-bottom:1px solid var(--line)}
+  .tb2 .in{min-height:52px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px;gap:8px 14px}
+  .grp{display:flex;align-items:center;gap:8px}
+  .grp .gl{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+  .sep{width:1px;height:26px;background:var(--line)}
+  .sw{--c:#3b3486;display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;font-weight:600;color:#3a4152;
+    padding:5px 12px 5px 6px;border-radius:999px;border:1px solid var(--line);background:#fafbfd}
+  .sw:hover{border-color:var(--c)}
+  .sw input{position:absolute;opacity:0;pointer-events:none}
+  .sw .trk{width:34px;height:20px;border-radius:999px;background:#cfd4de;position:relative;transition:background .15s;flex:none}
+  .sw .trk::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .15s}
+  .sw input:checked+.trk{background:var(--c)}
+  .sw input:checked+.trk::after{left:16px}
+  .sw input:focus-visible+.trk{outline:2px solid var(--c);outline-offset:2px}
+  .sw.src{--c:#2f6fd6} .sw.hint{--c:#1e8f4e}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .stepper button{font:inherit;width:30px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:50px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486}
+  .rst{font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:9px;padding:5px 10px;cursor:pointer}
+  .rst:hover{background:var(--soft);color:#3b3486}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:640px){
+    .tbtn .tx{display:none}
+    .tb1 .who{display:none}
+    .sep{display:none}
+  }
+
+  .intro{margin-top:4mm}
+  .intro p{margin:0 0 2mm}
+  .sec{margin-top:6mm;clear:both}
+  .sec h2{font-size:calc(14pt*var(--fs));color:var(--accent);border-bottom:1.5px solid var(--line);padding-bottom:2px;margin:0 0 3mm}
+  .sec h2 small{color:var(--muted);font-weight:500;font-size:.75em}
+  .secintro{overflow:hidden}
+  .secintro p{margin:0 0 2mm}
+  .fig{margin:0 0 3mm;border:1px solid var(--line);border-radius:6px;padding:2mm;background:#fff}
+  .fig img{width:100%;height:auto;display:block}
+  .fig figcaption{font-size:calc(8pt*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(70mm*var(--fig));max-width:48%;margin:0 0 3mm 5mm}
+  .part{margin-top:4mm;clear:both;break-inside:avoid}
+  .part .q p{display:inline;margin:0}
+  .part .q p+p{display:block;margin-top:1.5mm}
+  .pts{color:var(--muted);font-size:calc(8.5pt*var(--fs));margin-right:4px}
+  .part .work{margin-top:2.5mm;flex:none}
+  .part .answer{margin-top:2mm}
+  .hints{margin-top:2mm}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+  @media print{.part{break-inside:avoid}.sec h2{break-after:avoid}}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가: 자료·작성 방법·보기·선지·고교 디딤돌 */
+  .jaryo{border:1.2px solid var(--ink);border-radius:4px;padding:3mm 4mm 2mm;margin:4mm 0 3mm;position:relative}
+  .jaryo>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 3mm;font-size:.92em;font-weight:600;white-space:nowrap}
+  .jaryo p{margin:0 0 1.6mm}
+  .jaryo table{border-collapse:collapse;width:100%;font-size:.93em}
+  .jaryo td,.jaryo th{border:1px solid var(--line);padding:1.2mm 2mm;vertical-align:top}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:1mm 3mm}
+  .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:2px}
+  .method{border:1.2px solid var(--ink);border-radius:4px;padding:3mm 4mm 2mm;margin:4mm 0 3mm;position:relative;background:#fbfbfd}
+  .method>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:#fbfbfd;padding:0 3mm;font-size:.92em;font-weight:600}
+  .method ul{margin:0;padding-left:4.5mm;list-style:"◦ "}
+  .bogi{border:1.2px solid var(--ink);border-radius:3px;padding:3mm 4mm 1.5mm;margin:3mm 0;position:relative}
+  .bogi>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 3mm;font-size:.92em}
+  .bogi ol{list-style:none;margin:0;padding:0}
+  .bogi li{padding-left:5mm;text-indent:-5mm;margin-bottom:1.2mm}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:1.5mm 4mm;margin:3mm 0 2mm;padding-left:1mm}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr));gap:1mm 6mm}
+  .choices .h{font-weight:600;text-decoration:underline;text-underline-offset:2px;text-align:center}
+  .choices .c{text-align:center}
+  .omr{display:flex;align-items:center;gap:3mm;margin-top:2mm;font-size:.95em}
+  .omr span.b{display:inline-grid;place-items:center;width:7mm;height:7mm;border:1.3px solid var(--accent);border-radius:50%;color:var(--accent);font-weight:700;cursor:pointer;user-select:none}
+  .omr span.b.on{background:var(--accent);color:#fff}
+  .mcq{border-top:1.5px solid var(--line);padding-top:4mm;margin-top:6mm;break-inside:avoid}
+  .mcq:first-of-type{border-top:0;margin-top:3mm}
+  .mcq .qh{font-weight:700}
+  .bridge{display:none;margin-top:3mm;border:1px solid #e7b55a;border-left:4px solid #e0a020;border-radius:6px;padding:2mm 4mm;font-size:calc(9.2pt*var(--fs));background:#fff9ec}
+  .bridge.on{display:block}
+  .bridge b{color:#9a6400}
+  .bridge ul{margin:1mm 0 0;padding-left:5mm}
+  .sw.brg{--c:#d08a00}
+  .aud{font-size:calc(8pt*var(--fs));border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:1px 9px;font-weight:700}
+</style>
+<style>:root{--accent:#9a4d0b;--soft:#fbf1e6} .tb1{background:linear-gradient(100deg,#5e2c06 0%,#9a4d0b 45%,#d9822b 100%)!important} .tbtn.solid{color:#9a4d0b!important} .stepper button,.stepper output{color:#9a4d0b!important} #problem,.tb2 a[href="#problem"]{--c:#9a4d0b} .qnum{background:#9a4d0b} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code">PTE-2012-MC-13-16</span>
+    <span class="ttl">역학 객관식 4문항 — 못에 걸리는 진자·굴러가는 원통·마찰면 진입·판의 각운동량</span>
+    <span class="who">학생용 · 객관식 묶음</span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#mc/y=2012" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn" href="PTE-2012-MC-13-16_교사용.html" title="교사용 열기"><span>📘</span><span class="tx">교사용</span></a><a class="tbtn" href="../../../문항모음/2012_중등1차_물리_전공%20문제.pdf#page=6" target="_blank" title="원문 문제 PDF"><span>📄</span><span class="tx">원문 PDF</span></a>
+      <button class="tbtn solid" type="button" onclick="window.print()" title="A4 인쇄"><span>🖨</span><span class="tx">인쇄</span></button>
+    </div>
+  </div></div>
+  <div class="tb2"><div class="in">
+    <div class="grp">
+      <label class="sw src"><input type="checkbox" id="srcToggle"><span class="trk"></span>출처 보이기</label>
+      <label class="sw hint"><input type="checkbox" id="hintToggle"><span class="trk"></span>힌트 보이기</label>
+      <label class="sw brg"><input type="checkbox" id="brgToggle"><span class="trk"></span>고교 디딤돌</label>
+    </div>
+    <span class="sep"></span>
+    <div class="grp"><span class="gl">글자</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+    <div class="grp"><span class="gl">그림</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+    <button type="button" class="rst" id="vReset">↺ 초기화</button>
+  </div></div>
+</header>
+
+<main class="page">
+  <header class="top">
+    <div>
+      <div class="kicker off" id="srcLine">2012학년도 1차 13~16번 (내용학 묶음) · 원문 PDF 6쪽</div>
+      <h1>역학 객관식 4문항 — 못에 걸리는 진자·굴러가는 원통·마찰면 진입·판의 각운동량<small>Pendulum caught by a peg · rolling cylinder pulled by string · block entering rough surface · angular momentum of a plate</small></h1>
+      <div class="tags"><span class="aud">대상: 대학생(임용 준비) · 고등학생(심화)</span><span class="tag">객관식</span><span class="tag">원운동</span><span class="tag">회전</span><span class="tag">에너지</span><span class="tag">난이도 ★★★☆☆</span></div>
+    </div>
+    <div class="idbox"><span class="pcode" title="문항 ID">PTE-2012-MC-13-16</span><span>학번</span><span class="name">이름</span></div>
+  </header>
+  <div class="intro"><p>2012학년도 중등교사 임용시험 물리 1차(객관식) <b>13~16번</b> — 역학 문항 묶음. 각 문항에서 알맞은 답을 고르시오.</p><div class="bridge"><b>고교 디딤돌</b> — 고등학생은 이것부터 확인하자.<ul><li>원운동하는 물체에 필요한 구심력 \(mv^2/r\) — 반지름이 반으로 줄면 2배가 된다.</li><li>미끄러지지 않고 구르는 바퀴의 꼭대기는 중심보다 2배 빠르다(\(v_{top}=2v_{cm}\)).</li><li>힘이 거리에 따라 커지면 일은 ‘평균 힘 × 거리’(그래프 넓이)로 구한다.</li></ul></div></div>
+
+  <section class="mcq">
+    <div class="q"><span class="qnum">13</span><span class="pts">2.0점</span><p>그림은 점 P에 한쪽 끝이 고정된, 길이 \(2a\)인 실의 다른 쪽 끝에 질량 \(m\)인 물체가 매달려 연직면상에서 운동하는 것을 나타낸 것이다. 물체는 P와 같은 높이에서 가만히 놓아졌다. 실이 P로부터 길이 \(a\)인 연직 모서리에 걸리기 직전의 장력 크기는 \(T_1\)이고, 걸린 직후의 장력 크기는 \(T_2\)이다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2012/PTE-2012-MC-13-16_1.png" alt="13번: 점 P에 매단 길이 2a인 실, P 아래 a에 모서리(못) 원문"><figcaption>13번: 점 P에 매단 길이 2a인 실, P 아래 a에 모서리(못) <span class="scan">원문</span></figcaption></figure>
+    <p>장력 크기의 차\((T_2-T_1)\)는? (단, 중력가속도는 \(g\)이고, 물체의 크기와 실의 질량 및 공기 저항은 무시한다.)</p></div>
+    
+    <div class="choices" style="--cols:5"><span class="">① 0</span><span class="">② \(mg\)</span><span class="">③ \(2mg\)</span><span class="">④ \(3mg\)</span><span class="">⑤ \(4mg\)</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>가장 낮은 점에서의 속력은? (낙차 2a)</li><li>걸리기 직전과 직후, 무엇이 같고 무엇이 달라지는가?</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">14</span><span class="pts">2.5점</span><p>그림은 수평인 탁자에 놓인, 속이 차고 밀도가 균일한 원통이 가느다란 실로 도르래를 통해 추와 연결되어 운동하는 모습을 나타낸 것이다. 원통과 추의 질량은 각각 \(2m\), \(m\)이다. 추가 연직 아래로 운동하는 동안 원통에 감긴 실이 수평면과 평행하게 풀리면서 원통은 수평면을 따라 오른쪽으로 미끄러짐 없이 구른다. 두 물체가 운동하는 동안 실의 장력의 크기는 \(T=\dfrac37mg\)이다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2012/PTE-2012-MC-13-16_2.png" alt="14번: 탁자 위 원통(2m)과 도르래·추(m) 원문"><figcaption>14번: 탁자 위 원통(2m)과 도르래·추(m) <span class="scan">원문</span></figcaption></figure>
+    <p>이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 실의 질량 및 도르래와 실 사이의 마찰은 무시한다. 실과 원통 중심축은 수직이며, 중력가속도는 \(g\)이다.) [2.5점]</p></div>
+    <div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 추의 이동 거리는 원통 질량중심의 이동 거리의 2배이다.</li><li>ㄴ. 수평면이 원통에 작용하는 마찰력의 방향은 오른쪽이다.</li><li>ㄷ. 원통 질량중심의 가속도의 크기는 \(\dfrac27g\)이다.</li></ol></div>
+    <div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄷ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄴ, ㄷ</span><span class="">⑤ ㄱ, ㄴ, ㄷ</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>실은 원통의 꼭대기에서 수평으로 풀린다. 꼭대기 점의 속력은?</li><li>원통에 대해 병진·회전 방정식을 세우고, 마찰력 f를 오른쪽(+)으로 가정해 부호를 확인.</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">15</span><span class="pts">2.0점</span><p>그림은 길이가 \(L\)이고 밀도가 균일한 직육면체 강체가 마찰이 없는 수평면에서 일정한 속력 \(v\)로 오른쪽으로 미끄러지다가, 마찰이 있는 수평면에서 정지한 것을 나타낸 것이다. 마찰이 있는 수평면과 강체 사이의 운동마찰계수는 \(\mu_k\)이다. 강체의 왼쪽 모서리는 두 수평면의 경계선과 일치하였다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2012/PTE-2012-MC-13-16_3.png" alt="15번: 마찰이 없는 면에서 마찰이 있는 면으로 미끄러지는 직육면체 원문"><figcaption>15번: 마찰이 없는 면에서 마찰이 있는 면으로 미끄러지는 직육면체 <span class="scan">원문</span></figcaption></figure>
+    <p>\(\mu_k\)는? (단, 중력가속도는 \(g\)이고, 공기 저항은 무시하며, 두 수평면의 높이는 같고, 강체는 직선운동을 한다.)</p></div>
+    
+    <div class="choices" style="--cols:5"><span class="">① \(\dfrac{v^2}{gL}\)</span><span class="">② \(\dfrac{v^2}{2gL}\)</span><span class="">③ \(\dfrac{v^2}{3gL}\)</span><span class="">④ \(\dfrac{v^2}{4gL}\)</span><span class="">⑤ \(\dfrac{v^2}{5gL}\)</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>강체가 x만큼 들어갔을 때 마찰면이 받치는 무게는?</li><li>마찰력–거리 그래프의 넓이 = 마찰력이 한 일.</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">16</span><span class="pts">2.0점</span><p>그림은 질량이 \(m\), 각 변의 길이가 \(a\)와 \(2a\)이고 밀도가 균일한 직사각형 강체 판이 \(y\)축에 대해 일정한 각속도 \(\vec\omega=\omega\hat y\)로 회전하는 것을 나타낸 것이다. 회전하는 동안 길이가 \(a\)인 변은 \(y\)축 상에, \(2a\)인 변은 \(xz\) 평면상에 있다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2012/PTE-2012-MC-13-16_4.png" alt="16번: y축에 대해 회전하는 직사각형 판(a × 2a) 원문"><figcaption>16번: y축에 대해 회전하는 직사각형 판(a × 2a) <span class="scan">원문</span></figcaption></figure>
+    <p>그림과 같이 강체 판이 \(xy\) 평면(1사분면)에 있는 순간, 원점에 대한 강체 판의 각운동량 \(\vec L\)은? (단, 강체 판의 두께는 무시한다.)</p></div>
+    
+    <div class="choices" style="--cols:2"><span class="">① \(ma^2\omega\left(-\dfrac12\hat x+\dfrac43\hat y\right)\)</span><span class="">② \(ma^2\omega\left(-\dfrac13\hat x+\dfrac43\hat y\right)\)</span><span class="">③ \(\dfrac43ma^2\omega\hat y\)</span><span class="">④ \(ma^2\omega\left(\dfrac13\hat x+\dfrac43\hat y\right)\)</span><span class="">⑤ \(ma^2\omega\left(\dfrac12\hat x+\dfrac43\hat y\right)\)</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>\(\vec L=\int\vec r\times(\vec\omega\times\vec r)\,dm\) 또는 \(L_i=I_{ij}\omega_j\).</li><li>\(I_{yy}=\int(x^2+z^2)dm\), \(I_{xy}=-\int xy\,dm\).</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <footer>중등교사 임용시험 물리 기출 학습지 · 객관식 묶음 · PTE-2012-MC-13-16 · <a href="../../../학습지.html">문항 지도</a></footer>
+</main>
+
+<script>
+  (function(){
+    var t=document.getElementById('hintToggle');
+    function apply(){document.querySelectorAll('.hints').forEach(function(h){h.classList.toggle('on',t.checked)})}
+    t.addEventListener('change',apply);apply();
+    var sc=document.getElementById('srcToggle'),sl=document.getElementById('srcLine');
+    sc.checked=false; function applySrc(){sl.classList.toggle('off',!sc.checked)}
+    sc.addEventListener('change',applySrc);applySrc();
+    var bt=document.getElementById('brgToggle');
+    function applyB(){document.querySelectorAll('.bridge').forEach(function(h){h.classList.toggle('on',bt.checked)})}
+    bt.addEventListener('change',applyB);applyB();
+    document.querySelectorAll('.omr').forEach(function(o){o.addEventListener('click',function(e){var b=e.target.closest('.b');if(!b)return;
+      o.querySelectorAll('.b').forEach(function(x){x.classList.toggle('on',x===b&&!x.classList.contains('on'))});});});
+  })();
+</script>
+<script>
+(function(){
+  var KEY='ptc-student-view', LIM={fs:[0.8,1.4],fig:[0.6,1.4]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    document.getElementById('vFs').textContent=Math.round(st.fs*100)+'%';
+    document.getElementById('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10;
+      st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply();
+    });
+  });
+  document.getElementById('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+})();
+</script>
+</body>
+</html>

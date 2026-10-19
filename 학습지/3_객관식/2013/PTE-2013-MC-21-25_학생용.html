@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[PTE-2013-MC-21-25] 전자기 객관식 5문항 — 정상 전류·운동 기전력·자화체의 자기장·변위 전류·교류 공명 · 학생용</title>
+<script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --fs:1; --fig:1;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#c9cfdb; --accent:#3b3486; --soft:#f4f2fb;
+    --grid:#e6e9f0; --paper:#ffffff; --bg:#eef0f4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    font-size:calc(10.5pt*var(--fs));line-height:1.55}
+
+  .page{width:210mm;min-height:297mm;margin:0 auto 24px;background:var(--paper);padding:12mm 14mm 11mm;
+    box-shadow:0 2px 14px rgba(0,0,0,.12);}
+  header.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2.5px solid var(--accent);padding-bottom:5px}
+  .kicker{font-size:calc(8.5pt*var(--fs));color:var(--muted);letter-spacing:.02em}
+  h1{margin:2px 0 0;font-size:calc(17pt*var(--fs));color:var(--accent);letter-spacing:-.01em}
+  h1 small{font-size:calc(10pt*var(--fs));color:var(--muted);font-weight:500;margin-left:6px}
+  .idbox{display:flex;gap:6px;flex:none;font-size:calc(9.5pt*var(--fs))}
+  .idbox span{border:1px solid var(--line);border-radius:4px;padding:3px 8px;min-width:18mm}
+  .idbox span.name{min-width:30mm}
+  .idbox span.pcode{border:0;background:var(--accent);color:#fff;font-weight:700;min-width:0;letter-spacing:.04em;white-space:nowrap}
+  .tags{margin:6px 0 0;display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:calc(8pt*var(--fs));background:var(--soft);color:var(--accent);border-radius:20px;padding:1px 9px}
+
+  .problem{display:grid;grid-template-columns:minmax(0,1fr) calc(70mm*var(--fig));gap:5mm;margin-top:5mm}
+  .problem .text p{margin:0 0 2.5mm}
+  .qnum{display:inline-block;background:var(--accent);color:#fff;border-radius:4px;padding:0 7px;margin-right:4px;font-weight:700}
+  .cond{font-size:calc(9.3pt*var(--fs));color:var(--muted)}
+  .orig{font-size:calc(8pt*var(--fs));color:var(--muted);border-left:2px solid var(--line);padding-left:6px;margin-top:2mm;line-height:1.4;font-style:italic}
+  figure{margin:0;border:1px solid var(--line);border-radius:6px;padding:2mm;align-self:start}
+  figure>svg{width:100%;height:auto;display:block}
+  figcaption{font-size:calc(8pt*var(--fs));color:var(--muted);text-align:center}
+
+  .hints{display:none;margin-top:3mm;border:1px dashed var(--accent);border-radius:6px;padding:2mm 4mm;font-size:calc(9.2pt*var(--fs));background:var(--soft)}
+  .hints.on{display:block}
+  .kicker.off,.orig.off{display:none}
+  .sw.org{--c:#c2417a}
+  .hints b{color:var(--accent)}
+  .hints ol{margin:1mm 0 0;padding-left:5mm}
+
+  .work{flex:1;margin-top:4mm;border:1.2px solid var(--ink);border-radius:6px;position:relative;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:5mm 5mm;background-position:-1px -1px}
+  .work .lbl{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:calc(9pt*var(--fs));padding:1px 9px;border-radius:5px 0 6px 0}
+  .answer{margin-top:3.5mm;display:flex;align-items:center;gap:4mm;border:1.6px solid var(--accent);border-radius:6px;padding:3mm 4mm}
+  .answer .k{font-weight:700;color:var(--accent);white-space:nowrap}
+  .answer .blank{flex:1;border-bottom:1px solid var(--ink);height:8mm}
+  .answer .small{font-size:calc(8.5pt*var(--fs));color:var(--muted);white-space:nowrap}
+  footer{margin-top:2.5mm;font-size:9pt;color:var(--muted);text-align:center}
+
+  @media screen and (max-width:820px){
+    .page{width:100%;height:auto;min-height:0;padding:16px}
+    .problem{grid-template-columns:minmax(0,1fr)}
+    .work{min-height:120mm}
+    header.top{flex-direction:column;align-items:flex-start;gap:6px}
+    .answer{flex-wrap:wrap}
+  }
+  @page{size:A4;margin:0 0 8mm 0;
+    @bottom-center{content:counter(page) " / " counter(pages);font-size:9pt;color:#5b6475}}
+  @media print{
+    body{background:#fff}
+    .topbar{display:none}
+    .page{margin:0;box-shadow:none;width:210mm;height:289mm;padding-bottom:4mm}
+    footer{display:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+
+  /* ---------- 상단 메뉴 ---------- */
+  .topbar{position:sticky;top:0;z-index:30;font-size:14px;margin-bottom:18px;box-shadow:0 2px 10px rgba(30,25,80,.12);
+    font-family:"Pretendard","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+  .tb1{background:linear-gradient(100deg,#2c2670 0%,#3b3486 45%,#6a5fd6 100%);color:#fff}
+  .tb1 .in,.tb2 .in{max-width:900px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+  .tb1 .in{height:54px}
+  .tb1 .code{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700;white-space:nowrap}
+  .tb1 .ttl{font-weight:800;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .tb1 .who{background:#ffd84d;color:#3b2f00;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:800;white-space:nowrap}
+  .tb1 .acts{margin-left:auto;display:flex;gap:6px;flex:none}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+  .tbtn:hover{background:rgba(255,255,255,.24)}
+  .tbtn.solid{background:#fff;color:#3b3486;border-color:#fff}
+  .tbtn.solid:hover{background:#efedff}
+  .tb2{background:#fff;border-bottom:1px solid var(--line)}
+  .tb2 .in{min-height:52px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px;gap:8px 14px}
+  .grp{display:flex;align-items:center;gap:8px}
+  .grp .gl{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+  .sep{width:1px;height:26px;background:var(--line)}
+  .sw{--c:#3b3486;display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;font-weight:600;color:#3a4152;
+    padding:5px 12px 5px 6px;border-radius:999px;border:1px solid var(--line);background:#fafbfd}
+  .sw:hover{border-color:var(--c)}
+  .sw input{position:absolute;opacity:0;pointer-events:none}
+  .sw .trk{width:34px;height:20px;border-radius:999px;background:#cfd4de;position:relative;transition:background .15s;flex:none}
+  .sw .trk::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .15s}
+  .sw input:checked+.trk{background:var(--c)}
+  .sw input:checked+.trk::after{left:16px}
+  .sw input:focus-visible+.trk{outline:2px solid var(--c);outline-offset:2px}
+  .sw.src{--c:#2f6fd6} .sw.hint{--c:#1e8f4e}
+  .stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .stepper button{font:inherit;width:30px;height:30px;border:0;background:#f6f5ff;color:#3b3486;font-size:17px;font-weight:700;cursor:pointer}
+  .stepper button:hover{background:#e8e5ff}
+  .stepper output{min-width:50px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:#3b3486}
+  .rst{font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:9px;padding:5px 10px;cursor:pointer}
+  .rst:hover{background:var(--soft);color:#3b3486}
+  @media (max-width:560px){
+    .tb1 .acts{flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+    .tb1 .acts::-webkit-scrollbar{display:none}
+    .tb1 .ttl{display:none}
+  }
+  @media (max-width:640px){
+    .tbtn .tx{display:none}
+    .tb1 .who{display:none}
+    .sep{display:none}
+  }
+
+  .intro{margin-top:4mm}
+  .intro p{margin:0 0 2mm}
+  .sec{margin-top:6mm;clear:both}
+  .sec h2{font-size:calc(14pt*var(--fs));color:var(--accent);border-bottom:1.5px solid var(--line);padding-bottom:2px;margin:0 0 3mm}
+  .sec h2 small{color:var(--muted);font-weight:500;font-size:.75em}
+  .secintro{overflow:hidden}
+  .secintro p{margin:0 0 2mm}
+  .fig{margin:0 0 3mm;border:1px solid var(--line);border-radius:6px;padding:2mm;background:#fff}
+  .fig img{width:100%;height:auto;display:block}
+  .fig figcaption{font-size:calc(8pt*var(--fs));color:var(--muted);text-align:center}
+  .fig.right{float:right;width:calc(70mm*var(--fig));max-width:48%;margin:0 0 3mm 5mm}
+  .part{margin-top:4mm;clear:both;break-inside:avoid}
+  .part .q p{display:inline;margin:0}
+  .part .q p+p{display:block;margin-top:1.5mm}
+  .pts{color:var(--muted);font-size:calc(8.5pt*var(--fs));margin-right:4px}
+  .part .work{margin-top:2.5mm;flex:none}
+  .part .answer{margin-top:2mm}
+  .hints{margin-top:2mm}
+  mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+  @media print{.part{break-inside:avoid}.sec h2{break-after:avoid}}
+
+
+  /* 경시대회 학습지 추가: 확장 문항 · 원본 해답 그림 */
+  .qnum.ext{background:#a87a00}
+  .extbox{border-top:2px dashed #e0c070;margin-top:7mm;padding-top:2mm}
+  .extbox>.extlab{display:inline-block;font-weight:800;color:#a87a00;font-size:.9em;letter-spacing:.03em}
+  .scan{display:inline-block;font-size:.85em;font-style:normal;color:#b5541c;border:1px solid #f0c9ad;border-radius:4px;padding:0 4px;margin-left:3px}
+
+  /* 임용 학습지 추가: 자료·작성 방법·보기·선지·고교 디딤돌 */
+  .jaryo{border:1.2px solid var(--ink);border-radius:4px;padding:3mm 4mm 2mm;margin:4mm 0 3mm;position:relative}
+  .jaryo>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 3mm;font-size:.92em;font-weight:600;white-space:nowrap}
+  .jaryo p{margin:0 0 1.6mm}
+  .jaryo table{border-collapse:collapse;width:100%;font-size:.93em}
+  .jaryo td,.jaryo th{border:1px solid var(--line);padding:1.2mm 2mm;vertical-align:top}
+  .dlg{display:grid;grid-template-columns:auto 1fr;gap:1mm 3mm}
+  .dlg b{white-space:nowrap}
+  .ul{text-decoration:underline;text-underline-offset:2px}
+  .method{border:1.2px solid var(--ink);border-radius:4px;padding:3mm 4mm 2mm;margin:4mm 0 3mm;position:relative;background:#fbfbfd}
+  .method>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:#fbfbfd;padding:0 3mm;font-size:.92em;font-weight:600}
+  .method ul{margin:0;padding-left:4.5mm;list-style:"◦ "}
+  .bogi{border:1.2px solid var(--ink);border-radius:3px;padding:3mm 4mm 1.5mm;margin:3mm 0;position:relative}
+  .bogi>.jt{position:absolute;top:-2.6mm;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 3mm;font-size:.92em}
+  .bogi ol{list-style:none;margin:0;padding:0}
+  .bogi li{padding-left:5mm;text-indent:-5mm;margin-bottom:1.2mm}
+  .choices{display:grid;grid-template-columns:repeat(var(--cols,5),minmax(0,1fr));gap:1.5mm 4mm;margin:3mm 0 2mm;padding-left:1mm}
+  .choices.tbl{grid-template-columns:auto repeat(var(--cols,2),minmax(0,1fr));gap:1mm 6mm}
+  .choices .h{font-weight:600;text-decoration:underline;text-underline-offset:2px;text-align:center}
+  .choices .c{text-align:center}
+  .omr{display:flex;align-items:center;gap:3mm;margin-top:2mm;font-size:.95em}
+  .omr span.b{display:inline-grid;place-items:center;width:7mm;height:7mm;border:1.3px solid var(--accent);border-radius:50%;color:var(--accent);font-weight:700;cursor:pointer;user-select:none}
+  .omr span.b.on{background:var(--accent);color:#fff}
+  .mcq{border-top:1.5px solid var(--line);padding-top:4mm;margin-top:6mm;break-inside:avoid}
+  .mcq:first-of-type{border-top:0;margin-top:3mm}
+  .mcq .qh{font-weight:700}
+  .bridge{display:none;margin-top:3mm;border:1px solid #e7b55a;border-left:4px solid #e0a020;border-radius:6px;padding:2mm 4mm;font-size:calc(9.2pt*var(--fs));background:#fff9ec}
+  .bridge.on{display:block}
+  .bridge b{color:#9a6400}
+  .bridge ul{margin:1mm 0 0;padding-left:5mm}
+  .sw.brg{--c:#d08a00}
+  .aud{font-size:calc(8pt*var(--fs));border:1px solid var(--accent);color:var(--accent);border-radius:20px;padding:1px 9px;font-weight:700}
+</style>
+<style>:root{--accent:#9a4d0b;--soft:#fbf1e6} .tb1{background:linear-gradient(100deg,#5e2c06 0%,#9a4d0b 45%,#d9822b 100%)!important} .tbtn.solid{color:#9a4d0b!important} .stepper button,.stepper output{color:#9a4d0b!important} #problem,.tb2 a[href="#problem"]{--c:#9a4d0b} .qnum{background:#9a4d0b} .qnum.ext{background:#a87a00}</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="tb1"><div class="in">
+    <span class="code">PTE-2013-MC-21-25</span>
+    <span class="ttl">전자기 객관식 5문항 — 정상 전류·운동 기전력·자화체의 자기장·변위 전류·교류 공명</span>
+    <span class="who">학생용 · 객관식 묶음</span>
+    <div class="acts">
+      <a class="tbtn" href="../../../index.html" title="대문(처음 화면)으로"><span class="ic">🏠</span><span class="tx">대문</span></a><a class="tbtn" href="../../../임용고시문제.html#mc/y=2013" title="문항 지도(대시보드)로"><span class="ic">🗺</span><span class="tx">문항 지도</span></a><a class="tbtn" href="../../../학습지.html" title="학습지 목록으로"><span class="ic">🗂</span><span class="tx">학습지 목록</span></a>
+      <a class="tbtn" href="PTE-2013-MC-21-25_교사용.html" title="교사용 열기"><span>📘</span><span class="tx">교사용</span></a><a class="tbtn" href="../../../문항모음/2013_중등1차_물리_전공%20문제.pdf#page=7" target="_blank" title="원문 문제 PDF"><span>📄</span><span class="tx">원문 PDF</span></a>
+      <button class="tbtn solid" type="button" onclick="window.print()" title="A4 인쇄"><span>🖨</span><span class="tx">인쇄</span></button>
+    </div>
+  </div></div>
+  <div class="tb2"><div class="in">
+    <div class="grp">
+      <label class="sw src"><input type="checkbox" id="srcToggle"><span class="trk"></span>출처 보이기</label>
+      <label class="sw hint"><input type="checkbox" id="hintToggle"><span class="trk"></span>힌트 보이기</label>
+      <label class="sw brg"><input type="checkbox" id="brgToggle"><span class="trk"></span>고교 디딤돌</label>
+    </div>
+    <span class="sep"></span>
+    <div class="grp"><span class="gl">글자</span><span class="stepper zoomctl"><button type="button" data-k="fs" data-d="-1" aria-label="글자 작게">−</button><output id="vFs">100%</output><button type="button" data-k="fs" data-d="1" aria-label="글자 크게">+</button></span></div>
+    <div class="grp"><span class="gl">그림</span><span class="stepper zoomctl"><button type="button" data-k="fig" data-d="-1" aria-label="그림 작게">−</button><output id="vFig">100%</output><button type="button" data-k="fig" data-d="1" aria-label="그림 크게">+</button></span></div>
+    <button type="button" class="rst" id="vReset">↺ 초기화</button>
+  </div></div>
+</header>
+
+<main class="page">
+  <header class="top">
+    <div>
+      <div class="kicker off" id="srcLine">2013학년도 1차 21~25번 (내용학 묶음) · 원문 PDF 7쪽</div>
+      <h1>전자기 객관식 5문항 — 정상 전류·운동 기전력·자화체의 자기장·변위 전류·교류 공명<small>Steady current in layered media · motional emf of rotating rods · magnetized hollow cylinder · displacement current & Poynting · RLC resonance</small></h1>
+      <div class="tags"><span class="aud">대상: 대학생(임용 준비) · 고등학생(심화)</span><span class="tag">객관식</span><span class="tag">전자기</span><span class="tag">회로</span><span class="tag">유도</span><span class="tag">난이도 ★★★☆☆</span></div>
+    </div>
+    <div class="idbox"><span class="pcode" title="문항 ID">PTE-2013-MC-21-25</span><span>학번</span><span class="name">이름</span></div>
+  </header>
+  <div class="intro"><p>2013학년도 중등교사 임용시험 물리 1차(객관식) <b>21~25번</b> — 전자기 문항 묶음. 각 문항에서 알맞은 답을 고르시오.</p><div class="bridge"><b>고교 디딤돌</b> — 고등학생은 이것부터 확인하자.<ul><li>직렬로 연결된 저항에는 같은 전류가 흐르고 전압은 저항에 비례해 나뉜다.</li><li>자기장 속에서 움직이는 도선 속 전하는 \(q\vec v\times\vec B\)의 힘을 받는다 → 운동 기전력.</li><li>교류 회로에서 코일·축전기의 리액턴스는 진동수에 따라 바뀌고, \(f_0=\dfrac{1}{2\pi\sqrt{LC}}\)에서 서로 상쇄된다(공명).</li></ul></div></div>
+
+  <section class="mcq">
+    <div class="q"><span class="qnum">21</span><span class="pts">1.5점</span><p>그림은 면적이 같은 두 개의 평행한 원형 도체판 사이에 전기 전도도 \(\sigma_1\), 두께 \(d_1\)인 물질 1과 전기 전도도 \(\sigma_2\), 두께 \(d_2\)인 물질 2가 각각 채워져 있는 것을 나타낸 것이다. 두 도체판 사이의 전압은 \(V\)이다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2013/PTE-2013-MC-21-25_1.svg" alt="21번: 두 원형 도체판 사이의 물질 1(σ₁, d₁)과 물질 2(σ₂, d₂), 전압 V (다시 그림)"><figcaption>21번: 두 원형 도체판 사이의 물질 1(σ₁, d₁)과 물질 2(σ₂, d₂), 전압 V (다시 그림)</figcaption></figure>
+    <p>전류가 정상상태로 흐를 때, 도체판 사이의 전류밀도 크기는? (단, 두 물질은 모두 균일하고 등방적이며 선형적이고, 가장자리 효과는 무시한다.)</p></div>
+    
+    <div class="choices" style="--cols:3"><span class="">① \(\dfrac{V\sigma_1\sigma_2}{d_1\sigma_2+d_2\sigma_1}\)</span><span class="">② \(\dfrac{V(\sigma_1+\sigma_2)^2}{d_1\sigma_2+d_2\sigma_1}\)</span><span class="">③ \(\dfrac{V\sigma_1\sigma_2}{d_1\sigma_1+d_2\sigma_2}\)</span><span class="">④ \(V\left(\dfrac{\sigma_1}{d_1}+\dfrac{\sigma_2}{d_2}\right)\)</span><span class="">⑤ \(V\left(\dfrac{\sigma_1}{d_2}+\dfrac{\sigma_2}{d_1}\right)\)</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>정상 상태에서 경계면에 전하가 계속 쌓이지 않으려면 두 층의 J는?</li><li>각 층: \(J=\sigma E\), 전압의 합 \(E_1d_1+E_2d_2=V\).</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">22</span><span class="pts">2.0점</span><p>그림과 같이 길이가 각각 \(a\), \(b\)인 두 도체 막대가 두 원형 도체 고리와 접촉하며, 두 고리를 수직으로 통과하는 크기가 \(B\)인 균일한 자기장 속에서 두 고리의 중심 O, O′을 중심으로 회전한다. 두 막대의 각속도의 방향은 같고, 크기는 모두 \(\omega\)로 일정하다. O, O′은 도선으로 연결되어 있고, 두 고리는 저항과 도선으로 연결되어 회로를 형성하며, 저항 양단의 점 P, Q에서 전위는 각각 \(V_{\rm P}\), \(V_{\rm Q}\)이다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2013/PTE-2013-MC-21-25_2.png" alt="22번: 균일한 자기장 B 속에서 고리 위를 회전하는 막대 a, b와 저항 원문"><figcaption>22번: 균일한 자기장 B 속에서 고리 위를 회전하는 막대 a, b와 저항 <span class="scan">원문</span></figcaption></figure>
+    <p>\((V_{\rm P}-V_{\rm Q})\)는? (단, 두 고리는 고정되어 있으며, 막대와 고리의 굵기는 무시한다.)</p></div>
+    
+    <div class="choices" style="--cols:2"><span class="">① \(\tfrac12\omega B(a^2-b^2)\)</span><span class="">② \(\tfrac12\omega B(b^2-a^2)\)</span><span class="">③ \(\omega B(a^2-b^2)\)</span><span class="">④ \(\omega B(b^2-a^2)\)</span><span class="">⑤ \(\tfrac32\omega B(a^2-b^2)\)</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>막대 위 거리 \(r\)인 점의 속력 \(\omega r\) → \(\mathcal E=\int_0^L\omega rB\,dr\).</li><li>그림: B는 아래 방향, 막대는 위에서 볼 때 반시계 방향 회전 → 양전하는 어느 쪽으로 밀리는가?</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">23</span><span class="pts">2.0점</span><p>그림은 내부와 외부 반지름이 각각 \(a\), \(b\,(a\lt b)\)인 무한히 길고 속이 빈 원통형 자화체를 나타낸 것이며, 자화체의 자화(magnetization)의 방향은 원통의 중심축과 나란하고 크기는 일정하다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2013/PTE-2013-MC-21-25_3.png" alt="23번: 축 방향으로 자화된 속이 빈 원통형 자화체(반지름 a, b) 원문"><figcaption>23번: 축 방향으로 자화된 속이 빈 원통형 자화체(반지름 a, b) <span class="scan">원문</span></figcaption></figure><figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2013/PTE-2013-MC-21-25_4.png" alt="23번 선지: 중심축으로부터의 거리 r에 따른 B 그래프 ①~⑤ 원문"><figcaption>23번 선지: 중심축으로부터의 거리 r에 따른 B 그래프 ①~⑤ <span class="scan">원문</span></figcaption></figure>
+    <p>자화체의 중심축으로부터 거리 \(r\)에 따른 자기장의 크기 \(B\)를 가장 적절히 나타낸 것은? (선지는 위 그래프 ①~⑤)</p></div>
+    
+    <div class="choices" style="--cols:5"><span class="">① 그래프 ①</span><span class="">② 그래프 ②</span><span class="">③ 그래프 ③</span><span class="">④ 그래프 ④</span><span class="">⑤ 그래프 ⑤</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>균일 자화 → 속박 부피 전류 \(\nabla\times\vec M=0\), 속박 표면 전류 \(\vec K_b=\vec M\times\hat n\).</li><li>바깥면과 안쪽면의 표면 전류 방향은? → 긴 솔레노이드 두 개.</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">24</span><span class="pts">2.0점</span><p>그림은 시간에 따라 변하는 전류가 흐르는 도선이 연결된 원형 도체판으로 이루어진 평행판 축전기에서, 시간 \(t\)일 때의 전류 \(I(t)\)와 도체판의 전하량 \(Q(t)\)를 나타낸 것이다. 두 도체판의 반지름은 \(R\)로 같고 중심축이 일치한다. 두 도체판 사이의 간격은 \(d(\ll R)\)이고 유전체로 채워져 있다. 점 P는 중심축으로부터 거리 \(r(\lt R)\)인 두 도체판 사이의 가운데 지점이다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2013/PTE-2013-MC-21-25_5.png" alt="24번: 전류 I(t)가 흐르는 원형 도체판 축전기(반지름 R, 간격 d, 유전체) 원문"><figcaption>24번: 전류 I(t)가 흐르는 원형 도체판 축전기(반지름 R, 간격 d, 유전체) <span class="scan">원문</span></figcaption></figure>
+    <p>시간 \(t\)일 때, 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 유전체는 균일하고 등방적이며 선형적이고, 유전율, 투자율은 각각 \(\varepsilon\), \(\mu\)이며, 가장자리 효과는 무시한다.)</p></div>
+    <div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. P에서 전기 변위(electric displacement) \(\vec D\)의 크기는 \(\dfrac{Q(t)}{\pi r^2}\)이다.</li><li>ㄴ. P에서 자기 세기(magnetic intensity) \(\vec H\)의 크기는 \(\dfrac{rI(t)}{2\pi R^2}\)이다.</li><li>ㄷ. 반지름 \(R\)인 유전체 옆면 전체를 통과하는 단위 시간당 전자기 에너지의 흐름은 \(\dfrac{I(t)Q(t)}{2\pi^2\varepsilon R^3}\)이다.</li></ol></div>
+    <div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄴ</span><span class="">③ ㄱ, ㄴ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>D는 자유 전하의 면밀도로 정해진다 — 판 전체에 Q가 고르게 퍼져 있다.</li><li>반지름 r인 원이 감싸는 변위 전류는 전체의 몇 배인가?</li><li>옆면 전체의 에너지 흐름 = 포인팅 벡터 × 옆면 넓이 \(2\pi Rd\).</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <section class="mcq">
+    <div class="q"><span class="qnum">25</span><span class="pts">2.0점</span><p>그림 (가)는 블랙박스에 사인파(sine wave) 신호발생기가 연결된 것을 나타낸 것이다. 블랙박스 안에는 저항 \(R\)인 저항기, 전기 용량 \(C\)인 축전기, 자체 인덕턴스 \(L\)인 코일로 이루어진 회로가 들어 있다. 그림 (나)는 신호발생기의 진동수를 변화시키면서 블랙박스의 출력전압을 측정한 결과를 나타낸 것이다. (나)에서 \(f_0\)은 \(\dfrac{1}{2\pi\sqrt{LC}}\)이다.</p>
+    <figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2013/PTE-2013-MC-21-25_6.png" alt="25번: (가) 신호발생기와 블랙박스, (나) 진동수에 따른 출력 전압 원문"><figcaption>25번: (가) 신호발생기와 블랙박스, (나) 진동수에 따른 출력 전압 <span class="scan">원문</span></figcaption></figure><figure class="fig" style="max-width:calc(105mm*var(--fig));margin:2mm auto"><img src="../../그림/2013/PTE-2013-MC-21-25_7.png" alt="25번 보기: 회로 ㄱ, ㄴ, ㄷ 원문"><figcaption>25번 보기: 회로 ㄱ, ㄴ, ㄷ <span class="scan">원문</span></figcaption></figure>
+    <p>블랙박스 안의 전기회로로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 블랙박스의 입력전압은 진동수에 관계없이 항상 일정하며, 입력 및 출력전압은 실효전압이다.)</p></div>
+    <div class="bogi"><span class="jt">&lt;보 기&gt;</span><ol><li>ㄱ. 직렬 R–L–C, 출력 = R 양단 (위 보기 그림 ㄱ)</li><li>ㄴ. 직렬 R–L–C, 출력 = L–C 양단 (보기 그림 ㄴ)</li><li>ㄷ. R과 병렬 L‖C의 직렬, 출력 = R 양단 (보기 그림 ㄷ)</li></ol></div>
+    <div class="choices" style="--cols:5"><span class="">① ㄱ</span><span class="">② ㄴ</span><span class="">③ ㄷ</span><span class="">④ ㄱ, ㄷ</span><span class="">⑤ ㄴ, ㄷ</span></div>
+    <div class="hints"><b>생각의 실마리</b><ol><li>(나)는 \(f_0\)에서 봉우리 — 출력이 최대.</li><li>직렬 LC의 임피던스는 \(f_0\)에서 0, 병렬 LC는 \(f_0\)에서 무한대.</li></ol></div>
+    
+    <div class="work" style="min-height:35mm"><span class="lbl">풀이</span></div>
+    <div class="omr"><b>답</b><span class="b">①</span><span class="b">②</span><span class="b">③</span><span class="b">④</span><span class="b">⑤</span><span style="color:var(--muted);font-size:.85em">(눌러서 표시)</span></div>
+  </section>
+  <footer>중등교사 임용시험 물리 기출 학습지 · 객관식 묶음 · PTE-2013-MC-21-25 · <a href="../../../학습지.html">문항 지도</a></footer>
+</main>
+
+<script>
+  (function(){
+    var t=document.getElementById('hintToggle');
+    function apply(){document.querySelectorAll('.hints').forEach(function(h){h.classList.toggle('on',t.checked)})}
+    t.addEventListener('change',apply);apply();
+    var sc=document.getElementById('srcToggle'),sl=document.getElementById('srcLine');
+    sc.checked=false; function applySrc(){sl.classList.toggle('off',!sc.checked)}
+    sc.addEventListener('change',applySrc);applySrc();
+    var bt=document.getElementById('brgToggle');
+    function applyB(){document.querySelectorAll('.bridge').forEach(function(h){h.classList.toggle('on',bt.checked)})}
+    bt.addEventListener('change',applyB);applyB();
+    document.querySelectorAll('.omr').forEach(function(o){o.addEventListener('click',function(e){var b=e.target.closest('.b');if(!b)return;
+      o.querySelectorAll('.b').forEach(function(x){x.classList.toggle('on',x===b&&!x.classList.contains('on'))});});});
+  })();
+</script>
+<script>
+(function(){
+  var KEY='ptc-student-view', LIM={fs:[0.8,1.4],fig:[0.6,1.4]}, st={fs:1,fig:1};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null'); if(s&&s.fs&&s.fig) st=s;}catch(e){}
+  function apply(){
+    var r=document.documentElement.style;
+    r.setProperty('--fs',st.fs); r.setProperty('--fig',st.fig); window.PTC_FS=st.fs;
+    document.getElementById('vFs').textContent=Math.round(st.fs*100)+'%';
+    document.getElementById('vFig').textContent=Math.round(st.fig*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.zoomctl button[data-k]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.dataset.k, v=Math.round((st[k]+0.1*(+b.dataset.d))*10)/10;
+      st[k]=Math.max(LIM[k][0],Math.min(LIM[k][1],v)); apply();
+    });
+  });
+  document.getElementById('vReset').addEventListener('click',function(){st={fs:1,fig:1};apply();});
+  apply();
+})();
+</script>
+</body>
+</html>
